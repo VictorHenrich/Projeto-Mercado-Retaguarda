@@ -3,62 +3,20 @@ package view;
 
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import view.utils.UtilsComponents;
 
 
 public class SupplierComponent extends javax.swing.JFrame {
     
-    protected void onClickButtonNew(){
-        
-    }
     
-    protected void onClickButtonChange(){
+    private void activateButtons(boolean state){
+        ArrayList<JComponent> buttons = new ArrayList();
         
-    }
-    
-    protected void onClickButtonCancel(){
+        buttons.add(jButtonCancel);
+        buttons.add(jButtonWrite);
         
-    }
-    
-    protected void onClickButtonOut(){
-        
-    }
-    
-    protected void onClickButtonWrite(){
-        
-    }
-    
-    protected void setHeaderTitle(String title){
-        this.jLabelTitle.setText(title);
-    }
-    
-    private void activateButton(boolean statusButtonsEnabled, boolean statusButtonsDisabled){
-        ArrayList<JButton> buttonsEnabled = new ArrayList();
-        ArrayList<JButton> buttonsDisabled = new ArrayList();
-        
-        
-        buttonsEnabled.add(jButtonNew);
-        
-        buttonsDisabled.add(jButtonCancel);
-        buttonsDisabled.add(jButtonChange);
-        buttonsDisabled.add(jButtonWrite);
-        
-        UtilsComponents.disableButtons(buttonsDisabled, statusButtonsDisabled);
-        UtilsComponents.disableButtons(buttonsEnabled, statusButtonsEnabled);
-        
-    }
-    
-    private void buttonNewAction(){
-        this.activateButton(false, true);
-    }
-    
-    private void buttonCancelAction(){
-        this.activateButton(true, false);
-    }
-    
-    private void buttonOutAction(){
-        this.setVisible(false);
-        this.dispose();
+        UtilsComponents.disabledComponents(buttons, state);
     }
 
     public SupplierComponent() {
@@ -394,29 +352,23 @@ public class SupplierComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        this.buttonNewAction();
-        
-        this.onClickButtonNew();
+
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        this.buttonCancelAction();
-        
-        this.onClickButtonCancel();
+
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-        this.buttonOutAction();
-        
-        this.onClickButtonOut();
+
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        this.onClickButtonChange();
+
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-        this.onClickButtonWrite();
+
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
     private void jTextFieldSocialReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSocialReasonActionPerformed

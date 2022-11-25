@@ -303,6 +303,7 @@
                 <MatteColorBorder/>
               </Border>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[300, 30]"/>
             </Property>

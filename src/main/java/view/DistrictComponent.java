@@ -2,66 +2,78 @@
 package view;
 
 import java.util.ArrayList;
-import javax.swing.JButton;
+import javax.swing.JComponent;
 import view.utils.UtilsComponents;
+import controllers.enderecos.BairroCrudController;
+import models.enderecos.Bairro;
 
 
 public class DistrictComponent extends javax.swing.JFrame {
     
-    protected void onClickButtonNew(){
+    private Bairro newDistrict(){
+        int id = this.controller.proximoId();
         
+        String descricao = jTextFieldDescription.getText();
+        
+        return new Bairro(id, descricao);
     }
     
-    protected void onClickButtonChange(){
+    private void addDistrict(){
+        Bairro district = this.newDistrict();
         
+        this.controller.cadastrar(district);
+        
+        System.out.println("BAIRRO CADASTRADO COM SUCESSO!");
     }
     
-    protected void onClickButtonCancel(){
+    private void changeDistrict(){
+        if(this.districtLoaded == null)
+            return;
         
-    }
-   
-    protected void onClickButtonOut(){
+        Bairro district = this.newDistrict();
         
-    }
-    
-    protected void onClickButtonWrite(){
+        this.controller.alterar(this.districtLoaded, district);
         
-    }
-    
-    protected void setHeaderTitle(String title){
-        this.jLabelTitle.setText(title);
+        System.out.println("BAIRRO ALTERADO COM SUCESSO!");
     }
     
-    private void activateButton(boolean statusButtonsEnabled, boolean statusButtonsDisabled){
-        ArrayList<JButton> buttonsEnabled = new ArrayList();
-        ArrayList<JButton> buttonsDisabled = new ArrayList();
+    private void activateButtons(boolean state){
+        ArrayList<JComponent> buttons = new ArrayList();
         
+        buttons.add(jButtonCancel);
+        buttons.add(jButtonWrite);
         
-        buttonsEnabled.add(jButtonNew);
-        
-        buttonsDisabled.add(jButtonCancel);
-        buttonsDisabled.add(jButtonChange);
-        buttonsDisabled.add(jButtonWrite);
-        
-        UtilsComponents.disableButtons(buttonsDisabled, statusButtonsDisabled);
-        UtilsComponents.disableButtons(buttonsEnabled, statusButtonsEnabled);
-        
+        UtilsComponents.disabledComponents(buttons, state);
     }
     
-    private void buttonNewAction(){
-        this.activateButton(false, true);
+    private void activateFields(boolean state){
+        ArrayList<JComponent> campos = new ArrayList();
+        
+        campos.add(jTextFieldDescription);
+        
+        UtilsComponents.disabledComponents(campos, state);
     }
     
-    private void buttonCancelAction(){
-        this.activateButton(true, false);
+    private void clearFields(){
+        jTextFieldDescription.setText(null);
     }
     
-    private void buttonOutAction(){
-        this.setVisible(false);
-        this.dispose();
+    private void clearStates(){
+        this.districtLoaded = null;
+        this.clearFields();
+        this.activateButtons(false);
+        this.activateFields(false);
     }
-
+    
+    public DistrictComponent(BairroCrudController controller, Bairro district) {
+        this.districtLoaded = district;
+        this.controller = controller;
+        
+        initComponents();
+    }
+    
     public DistrictComponent() {
+        this.controller = new BairroCrudController();
         initComponents();
     }
 
@@ -193,6 +205,7 @@ public class DistrictComponent extends javax.swing.JFrame {
         jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldDescription.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldDescription.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldDescription.setEnabled(false);
         jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
@@ -238,29 +251,32 @@ public class DistrictComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        this.buttonNewAction();
-        
-        this.onClickButtonNew();
+        this.activateButtons(true);
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        this.buttonCancelAction();
-        
-        this.onClickButtonCancel();
+        this.clearStates();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-        this.buttonOutAction();
-        
-        this.onClickButtonOut();
+        this.clearStates();
+        this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        this.onClickButtonChange();
+        this.activateButtons(true);
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-        this.onClickButtonWrite();
+        if(this.districtLoaded == null)
+          this.addDistrict();
+        
+        else
+            this.changeDistrict();
+        
+        this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
     public static void main(String args[]) {;
@@ -270,7 +286,9 @@ public class DistrictComponent extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    private BairroCrudController controller;
+    private Bairro districtLoaded;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;

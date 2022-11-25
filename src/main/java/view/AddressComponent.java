@@ -2,67 +2,120 @@
 package view;
 
 import java.util.ArrayList;
-import javax.swing.JButton;
+import javax.swing.JComponent;
+import models.enderecos.Bairro;
+import models.enderecos.Cidade;
+import models.enderecos.Endereco;
+import controllers.enderecos.EnderecosCrudController;
 import view.utils.UtilsComponents;
 
 
 public class AddressComponent extends javax.swing.JFrame {
     
-    protected void onClickButtonNew(){
+    private Endereco newAddress(){
         
+        int id = this.controller.proximoId();
+        
+        String street = jTextFieldStreet.getText();
+        String cep = jTextFieldCep.getText();
+        Bairro district = this.districts.get(this.jComboBoxDistrict.getSelectedIndex());
+        Cidade city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
+        
+        return new Endereco(
+            id,
+            street, 
+            cep, 
+            city, 
+            district
+        );
     }
     
-    protected void onClickButtonChange(){
+    private void addAddress(){
+        Endereco address = this.newAddress();
         
+        this.controller.cadastrar(address);
+        
+        System.out.println("ENDEREÇO CADASTRADO COM SUCESSO!");
     }
     
-    protected void onClickButtonCancel(){
+    private void changeAddress(){
+        if(this.addressLoaded == null)
+            return;
+                    
+        Endereco address = this.newAddress();
         
+        controller.alterar(this.addressLoaded, address);
+        
+        System.out.println("ENDEREÇO ALTERADO COM SUCESSO!");
     }
     
-    protected void onClickButtonOut(){
+    private void loadFields(){
+        for(Cidade city: this.cities){
+            this.jComboBoxCity.addItem(city.getDescricao());
+        }
         
+        for(Bairro district: this.districts){
+            this.jComboBoxDistrict.addItem(district.getDescricao());
+        }
     }
     
-    protected void onClickButtonWrite(){
+    private void activateButtons(boolean state){
+        ArrayList<JComponent> buttons = new ArrayList();
         
+        buttons.add(jButtonCancel);
+        buttons.add(jButtonWrite);
+        
+        UtilsComponents.disabledComponents(buttons, state);
     }
     
-    protected void setHeaderTitle(String title){
-        this.jLabelTitle.setText(title);
+    private void activateFields(boolean state){
+        ArrayList<JComponent> fields = new ArrayList();
+        
+        fields.add(jTextFieldCep);
+        fields.add(jTextFieldStreet);
+        fields.add(jComboBoxCity);
+        fields.add(jComboBoxDistrict);
+        
+        UtilsComponents.disabledComponents(fields, state);
     }
     
-    private void activateButton(boolean statusButtonsEnabled, boolean statusButtonsDisabled){
-        ArrayList<JButton> buttonsEnabled = new ArrayList();
-        ArrayList<JButton> buttonsDisabled = new ArrayList();
-        
-        
-        buttonsEnabled.add(jButtonNew);
-        
-        buttonsDisabled.add(jButtonCancel);
-        buttonsDisabled.add(jButtonChange);
-        buttonsDisabled.add(jButtonWrite);
-        
-        UtilsComponents.disableButtons(buttonsDisabled, statusButtonsDisabled);
-        UtilsComponents.disableButtons(buttonsEnabled, statusButtonsEnabled);
-        
+    private void clearStates(){
+        this.activateButtons(false);
+        this.activateFields(false);
+        this.jTextFieldCep.setText(null);
+        this.jTextFieldStreet.setText(null);
+        this.jComboBoxCity.setSelectedItem(null);
+        this.jComboBoxDistrict.setSelectedItem(null);
     }
     
-    private void buttonNewAction(){
-        this.activateButton(false, true);
-    }
     
-    private void buttonCancelAction(){
-        this.activateButton(true, false);
-    }
-    
-    private void buttonOutAction(){
-        this.setVisible(false);
-        this.dispose();
-    }
-
     public AddressComponent() {
+        
+        this.controller = new EnderecosCrudController();
+        
+        this.cities = new ArrayList();
+        this.districts = new ArrayList();
+        
+        this.cities.add(new Cidade(1, "Cidade 1"));
+        this.cities.add(new Cidade(1, "Cidade 2"));
+        
+        this.districts.add(new Bairro(1, "Bairro 1"));
+        this.districts.add(new Bairro(2, "Bairro 2"));
+        
         initComponents();
+        loadFields();
+    }
+    
+    public AddressComponent(
+       EnderecosCrudController controller,
+       ArrayList<Cidade> cities,
+       ArrayList<Bairro> districts,
+       Endereco addressLoaded
+    ){
+        this.controller = controller;
+        this.cities = cities;
+        this.districts = districts;
+        this.addressLoaded = addressLoaded;
     }
 
     @SuppressWarnings("unchecked")
@@ -201,6 +254,7 @@ public class AddressComponent extends javax.swing.JFrame {
         jTextFieldStreet.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldStreet.setEnabled(false);
         jTextFieldStreet.setPreferredSize(new java.awt.Dimension(200, 25));
 
         jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -211,6 +265,7 @@ public class AddressComponent extends javax.swing.JFrame {
         jTextFieldCep.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldCep.setEnabled(false);
         jTextFieldCep.setPreferredSize(new java.awt.Dimension(200, 25));
 
         jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -221,7 +276,13 @@ public class AddressComponent extends javax.swing.JFrame {
         jComboBoxDistrict.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBoxDistrict.setForeground(new java.awt.Color(190, 190, 190));
         jComboBoxDistrict.setBorder(new javax.swing.border.MatteBorder(null));
+        jComboBoxDistrict.setEnabled(false);
         jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(200, 25));
+        jComboBoxDistrict.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxDistrictItemStateChanged(evt);
+            }
+        });
 
         jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
@@ -231,6 +292,7 @@ public class AddressComponent extends javax.swing.JFrame {
         jComboBoxCity.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBoxCity.setForeground(new java.awt.Color(190, 190, 190));
         jComboBoxCity.setBorder(new javax.swing.border.MatteBorder(null));
+        jComboBoxCity.setEnabled(false);
         jComboBoxCity.setPreferredSize(new java.awt.Dimension(200, 25));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
@@ -296,39 +358,51 @@ public class AddressComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        this.buttonNewAction();
-        
-        this.onClickButtonNew();
+        this.activateButtons(true);
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        this.buttonCancelAction();
-        
-        this.onClickButtonCancel();
+        this.clearStates();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-        this.buttonOutAction();
-        
-        this.onClickButtonOut();
+        this.clearStates();
+        this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        this.onClickButtonChange();
+        this.activateButtons(true);
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-        this.onClickButtonWrite();
+        if(this.addressLoaded == null)
+            this.addAddress();
+        
+        else
+            this.changeAddress();
+        
+        this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
-    public static void main(String args[]) {;
+    private void jComboBoxDistrictItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxDistrictItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDistrictItemStateChanged
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AddressComponent().setVisible(true);
             }
         });
     }
-
+    
+    private ArrayList<Cidade> cities;
+    private ArrayList<Bairro> districts;
+    private Endereco addressLoaded;
+    private EnderecosCrudController controller;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;

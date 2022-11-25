@@ -2,67 +2,89 @@
 package view;
 
 import java.util.ArrayList;
-import javax.swing.JButton;
 import view.utils.UtilsComponents;
+import controllers.enderecos.CidadeCrudController;
+import javax.swing.JComponent;
+import models.enderecos.Cidade;
 
 
 public class CityComponent extends javax.swing.JFrame {
     
-    protected void onClickButtonNew(){
+    private Cidade newCity(){
+        int id = this.controller.proximoId();
         
+        String description = jTextFieldDescription.getText();
+        
+        return new Cidade(id, description);
     }
     
-    protected void onClickButtonChange(){
+    private void addCity(){        
+        Cidade city = this.newCity();
         
+        this.controller.cadastrar(city);
+        
+        System.out.println("CIDADE CADASTRADA COM SUCESSO");
     }
     
-    protected void onClickButtonCancel(){
-        
+    private void changeCity(){
+        if(this.cityLoaded != null){
+            
+            Cidade city = this.newCity();
+            
+            city.setId(this.cityLoaded.getId());
+            
+            this.controller.alterar(this.cityLoaded, city);
+            
+            System.out.println("CIDADE ALTERADA COM SUCESSO");
+        }
     }
     
-    protected void onClickButtonOut(){
-        
+    private void clearFields(){
+        jTextFieldDescription.setText(null);
     }
     
-    protected void onClickButtonWrite(){
-        
+    private void clearStates(){
+        this.cityLoaded = null;
+        this.clearFields();
+        this.activateButtons(false);
+        this.activateFields(false);
     }
     
-    protected void setHeaderTitle(String title){
-        this.jLabelTitle.setText(title);
+    private void activateButtons(boolean state){
+        ArrayList<JComponent> buttons = new ArrayList();
+        
+        buttons.add(jButtonCancel);
+        buttons.add(jButtonWrite);
+        
+        UtilsComponents.disabledComponents(buttons, state);
     }
     
-    private void activateButton(boolean statusButtonsEnabled, boolean statusButtonsDisabled){
-        ArrayList<JButton> buttonsEnabled = new ArrayList();
-        ArrayList<JButton> buttonsDisabled = new ArrayList();
+    private void activateFields(boolean state){
+        ArrayList<JComponent> fields = new ArrayList();
         
+        fields.add(jTextFieldDescription);
         
-        buttonsEnabled.add(jButtonNew);
-        
-        buttonsDisabled.add(jButtonCancel);
-        buttonsDisabled.add(jButtonChange);
-        buttonsDisabled.add(jButtonWrite);
-        
-        UtilsComponents.disableButtons(buttonsDisabled, statusButtonsDisabled);
-        UtilsComponents.disableButtons(buttonsEnabled, statusButtonsEnabled);
-        
+        UtilsComponents.disabledComponents(fields, state);
     }
     
-    private void buttonNewAction(){
-        this.activateButton(false, true);
-    }
-    
-    private void buttonCancelAction(){
-        this.activateButton(true, false);
-    }
-    
-    private void buttonOutAction(){
-        this.setVisible(false);
-        this.dispose();
-    }
 
+    public CityComponent(
+        CidadeCrudController controller,
+        Cidade cidade
+    ) {
+        initComponents();
+        
+        this.controller = controller;
+        this.cityLoaded = cidade;
+        
+        if(cidade != null)
+            this.jButtonChange.setEnabled(true);
+    }
+    
     public CityComponent() {
         initComponents();
+        
+        this.controller = new CidadeCrudController();
     }
 
     @SuppressWarnings("unchecked")
@@ -194,6 +216,9 @@ public class CityComponent extends javax.swing.JFrame {
         jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldDescription.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldDescription.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldDescription.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextFieldDescription.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        jTextFieldDescription.setEnabled(false);
         jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
@@ -239,31 +264,34 @@ public class CityComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        this.buttonNewAction();
-        
-        this.onClickButtonNew();
+        this.activateButtons(true);
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        this.buttonCancelAction();
-        
-        this.onClickButtonCancel();
+        this.clearStates();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-        this.buttonOutAction();
-        
-        this.onClickButtonOut();
+        this.clearFields();
+        this.clearStates();
+        this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        this.onClickButtonChange();
+        this.activateFields(true);
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-        this.onClickButtonWrite();
+        if(this.cityLoaded == null)
+          this.addCity();
+        
+        else
+          this.changeCity();
+        
+        this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
-
+    
     public static void main(String args[]) {;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -271,7 +299,10 @@ public class CityComponent extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    private CidadeCrudController controller;
+    private Cidade cityLoaded;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;

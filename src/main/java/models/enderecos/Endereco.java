@@ -15,15 +15,13 @@ public class Endereco {
     public Endereco(
         int id, 
         String logradouro, 
-        String cep, 
-        Pessoa pessoa, 
+        String cep,
         Cidade cidade, 
         Bairro bairro
     ) {
         this.id = id;
         this.logradouro = logradouro;
         this.cep = cep;
-        this.pessoa = pessoa;
         this.cidade = cidade;
         this.bairro = bairro;
     }

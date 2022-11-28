@@ -1,14 +1,69 @@
 
 package view;
 
+import controllers.pessoas.FornecedorCrudController;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JComponent;
+import models.pessoas.Fornecedor;
+import repositories.pessoas.FornecedorRepository;
 import view.utils.UtilsComponents;
 
 
 public class SupplierComponent extends javax.swing.JFrame {
     
+    private Fornecedor newSupplier(){
+        
+        String document = jTextFieldDocument.getText();
+        String ie = "";
+        String contact = "";
+        String socialReason = jTextFieldSocialReason.getText();
+        String cpf = "";
+        String rg = jTextFieldRg.getText();
+        String name = jTextFieldName.getText();
+        String fone1 = jTextFieldPhone1.getText();
+        String fone2 = jTextFieldPhone2.getText();
+        String email = jTextFieldEmail.getText();
+        String obs = jTextAreaObs.getText();
+        char status = 'A';
+        
+        int id = this.controller.nextID();
+        
+        return new Fornecedor(document, socialReason, contact, email, cpf, rg, name, fone1, fone2, email, obs, status, id);
+        
+    }
+    
+    private void clearStates(){
+        jTextFieldName.setText(null);
+        jTextFieldDocument.setText(null);
+        jTextFieldRg.setText(null);
+        jTextFieldPhone1.setText(null);
+        jTextFieldPhone2.setText(null);
+        jTextFieldEmail.setText(null);
+        jTextAreaObs.setText(null);
+        jTextFieldSocialReason.setText(null);
+        
+        this.activateButtons(false);
+    }
+    
+    private void activeStates(){
+        this.activateButtons(true);
+        this.activateFields(true);
+    }
+    
+    private void addSupplier(){
+        
+        Fornecedor supplier = this.newSupplier();
+        
+        this.controller.create(supplier);
+    }
+    
+    private void changeSupplier(){
+        if(this.supplierLoaded == null) return;
+        
+        Fornecedor newSupplier = this.newSupplier();
+        
+        this.controller.update(1, newSupplier);
+    }
     
     private void activateButtons(boolean state){
         ArrayList<JComponent> buttons = new ArrayList();
@@ -18,8 +73,31 @@ public class SupplierComponent extends javax.swing.JFrame {
         
         UtilsComponents.disabledComponents(buttons, state);
     }
+    
+    private void activateFields(boolean state){
+        ArrayList<JComponent> fields = new ArrayList();
+        
+        fields.add(jTextFieldName);
+        fields.add(jTextFieldDocument);
+        fields.add(jTextFieldRg);
+        fields.add(jTextFieldPhone1);
+        fields.add(jTextFieldPhone2);
+        fields.add(jTextFieldEmail);
+        fields.add(jTextAreaObs);
+        fields.add(jTextFieldSocialReason);
+        
+        UtilsComponents.disabledComponents(fields, state);
+    }
 
     public SupplierComponent() {
+        ArrayList<Fornecedor> suppliers = new ArrayList();
+        
+        FornecedorRepository repository = new FornecedorRepository(suppliers);
+        
+        this.controller = new FornecedorCrudController(repository);
+        
+        this.supplierLoaded = null;
+        
         initComponents();
     }
 
@@ -47,7 +125,7 @@ public class SupplierComponent extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaObs = new javax.swing.JTextArea();
         jLabelSocialReason = new javax.swing.JLabel();
-        jTextFieldName1 = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
         jTextFieldSocialReason = new javax.swing.JTextField();
         jLabelDocument = new javax.swing.JLabel();
         jTextFieldDocument = new javax.swing.JTextField();
@@ -71,7 +149,6 @@ public class SupplierComponent extends javax.swing.JFrame {
         jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
         jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\add.png")); // NOI18N
         jButtonNew.setText("Novo");
         jButtonNew.setToolTipText("Novo");
         jButtonNew.setBorder(null);
@@ -89,7 +166,6 @@ public class SupplierComponent extends javax.swing.JFrame {
         jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
         jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonChange.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\edit.png")); // NOI18N
         jButtonChange.setText("Alterar");
         jButtonChange.setBorder(null);
         jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,7 +183,6 @@ public class SupplierComponent extends javax.swing.JFrame {
         jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
         jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonWrite.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\save.png")); // NOI18N
         jButtonWrite.setText("Gravar");
         jButtonWrite.setBorder(null);
         jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -125,7 +200,6 @@ public class SupplierComponent extends javax.swing.JFrame {
         jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
         jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonCancel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\cancel.png")); // NOI18N
         jButtonCancel.setText("Cancelar");
         jButtonCancel.setBorder(null);
         jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,7 +217,6 @@ public class SupplierComponent extends javax.swing.JFrame {
         jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
         jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonOut.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\logout.png")); // NOI18N
         jButtonOut.setText("Sair");
         jButtonOut.setBorder(null);
         jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -183,18 +256,21 @@ public class SupplierComponent extends javax.swing.JFrame {
         jTextFieldPhone1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldPhone1.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldPhone1.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldPhone1.setEnabled(false);
         jTextFieldPhone1.setPreferredSize(new java.awt.Dimension(0, 30));
 
         jTextFieldPhone2.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldPhone2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldPhone2.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldPhone2.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldPhone2.setEnabled(false);
         jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(0, 30));
 
         jTextFieldEmail.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldEmail.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldEmail.setEnabled(false);
         jTextFieldEmail.setPreferredSize(new java.awt.Dimension(0, 30));
 
         jTextAreaObs.setBackground(new java.awt.Color(50, 50, 50));
@@ -203,6 +279,7 @@ public class SupplierComponent extends javax.swing.JFrame {
         jTextAreaObs.setForeground(new java.awt.Color(190, 190, 190));
         jTextAreaObs.setRows(5);
         jTextAreaObs.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextAreaObs.setEnabled(false);
         jTextAreaObs.setPreferredSize(new java.awt.Dimension(0, 30));
         jScrollPane1.setViewportView(jTextAreaObs);
 
@@ -210,16 +287,18 @@ public class SupplierComponent extends javax.swing.JFrame {
         jLabelSocialReason.setForeground(new java.awt.Color(190, 190, 190));
         jLabelSocialReason.setText("Razão Social:");
 
-        jTextFieldName1.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldName1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldName1.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldName1.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldName1.setPreferredSize(new java.awt.Dimension(0, 30));
+        jTextFieldName.setBackground(new java.awt.Color(50, 50, 50));
+        jTextFieldName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldName.setForeground(new java.awt.Color(190, 190, 190));
+        jTextFieldName.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldName.setEnabled(false);
+        jTextFieldName.setPreferredSize(new java.awt.Dimension(0, 30));
 
         jTextFieldSocialReason.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldSocialReason.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldSocialReason.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldSocialReason.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldSocialReason.setEnabled(false);
         jTextFieldSocialReason.setPreferredSize(new java.awt.Dimension(0, 30));
         jTextFieldSocialReason.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +314,7 @@ public class SupplierComponent extends javax.swing.JFrame {
         jTextFieldDocument.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldDocument.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldDocument.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldDocument.setEnabled(false);
         jTextFieldDocument.setPreferredSize(new java.awt.Dimension(0, 30));
         jTextFieldDocument.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +330,7 @@ public class SupplierComponent extends javax.swing.JFrame {
         jTextFieldRg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldRg.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldRg.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldRg.setEnabled(false);
         jTextFieldRg.setPreferredSize(new java.awt.Dimension(0, 30));
         jTextFieldRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,7 +354,7 @@ public class SupplierComponent extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldSocialReason, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addComponent(jTextFieldDocument, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -302,7 +383,7 @@ public class SupplierComponent extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelName)
-                    .addComponent(jTextFieldName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSocialReason)
@@ -352,23 +433,30 @@ public class SupplierComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-
+        this.activeStates();
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-
+        this.clearStates();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-
+        this.clearStates();
+        this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-
+        this.activeStates();
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-
+        if(this.supplierLoaded == null)
+           this.addSupplier();
+        
+        else
+           this.changeSupplier();
+        
+        this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
     private void jTextFieldSocialReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSocialReasonActionPerformed
@@ -390,7 +478,8 @@ public class SupplierComponent extends javax.swing.JFrame {
             }
         });
     }
-
+    private FornecedorCrudController controller;
+    private Fornecedor supplierLoaded;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;
@@ -413,7 +502,7 @@ public class SupplierComponent extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaObs;
     private javax.swing.JTextField jTextFieldDocument;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldName1;
+    private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldPhone1;
     private javax.swing.JTextField jTextFieldPhone2;
     private javax.swing.JTextField jTextFieldRg;

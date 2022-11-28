@@ -1,38 +1,26 @@
 
 package models.enderecos;
 
-import models.pessoas.Pessoa;
+import models.patterns.BaseModel;
 
 
-public class Endereco {
-    private int id;
+public class Endereco extends BaseModel{
     private String logradouro;
     private String cep;
-    private Pessoa pessoa;
     private Cidade cidade;
     private Bairro bairro;
 
-    public Endereco(
-        int id, 
-        String logradouro, 
-        String cep,
-        Cidade cidade, 
-        Bairro bairro
-    ) {
-        this.id = id;
+    public Endereco(String logradouro, String cep, Cidade cidade, Bairro bairro, int id) {
+        super(id);
         this.logradouro = logradouro;
         this.cep = cep;
         this.cidade = cidade;
         this.bairro = bairro;
     }
 
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public String getLogradouro() {
         return logradouro;
@@ -48,14 +36,6 @@ public class Endereco {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
     public Cidade getCidade() {

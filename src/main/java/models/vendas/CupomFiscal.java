@@ -6,41 +6,39 @@ import java.util.Date;
 import java.util.UUID;
 import models.pessoas.Cliente;
 import models.pessoas.Colaborador;
+import models.patterns.BaseModel;
 
 
-public class CupomFiscal {
-    private UUID id;
+public class CupomFiscal extends BaseModel{
+    private final UUID uuid;
     private Date dataVenda;
     private String horaVenda;
     private float valorDesconto;
     private float valorAcrescimo;
     private float totalCupom;
     private char status;
-    private ArrayList<ItensCupomFiscal> itensCupom;
+    private final ArrayList<ItemCupomFiscal> itensCupom = new ArrayList();
     private Cliente cliente;
     private Colaborador colaborador;
 
-    public CupomFiscal(UUID id, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Cliente cliente, Colaborador colaborador) {
-        this.id = id;
+    public CupomFiscal(UUID uuid, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Cliente cliente, Colaborador colaborador, int id) {
+        super(id);
+        this.uuid = uuid;
         this.dataVenda = dataVenda;
         this.horaVenda = horaVenda;
         this.valorDesconto = valorDesconto;
         this.valorAcrescimo = valorAcrescimo;
         this.totalCupom = totalCupom;
         this.status = status;
-        this.itensCupom = new ArrayList();
         this.cliente = cliente;
         this.colaborador = colaborador;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
+    
     public Date getDataVenda() {
         return dataVenda;
     }
@@ -89,12 +87,8 @@ public class CupomFiscal {
         this.status = status;
     }
 
-    public ArrayList<ItensCupomFiscal> getItensCupom() {
+    public ArrayList<ItemCupomFiscal> getItensCupom() {
         return itensCupom;
-    }
-
-    public void setItensCupom(ArrayList<ItensCupomFiscal> itensCupom) {
-        this.itensCupom = itensCupom;
     }
 
     public Cliente getCliente() {

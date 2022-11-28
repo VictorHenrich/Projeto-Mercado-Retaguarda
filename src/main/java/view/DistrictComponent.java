@@ -6,22 +6,23 @@ import javax.swing.JComponent;
 import view.utils.UtilsComponents;
 import controllers.enderecos.BairroCrudController;
 import models.enderecos.Bairro;
+import repositories.enderecos.BairroRepository;
 
 
 public class DistrictComponent extends javax.swing.JFrame {
     
     private Bairro newDistrict(){
-        int id = this.controller.proximoId();
+        int id = this.controller.nextID();
         
-        String descricao = jTextFieldDescription.getText();
+        String description = jTextFieldDescription.getText();
         
-        return new Bairro(id, descricao);
+        return new Bairro(description, id);
     }
     
     private void addDistrict(){
         Bairro district = this.newDistrict();
         
-        this.controller.cadastrar(district);
+        this.controller.create(district);
         
         System.out.println("BAIRRO CADASTRADO COM SUCESSO!");
     }
@@ -32,7 +33,7 @@ public class DistrictComponent extends javax.swing.JFrame {
         
         Bairro district = this.newDistrict();
         
-        this.controller.alterar(this.districtLoaded, district);
+        this.controller.update(this.districtLoaded.getId(), district);
         
         System.out.println("BAIRRO ALTERADO COM SUCESSO!");
     }
@@ -73,7 +74,11 @@ public class DistrictComponent extends javax.swing.JFrame {
     }
     
     public DistrictComponent() {
-        this.controller = new BairroCrudController();
+        ArrayList<Bairro> districts = new ArrayList();
+        
+        BairroRepository repository = new BairroRepository(districts);
+        
+        this.controller = new BairroCrudController(repository);
         initComponents();
     }
 

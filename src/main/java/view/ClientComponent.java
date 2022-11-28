@@ -1,14 +1,67 @@
 
 package view;
 
+import controllers.pessoas.ClienteCrudController;
 import java.util.ArrayList;
-import javax.swing.JButton;
+import java.util.Date;
 import javax.swing.JComponent;
+import models.pessoas.Cliente;
+import repositories.pessoas.ClienteRepository;
 import view.utils.UtilsComponents;
 
 
 public class ClientComponent extends javax.swing.JFrame {
     
+    private Cliente newClient(){
+        
+        int id = this.controller.nextID();
+        
+        String name = jTextFieldName.getText();
+        String cpf = jTextFieldCpf.getText();
+        String rg = jTextFieldRg.getText();
+        String fone1 = jTextFieldPhone1.getText();
+        String fone2 = jTextFieldPhone2.getText();
+        String email = jTextFieldEmail.getText();
+        String obs = jTextAreaObs.getText();
+        Date birthday = new Date();
+        char gender = 'M';
+        char status = 'A';
+        
+        return new Cliente(cpf, rg, birthday, gender, name, fone1, fone2, "", email, obs, status, id);
+        
+    }
+    
+    private void clearStates(){
+        jTextFieldName.setText(null);
+        jTextFieldCpf.setText(null);
+        jTextFieldRg.setText(null);
+        jTextFieldPhone1.setText(null);
+        jTextFieldPhone2.setText(null);
+        jTextFieldEmail.setText(null);
+        jTextAreaObs.setText(null);
+        
+        this.activateButtons(false);
+    }
+    
+    private void activeStates(){
+        this.activateButtons(true);
+        this.activateFields(true);
+    }
+    
+    private void addClient(){
+        
+        Cliente client = this.newClient();
+        
+        this.controller.create(client);
+    }
+    
+    private void changeClient(){
+        if(this.clientLoaded == null) return;
+        
+        Cliente newClient = this.newClient();
+        
+        this.controller.update(WIDTH, clientLoaded);
+    }
     
     private void activateButtons(boolean state){
         ArrayList<JComponent> buttons = new ArrayList();
@@ -18,8 +71,31 @@ public class ClientComponent extends javax.swing.JFrame {
         
         UtilsComponents.disabledComponents(buttons, state);
     }
+    
+    private void activateFields(boolean state){
+        ArrayList<JComponent> fields = new ArrayList();
+        
+        fields.add(jTextFieldName);
+        fields.add(jTextFieldCpf);
+        fields.add(jTextFieldRg);
+        fields.add(jTextFieldPhone1);
+        fields.add(jTextFieldPhone2);
+        fields.add(jTextFieldEmail);
+        fields.add(jTextAreaObs);
+        
+        UtilsComponents.disabledComponents(fields, state);
+    }
+    
 
     public ClientComponent() {
+        
+        ArrayList<Cliente> clients = new ArrayList();
+        
+        ClienteRepository repository = new ClienteRepository(clients);
+        
+        this.controller = new ClienteCrudController(repository);
+        this.clientLoaded = null;
+        
         initComponents();
     }
 
@@ -73,7 +149,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
         jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\add.png")); // NOI18N
         jButtonNew.setText("Novo");
         jButtonNew.setToolTipText("Novo");
         jButtonNew.setBorder(null);
@@ -91,7 +166,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
         jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonChange.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\edit.png")); // NOI18N
         jButtonChange.setText("Alterar");
         jButtonChange.setBorder(null);
         jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,7 +183,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
         jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonWrite.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\save.png")); // NOI18N
         jButtonWrite.setText("Gravar");
         jButtonWrite.setBorder(null);
         jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -127,7 +200,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
         jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonCancel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\cancel.png")); // NOI18N
         jButtonCancel.setText("Cancelar");
         jButtonCancel.setBorder(null);
         jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -145,7 +217,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
         jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonOut.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\logout.png")); // NOI18N
         jButtonOut.setText("Sair");
         jButtonOut.setBorder(null);
         jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -160,7 +231,6 @@ public class ClientComponent extends javax.swing.JFrame {
         jPanelFooter.add(jButtonOut);
 
         jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
-        jPanelBody.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabelName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(190, 190, 190));
@@ -186,24 +256,28 @@ public class ClientComponent extends javax.swing.JFrame {
         jTextFieldName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldName.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldName.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldName.setEnabled(false);
         jTextFieldName.setPreferredSize(new java.awt.Dimension(300, 30));
 
         jTextFieldPhone1.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldPhone1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldPhone1.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldPhone1.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldPhone1.setEnabled(false);
         jTextFieldPhone1.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldPhone2.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldPhone2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldPhone2.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldPhone2.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldPhone2.setEnabled(false);
         jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldEmail.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldEmail.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldEmail.setEnabled(false);
         jTextFieldEmail.setPreferredSize(new java.awt.Dimension(300, 30));
 
         jTextAreaObs.setBackground(new java.awt.Color(50, 50, 50));
@@ -212,6 +286,7 @@ public class ClientComponent extends javax.swing.JFrame {
         jTextAreaObs.setForeground(new java.awt.Color(190, 190, 190));
         jTextAreaObs.setRows(5);
         jTextAreaObs.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextAreaObs.setEnabled(false);
         jScrollPane1.setViewportView(jTextAreaObs);
 
         jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -226,12 +301,14 @@ public class ClientComponent extends javax.swing.JFrame {
         jTextFieldCpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldCpf.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldCpf.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldCpf.setEnabled(false);
         jTextFieldCpf.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldRg.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldRg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldRg.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldRg.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldRg.setEnabled(false);
         jTextFieldRg.setPreferredSize(new java.awt.Dimension(60, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
@@ -326,23 +403,30 @@ public class ClientComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-
+        this.activeStates();
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-
+        this.clearStates();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
-
+        this.clearStates();
+        this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-
+        this.activeStates();
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jButtonWriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWriteActionPerformed
-
+        if(this.clientLoaded != null)
+            this.changeClient();
+        
+        else
+            this.addClient();
+        
+        this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
     public static void main(String args[]) {;;
@@ -352,6 +436,9 @@ public class ClientComponent extends javax.swing.JFrame {
             }
         });
     }
+    
+    private ClienteCrudController controller;
+    private Cliente clientLoaded;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

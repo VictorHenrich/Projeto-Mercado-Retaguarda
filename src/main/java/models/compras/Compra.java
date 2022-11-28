@@ -4,10 +4,10 @@ package models.compras;
 import java.util.ArrayList;
 import java.util.Date;
 import models.pessoas.Fornecedor;
+import models.patterns.BaseModel;
 
 
-public class Compra {
-    private int id;
+public class Compra extends BaseModel{
     private Date dataCompra;
     private String horaCompra;
     private String numeroNF;
@@ -16,13 +16,13 @@ public class Compra {
     private float valorAcrescimo;
     private float totalNF;
     private char status;
-    private ArrayList<ItemCompra> itensCompra;
-    private ArrayList<Pagar> contasVinculadas;
+    private final ArrayList<ItemCompra> itensCompra = new ArrayList();
+    private final ArrayList<Pagar> contasVinculadas = new ArrayList();
     private CondicaoPagamento condicaoPagamento;
     private Fornecedor fornecedor;
 
-    public Compra(int id, Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto, float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Fornecedor fornecedor) {
-        this.id = id;
+    public Compra(Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto, float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Fornecedor fornecedor, int id) {
+        super(id);
         this.dataCompra = dataCompra;
         this.horaCompra = horaCompra;
         this.numeroNF = numeroNF;
@@ -31,19 +31,11 @@ public class Compra {
         this.valorAcrescimo = valorAcrescimo;
         this.totalNF = totalNF;
         this.status = status;
-        this.itensCompra = new ArrayList();
-        this.contasVinculadas = new ArrayList();
         this.condicaoPagamento = condicaoPagamento;
         this.fornecedor = fornecedor;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
+    
 
     public Date getDataCompra() {
         return dataCompra;

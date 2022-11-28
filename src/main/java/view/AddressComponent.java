@@ -7,6 +7,7 @@ import models.enderecos.Bairro;
 import models.enderecos.Cidade;
 import models.enderecos.Endereco;
 import controllers.enderecos.EnderecosCrudController;
+import repositories.enderecos.EnderecoRepository;
 import view.utils.UtilsComponents;
 
 
@@ -14,7 +15,7 @@ public class AddressComponent extends javax.swing.JFrame {
     
     private Endereco newAddress(){
         
-        int id = this.controller.proximoId();
+        int id = this.controller.nextID();
         
         String street = jTextFieldStreet.getText();
         String cep = jTextFieldCep.getText();
@@ -22,18 +23,18 @@ public class AddressComponent extends javax.swing.JFrame {
         Cidade city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
         
         return new Endereco(
-            id,
             street, 
             cep, 
             city, 
-            district
+            district,
+            id
         );
     }
     
     private void addAddress(){
         Endereco address = this.newAddress();
         
-        this.controller.cadastrar(address);
+        this.controller.create(address);
         
         System.out.println("ENDEREÇO CADASTRADO COM SUCESSO!");
     }
@@ -44,7 +45,7 @@ public class AddressComponent extends javax.swing.JFrame {
                     
         Endereco address = this.newAddress();
         
-        controller.alterar(this.addressLoaded, address);
+        controller.update(this.addressLoaded.getId(), address);
         
         System.out.println("ENDEREÇO ALTERADO COM SUCESSO!");
     }
@@ -91,16 +92,20 @@ public class AddressComponent extends javax.swing.JFrame {
     
     public AddressComponent() {
         
-        this.controller = new EnderecosCrudController();
+        ArrayList<Endereco> address = new ArrayList();
+        
+        EnderecoRepository repository = new EnderecoRepository(address);
+        
+        this.controller = new EnderecosCrudController(repository);
         
         this.cities = new ArrayList();
         this.districts = new ArrayList();
         
-        this.cities.add(new Cidade(1, "Cidade 1"));
-        this.cities.add(new Cidade(1, "Cidade 2"));
+        this.cities.add(new Cidade("Cidade 1", 1));
+        this.cities.add(new Cidade("Cidade 2", 2));
         
-        this.districts.add(new Bairro(1, "Bairro 1"));
-        this.districts.add(new Bairro(2, "Bairro 2"));
+        this.districts.add(new Bairro("Bairro 1", 1));
+        this.districts.add(new Bairro("Bairro 2", 2));
         
         initComponents();
         loadFields();

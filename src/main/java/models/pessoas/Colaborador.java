@@ -2,21 +2,20 @@
 package models.pessoas;
 
 import java.util.ArrayList;
-import java.util.Date;
 import models.vendas.CupomFiscal;
 
 
 public class Colaborador extends Pessoa{
     private String login;
     private String senha;
-    private ArrayList<CupomFiscal> vendasRealizadas;
+    private final ArrayList<CupomFiscal> vendasRealizadas = new ArrayList();
 
-    public Colaborador(String login, String senha, int id, String nome, String fone1, String fone2, String complementoEndereco, String email, Date dataCadastro, String observacao, char status) {
-        super(id, nome, fone1, fone2, complementoEndereco, email, dataCadastro, observacao, status);
+    public Colaborador(String login, String senha, String nome, String fone1, String fone2, String complementoEndereco, String email, String observacao, char status, int id) {
+        super(nome, fone1, fone2, complementoEndereco, email, observacao, status, id);
         this.login = login;
         this.senha = senha;
-        this.vendasRealizadas = new ArrayList();
     }
+
 
     public ArrayList<CupomFiscal> getVendasRealizadas() {
         return vendasRealizadas;

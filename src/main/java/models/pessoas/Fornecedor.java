@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models.pessoas;
 
 import java.util.Date;
 
-/**
- *
- * @author Victor Henrich
- */
+
 public class Fornecedor extends Pessoa{
     private String cnpj;
     private String inscricaoEstadual;
@@ -18,8 +12,22 @@ public class Fornecedor extends Pessoa{
     private String cpf;
     private String rg;
 
-    public Fornecedor(String cnpj, String inscricaoEstadual, String contato, String razaoSocial, String cpf, String rg, int id, String nome, String fone1, String fone2, String complementoEndereco, String email, Date dataCadastro, String observacao, char status) {
-        super(id, nome, fone1, fone2, complementoEndereco, email, dataCadastro, observacao, status);
+    public Fornecedor(
+        String cnpj, 
+        String inscricaoEstadual, 
+        String contato, 
+        String razaoSocial, 
+        String cpf, 
+        String rg, 
+        String nome, 
+        String fone1,
+        String fone2,
+        String email, 
+        String observacao, 
+        char status, 
+        int id
+    ) {
+        super(nome, fone1, fone2, "", email, observacao, status, id);
         this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.contato = contato;

@@ -1,33 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models.produtos;
 
 import java.util.ArrayList;
+import models.patterns.BaseModel;
 
-/**
- *
- * @author Victor Henrich
- */
-public class Classe {
-    private int id;
+
+public class Classe extends BaseModel{
     private String descricao;
-    private ArrayList<Produto> produtos;
+    private final ArrayList<Produto> produtos = new ArrayList();
 
-    public Classe(int id, String descricao, ArrayList<Produto> produtos) {
-        this.id = id;
+    public Classe(String descricao, int id) {
+        super(id);
         this.descricao = descricao;
-        this.produtos = produtos;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -39,10 +25,6 @@ public class Classe {
 
     public ArrayList<Produto> getProdutos() {
         return produtos;
-    }
-
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
     }
     
     

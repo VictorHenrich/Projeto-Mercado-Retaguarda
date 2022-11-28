@@ -1,24 +1,17 @@
 
 package models.compras;
+import models.patterns.BaseModel;
 
 
-public class CondicaoPagamento {
-    private int id;
+public class CondicaoPagamento extends BaseModel{
     private String descricaoCondicao;
     private int numeroParcelas;
     private int diasPrimeiraParcela;
     private int diaEntreParcela;
     private char status;
 
-    public CondicaoPagamento(
-        int id, 
-        String descricaoCondicao, 
-        int numeroParcelas, 
-        int diasPrimeiraParcela, 
-        int diaEntreParcela, 
-        char status
-    ) {
-        this.id = id;
+    public CondicaoPagamento(String descricaoCondicao, int numeroParcelas, int diasPrimeiraParcela, int diaEntreParcela, char status, int id) {
+        super(id);
         this.descricaoCondicao = descricaoCondicao;
         this.numeroParcelas = numeroParcelas;
         this.diasPrimeiraParcela = diasPrimeiraParcela;
@@ -26,13 +19,6 @@ public class CondicaoPagamento {
         this.status = status;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDescricaoCondicao() {
         return descricaoCondicao;

@@ -2,10 +2,11 @@
 package models.compras;
 
 import java.util.Date;
+import models.patterns.BaseModel;
 
 
-public class Pagamento {
-    private int id;
+public class Pagamento extends BaseModel{
+    
     private Date dataPagamento;
     private String horaPagamento;
     private float valorDesconto;
@@ -14,17 +15,8 @@ public class Pagamento {
     private char status;
     private Pagar contaPagar;
 
-    public Pagamento(
-        int id, 
-        Date dataPagamento, 
-        String horaPagamento, 
-        float valorDesconto, 
-        float valorAcrescimo, 
-        float valorPago, 
-        char status, 
-        Pagar contaPagar
-    ) {
-        this.id = id;
+    public Pagamento(Date dataPagamento, String horaPagamento, float valorDesconto, float valorAcrescimo, float valorPago, char status, Pagar contaPagar, int id) {
+        super(id);
         this.dataPagamento = dataPagamento;
         this.horaPagamento = horaPagamento;
         this.valorDesconto = valorDesconto;
@@ -34,13 +26,8 @@ public class Pagamento {
         this.contaPagar = contaPagar;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
+    
 
     public Date getDataPagamento() {
         return dataPagamento;

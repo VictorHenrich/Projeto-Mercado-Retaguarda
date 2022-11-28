@@ -2,26 +2,19 @@
 package models.enderecos;
 
 import java.util.ArrayList;
+import models.patterns.BaseModel;
 
 
-public class Cidade{
-    private int id;
+public class Cidade extends BaseModel{
     private String descricao;
-    private ArrayList<Endereco> enderecos;
+    private final ArrayList<Endereco> enderecos = new ArrayList();
 
-    public Cidade(int id, String descricao) {
-        this.id = id;
+    public Cidade(String descricao, int id) {
+        super(id);
         this.descricao = descricao;
-        this.enderecos = new ArrayList();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public String getDescricao() {
         return descricao;
@@ -33,10 +26,6 @@ public class Cidade{
 
     public ArrayList<Endereco> getEnderecos() {
         return enderecos;
-    }
-
-    public void setEnderecos(ArrayList<Endereco> enderecos) {
-        this.enderecos = enderecos;
     }
     
     

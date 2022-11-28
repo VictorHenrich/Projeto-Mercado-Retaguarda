@@ -1,53 +1,19 @@
 
 package controllers.pessoas;
 
-import controllers.interfaces.InterfaceCrudController;
-import java.util.AbstractList;
-import java.util.ArrayList;
+import controllers.patterns.AbstractCrudController;
 import models.pessoas.Cliente;
+import repositories.patterns.BaseRepository;
+import repositories.pessoas.ClienteRepository;
 
 
-public class ClienteCrudController implements InterfaceCrudController<Cliente>{
+public class ClienteCrudController extends AbstractCrudController<Cliente, ClienteRepository>{
+
+    public ClienteCrudController(BaseRepository<Cliente> repository) {
+        super(repository);
+    }
+   
     
-    private ArrayList<Cliente> clientesCadastrados = new ArrayList();
-
-    @Override
-    public void cadastrar(Cliente registro) {
-        this.clientesCadastrados.add(registro);
-    }
-
-    @Override
-    public void alterar(Cliente registroAntigo, Cliente novoRegistro) {
-        int posicao = 0;
-        
-        for(Cliente cliente: this.clientesCadastrados){
-            if(cliente.getId() == registroAntigo.getId()){
-                this.clientesCadastrados.remove(posicao);
-                this.clientesCadastrados.add(posicao, novoRegistro);
-            }
-            
-            posicao++;
-        }
-    }
-
-    @Override
-    public void excluir(Cliente registro) {
-        this.clientesCadastrados.remove(registro);
-    }
-
-    @Override
-    public AbstractList<Cliente> listar() {
-        return this.clientesCadastrados;
-    }
-
-    @Override
-    public Cliente carregar(int id) {
-        return this.clientesCadastrados.get(id);
-    }
-
-    @Override
-    public int proximoId() {
-        return this.clientesCadastrados.size() + 1;
-    }
+   
     
 }

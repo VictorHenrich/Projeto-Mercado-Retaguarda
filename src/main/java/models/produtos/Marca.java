@@ -1,32 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models.produtos;
 
 import java.util.ArrayList;
+import models.patterns.BaseModel;
 
-/**
- *
- * @author Victor Henrich
- */
-public class Marca {
-    private int id;
+
+public class Marca extends BaseModel{
     private String descricao;
-    private ArrayList<Produto> produtos;
+    private final ArrayList<Produto> produtos = new ArrayList();
 
-    public Marca(int id, String descricao, ArrayList<Produto> produtos) {
-        this.id = id;
+    public Marca(String descricao, int id) {
+        super(id);
         this.descricao = descricao;
-        this.produtos = produtos;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public ArrayList<Produto> getProdutos() {
+        return produtos;
     }
 
     public String getDescricao() {
@@ -36,14 +26,5 @@ public class Marca {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public ArrayList<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
-    }
-    
     
 }

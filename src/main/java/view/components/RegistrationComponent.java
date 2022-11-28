@@ -3,6 +3,7 @@ package view.components;
 
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import view.utils.UtilsComponents;
 
 
@@ -23,8 +24,8 @@ public abstract class RegistrationComponent extends javax.swing.JFrame {
     }
     
     private void activateButton(boolean statusButtonsEnabled, boolean statusButtonsDisabled){
-        ArrayList<JButton> buttonsEnabled = new ArrayList();
-        ArrayList<JButton> buttonsDisabled = new ArrayList();
+        ArrayList<JComponent> buttonsEnabled = new ArrayList();
+        ArrayList<JComponent> buttonsDisabled = new ArrayList();
         
         
         buttonsEnabled.add(jButtonNew);
@@ -33,8 +34,9 @@ public abstract class RegistrationComponent extends javax.swing.JFrame {
         buttonsDisabled.add(jButtonChange);
         buttonsDisabled.add(jButtonWrite);
         
-        UtilsComponents.disableButtons(buttonsDisabled, statusButtonsDisabled);
-        UtilsComponents.disableButtons(buttonsEnabled, statusButtonsEnabled);
+        UtilsComponents.disabledComponents(buttonsEnabled, statusButtonsDisabled);
+
+        UtilsComponents.disabledComponents(buttonsEnabled, statusButtonsEnabled);
         
     }
     
@@ -232,13 +234,6 @@ public abstract class RegistrationComponent extends javax.swing.JFrame {
         this.onClickButtonWrite();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
-//    public static void main(String args[]) {;
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new RegistrationComponent().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

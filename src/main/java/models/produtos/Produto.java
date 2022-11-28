@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models.produtos;
 import java.util.ArrayList;
-import java.util.Date;
+import models.patterns.BaseModel;
 import models.compras.ItemCompra;
 
-/**
- *
- * @author Victor Henrich
- */
-public class Produto {
-    private int id;
+
+public class Produto extends BaseModel{
     private String descricao;
     private float valroCompra;
     private float valorVenda;
@@ -20,18 +13,17 @@ public class Produto {
     private String unidadeVenda;
     private int fatorConversao;
     private char status;
-    private Date dataCadastro;
     private String barraEntrada;
     private String barraSaida;
     private float estoqueMinimo;
     private float estoqueMaximo;
     private Classe classe;
     private Marca marca;
-    private ArrayList<HistoricoMovimentacao> historicosMovimentacoes = new ArrayList();
-    private ArrayList<ItemCompra> itensCompra = new ArrayList();
+    private final ArrayList<HistoricoMovimentacao> historicosMovimentacoes = new ArrayList();
+    private final ArrayList<ItemCompra> itensCompra = new ArrayList();
 
-    public Produto(int id, String descricao, float valroCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, Date dataCadastro, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Classe classe, Marca marca) {
-        this.id = id;
+    public Produto(String descricao, float valroCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Classe classe, Marca marca, int id) {
+        super(id);
         this.descricao = descricao;
         this.valroCompra = valroCompra;
         this.valorVenda = valorVenda;
@@ -39,7 +31,6 @@ public class Produto {
         this.unidadeVenda = unidadeVenda;
         this.fatorConversao = fatorConversao;
         this.status = status;
-        this.dataCadastro = dataCadastro;
         this.barraEntrada = barraEntrada;
         this.barraSaida = barraSaida;
         this.estoqueMinimo = estoqueMinimo;
@@ -48,21 +39,10 @@ public class Produto {
         this.marca = marca;
     }
 
-    public ArrayList<ItemCompra> getItensCompra() {
-        return itensCompra;
-    }
-
-    public void setItensCompra(ArrayList<ItemCompra> itensCompra) {
-        this.itensCompra = itensCompra;
-    }
     
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public ArrayList<ItemCompra> getItensCompra() {
+        return itensCompra;
     }
 
     public String getDescricao() {
@@ -121,14 +101,6 @@ public class Produto {
         this.status = status;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
     public String getBarraEntrada() {
         return barraEntrada;
     }
@@ -180,10 +152,4 @@ public class Produto {
     public ArrayList<HistoricoMovimentacao> getHistoricosMovimentacoes() {
         return historicosMovimentacoes;
     }
-
-    public void setHistoricosMovimentacoes(ArrayList<HistoricoMovimentacao> historicosMovimentacoes) {
-        this.historicosMovimentacoes = historicosMovimentacoes;
-    }
-    
-    
 }

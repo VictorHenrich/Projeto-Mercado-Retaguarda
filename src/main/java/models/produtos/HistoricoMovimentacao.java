@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models.produtos;
 
 import java.util.Date;
 import java.util.UUID;
+import models.patterns.BaseModel;
 import models.compras.ItemCompra;
 
-/**
- *
- * @author Victor Henrich
- */
-public class HistoricoMovimentacao {
-    private UUID id;
+
+public class HistoricoMovimentacao extends BaseModel{
+    private final UUID uuid;
     private Date data;
     private String hora;
     private float quantidade;
@@ -21,8 +16,9 @@ public class HistoricoMovimentacao {
     private Produto produto;
     private ItemCompra itemCompra;
 
-    public HistoricoMovimentacao(UUID id, Date data, String hora, float quantidade, char status, Produto produto, ItemCompra itemCompra) {
-        this.id = id;
+    public HistoricoMovimentacao(UUID uuid, Date data, String hora, float quantidade, char status, Produto produto, ItemCompra itemCompra, int id) {
+        super(id);
+        this.uuid = uuid;
         this.data = data;
         this.hora = hora;
         this.quantidade = quantidade;
@@ -31,21 +27,17 @@ public class HistoricoMovimentacao {
         this.itemCompra = itemCompra;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+    
+    
     public ItemCompra getItemCompra() {
         return itemCompra;
     }
 
     public void setItemCompra(ItemCompra itemCompra) {
         this.itemCompra = itemCompra;
-    }
-    
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public Date getData() {

@@ -6,22 +6,23 @@ import view.utils.UtilsComponents;
 import controllers.enderecos.CidadeCrudController;
 import javax.swing.JComponent;
 import models.enderecos.Cidade;
+import repositories.enderecos.CidadeRepository;
 
 
 public class CityComponent extends javax.swing.JFrame {
     
     private Cidade newCity(){
-        int id = this.controller.proximoId();
+        int id = this.controller.nextID();
         
         String description = jTextFieldDescription.getText();
         
-        return new Cidade(id, description);
+        return new Cidade(description, id);
     }
     
     private void addCity(){        
         Cidade city = this.newCity();
         
-        this.controller.cadastrar(city);
+        this.controller.create(city);
         
         System.out.println("CIDADE CADASTRADA COM SUCESSO");
     }
@@ -31,9 +32,7 @@ public class CityComponent extends javax.swing.JFrame {
             
             Cidade city = this.newCity();
             
-            city.setId(this.cityLoaded.getId());
-            
-            this.controller.alterar(this.cityLoaded, city);
+            this.controller.update(this.cityLoaded.getId(), city);
             
             System.out.println("CIDADE ALTERADA COM SUCESSO");
         }
@@ -84,7 +83,11 @@ public class CityComponent extends javax.swing.JFrame {
     public CityComponent() {
         initComponents();
         
-        this.controller = new CidadeCrudController();
+        ArrayList<Cidade> cities = new ArrayList();
+        
+        CidadeRepository repository = new CidadeRepository(cities);
+        
+        this.controller = new CidadeCrudController(repository);
     }
 
     @SuppressWarnings("unchecked")

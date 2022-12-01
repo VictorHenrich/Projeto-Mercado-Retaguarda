@@ -3,38 +3,33 @@ package view;
 
 import java.util.ArrayList;
 import view.utils.UtilsComponents;
-import controllers.enderecos.CidadeCrudController;
+import controllers.enderecos.CRUDCityController;
 import javax.swing.JComponent;
-import models.enderecos.Cidade;
-import repositories.enderecos.CidadeRepository;
+import models.enderecos.City;
 
 
 public class CityComponent extends javax.swing.JFrame {
     
-    private Cidade newCity(){
+    private City newCity(){
         int id = this.controller.nextID();
         
         String description = jTextFieldDescription.getText();
         
-        return new Cidade(description, id);
+        return new City(description, id);
     }
     
     private void addCity(){        
-        Cidade city = this.newCity();
+        City city = this.newCity();
         
         this.controller.create(city);
-        
-        System.out.println("CIDADE CADASTRADA COM SUCESSO");
     }
     
     private void changeCity(){
         if(this.cityLoaded != null){
             
-            Cidade city = this.newCity();
+            City city = this.newCity();
             
             this.controller.update(this.cityLoaded.getId(), city);
-            
-            System.out.println("CIDADE ALTERADA COM SUCESSO");
         }
     }
     
@@ -43,7 +38,7 @@ public class CityComponent extends javax.swing.JFrame {
     }
     
     private void clearStates(){
-        this.cityLoaded = null;
+
         this.clearFields();
         this.activateButtons(false);
         this.activateFields(false);
@@ -68,8 +63,8 @@ public class CityComponent extends javax.swing.JFrame {
     
 
     public CityComponent(
-        CidadeCrudController controller,
-        Cidade cidade
+        CRUDCityController controller,
+        City cidade
     ) {
         initComponents();
         
@@ -78,16 +73,6 @@ public class CityComponent extends javax.swing.JFrame {
         
         if(cidade != null)
             this.jButtonChange.setEnabled(true);
-    }
-    
-    public CityComponent() {
-        initComponents();
-        
-        ArrayList<Cidade> cities = new ArrayList();
-        
-        CidadeRepository repository = new CidadeRepository(cities);
-        
-        this.controller = new CidadeCrudController(repository);
     }
 
     @SuppressWarnings("unchecked")
@@ -294,17 +279,10 @@ public class CityComponent extends javax.swing.JFrame {
         
         this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
+
     
-    public static void main(String args[]) {;
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CityComponent().setVisible(true);
-            }
-        });
-    }
-    
-    private CidadeCrudController controller;
-    private Cidade cityLoaded;
+    private final CRUDCityController controller;
+    private final City cityLoaded;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

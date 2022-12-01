@@ -6,14 +6,14 @@ import java.util.Date;
 import models.vendas.CupomFiscal;
 
 
-public class Cliente extends Pessoa{
+public class Client extends Pessoa{
     private String cpf;
     private String rg;
     private Date dataNascimento;
     private char sexo;
     private final ArrayList<CupomFiscal> comprasRealizadas = new ArrayList();
 
-    public Cliente(
+    public Client(
         String cpf, 
         String rg, 
         Date dataNascimento, 

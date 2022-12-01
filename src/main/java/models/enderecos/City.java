@@ -5,20 +5,16 @@ import java.util.ArrayList;
 import models.patterns.BaseModel;
 
 
-public class Bairro extends BaseModel{
+public class City extends BaseModel{
     private String descricao;
-    private final ArrayList<Endereco> enderecos = new ArrayList();
+    private final ArrayList<Address> enderecos = new ArrayList();
 
-    public Bairro(String descricao, int id) {
+    public City(String descricao, int id) {
         super(id);
         this.descricao = descricao;
     }
 
     
-
-    public ArrayList<Endereco> getEnderecos() {
-        return enderecos;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -27,5 +23,10 @@ public class Bairro extends BaseModel{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public ArrayList<Address> getEnderecos() {
+        return enderecos;
+    }
+    
     
 }

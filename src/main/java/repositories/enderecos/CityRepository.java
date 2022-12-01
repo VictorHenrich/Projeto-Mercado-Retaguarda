@@ -2,13 +2,13 @@
 package repositories.enderecos;
 
 import java.util.ArrayList;
-import models.enderecos.Bairro;
+import models.enderecos.City;
 import repositories.patterns.BaseRepository;
 
 
-public class BairroRepository extends BaseRepository<Bairro>{
+public class CityRepository extends BaseRepository<City>{
     
-    public BairroRepository(ArrayList<Bairro> data) {
+    public CityRepository(ArrayList<City> data) {
         super(data);
     }
     

@@ -4,38 +4,33 @@ package view;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 import view.utils.UtilsComponents;
-import controllers.enderecos.BairroCrudController;
-import models.enderecos.Bairro;
-import repositories.enderecos.BairroRepository;
+import controllers.enderecos.CRUDDistrictController;
+import models.enderecos.District;
 
 
 public class DistrictComponent extends javax.swing.JFrame {
     
-    private Bairro newDistrict(){
+    private District newDistrict(){
         int id = this.controller.nextID();
         
         String description = jTextFieldDescription.getText();
         
-        return new Bairro(description, id);
+        return new District(description, id);
     }
     
     private void addDistrict(){
-        Bairro district = this.newDistrict();
+        District district = this.newDistrict();
         
         this.controller.create(district);
-        
-        System.out.println("BAIRRO CADASTRADO COM SUCESSO!");
     }
     
     private void changeDistrict(){
         if(this.districtLoaded == null)
             return;
         
-        Bairro district = this.newDistrict();
+        District district = this.newDistrict();
         
         this.controller.update(this.districtLoaded.getId(), district);
-        
-        System.out.println("BAIRRO ALTERADO COM SUCESSO!");
     }
     
     private void activateButtons(boolean state){
@@ -60,28 +55,18 @@ public class DistrictComponent extends javax.swing.JFrame {
     }
     
     private void clearStates(){
-        this.districtLoaded = null;
         this.clearFields();
         this.activateButtons(false);
         this.activateFields(false);
     }
     
-    public DistrictComponent(BairroCrudController controller, Bairro district) {
+    public DistrictComponent(CRUDDistrictController controller, District district) {
         this.districtLoaded = district;
         this.controller = controller;
         
         initComponents();
     }
     
-    public DistrictComponent() {
-        ArrayList<Bairro> districts = new ArrayList();
-        
-        BairroRepository repository = new BairroRepository(districts);
-        
-        this.controller = new BairroCrudController(repository);
-        initComponents();
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -284,16 +269,8 @@ public class DistrictComponent extends javax.swing.JFrame {
         this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
-    public static void main(String args[]) {;
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DistrictComponent().setVisible(true);
-            }
-        });
-    }
-    
-    private BairroCrudController controller;
-    private Bairro districtLoaded;
+    private final CRUDDistrictController controller;
+    private final District districtLoaded;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;

@@ -3,26 +3,25 @@ package view;
 
 import java.util.ArrayList;
 import javax.swing.JComponent;
-import models.enderecos.Bairro;
-import models.enderecos.Cidade;
-import models.enderecos.Endereco;
-import controllers.enderecos.EnderecosCrudController;
-import repositories.enderecos.EnderecoRepository;
+import models.enderecos.District;
+import models.enderecos.City;
+import models.enderecos.Address;
+import controllers.enderecos.CRUDAddressController;
 import view.utils.UtilsComponents;
 
 
 public class AddressComponent extends javax.swing.JFrame {
     
-    private Endereco newAddress(){
+    private Address newAddress(){
         
         int id = this.controller.nextID();
         
         String street = jTextFieldStreet.getText();
         String cep = jTextFieldCep.getText();
-        Bairro district = this.districts.get(this.jComboBoxDistrict.getSelectedIndex());
-        Cidade city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
+        District district = this.districts.get(this.jComboBoxDistrict.getSelectedIndex());
+        City city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
         
-        return new Endereco(
+        return new Address(
             street, 
             cep, 
             city, 
@@ -32,30 +31,26 @@ public class AddressComponent extends javax.swing.JFrame {
     }
     
     private void addAddress(){
-        Endereco address = this.newAddress();
+        Address address = this.newAddress();
         
         this.controller.create(address);
-        
-        System.out.println("ENDEREÇO CADASTRADO COM SUCESSO!");
     }
     
     private void changeAddress(){
         if(this.addressLoaded == null)
             return;
                     
-        Endereco address = this.newAddress();
+        Address address = this.newAddress();
         
         controller.update(this.addressLoaded.getId(), address);
-        
-        System.out.println("ENDEREÇO ALTERADO COM SUCESSO!");
     }
     
     private void loadFields(){
-        for(Cidade city: this.cities){
+        for(City city: this.cities){
             this.jComboBoxCity.addItem(city.getDescricao());
         }
         
-        for(Bairro district: this.districts){
+        for(District district: this.districts){
             this.jComboBoxDistrict.addItem(district.getDescricao());
         }
     }
@@ -90,37 +85,18 @@ public class AddressComponent extends javax.swing.JFrame {
     }
     
     
-    public AddressComponent() {
-        
-        ArrayList<Endereco> address = new ArrayList();
-        
-        EnderecoRepository repository = new EnderecoRepository(address);
-        
-        this.controller = new EnderecosCrudController(repository);
-        
-        this.cities = new ArrayList();
-        this.districts = new ArrayList();
-        
-        this.cities.add(new Cidade("Cidade 1", 1));
-        this.cities.add(new Cidade("Cidade 2", 2));
-        
-        this.districts.add(new Bairro("Bairro 1", 1));
-        this.districts.add(new Bairro("Bairro 2", 2));
-        
-        initComponents();
-        loadFields();
-    }
-    
     public AddressComponent(
-       EnderecosCrudController controller,
-       ArrayList<Cidade> cities,
-       ArrayList<Bairro> districts,
-       Endereco addressLoaded
+       CRUDAddressController controller,
+       ArrayList<City> cities,
+       ArrayList<District> districts,
+       Address addressLoaded
     ){
         this.controller = controller;
         this.cities = cities;
         this.districts = districts;
         this.addressLoaded = addressLoaded;
+        
+        this.loadFields();
     }
 
     @SuppressWarnings("unchecked")
@@ -395,18 +371,10 @@ public class AddressComponent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDistrictItemStateChanged
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddressComponent().setVisible(true);
-            }
-        });
-    }
-    
-    private ArrayList<Cidade> cities;
-    private ArrayList<Bairro> districts;
-    private Endereco addressLoaded;
-    private EnderecosCrudController controller;
+    private final ArrayList<City> cities;
+    private final ArrayList<District> districts;
+    private final Address addressLoaded;
+    private final CRUDAddressController controller;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

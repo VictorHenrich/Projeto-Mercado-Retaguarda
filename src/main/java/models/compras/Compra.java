@@ -3,7 +3,7 @@ package models.compras;
 
 import java.util.ArrayList;
 import java.util.Date;
-import models.pessoas.Fornecedor;
+import models.pessoas.Supplier;
 import models.patterns.BaseModel;
 
 
@@ -19,9 +19,9 @@ public class Compra extends BaseModel{
     private final ArrayList<ItemCompra> itensCompra = new ArrayList();
     private final ArrayList<Pagar> contasVinculadas = new ArrayList();
     private CondicaoPagamento condicaoPagamento;
-    private Fornecedor fornecedor;
+    private Supplier fornecedor;
 
-    public Compra(Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto, float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Fornecedor fornecedor, int id) {
+    public Compra(Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto, float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Supplier fornecedor, int id) {
         super(id);
         this.dataCompra = dataCompra;
         this.horaCompra = horaCompra;
@@ -117,11 +117,11 @@ public class Compra extends BaseModel{
         this.condicaoPagamento = condicaoPagamento;
     }
 
-    public Fornecedor getFornecedor() {
+    public Supplier getFornecedor() {
         return fornecedor;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
+    public void setFornecedor(Supplier fornecedor) {
         this.fornecedor = fornecedor;
     }
     

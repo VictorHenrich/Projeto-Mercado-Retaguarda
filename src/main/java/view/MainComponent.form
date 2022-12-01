@@ -25,20 +25,29 @@
                 <Property name="text" type="java.lang.String" value="Pessoas"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemColaborador">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemCollaborator">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Colaborador"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemCollaboratorActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemFornecedor">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemSupplier">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Fornecedor"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemSupplierActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemCliente">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemClient">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cliente"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemClientActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -47,20 +56,29 @@
                 <Property name="text" type="java.lang.String" value="Endere&#xe7;os"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemCidade">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemCity">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cidade"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemCityActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemEndereco">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemAddress">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemAddressActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemBairro">
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemDistrict">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bairro"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItemDistrictActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

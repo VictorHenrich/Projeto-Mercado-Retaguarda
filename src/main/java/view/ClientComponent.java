@@ -1,18 +1,17 @@
 
 package view;
 
-import controllers.pessoas.ClienteCrudController;
+import controllers.pessoas.CRUDClientController;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JComponent;
-import models.pessoas.Cliente;
-import repositories.pessoas.ClienteRepository;
+import models.pessoas.Client;
 import view.utils.UtilsComponents;
 
 
 public class ClientComponent extends javax.swing.JFrame {
     
-    private Cliente newClient(){
+    private Client newClient(){
         
         int id = this.controller.nextID();
         
@@ -27,7 +26,7 @@ public class ClientComponent extends javax.swing.JFrame {
         char gender = 'M';
         char status = 'A';
         
-        return new Cliente(cpf, rg, birthday, gender, name, fone1, fone2, "", email, obs, status, id);
+        return new Client(cpf, rg, birthday, gender, name, fone1, fone2, "", email, obs, status, id);
         
     }
     
@@ -50,7 +49,7 @@ public class ClientComponent extends javax.swing.JFrame {
     
     private void addClient(){
         
-        Cliente client = this.newClient();
+        Client client = this.newClient();
         
         this.controller.create(client);
     }
@@ -58,9 +57,9 @@ public class ClientComponent extends javax.swing.JFrame {
     private void changeClient(){
         if(this.clientLoaded == null) return;
         
-        Cliente newClient = this.newClient();
+        Client newClient = this.newClient();
         
-        this.controller.update(WIDTH, clientLoaded);
+        this.controller.update(clientLoaded.getId(), newClient);
     }
     
     private void activateButtons(boolean state){
@@ -87,14 +86,13 @@ public class ClientComponent extends javax.swing.JFrame {
     }
     
 
-    public ClientComponent() {
+    public ClientComponent(
+      CRUDClientController controller,
+      Client clientLoaded
+    ) {
         
-        ArrayList<Cliente> clients = new ArrayList();
-        
-        ClienteRepository repository = new ClienteRepository(clients);
-        
-        this.controller = new ClienteCrudController(repository);
-        this.clientLoaded = null;
+       this.controller = controller;
+       this.clientLoaded = clientLoaded;
         
         initComponents();
     }
@@ -429,16 +427,9 @@ public class ClientComponent extends javax.swing.JFrame {
         this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
-    public static void main(String args[]) {;;
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClientComponent().setVisible(true);
-            }
-        });
-    }
     
-    private ClienteCrudController controller;
-    private Cliente clientLoaded;
+    private CRUDClientController controller;
+    private Client clientLoaded;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

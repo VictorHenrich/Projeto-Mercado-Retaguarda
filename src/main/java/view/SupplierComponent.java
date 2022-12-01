@@ -1,17 +1,16 @@
 
 package view;
 
-import controllers.pessoas.FornecedorCrudController;
+import controllers.pessoas.CRUDSupplierController;
 import java.util.ArrayList;
 import javax.swing.JComponent;
-import models.pessoas.Fornecedor;
-import repositories.pessoas.FornecedorRepository;
+import models.pessoas.Supplier;
 import view.utils.UtilsComponents;
 
 
 public class SupplierComponent extends javax.swing.JFrame {
     
-    private Fornecedor newSupplier(){
+    private Supplier newSupplier(){
         
         String document = jTextFieldDocument.getText();
         String ie = "";
@@ -28,7 +27,7 @@ public class SupplierComponent extends javax.swing.JFrame {
         
         int id = this.controller.nextID();
         
-        return new Fornecedor(document, socialReason, contact, email, cpf, rg, name, fone1, fone2, email, obs, status, id);
+        return new Supplier(document, socialReason, contact, email, cpf, rg, name, fone1, fone2, email, obs, status, id);
         
     }
     
@@ -52,7 +51,7 @@ public class SupplierComponent extends javax.swing.JFrame {
     
     private void addSupplier(){
         
-        Fornecedor supplier = this.newSupplier();
+        Supplier supplier = this.newSupplier();
         
         this.controller.create(supplier);
     }
@@ -60,7 +59,7 @@ public class SupplierComponent extends javax.swing.JFrame {
     private void changeSupplier(){
         if(this.supplierLoaded == null) return;
         
-        Fornecedor newSupplier = this.newSupplier();
+        Supplier newSupplier = this.newSupplier();
         
         this.controller.update(1, newSupplier);
     }
@@ -89,14 +88,13 @@ public class SupplierComponent extends javax.swing.JFrame {
         UtilsComponents.disabledComponents(fields, state);
     }
 
-    public SupplierComponent() {
-        ArrayList<Fornecedor> suppliers = new ArrayList();
+    public SupplierComponent(
+       CRUDSupplierController controller,
+        Supplier supplierLoaded
+    ) {
+        this.controller = controller;
         
-        FornecedorRepository repository = new FornecedorRepository(suppliers);
-        
-        this.controller = new FornecedorCrudController(repository);
-        
-        this.supplierLoaded = null;
+        this.supplierLoaded = supplierLoaded;
         
         initComponents();
     }
@@ -471,15 +469,9 @@ public class SupplierComponent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRgActionPerformed
 
-    public static void main(String args[]) {;;
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SupplierComponent().setVisible(true);
-            }
-        });
-    }
-    private FornecedorCrudController controller;
-    private Fornecedor supplierLoaded;
+
+    private final CRUDSupplierController controller;
+    private final Supplier supplierLoaded;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonChange;

@@ -4,13 +4,13 @@ package models.enderecos;
 import models.patterns.BaseModel;
 
 
-public class Endereco extends BaseModel{
+public class Address extends BaseModel{
     private String logradouro;
     private String cep;
-    private Cidade cidade;
-    private Bairro bairro;
+    private City cidade;
+    private District bairro;
 
-    public Endereco(String logradouro, String cep, Cidade cidade, Bairro bairro, int id) {
+    public Address(String logradouro, String cep, City cidade, District bairro, int id) {
         super(id);
         this.logradouro = logradouro;
         this.cep = cep;
@@ -38,19 +38,19 @@ public class Endereco extends BaseModel{
         this.cep = cep;
     }
 
-    public Cidade getCidade() {
+    public City getCidade() {
         return cidade;
     }
 
-    public void setCidade(Cidade cidade) {
+    public void setCidade(City cidade) {
         this.cidade = cidade;
     }
 
-    public Bairro getBairro() {
+    public District getBairro() {
         return bairro;
     }
 
-    public void setBairro(Bairro bairro) {
+    public void setBairro(District bairro) {
         this.bairro = bairro;
     }
     

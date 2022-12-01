@@ -4,7 +4,7 @@ package models.pessoas;
 import java.util.Date;
 
 
-public class Fornecedor extends Pessoa{
+public class Supplier extends Pessoa{
     private String cnpj;
     private String inscricaoEstadual;
     private String contato;
@@ -12,7 +12,7 @@ public class Fornecedor extends Pessoa{
     private String cpf;
     private String rg;
 
-    public Fornecedor(
+    public Supplier(
         String cnpj, 
         String inscricaoEstadual, 
         String contato, 

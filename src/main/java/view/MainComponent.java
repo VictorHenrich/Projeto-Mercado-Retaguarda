@@ -7,39 +7,16 @@ import controllers.enderecos.CRUDDistrictController;
 import controllers.pessoas.CRUDClientController;
 import controllers.pessoas.CRUDSupplierController;
 import java.util.ArrayList;
-import repositories.pessoas.SupplierRepository;
-import models.pessoas.Supplier;
-import models.pessoas.Client;
-import models.enderecos.District;
-import models.enderecos.Address;
-import models.enderecos.City;
-import repositories.enderecos.AddressRepository;
-import repositories.enderecos.CityRepository;
-import repositories.enderecos.DistrictRepository;
-import repositories.pessoas.ClientRepository;
-
 
 public class MainComponent extends javax.swing.JFrame {
 
 
     public MainComponent() {
-        ArrayList<Supplier> suppliers = new ArrayList();
-        ArrayList<Client> clients = new ArrayList();
-        ArrayList<District> districts = new ArrayList();
-        ArrayList<Address> address = new ArrayList();
-        ArrayList<City> cities = new ArrayList();
-        
-        SupplierRepository supplierRepository = new SupplierRepository(suppliers);
-        ClientRepository clientRepository = new ClientRepository(clients);
-        DistrictRepository districtRepository = new DistrictRepository(districts);
-        AddressRepository addressRepository = new AddressRepository(address);
-        CityRepository cityRepository = new CityRepository(cities);
-        
-        this.crudSuppliercontroller = new CRUDSupplierController(supplierRepository);
-        this.crudClientController = new CRUDClientController(clientRepository);
-        this.crudDistrictController = new CRUDDistrictController(districtRepository);
-        this.crudAddressController = new CRUDAddressController(addressRepository);
-        this.crudCityController = new CRUDCityController(cityRepository);
+        this.crudSuppliercontroller = new CRUDSupplierController();
+        this.crudClientController = new CRUDClientController();
+        this.crudDistrictController = new CRUDDistrictController();
+        this.crudAddressController = new CRUDAddressController();
+        this.crudCityController = new CRUDCityController();
         
         initComponents();
     }
@@ -211,7 +188,12 @@ public class MainComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
 
     private void jCheckBoxMenuItemAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAddressActionPerformed
-        AddressComponent addressComponent = new AddressComponent(this.crudAddressController, new ArrayList(), new ArrayList(), null);
+        AddressComponent addressComponent = new AddressComponent(
+                this.crudAddressController, 
+                this.crudCityController.fetch(), 
+                this.crudDistrictController.fetch(), 
+                null
+        );
         
         addressComponent.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItemAddressActionPerformed

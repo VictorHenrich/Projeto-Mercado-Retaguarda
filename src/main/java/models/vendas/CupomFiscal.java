@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 import models.pessoas.Client;
-import models.pessoas.Colaborador;
+import models.pessoas.Collaborator;
 import models.patterns.BaseModel;
 
 
@@ -19,9 +19,9 @@ public class CupomFiscal extends BaseModel{
     private char status;
     private final ArrayList<ItemCupomFiscal> itensCupom = new ArrayList();
     private Client cliente;
-    private Colaborador colaborador;
+    private Collaborator colaborador;
 
-    public CupomFiscal(UUID uuid, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Client cliente, Colaborador colaborador, int id) {
+    public CupomFiscal(UUID uuid, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Client cliente, Collaborator colaborador, int id) {
         super(id);
         this.uuid = uuid;
         this.dataVenda = dataVenda;
@@ -99,11 +99,11 @@ public class CupomFiscal extends BaseModel{
         this.cliente = cliente;
     }
 
-    public Colaborador getColaborador() {
+    public Collaborator getColaborador() {
         return colaborador;
     }
 
-    public void setColaborador(Colaborador colaborador) {
+    public void setColaborador(Collaborator colaborador) {
         this.colaborador = colaborador;
     }
     

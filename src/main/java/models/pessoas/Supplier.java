@@ -2,9 +2,10 @@
 package models.pessoas;
 
 import java.util.Date;
+import models.enderecos.Address;
 
 
-public class Supplier extends Pessoa{
+public class Supplier extends Person{
     private String cnpj;
     private String inscricaoEstadual;
     private String contato;
@@ -20,14 +21,16 @@ public class Supplier extends Pessoa{
         String cpf, 
         String rg, 
         String nome, 
-        String fone1,
-        String fone2,
+        String fone1, 
+        String fone2, 
+        String complementoEndereco, 
+        Address endereco, 
         String email, 
         String observacao, 
         char status, 
         int id
     ) {
-        super(nome, fone1, fone2, "", email, observacao, status, id);
+        super(nome, fone1, fone2, complementoEndereco, endereco, email, observacao, status, id);
         this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.contato = contato;
@@ -35,7 +38,7 @@ public class Supplier extends Pessoa{
         this.cpf = cpf;
         this.rg = rg;
     }
-
+    
     public String getCnpj() {
         return cnpj;
     }

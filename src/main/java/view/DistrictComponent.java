@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import javax.swing.JComponent;
 import view.utils.UtilsComponents;
 import controllers.enderecos.CRUDDistrictController;
+import controllers.builders.enderecos.DistrictBuilder;
 import models.enderecos.District;
 
 
 public class DistrictComponent extends javax.swing.JFrame {
     
-    private District newDistrict(){
-        int id = this.controller.nextID();
-        
-        String description = jTextFieldDescription.getText();
-        
-        return new District(description, id);
+    private DistrictBuilder newDistrict(){
+        return this
+                .controller
+                .newModelBuilder()
+                .setDescricao(jTextFieldDescription.getText());
     }
     
     private void addDistrict(){
-        District district = this.newDistrict();
+        DistrictBuilder district = this.newDistrict();
         
         this.controller.create(district);
     }
@@ -28,7 +28,7 @@ public class DistrictComponent extends javax.swing.JFrame {
         if(this.districtLoaded == null)
             return;
         
-        District district = this.newDistrict();
+        DistrictBuilder district = this.newDistrict();
         
         this.controller.update(this.districtLoaded.getId(), district);
     }

@@ -2,13 +2,13 @@
 package repositories.produtos;
 
 import java.util.ArrayList;
-import models.produtos.Marca;
+import models.produtos.Brand;
 import repositories.patterns.BaseRepository;
 
 
-public class MarcaRepository extends BaseRepository<Marca>{
+public class BrandRepository extends BaseRepository<Brand>{
     
-    public MarcaRepository(ArrayList<Marca> data) {
+    public BrandRepository(ArrayList<Brand> data) {
         super(data);
     }
     

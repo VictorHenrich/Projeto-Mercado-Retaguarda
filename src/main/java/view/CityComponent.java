@@ -1,25 +1,25 @@
 
 package view;
 
+import controllers.builders.enderecos.CityBuilder;
 import java.util.ArrayList;
 import view.utils.UtilsComponents;
 import controllers.enderecos.CRUDCityController;
-import javax.swing.JComponent;
 import models.enderecos.City;
+import javax.swing.JComponent;
 
 
 public class CityComponent extends javax.swing.JFrame {
     
-    private City newCity(){
-        int id = this.controller.nextID();
-        
-        String description = jTextFieldDescription.getText();
-        
-        return new City(description, id);
+    private CityBuilder newCity(){
+        return this
+                .controller
+                .newModelBuilder()
+                .setDescricao(jTextFieldDescription.getText());
     }
     
     private void addCity(){        
-        City city = this.newCity();
+        CityBuilder city = this.newCity();
         
         this.controller.create(city);
     }
@@ -27,7 +27,7 @@ public class CityComponent extends javax.swing.JFrame {
     private void changeCity(){
         if(this.cityLoaded != null){
             
-            City city = this.newCity();
+            CityBuilder city = this.newCity();
             
             this.controller.update(this.cityLoaded.getId(), city);
         }

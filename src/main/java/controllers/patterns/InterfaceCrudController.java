@@ -2,9 +2,12 @@
 package controllers.patterns;
 
 import java.util.AbstractList;
+import models.patterns.BaseModel;
 
 
-public interface InterfaceCrudController<T> {
+public interface InterfaceCrudController<T extends ModelBuilder, M extends BaseModel> {
+    
+    public T newModelBuilder();
     
     public void create(T register);
     
@@ -12,9 +15,7 @@ public interface InterfaceCrudController<T> {
     
     public void delete(int id);
     
-    public AbstractList<T> fetch();
+    public AbstractList<M> fetch();
     
-    public T load(int id);
-    
-    public int nextID();
+    public M load(int id);
 }

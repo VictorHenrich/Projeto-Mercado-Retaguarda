@@ -7,16 +7,16 @@ import models.patterns.BaseModel;
 import models.compras.ItemCompra;
 
 
-public class HistoricoMovimentacao extends BaseModel{
+public class HistoricalMovement extends BaseModel{
     private final UUID uuid;
     private Date data;
     private String hora;
     private float quantidade;
     private char status;
-    private Produto produto;
+    private Product produto;
     private ItemCompra itemCompra;
 
-    public HistoricoMovimentacao(UUID uuid, Date data, String hora, float quantidade, char status, Produto produto, ItemCompra itemCompra, int id) {
+    public HistoricalMovement(UUID uuid, Date data, String hora, float quantidade, char status, Product produto, ItemCompra itemCompra, int id) {
         super(id);
         this.uuid = uuid;
         this.data = data;
@@ -72,11 +72,11 @@ public class HistoricoMovimentacao extends BaseModel{
         this.status = status;
     }
 
-    public Produto getProduto() {
+    public Product getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(Product produto) {
         this.produto = produto;
     }
     

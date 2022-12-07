@@ -1,18 +1,30 @@
 
 package models.pessoas;
 
+import models.enderecos.Address;
 import models.patterns.BaseModel;
 
-public abstract class Pessoa extends BaseModel{
+public abstract class Person extends BaseModel{
     private String nome;
     private String fone1;
     private String fone2;
     private String complementoEndereco;
+    private Address endereco;
     private String email;
     private String observacao;
     private char status;
 
-    public Pessoa(String nome, String fone1, String fone2, String complementoEndereco, String email, String observacao, char status, int id) {
+    public Person(
+        String nome, 
+        String fone1, 
+        String fone2, 
+        String complementoEndereco, 
+        Address endereco, 
+        String email, 
+        String observacao, 
+        char status, 
+        int id
+    ) {
         super(id);
         this.nome = nome;
         this.fone1 = fone1;
@@ -21,8 +33,17 @@ public abstract class Pessoa extends BaseModel{
         this.email = email;
         this.observacao = observacao;
         this.status = status;
+        this.endereco = endereco;
     }
 
+    public Address getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Address endereco) {
+        this.endereco = endereco;
+    }
+    
     public String getNome() {
         return nome;
     }

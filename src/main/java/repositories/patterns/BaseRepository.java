@@ -26,7 +26,7 @@ public abstract class BaseRepository<T extends BaseModel> implements CrudReposit
         for(BaseModel r: this.data){
             if(r.getId() == id){
                 this.data.remove(index);
-                this.data.add(index, r);
+                this.data.add(index, register);
             }
             
             index++;

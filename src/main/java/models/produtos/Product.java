@@ -5,7 +5,7 @@ import models.patterns.BaseModel;
 import models.compras.ItemCompra;
 
 
-public class Produto extends BaseModel{
+public class Product extends BaseModel{
     private String descricao;
     private float valroCompra;
     private float valorVenda;
@@ -17,12 +17,12 @@ public class Produto extends BaseModel{
     private String barraSaida;
     private float estoqueMinimo;
     private float estoqueMaximo;
-    private Classe classe;
-    private Marca marca;
-    private final ArrayList<HistoricoMovimentacao> historicosMovimentacoes = new ArrayList();
+    private Class classe;
+    private Brand marca;
+    private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList();
     private final ArrayList<ItemCompra> itensCompra = new ArrayList();
 
-    public Produto(String descricao, float valroCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Classe classe, Marca marca, int id) {
+    public Product(String descricao, float valroCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Class classe, Brand marca, int id) {
         super(id);
         this.descricao = descricao;
         this.valroCompra = valroCompra;
@@ -133,23 +133,23 @@ public class Produto extends BaseModel{
         this.estoqueMaximo = estoqueMaximo;
     }
 
-    public Classe getClasse() {
+    public Class getClasse() {
         return classe;
     }
 
-    public void setClasse(Classe classe) {
+    public void setClasse(Class classe) {
         this.classe = classe;
     }
 
-    public Marca getMarca() {
+    public Brand getMarca() {
         return marca;
     }
 
-    public void setMarca(Marca marca) {
+    public void setMarca(Brand marca) {
         this.marca = marca;
     }
 
-    public ArrayList<HistoricoMovimentacao> getHistoricosMovimentacoes() {
+    public ArrayList<HistoricalMovement> getHistoricosMovimentacoes() {
         return historicosMovimentacoes;
     }
 }

@@ -1,8 +1,14 @@
 
+import controllers.enderecos.CityFormController;
+import view.CityFormComponent;
+
+
 public class main {
 
     public static void main(String[] args) {
-        // Escrever nosso código aqui dentro
+        CityFormComponent form = new CityFormComponent();
+        
+        CityFormController controller = new CityFormController(form);
     }
     
 }

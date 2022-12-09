@@ -182,7 +182,7 @@ public class MainComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItemClientActionPerformed
 
     private void jCheckBoxMenuItemCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCityActionPerformed
-        CityComponent cityComponent = new CityComponent(this.crudCityController, null);
+        CityFormComponent cityComponent = new CityFormComponent(this.crudCityController, null);
         
         cityComponent.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
@@ -199,7 +199,7 @@ public class MainComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItemAddressActionPerformed
 
     private void jCheckBoxMenuItemDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemDistrictActionPerformed
-        DistrictComponent districtComponent = new DistrictComponent(this.crudDistrictController, null);
+        DistrictFormComponent districtComponent = new DistrictFormComponent(this.crudDistrictController, null);
         
         districtComponent.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItemDistrictActionPerformed

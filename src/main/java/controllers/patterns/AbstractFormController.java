@@ -18,6 +18,8 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
         
         this.addListeners();
         this.form.setVisible(true);
+        
+        this.resetStates();
     }
     
     private void addListeners(){

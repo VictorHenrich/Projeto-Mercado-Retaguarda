@@ -50,10 +50,10 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         this.form.getjTextFieldStreet().setText(null);
         this.form.getjTextFieldStreet().setEnabled(false);
         
-        this.form.getjComboBoxCity().setSelectedIndex(0);
+        this.form.getjComboBoxCity().setSelectedIndex(-1);
         this.form.getjComboBoxCity().setEnabled(false);
         
-        this.form.getjComboBoxDistrict().setSelectedIndex(0);
+        this.form.getjComboBoxDistrict().setSelectedIndex(-1);
         this.form.getjComboBoxDistrict().setEnabled(false);
     }
 
@@ -83,6 +83,8 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
             
             this.addressRepository.create(address);
             
+            System.out.println("Endereço cadastrado com sucesso!");
+            
         }catch(Exception error){
             System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
         }
@@ -96,6 +98,8 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
             Address address = this.newAddressBuilder().build(id);
             
             this.addressRepository.update(id, address);
+            
+            System.out.println("Endereço alterado com sucesso!");
             
         }catch(Exception error){
             System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());

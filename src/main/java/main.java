@@ -14,6 +14,14 @@ public class main {
         ArrayList<City> cities = new ArrayList();
         ArrayList<District> districts = new ArrayList();
         
+        cities.add(new City("TESTE1", 0));
+        cities.add(new City("TESTE2", 1));
+        cities.add(new City("TESTE3", 2));
+        
+        districts.add(new District("TESTE1", 0));
+        districts.add(new District("TESTE2", 1));
+        districts.add(new District("TESTE3", 2));
+        
         AddressFormComponent form = new AddressFormComponent();
         
         AddressFormController controller = new AddressFormController(form, cities, districts);

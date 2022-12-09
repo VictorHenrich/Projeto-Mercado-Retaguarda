@@ -2,44 +2,29 @@
 package models.compras;
 
 import java.util.ArrayList;
-import models.produtos.HistoricoMovimentacao;
-import models.produtos.Produto;
+import models.patterns.BaseModel;
+import models.produtos.HistoricalMovement;
+import models.produtos.Product;
 
 
-public class ItemCompra {
-    private int id;
+public class ItemCompra extends BaseModel{
     private float quantidadeProduto;
     private float valorUnitarioProduto;
     private char status;
-    private Produto produto;
-    private ArrayList<HistoricoMovimentacao> historicosMovimentacoes;
+    private Product produto;
+    private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList();
     private Compra compra;
 
-    public ItemCompra(
-        int id, 
-        float quantidadeProduto, 
-        float valorUnitarioProduto, 
-        char status, 
-        Produto produto, 
-        Compra compra
-    ) {
-        this.id = id;
+    public ItemCompra(float quantidadeProduto, float valorUnitarioProduto, char status, Product produto, Compra compra, int id) {
+        super(id);
         this.quantidadeProduto = quantidadeProduto;
         this.valorUnitarioProduto = valorUnitarioProduto;
         this.status = status;
         this.produto = produto;
-        this.historicosMovimentacoes = new ArrayList();
         this.compra = compra;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
     public float getQuantidadeProduto() {
         return quantidadeProduto;
     }
@@ -64,20 +49,16 @@ public class ItemCompra {
         this.status = status;
     }
 
-    public Produto getProduto() {
+    public Product getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(Product produto) {
         this.produto = produto;
     }
 
-    public ArrayList<HistoricoMovimentacao> getHistoricosMovimentacoes() {
+    public ArrayList<HistoricalMovement> getHistoricosMovimentacoes() {
         return historicosMovimentacoes;
-    }
-
-    public void setHistoricosMovimentacoes(ArrayList<HistoricoMovimentacao> historicosMovimentacoes) {
-        this.historicosMovimentacoes = historicosMovimentacoes;
     }
 
     public Compra getCompra() {

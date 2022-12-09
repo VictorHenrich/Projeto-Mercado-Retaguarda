@@ -3,53 +3,32 @@ package models.compras;
 
 import java.util.ArrayList;
 import java.util.Date;
+import models.patterns.BaseModel;
 
 
-public class Pagar {
-    private int id;
+public class Pagar extends BaseModel{
     private Date dataEmissao;
     private String horaEmissao;
     private Date dataVencimento;
     private float valorPaga;
     private char status;
-    private ArrayList<Pagamento> pagamentos;
+    private final ArrayList<Pagamento> pagamentos = new ArrayList();
     private Compra compra;
 
-    public Pagar(
-        int id, 
-        Date dataEmissao, 
-        String horaEmissao, 
-        Date dataVencimento, 
-        float valorPaga, 
-        char status, 
-        Compra compra
-    ) {
-        this.id = id;
+    public Pagar(Date dataEmissao, String horaEmissao, Date dataVencimento, float valorPaga, char status, Compra compra, int id) {
+        super(id);
         this.dataEmissao = dataEmissao;
         this.horaEmissao = horaEmissao;
         this.dataVencimento = dataVencimento;
         this.valorPaga = valorPaga;
         this.status = status;
         this.compra = compra;
-        this.pagamentos = new ArrayList();
     }
+
+    
 
     public ArrayList<Pagamento> getPagamentos() {
         return pagamentos;
-    }
-
-    public void setPagamentos(ArrayList<Pagamento> pagamentos) {
-        this.pagamentos = pagamentos;
-    }
-    
-    
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Date getDataEmissao() {

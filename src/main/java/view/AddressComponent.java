@@ -1,60 +1,56 @@
 
 package view;
 
+import controllers.builders.enderecos.AddressBuilder;
+import controllers.builders.enderecos.CityBuilder;
+import controllers.enderecos.CRUDAddressController;
 import java.util.ArrayList;
-import javax.swing.JComponent;
-import models.enderecos.Bairro;
-import models.enderecos.Cidade;
-import models.enderecos.Endereco;
-import controllers.enderecos.EnderecosCrudController;
 import view.utils.UtilsComponents;
+import controllers.enderecos.CRUDCityController;
+import java.util.AbstractList;
+import models.enderecos.City;
+import javax.swing.JComponent;
+import models.enderecos.Address;
+import models.enderecos.City;
+import models.enderecos.District;
 
 
 public class AddressComponent extends javax.swing.JFrame {
     
-    private Endereco newAddress(){
+    private AddressBuilder newAddress(){
+        District district = this.districts.get(this.jComboBoxDistrict.getSelectedIndex());
+        City city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
         
-        int id = this.controller.proximoId();
-        
-        String street = jTextFieldStreet.getText();
-        String cep = jTextFieldCep.getText();
-        Bairro district = this.districts.get(this.jComboBoxDistrict.getSelectedIndex());
-        Cidade city = this.cities.get(this.jComboBoxCity.getSelectedIndex());
-        
-        return new Endereco(
-            id,
-            street, 
-            cep, 
-            city, 
-            district
-        );
+        return this
+                .controller
+                .newModelBuilder()
+                .setBairro(district)
+                .setCidade(city)
+                .setCep(jTextFieldCep.getText())
+                .setLogradouro(jTextFieldStreet.getText());
     }
     
     private void addAddress(){
-        Endereco address = this.newAddress();
+        AddressBuilder address = this.newAddress();
         
-        this.controller.cadastrar(address);
-        
-        System.out.println("ENDEREÇO CADASTRADO COM SUCESSO!");
+        this.controller.create(address);
     }
     
     private void changeAddress(){
         if(this.addressLoaded == null)
             return;
                     
-        Endereco address = this.newAddress();
+        AddressBuilder address = this.newAddress();
         
-        controller.alterar(this.addressLoaded, address);
-        
-        System.out.println("ENDEREÇO ALTERADO COM SUCESSO!");
+        controller.update(this.addressLoaded.getId(), address);
     }
     
     private void loadFields(){
-        for(Cidade city: this.cities){
+        for(City city: this.cities){
             this.jComboBoxCity.addItem(city.getDescricao());
         }
         
-        for(Bairro district: this.districts){
+        for(District district: this.districts){
             this.jComboBoxDistrict.addItem(district.getDescricao());
         }
     }
@@ -88,39 +84,11 @@ public class AddressComponent extends javax.swing.JFrame {
         this.jComboBoxDistrict.setSelectedItem(null);
     }
     
-    
-    public AddressComponent() {
-        
-        this.controller = new EnderecosCrudController();
-        
-        this.cities = new ArrayList();
-        this.districts = new ArrayList();
-        
-        this.cities.add(new Cidade(1, "Cidade 1"));
-        this.cities.add(new Cidade(1, "Cidade 2"));
-        
-        this.districts.add(new Bairro(1, "Bairro 1"));
-        this.districts.add(new Bairro(2, "Bairro 2"));
-        
-        initComponents();
-        loadFields();
-    }
-    
-    public AddressComponent(
-       EnderecosCrudController controller,
-       ArrayList<Cidade> cities,
-       ArrayList<Bairro> districts,
-       Endereco addressLoaded
-    ){
-        this.controller = controller;
-        this.cities = cities;
-        this.districts = districts;
-        this.addressLoaded = addressLoaded;
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanelHeader = new javax.swing.JPanel();
         jLabelTitle = new javax.swing.JLabel();
@@ -131,10 +99,11 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonCancel = new javax.swing.JButton();
         jButtonOut = new javax.swing.JButton();
         jPanelBody = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabelStreet = new javax.swing.JLabel();
         jTextFieldStreet = new javax.swing.JTextField();
-        jLabelCep = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JTextField();
+        jLabelCEP = new javax.swing.JLabel();
         jLabelDistrict = new javax.swing.JLabel();
         jComboBoxDistrict = new javax.swing.JComboBox<>();
         jLabelCity = new javax.swing.JLabel();
@@ -157,7 +126,6 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
         jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\add.png")); // NOI18N
         jButtonNew.setText("Novo");
         jButtonNew.setToolTipText("Novo");
         jButtonNew.setBorder(null);
@@ -175,7 +143,6 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
         jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonChange.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\edit.png")); // NOI18N
         jButtonChange.setText("Alterar");
         jButtonChange.setBorder(null);
         jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -193,7 +160,6 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
         jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonWrite.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\save.png")); // NOI18N
         jButtonWrite.setText("Gravar");
         jButtonWrite.setBorder(null);
         jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -211,7 +177,6 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
         jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonCancel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\cancel.png")); // NOI18N
         jButtonCancel.setText("Cancelar");
         jButtonCancel.setBorder(null);
         jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -229,7 +194,6 @@ public class AddressComponent extends javax.swing.JFrame {
         jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
         jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonOut.setIcon(new javax.swing.ImageIcon("C:\\Users\\Victor Henrich\\Downloads\\logout.png")); // NOI18N
         jButtonOut.setText("Sair");
         jButtonOut.setBorder(null);
         jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,96 +208,126 @@ public class AddressComponent extends javax.swing.JFrame {
         jPanelFooter.add(jButtonOut);
 
         jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
-        jPanelBody.setForeground(new java.awt.Color(153, 153, 153));
+        jPanelBody.setForeground(new java.awt.Color(80, 80, 80));
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
         jLabelStreet.setText("Logradouro:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 6, 0, 0);
+        jPanel1.add(jLabelStreet, gridBagConstraints);
 
         jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldStreet.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldStreet.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextFieldStreet.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         jTextFieldStreet.setEnabled(false);
-        jTextFieldStreet.setPreferredSize(new java.awt.Dimension(200, 25));
-
-        jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelCep.setText("CEP:");
+        jTextFieldStreet.setPreferredSize(new java.awt.Dimension(300, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 236;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(19, 67, 0, 118);
+        jPanel1.add(jTextFieldStreet, gridBagConstraints);
 
         jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldCep.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
         jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldCep.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextFieldCep.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         jTextFieldCep.setEnabled(false);
-        jTextFieldCep.setPreferredSize(new java.awt.Dimension(200, 25));
+        jTextFieldCep.setPreferredSize(new java.awt.Dimension(300, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 236;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 67, 0, 118);
+        jPanel1.add(jTextFieldCep, gridBagConstraints);
+
+        jLabelCEP.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelCEP.setForeground(new java.awt.Color(190, 190, 190));
+        jLabelCEP.setText("CEP:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 6, 0, 0);
+        jPanel1.add(jLabelCEP, gridBagConstraints);
 
         jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
         jLabelDistrict.setText("Bairro:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 6, 0, 0);
+        jPanel1.add(jLabelDistrict, gridBagConstraints);
 
-        jComboBoxDistrict.setBackground(new java.awt.Color(50, 50, 50));
-        jComboBoxDistrict.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBoxDistrict.setForeground(new java.awt.Color(190, 190, 190));
+        jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxDistrict.setBorder(new javax.swing.border.MatteBorder(null));
-        jComboBoxDistrict.setEnabled(false);
-        jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(200, 25));
-        jComboBoxDistrict.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxDistrictItemStateChanged(evt);
-            }
-        });
+        jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 228;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 67, 0, 118);
+        jPanel1.add(jComboBoxDistrict, gridBagConstraints);
 
         jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
         jLabelCity.setText("Cidade:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(34, 6, 0, 0);
+        jPanel1.add(jLabelCity, gridBagConstraints);
 
-        jComboBoxCity.setBackground(new java.awt.Color(50, 50, 50));
-        jComboBoxCity.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBoxCity.setForeground(new java.awt.Color(190, 190, 190));
+        jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxCity.setBorder(new javax.swing.border.MatteBorder(null));
-        jComboBoxCity.setEnabled(false);
-        jComboBoxCity.setPreferredSize(new java.awt.Dimension(200, 25));
+        jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 228;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 67, 75, 118);
+        jPanel1.add(jComboBoxCity, gridBagConstraints);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelStreet)
-                    .addComponent(jLabelCep)
-                    .addComponent(jLabelDistrict)
-                    .addComponent(jLabelCity))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldStreet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxDistrict, 0, 300, Short.MAX_VALUE)
-                    .addComponent(jComboBoxCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelStreet)
-                    .addComponent(jTextFieldStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCep)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDistrict)
-                    .addComponent(jComboBoxDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCity)
-                    .addComponent(jComboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,7 +335,7 @@ public class AddressComponent extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+            .addComponent(jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -367,12 +361,12 @@ public class AddressComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOutActionPerformed
+
         this.clearStates();
         this.dispose();
     }//GEN-LAST:event_jButtonOutActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        this.activateButtons(true);
         this.activateFields(true);
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
@@ -386,22 +380,36 @@ public class AddressComponent extends javax.swing.JFrame {
         this.clearStates();
     }//GEN-LAST:event_jButtonWriteActionPerformed
 
-    private void jComboBoxDistrictItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxDistrictItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxDistrictItemStateChanged
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddressComponent().setVisible(true);
-            }
-        });
+    public AddressComponent(
+       CRUDAddressController controller,
+       AbstractList<City> cities,
+       AbstractList<District> districts,
+       Address addressLoaded
+    ){
+        this.controller = controller;
+        this.cities = cities;
+        this.districts = districts;
+        this.addressLoaded = addressLoaded;
+        
+        this.loadFields();
     }
     
-    private ArrayList<Cidade> cities;
-    private ArrayList<Bairro> districts;
-    private Endereco addressLoaded;
-    private EnderecosCrudController controller;
+    public AddressComponent(){
+        this.controller = null;
+        this.addressLoaded = null;
+        this.cities = new ArrayList();
+        this.districts = new ArrayList();
+    }
+    
+    public static void main(String[] args){
+        
+        new AddressComponent().setVisible(true);
+    }
+    
+    private final AbstractList<City> cities;
+    private final AbstractList<District> districts;
+    private final Address addressLoaded;
+    private final CRUDAddressController controller;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
@@ -411,11 +419,12 @@ public class AddressComponent extends javax.swing.JFrame {
     private javax.swing.JButton jButtonWrite;
     private javax.swing.JComboBox<String> jComboBoxCity;
     private javax.swing.JComboBox<String> jComboBoxDistrict;
-    private javax.swing.JLabel jLabelCep;
+    private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelCity;
     private javax.swing.JLabel jLabelDistrict;
     private javax.swing.JLabel jLabelStreet;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JPanel jPanelHeader;

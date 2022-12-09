@@ -4,43 +4,41 @@ package models.vendas;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import models.pessoas.Cliente;
-import models.pessoas.Colaborador;
+import models.pessoas.Client;
+import models.pessoas.Collaborator;
+import models.patterns.BaseModel;
 
 
-public class CupomFiscal {
-    private UUID id;
+public class CupomFiscal extends BaseModel{
+    private final UUID uuid;
     private Date dataVenda;
     private String horaVenda;
     private float valorDesconto;
     private float valorAcrescimo;
     private float totalCupom;
     private char status;
-    private ArrayList<ItensCupomFiscal> itensCupom;
-    private Cliente cliente;
-    private Colaborador colaborador;
+    private final ArrayList<ItemCupomFiscal> itensCupom = new ArrayList();
+    private Client cliente;
+    private Collaborator colaborador;
 
-    public CupomFiscal(UUID id, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Cliente cliente, Colaborador colaborador) {
-        this.id = id;
+    public CupomFiscal(UUID uuid, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Client cliente, Collaborator colaborador, int id) {
+        super(id);
+        this.uuid = uuid;
         this.dataVenda = dataVenda;
         this.horaVenda = horaVenda;
         this.valorDesconto = valorDesconto;
         this.valorAcrescimo = valorAcrescimo;
         this.totalCupom = totalCupom;
         this.status = status;
-        this.itensCupom = new ArrayList();
         this.cliente = cliente;
         this.colaborador = colaborador;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
+    
     public Date getDataVenda() {
         return dataVenda;
     }
@@ -89,27 +87,23 @@ public class CupomFiscal {
         this.status = status;
     }
 
-    public ArrayList<ItensCupomFiscal> getItensCupom() {
+    public ArrayList<ItemCupomFiscal> getItensCupom() {
         return itensCupom;
     }
 
-    public void setItensCupom(ArrayList<ItensCupomFiscal> itensCupom) {
-        this.itensCupom = itensCupom;
-    }
-
-    public Cliente getCliente() {
+    public Client getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Client cliente) {
         this.cliente = cliente;
     }
 
-    public Colaborador getColaborador() {
+    public Collaborator getColaborador() {
         return colaborador;
     }
 
-    public void setColaborador(Colaborador colaborador) {
+    public void setColaborador(Collaborator colaborador) {
         this.colaborador = colaborador;
     }
     

@@ -188,7 +188,7 @@ public class MainComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
 
     private void jCheckBoxMenuItemAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAddressActionPerformed
-        AddressComponent addressComponent = new AddressComponent(
+        AddressFormComponent addressComponent = new AddressFormComponent(
                 this.crudAddressController, 
                 this.crudCityController.fetch(), 
                 this.crudDistrictController.fetch(), 

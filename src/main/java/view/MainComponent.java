@@ -164,7 +164,7 @@ public class MainComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItemCollaboratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCollaboratorActionPerformed
-        CollaboratorComponent collaboradorComponent = new CollaboratorComponent();
+        CollaboratorFormComponent collaboradorComponent = new CollaboratorFormComponent();
         
         collaboradorComponent.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItemCollaboratorActionPerformed

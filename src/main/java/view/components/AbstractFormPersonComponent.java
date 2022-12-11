@@ -21,7 +21,6 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     protected javax.swing.JTextArea jTextAreaObs;
     protected javax.swing.JComboBox<String> jComboBoxStatus;
     protected javax.swing.JTextField jTextFieldStreet;
-    protected javax.swing.JComboBox<Address> jComboBoxAdress;
     protected javax.swing.JComboBox<City> jComboBoxCity;
     protected javax.swing.JComboBox<District> jComboBoxDistrict;
     protected javax.swing.JTextField jTextFieldCity;
@@ -36,26 +35,11 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     protected javax.swing.JLabel jLabelEmail;
     protected javax.swing.JLabel jLabelName;
     protected javax.swing.JLabel jLabelObs;
-
-    
-    public void populateFieldsWhenSelectCity(){
-        City city = (City) this.jComboBoxCity.getSelectedItem();
-        
-        if(!city.getEnderecos().isEmpty()){
-            this.jComboBoxAdress.removeAllItems();
-            
-            for(Address adress: city.getEnderecos())
-                this.jComboBoxAdress.addItem(adress);
-        }
-    }
     
     public void activateFieldsPerson(boolean status){
         ArrayList<JComponent> fields = new ArrayList();
         
-        System.out.println("aaaaaaaaaaaa" + this.jComboBoxAdress);
-        
         fields.add(this.jComboBoxCity);
-        fields.add(this.jComboBoxAdress);
         fields.add(this.jComboBoxDistrict);
         fields.add(this.jComboBoxStatus);
         fields.add(this.jTextAreaObs);

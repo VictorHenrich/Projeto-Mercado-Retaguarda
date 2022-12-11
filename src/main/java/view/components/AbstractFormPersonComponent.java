@@ -52,6 +52,8 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     public void activateFieldsPerson(boolean status){
         ArrayList<JComponent> fields = new ArrayList();
         
+        System.out.println("aaaaaaaaaaaa" + this.jComboBoxAdress);
+        
         fields.add(this.jComboBoxCity);
         fields.add(this.jComboBoxAdress);
         fields.add(this.jComboBoxDistrict);

@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import view.components.AbstractFormPersonComponent;
+import models.enderecos.City;
+import models.enderecos.District;
+import models.enderecos.Address;
 
 
 public class CollaboratorFormComponent extends AbstractFormPersonComponent {
@@ -48,9 +51,9 @@ public class CollaboratorFormComponent extends AbstractFormPersonComponent {
         this.jLabelStreet = new javax.swing.JLabel();
         this.jTextFieldStreet = new javax.swing.JTextField();
         this.jLabelCity = new javax.swing.JLabel();
-        this.jComboBoxCity = new javax.swing.JComboBox<>();
+        this.jComboBoxCity = new javax.swing.JComboBox<City>();
         this.jLabelDistrict = new javax.swing.JLabel();
-        this.jComboBoxDistrict = new javax.swing.JComboBox<>();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<District>();
         jPanelContainerStatus = new javax.swing.JPanel();
         this.jLabelStatus = new javax.swing.JLabel();
 

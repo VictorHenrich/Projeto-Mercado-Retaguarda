@@ -4,9 +4,6 @@ package controllers.pessoas;
 import controllers.builders.pessoa.CollaboratorBuilder;
 import controllers.patterns.AbstractFormPersonController;
 import java.util.ArrayList;
-import models.enderecos.Address;
-import models.enderecos.City;
-import models.enderecos.District;
 import models.pessoas.Collaborator;
 import repositories.pessoas.CollaboratorRepository;
 import view.CollaboratorFormComponent;
@@ -18,10 +15,10 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     private final CollaboratorRepository collaboratorRepository;
     private Collaborator collaboratorLoaded = null;
     
-    public CollaboratorFormController(CollaboratorFormComponent form, ArrayList<City> cities, ArrayList<District> districts, ArrayList<Address> addresses) {
-        super(form, cities, districts, addresses);
+    public CollaboratorFormController(CollaboratorFormComponent form) {
+        super(form);
         
-        this.collaboratorRepository = new CollaboratorRepository(this.registers);
+        this.collaboratorRepository = new CollaboratorRepository();
     }
     
     private CollaboratorBuilder newCollaboratorBuilder(){
@@ -53,10 +50,12 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
         
         UtilsComponents.disabledComponents(fields, false);
         UtilsComponents.clearFields(textFields);
+        
+        this.form.getjLabelStatus().setText(" ");
     }
 
     @Override
-    protected void initStates() {
+    protected void onClickButtonNew() {
         this.form.activateFieldsPerson(true);
         
         ArrayList<javax.swing.JComponent> fields =  new ArrayList();
@@ -75,7 +74,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     }
 
     @Override
-    protected void create() {
+    protected void onClickButtonCreate() {
        try{
            int id = this.collaboratorRepository.nextID();
            
@@ -92,7 +91,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     }
 
     @Override
-    protected void update() {
+    protected void onClickButtonUpdate() {
         try{
             Collaborator collaborator = this.newCollaboratorBuilder().build(this.collaboratorLoaded.getId());
             

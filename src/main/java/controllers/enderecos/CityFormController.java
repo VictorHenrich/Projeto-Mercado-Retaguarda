@@ -15,7 +15,7 @@ public class CityFormController extends AbstractFormController<CityFormComponent
     public CityFormController(CityFormComponent form) {
         super(form);
         
-        this.repositoty = new CityRepository(this.registers);
+        this.repositoty = new CityRepository();
     }
     
     private CityBuilder newCityBuilder(){
@@ -31,12 +31,12 @@ public class CityFormController extends AbstractFormController<CityFormComponent
     }
 
     @Override
-    protected void initStates() {
+    protected void onClickButtonNew() {
         this.form.getjTextFieldDescription().setEnabled(true);
     }
 
     @Override
-    protected void create() {
+    protected void onClickButtonCreate() {
         try{
             
             int id = this.repositoty.nextID();
@@ -53,7 +53,7 @@ public class CityFormController extends AbstractFormController<CityFormComponent
     }
 
     @Override
-    protected void update() {
+    protected void onClickButtonUpdate() {
         try{
             
             int id = this.registerLoaded.getId();

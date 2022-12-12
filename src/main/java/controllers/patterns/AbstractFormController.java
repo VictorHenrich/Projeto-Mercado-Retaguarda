@@ -2,19 +2,16 @@
 package controllers.patterns;
 
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import models.patterns.BaseModel;
 import view.components.AbstractFormComponent;
 
 
 public abstract class AbstractFormController<T extends AbstractFormComponent, M extends BaseModel>{
     protected final T form;
-    protected final ArrayList<M> registers;
     protected M registerLoaded;
 
     public AbstractFormController(T form) {
         this.form = form;
-        this.registers = new ArrayList();
         
         this.addListeners();
         this.form.setVisible(true);
@@ -27,7 +24,7 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 form.activateButtons(true);
                 
-                initStates();
+                onClickButtonNew();
             }
         });
         
@@ -37,9 +34,9 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
                 form.activateButtons(false);
                    
                 if(registerLoaded != null)
-                    update();
+                    onClickButtonUpdate();
                 else
-                    create();
+                    onClickButtonCreate();
                 
                 resetStates();
             }
@@ -49,6 +46,8 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
             @Override
             public void actionPerformed(ActionEvent e) {
                 form.activateButtons(true);
+                
+                onClickButtonCreate();
             }
         });
         
@@ -77,11 +76,10 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
     
     abstract protected void resetStates();
     
-    abstract protected void initStates();
+    abstract protected void onClickButtonNew();
     
-    abstract protected void create();
+    abstract protected void onClickButtonCreate();
     
-    abstract protected void update();
-   
+    abstract protected void onClickButtonUpdate();
     
 }

@@ -1,13 +1,13 @@
 
 package repositories.pessoas;
-import java.util.ArrayList;
+import data.DatabaseData;
 import repositories.patterns.BaseRepository;
 import models.pessoas.Collaborator;
 
 public class CollaboratorRepository extends BaseRepository<Collaborator>{
     
-    public CollaboratorRepository(ArrayList<Collaborator> data) {
-        super(data);
+    public CollaboratorRepository() {
+        super(DatabaseData.collaborators);
     }
     
 }

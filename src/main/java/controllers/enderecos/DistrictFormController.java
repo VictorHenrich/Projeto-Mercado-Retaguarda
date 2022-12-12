@@ -16,7 +16,7 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
     public DistrictFormController(DistrictFormComponent form) {
         super(form);
         
-        this.repository = new DistrictRepository(this.registers);
+        this.repository = new DistrictRepository();
     }
     
     private DistrictBuilder newDistrictBuilder(){
@@ -32,12 +32,12 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
     }
     
     @Override
-    protected void initStates() {
+    protected void onClickButtonNew() {
        this.form.getjTextFieldDescription().setEnabled(true);
     }
     
     @Override
-    protected void create(){
+    protected void onClickButtonCreate(){
         try {
             int id = this.repository.nextID();
             
@@ -55,7 +55,7 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
     }
 
     @Override
-    protected void update() {
+    protected void onClickButtonUpdate() {
         try {
             int id = this.registerLoaded.getId();
             

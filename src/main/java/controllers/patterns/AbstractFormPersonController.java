@@ -20,18 +20,13 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
     private final AddressRepository addressRepository;
     protected Address addressLocated = null;
     
-    public AbstractFormPersonController(
-            T form,
-            ArrayList<City> cities,
-            ArrayList<District> districts,
-            ArrayList<Address> addresses
-    ) {
+    public AbstractFormPersonController(T form) {
         super(form);
         
         
-        this.cityRepository = new CityRepository(cities);
-        this.districtRepository = new DistrictRepository(districts);
-        this.addressRepository = new AddressRepository(addresses);
+        this.cityRepository = new CityRepository();
+        this.districtRepository = new DistrictRepository();
+        this.addressRepository = new AddressRepository();
         
         this.initComponentPerson();
     }

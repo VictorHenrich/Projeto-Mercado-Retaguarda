@@ -18,16 +18,12 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     private final CityRepository cityRepository;
     private final DistrictRepository districtRepository;
     
-    public AddressFormController(
-            AddressFormComponent form,
-            ArrayList<City> cities,
-            ArrayList<District> districts
-    ) {
+    public AddressFormController(AddressFormComponent form) {
         super(form);
         
-        this.addressRepository = new AddressRepository(this.registers);
-        this.cityRepository = new CityRepository(cities);
-        this.districtRepository = new DistrictRepository(districts);
+        this.addressRepository = new AddressRepository();
+        this.cityRepository = new CityRepository();
+        this.districtRepository = new DistrictRepository();
     }
     
     private AddressBuilder newAddressBuilder(){
@@ -58,7 +54,7 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     }
 
     @Override
-    protected void initStates() {
+    protected void onClickButtonNew() {
         for(District d: this.districtRepository.fetch())
            this.form.getjComboBoxDistrict().addItem(d.getDescricao());
         
@@ -75,7 +71,7 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     }
 
     @Override
-    protected void create() {
+    protected void onClickButtonCreate() {
         try{
             int id = this.addressRepository.nextID();
             
@@ -91,7 +87,7 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     }
 
     @Override
-    protected void update() {
+    protected void onClickButtonUpdate() {
         try{
             int id = this.registerLoaded.getId();
             

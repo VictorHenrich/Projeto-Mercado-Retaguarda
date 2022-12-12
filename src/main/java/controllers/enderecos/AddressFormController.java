@@ -3,7 +3,6 @@ package controllers.enderecos;
 
 import controllers.builders.enderecos.AddressBuilder;
 import controllers.patterns.AbstractFormController;
-import java.util.ArrayList;
 import models.enderecos.Address;
 import models.enderecos.City;
 import models.enderecos.District;
@@ -14,22 +13,20 @@ import view.AddressFormComponent;
 
 
 public class AddressFormController extends AbstractFormController<AddressFormComponent, Address>{
-    private final AddressRepository addressRepository;
-    private final CityRepository cityRepository;
-    private final DistrictRepository districtRepository;
+    private final AddressRepository addressRepository = new AddressRepository();
     
     public AddressFormController(AddressFormComponent form) {
         super(form);
-        
-        this.addressRepository = new AddressRepository();
-        this.cityRepository = new CityRepository();
-        this.districtRepository = new DistrictRepository();
     }
     
     private AddressBuilder newAddressBuilder(){
-        City city = this.cityRepository.load(this.form.getjComboBoxCity().getSelectedIndex());
         
-        District district = this.districtRepository.load(this.form.getjComboBoxDistrict().getSelectedIndex());
+        DistrictRepository districtRepository = new DistrictRepository();
+        CityRepository cityRepository = new CityRepository();
+        
+        City city = cityRepository.load(this.form.getjComboBoxCity().getSelectedIndex());
+        
+        District district = districtRepository.load(this.form.getjComboBoxDistrict().getSelectedIndex());
         
         return new AddressBuilder()
                     .setLogradouro(this.form.getjTextFieldStreet().getText())
@@ -52,15 +49,21 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         this.form.getjComboBoxDistrict().setSelectedIndex(-1);
         this.form.getjComboBoxDistrict().setEnabled(false);
     }
+    
+    @Override
+    protected void initStates() {
+        DistrictRepository districtRepository = new DistrictRepository();
+        CityRepository cityRepository = new CityRepository();
+        
+        for(District d: districtRepository.fetch())
+           this.form.getjComboBoxDistrict().addItem(d.getDescricao());
+        
+        for(City c: cityRepository.fetch())
+            this.form.getjComboBoxCity().addItem(c.getDescricao());
+    }
 
     @Override
     protected void onClickButtonNew() {
-        for(District d: this.districtRepository.fetch())
-           this.form.getjComboBoxDistrict().addItem(d.getDescricao());
-        
-        for(City c: this.cityRepository.fetch())
-            this.form.getjComboBoxCity().addItem(c.getDescricao());
-        
         this.form.getjTextFieldCep().setEnabled(true);
         
         this.form.getjTextFieldStreet().setEnabled(true);

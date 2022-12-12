@@ -67,5 +67,10 @@ public class CityFormController extends AbstractFormController<CityFormComponent
             System.out.println("Falha ao cadastrar Cidade\nErro: " + error.getMessage());
         }
     }
+
+    @Override
+    protected void initStates() {
+        
+    }
     
 }

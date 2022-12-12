@@ -14,9 +14,9 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
         this.form = form;
         
         this.addListeners();
-        this.form.setVisible(true);
+        this.initStates();
         
-        this.resetStates();
+        this.form.setVisible(true);
     }
     
     private void addListeners(){
@@ -73,6 +73,8 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
         });
         
     }
+    
+    abstract protected void initStates();
     
     abstract protected void resetStates();
     

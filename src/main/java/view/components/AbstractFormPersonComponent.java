@@ -7,7 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import models.enderecos.Address;
+import javax.swing.text.JTextComponent;
 import models.enderecos.City;
 import models.enderecos.District;
 import view.utils.UtilsComponents;
@@ -19,11 +19,9 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     protected javax.swing.JTextField jTextFieldPhone2;
     protected javax.swing.JTextField jTextFieldEmail;
     protected javax.swing.JTextArea jTextAreaObs;
-    protected javax.swing.JComboBox<String> jComboBoxStatus;
     protected javax.swing.JTextField jTextFieldStreet;
     protected javax.swing.JComboBox<City> jComboBoxCity;
     protected javax.swing.JComboBox<District> jComboBoxDistrict;
-    protected javax.swing.JTextField jTextFieldCity;
     protected javax.swing.JTextField jTextFieldCep;
     protected javax.swing.JLabel jLabelStatus;
     protected javax.swing.JLabel jLabelPhone1;
@@ -38,23 +36,31 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     
     public void activateFieldsPerson(boolean status){
         ArrayList<JComponent> fields = new ArrayList();
+        ArrayList<JTextComponent> textFields = new ArrayList();
         
         fields.add(this.jComboBoxCity);
         fields.add(this.jComboBoxDistrict);
-        fields.add(this.jComboBoxStatus);
         fields.add(this.jTextAreaObs);
         fields.add(this.jTextFieldCep);
-        fields.add(this.jTextFieldCity);
         fields.add(this.jTextFieldEmail);
         fields.add(this.jTextFieldName);
         fields.add(this.jTextFieldPhone1);
         fields.add(this.jTextFieldPhone2);
         fields.add(this.jTextFieldStreet);
         
-        UtilsComponents.disabledComponents(fields, !status);
+        textFields.add(this.jTextFieldCep);
+        textFields.add(this.jTextFieldEmail);
+        textFields.add(this.jTextFieldName);
+        textFields.add(this.jTextFieldPhone1);
+        textFields.add(this.jTextFieldPhone2);
+        textFields.add(this.jTextAreaObs);
+        textFields.add(this.jTextFieldStreet);
+        
+        UtilsComponents.disabledComponents(fields, status);
+        UtilsComponents.clearFields(textFields);
     }
 
-    public JComboBox<City> getjComboBoxACity() {
+    public JComboBox<City> getjComboBoxCity() {
         return jComboBoxCity;
     }
 
@@ -119,20 +125,8 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
         return jTextAreaObs;
     }
 
-    public JComboBox<String> getjComboBoxStatus() {
-        return jComboBoxStatus;
-    }
-
     public JTextField getjTextFieldStreet() {
         return jTextFieldStreet;
-    }
-
-    public JComboBox<Address> getjComboBoxAdress() {
-        return jComboBoxAdress;
-    }
-
-    public JTextField getjTextFieldCity() {
-        return jTextFieldCity;
     }
 
     public JTextField getjTextFieldCep() {

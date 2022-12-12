@@ -20,6 +20,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
                                     .setCpf(this.form.getjTextFieldCpf().getText())
                                     .setContato(this.form.getjTextFieldContact().getText())
                                     .setInscricaoEstadual(this.form.getjTextFieldIe().getText())
+                                    .setRazaoSocial(this.form.getjTextFieldSocialReason().getText())
                                     .setEmail(this.form.getjTextFieldEmail().getText())
                                     .setNome(this.form.getjTextFieldName().getText())
                                     .setStatus('A')

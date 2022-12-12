@@ -1,15 +1,15 @@
 
-import controllers.enderecos.AddressFormController;
-import view.AddressFormComponent;
+import controllers.pessoas.SupplierFormController;
+import view.SupplierFormComponent;
 
 
 
 public class main {
 
     public static void main(String[] args) {
-         AddressFormComponent form = new AddressFormComponent();
+         SupplierFormComponent form = new SupplierFormComponent();
         
-        AddressFormController controller = new AddressFormController(form);
+        SupplierFormController controller = new SupplierFormController(form);
     }
     
 }

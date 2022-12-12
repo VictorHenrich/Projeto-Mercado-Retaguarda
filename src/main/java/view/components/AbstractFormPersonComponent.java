@@ -33,6 +33,7 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     protected javax.swing.JLabel jLabelEmail;
     protected javax.swing.JLabel jLabelName;
     protected javax.swing.JLabel jLabelObs;
+    protected javax.swing.JPanel jPanelContainerStatus;
     
     public void activateFieldsPerson(boolean status){
         ArrayList<JComponent> fields = new ArrayList();
@@ -58,6 +59,10 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
         
         UtilsComponents.disabledComponents(fields, status);
         UtilsComponents.clearFields(textFields);
+    }
+
+    public javax.swing.JPanel getjPanelContainerStatus(){
+        return jPanelContainerStatus;
     }
 
     public JComboBox<City> getjComboBoxCity() {

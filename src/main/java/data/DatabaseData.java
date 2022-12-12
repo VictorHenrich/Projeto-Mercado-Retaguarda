@@ -7,6 +7,7 @@ import models.enderecos.City;
 import models.enderecos.District;
 import models.pessoas.Client;
 import models.pessoas.Collaborator;
+import models.pessoas.Supplier;
 
 
 public class DatabaseData {
@@ -19,4 +20,6 @@ public class DatabaseData {
     public static final ArrayList<Collaborator> collaborators = new ArrayList();
     
     public static final ArrayList<Client> clients = new ArrayList();
+    
+    public static final ArrayList<Supplier> suppliers = new ArrayList();
 }

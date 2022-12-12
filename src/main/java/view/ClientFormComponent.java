@@ -40,8 +40,8 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaObs = new javax.swing.JTextArea();
         jTextFieldUser = new javax.swing.JTextField();
-        jLabelPassword = new javax.swing.JLabel();
-        jTextFieldPassword = new javax.swing.JTextField();
+        jLabelRg = new javax.swing.JLabel();
+        jTextFieldRg = new javax.swing.JTextField();
         jLabelCep = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JTextField();
         jLabelStreet = new javax.swing.JLabel();
@@ -52,9 +52,9 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jComboBoxDistrict = new javax.swing.JComboBox<>();
         jPanelContainerStatus = new javax.swing.JPanel();
         jLabelStatus = new javax.swing.JLabel();
-        jLabelUser1 = new javax.swing.JLabel();
-        jTextFieldUser1 = new javax.swing.JTextField();
-        jComboBoxSex = new javax.swing.JComboBox<>();
+        jLabelCpf = new javax.swing.JLabel();
+        jTextFieldCpf = new javax.swing.JTextField();
+        jComboSex = new javax.swing.JComboBox<>();
         jLabelSex = new javax.swing.JLabel();
         jLabelDateBirth = new javax.swing.JLabel();
         jTextFieldDateBirth = new javax.swing.JTextField();
@@ -83,6 +83,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jButtonNew.setFocusPainted(false);
         jButtonNew.setFocusable(false);
         jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewActionPerformed(evt);
+            }
+        });
         jPanelFooter.add(jButtonNew);
 
         jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
@@ -95,6 +100,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jButtonChange.setFocusPainted(false);
         jButtonChange.setFocusable(false);
         jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangeActionPerformed(evt);
+            }
+        });
         jPanelFooter.add(jButtonChange);
 
         jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
@@ -107,6 +117,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jButtonWrite.setFocusPainted(false);
         jButtonWrite.setFocusable(false);
         jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButtonWrite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWriteActionPerformed(evt);
+            }
+        });
         jPanelFooter.add(jButtonWrite);
 
         jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
@@ -119,6 +134,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jButtonCancel.setFocusPainted(false);
         jButtonCancel.setFocusable(false);
         jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
         jPanelFooter.add(jButtonCancel);
 
         jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
@@ -130,6 +150,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jButtonOut.setFocusPainted(false);
         jButtonOut.setFocusable(false);
         jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
+        jButtonOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOutActionPerformed(evt);
+            }
+        });
         jPanelFooter.add(jButtonOut);
 
         jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
@@ -197,16 +222,16 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jTextFieldUser.setEnabled(false);
         jTextFieldUser.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        jLabelPassword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelPassword.setText("RG:");
+        jLabelRg.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelRg.setForeground(new java.awt.Color(190, 190, 190));
+        jLabelRg.setText("RG:");
 
-        jTextFieldPassword.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldPassword.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldPassword.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldPassword.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldPassword.setEnabled(false);
-        jTextFieldPassword.setPreferredSize(new java.awt.Dimension(50, 30));
+        jTextFieldRg.setBackground(new java.awt.Color(50, 50, 50));
+        jTextFieldRg.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldRg.setForeground(new java.awt.Color(190, 190, 190));
+        jTextFieldRg.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldRg.setEnabled(false);
+        jTextFieldRg.setPreferredSize(new java.awt.Dimension(50, 30));
 
         jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
@@ -256,21 +281,21 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         jLabelStatus.setText("STATUS");
         jPanelContainerStatus.add(jLabelStatus);
 
-        jLabelUser1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelUser1.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelUser1.setText("CPF:");
+        jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
+        jLabelCpf.setText("CPF:");
 
-        jTextFieldUser1.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldUser1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldUser1.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldUser1.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldUser1.setEnabled(false);
-        jTextFieldUser1.setPreferredSize(new java.awt.Dimension(50, 30));
+        jTextFieldCpf.setBackground(new java.awt.Color(50, 50, 50));
+        jTextFieldCpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldCpf.setForeground(new java.awt.Color(190, 190, 190));
+        jTextFieldCpf.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldCpf.setEnabled(false);
+        jTextFieldCpf.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        jComboBoxSex.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxSex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxSex.setEnabled(false);
-        jComboBoxSex.setPreferredSize(new java.awt.Dimension(72, 30));
+        jComboSex.setBackground(new java.awt.Color(51, 51, 51));
+        jComboSex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jComboSex.setEnabled(false);
+        jComboSex.setPreferredSize(new java.awt.Dimension(72, 30));
 
         jLabelSex.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelSex.setForeground(new java.awt.Color(190, 190, 190));
@@ -325,7 +350,7 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
                         .addGap(51, 51, 51)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelCep)
-                            .addComponent(jLabelUser1)
+                            .addComponent(jLabelCpf)
                             .addComponent(jLabelSex)
                             .addComponent(jLabelCity))
                         .addGap(18, 18, 18)
@@ -343,7 +368,7 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldStreet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addComponent(jComboBoxSex, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboSex, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabelDateBirth)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -351,11 +376,11 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelPassword)
+                                .addComponent(jLabelRg)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextFieldRg, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(52, 52, 52))
         );
         jPanelBodyLayout.setVerticalGroup(
@@ -384,17 +409,17 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldUser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelUser1))
-                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelCpf))
+                    .addComponent(jTextFieldRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabelPassword)))
+                        .addComponent(jLabelRg)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDateBirth)
                     .addComponent(jTextFieldDateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSex))
                 .addGap(71, 71, 71)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,38 +462,19 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public JLabel getjLabelPassword() {
-        return jLabelPassword;
-    }
-
-    public JLabel getjLabelUser() {
-        return jLabelUser;
-    }
-
-    public JPanel getjPanelContainerStatus() {
-        return jPanelContainerStatus;
-    }
-
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public JTextField getjTextFieldPassword() {
-        return jTextFieldPassword;
-    }
-
-    public JTextField getjTextFieldUser() {
-        return jTextFieldUser;
-    }
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBoxSex;
+    private javax.swing.JComboBox<String> jComboSex;
     private javax.swing.JLabel jLabelSex;
-    private javax.swing.JLabel jLabelDateBirth;
+    private javax.swing.JLabel jLabelRg;
+    private javax.swing.JLabel jLabelCpf;
     private javax.swing.JPanel jPanelContainerStatus;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldDateBirth;
+    private javax.swing.JTextField jTextFieldRg;
+    private javax.swing.JTextField jTextFieldUser;
+    private javax.swing.JTextField jTextFieldCpf;
     // End of variables declaration//GEN-END:variables
 }

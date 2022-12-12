@@ -49,7 +49,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jComboBoxDistrict = new javax.swing.JComboBox<>();
         jPanelContainerStatus = new javax.swing.JPanel();
         this.jLabelStatus = new javax.swing.JLabel();
-        this.jLabelCpf = new javax.swing.JLabel();
+        jLabelCpf = new javax.swing.JLabel();
         jLabelCnpj = new javax.swing.JLabel();
         jTextFieldContact = new javax.swing.JTextField();
         jLabelIE = new javax.swing.JLabel();
@@ -236,9 +236,9 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jLabelStatus.setText("STATUS");
         jPanelContainerStatus.add(this.jLabelStatus);
 
-        this.jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        this.jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
-        this.jLabelCpf.setText("CPF:");
+        jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
+        jLabelCpf.setText("CPF:");
 
         jLabelCnpj.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCnpj.setForeground(new java.awt.Color(190, 190, 190));
@@ -301,7 +301,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                 .addComponent(jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(this.jLabelCpf)
+                                    .addComponent(jLabelCpf)
                                     .addComponent(jLabelIE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +367,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                     .addComponent(this.jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(this.jLabelCpf)
+                    .addComponent(jLabelCpf)
                     .addComponent(jTextFieldCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCnpj)
                     .addComponent(jTextFieldCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -439,7 +439,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
     }
 
     public JLabel getjLabelCpf() {
-        return this.jLabelCpf;
+        return jLabelCpf;
     }
 
     public JLabel getjLabelIE() {
@@ -474,7 +474,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelCnpj;
     private javax.swing.JLabel jLabelContact;
-    private javax.swing.JLabel this.jLabelCpf;
+    private javax.swing.JLabel jLabelCpf;
     private javax.swing.JLabel jLabelIE;
     private javax.swing.JPanel jPanelContainerStatus;
     private javax.swing.JScrollPane jScrollPane1;

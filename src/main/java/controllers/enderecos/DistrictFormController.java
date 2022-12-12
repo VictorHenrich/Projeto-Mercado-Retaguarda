@@ -70,5 +70,10 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
         }
     }
 
+    @Override
+    protected void initStates() {
+        
+    }
+
     
 }

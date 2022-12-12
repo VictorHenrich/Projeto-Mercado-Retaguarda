@@ -1,16 +1,15 @@
 
-import controllers.pessoas.CollaboratorFormController;
-
-import view.CollaboratorFormComponent;
+import controllers.enderecos.AddressFormController;
+import view.AddressFormComponent;
 
 
 
 public class main {
 
     public static void main(String[] args) {
-        CollaboratorFormComponent form = new CollaboratorFormComponent();
+         AddressFormComponent form = new AddressFormComponent();
         
-        CollaboratorFormController controller = new CollaboratorFormController(form);
+        AddressFormController controller = new AddressFormController(form);
     }
     
 }

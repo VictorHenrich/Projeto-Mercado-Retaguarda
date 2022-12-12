@@ -13,7 +13,6 @@ import view.utils.UtilsComponents;
 public class CollaboratorFormController extends AbstractFormPersonController<CollaboratorFormComponent, Collaborator>{
     
     private final CollaboratorRepository collaboratorRepository;
-    private Collaborator collaboratorLoaded = null;
     
     public CollaboratorFormController(CollaboratorFormComponent form) {
         super(form);
@@ -93,15 +92,20 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     @Override
     protected void onClickButtonUpdate() {
         try{
-            Collaborator collaborator = this.newCollaboratorBuilder().build(this.collaboratorLoaded.getId());
+            Collaborator collaborator = this.newCollaboratorBuilder().build(this.registerLoaded.getId());
             
-            this.collaboratorRepository.update(this.collaboratorLoaded.getId(), collaborator);
+            this.collaboratorRepository.update(this.registerLoaded.getId(), collaborator);
             
             System.out.println("Colaborador alterado com sucesso!");
             
         }catch(Exception error){
             System.out.println("Erro ao alterar colaborador!\nErro: " + error.getMessage());
         }
+    }
+
+    @Override
+    protected void initStates() {
+        
     }
     
 }

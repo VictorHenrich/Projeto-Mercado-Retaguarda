@@ -83,11 +83,6 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jButtonNew.setFocusPainted(false);
         this.jButtonNew.setFocusable(false);
         this.jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jButtonNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewActionPerformed(evt);
-            }
-        });
         this.jPanelFooter.add(this.jButtonNew);
 
         this.jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
@@ -100,11 +95,6 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jButtonChange.setFocusPainted(false);
         this.jButtonChange.setFocusable(false);
         this.jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jButtonChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeActionPerformed(evt);
-            }
-        });
         this.jPanelFooter.add(this.jButtonChange);
 
         this.jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
@@ -117,11 +107,6 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jButtonWrite.setFocusPainted(false);
         this.jButtonWrite.setFocusable(false);
         this.jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jButtonWrite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWriteActionPerformed(evt);
-            }
-        });
         this.jPanelFooter.add(this.jButtonWrite);
 
         this.jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
@@ -134,11 +119,6 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jButtonCancel.setFocusPainted(false);
         this.jButtonCancel.setFocusable(false);
         this.jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelActionPerformed(evt);
-            }
-        });
         this.jPanelFooter.add(this.jButtonCancel);
 
         this.jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
@@ -150,11 +130,6 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jButtonOut.setFocusPainted(false);
         this.jButtonOut.setFocusable(false);
         this.jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jButtonOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOutActionPerformed(evt);
-            }
-        });
         this.jPanelFooter.add(this.jButtonOut);
 
         this.jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
@@ -470,6 +445,7 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
     private javax.swing.JLabel jLabelSex;
     private javax.swing.JLabel jLabelRg;
     private javax.swing.JLabel jLabelCpf;
+    private javax.swing.JLabel jLabelDateBirth;
     private javax.swing.JPanel jPanelContainerStatus;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldDateBirth;

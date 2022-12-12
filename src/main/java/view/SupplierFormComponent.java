@@ -82,11 +82,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jButtonNew.setFocusPainted(false);
         jButtonNew.setFocusable(false);
         jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewActionPerformed(evt);
-            }
-        });
         jPanelFooter.add(jButtonNew);
 
         jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
@@ -99,11 +94,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jButtonChange.setFocusPainted(false);
         jButtonChange.setFocusable(false);
         jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeActionPerformed(evt);
-            }
-        });
         jPanelFooter.add(jButtonChange);
 
         jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
@@ -116,11 +106,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jButtonWrite.setFocusPainted(false);
         jButtonWrite.setFocusable(false);
         jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonWrite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWriteActionPerformed(evt);
-            }
-        });
         jPanelFooter.add(jButtonWrite);
 
         jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
@@ -133,11 +118,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jButtonCancel.setFocusPainted(false);
         jButtonCancel.setFocusable(false);
         jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelActionPerformed(evt);
-            }
-        });
         jPanelFooter.add(jButtonCancel);
 
         jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
@@ -149,11 +129,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jButtonOut.setFocusPainted(false);
         jButtonOut.setFocusable(false);
         jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOutActionPerformed(evt);
-            }
-        });
         jPanelFooter.add(jButtonOut);
 
         jPanelBody.setBackground(new java.awt.Color(80, 80, 80));

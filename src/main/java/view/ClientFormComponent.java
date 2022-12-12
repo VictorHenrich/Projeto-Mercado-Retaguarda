@@ -1,6 +1,7 @@
 
 package view;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -437,6 +438,51 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public JComboBox<String> getjComboSex() {
+        return jComboSex;
+    }
+
+    public JLabel getjLabelSex() {
+        return jLabelSex;
+    }
+
+    public JLabel getjLabelRg() {
+        return jLabelRg;
+    }
+
+    public JLabel getjLabelCpf() {
+        return jLabelCpf;
+    }
+
+    public JLabel getjLabelDateBirth() {
+        return jLabelDateBirth;
+    }
+
+    public JPanel getjPanelContainerStatus() {
+        return jPanelContainerStatus;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTextField getjTextFieldDateBirth() {
+        return jTextFieldDateBirth;
+    }
+
+    public JTextField getjTextFieldRg() {
+        return jTextFieldRg;
+    }
+
+    public JTextField getjTextFieldUser() {
+        return jTextFieldUser;
+    }
+
+    public JTextField getjTextFieldCpf() {
+        return jTextFieldCpf;
+    }
+    
     
     
     

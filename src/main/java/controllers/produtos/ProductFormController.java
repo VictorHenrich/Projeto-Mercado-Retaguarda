@@ -17,13 +17,30 @@ import view.utils.UtilsComponents;
 public class ProductFormController extends AbstractFormController<ProductFormComponent, Product>{
     
     private final ProductRepository productRepository = new ProductRepository();
+    private ArrayList<Class> listClasses;
+    private ArrayList<Brand> listBrands;
     
     public ProductFormController(ProductFormComponent form) {
         super(form);
     }
     
     private ProductBuilder newProductBuilder(){
-        return new ProductBuilder();
+        Class class_ = this.listClasses.get(this.form.getjComboBoxClass().getSelectedIndex());
+        Brand brand = this.listBrands.get(this.form.getjComboBoxBrand().getSelectedIndex());
+        
+        return new ProductBuilder()
+                    .setDescricao(this.form.getjTextFieldDescription().getText())
+                    .setBarraEntrada(this.form.getjTextFieldBarcode().getText())
+                    .setBarraSaida(this.form.getjTextFieldBarcode().getText())
+                    .setEstoqueMaximo(Float.parseFloat(this.form.getjTextFieldMaxStock().getText()))
+                    .setEstoqueMinimo(Float.parseFloat(this.form.getjTextFieldMinStock().getText()))
+                    .setStatus('A')
+                    .setValorCompra(Float.parseFloat(this.form.getjTextFieldBuyingValue().getText()))
+                    .setValorVenda(Float.parseFloat(this.form.getjTextFieldSaleValue().getText()))
+                    .setUnidadeCompra(this.form.getjTextFieldUnBuying().getText())
+                    .setUnidadeVenda(this.form.getjTextFieldUnSales().getText())
+                    .setClasse(class_)
+                    .setMarca(brand);
     }
 
     @Override
@@ -31,10 +48,13 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         ClassRepository classRepository = new ClassRepository();
         BrandRepository brandRepository = new BrandRepository();
         
-        for(Brand b: brandRepository.fetch())
+        this.listClasses = (ArrayList<Class>) classRepository.fetch();
+        this.listBrands = (ArrayList<Brand>) brandRepository.fetch();
+        
+        for(Brand b: this.listBrands)
             this.form.getjComboBoxBrand().addItem(b.getDescricao());
         
-        for(Class c: classRepository.fetch())
+        for(Class c: this.listClasses)
             this.form.getjComboBoxBrand().addItem(c.getDescricao());
     }
 
@@ -43,6 +63,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         ArrayList<javax.swing.JComponent> fields = new ArrayList();
         ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
         
+        fields.add(this.form.getjTextFieldDescription());
         fields.add(this.form.getjTextFieldBarcode());
         fields.add(this.form.getjTextFieldBuyingValue());
         fields.add(this.form.getjTextFieldDescription());
@@ -54,6 +75,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         fields.add(this.form.getjComboBoxBrand());
         fields.add(this.form.getjComboBoxClass());
         
+        textFields.add(this.form.getjTextFieldDescription());
         textFields.add(this.form.getjTextFieldBarcode());
         textFields.add(this.form.getjTextFieldBuyingValue());
         textFields.add(this.form.getjTextFieldDescription());
@@ -72,6 +94,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         ArrayList<javax.swing.JComponent> fields = new ArrayList();
         ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
         
+        fields.add(this.form.getjTextFieldDescription());
         fields.add(this.form.getjTextFieldBarcode());
         fields.add(this.form.getjTextFieldBuyingValue());
         fields.add(this.form.getjTextFieldDescription());
@@ -83,6 +106,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         fields.add(this.form.getjComboBoxBrand());
         fields.add(this.form.getjComboBoxClass());
         
+        textFields.add(this.form.getjTextFieldDescription());
         textFields.add(this.form.getjTextFieldBarcode());
         textFields.add(this.form.getjTextFieldBuyingValue());
         textFields.add(this.form.getjTextFieldDescription());

@@ -1,15 +1,15 @@
 
-import controllers.produtos.ClassFormController;
-import view.ClassFormComponent;
+import controllers.produtos.ProductFormController;
+import view.ProductFormComponent;
 
 
 
 public class main {
 
     public static void main(String[] args) {
-         ClassFormComponent form = new ClassFormComponent();
+         ProductFormComponent form = new ProductFormComponent();
         
-        ClassFormController controller = new ClassFormController(form);
+        ProductFormController controller = new ProductFormController(form);
     }
     
 }

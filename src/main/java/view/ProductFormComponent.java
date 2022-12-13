@@ -17,7 +17,7 @@ public class ProductFormComponent extends AbstractFormComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelHeader = new javax.swing.JPanel();
+        this.jPanelHeader = new javax.swing.JPanel();
         this.jLabelTitle = new javax.swing.JLabel();
         this.jPanelFooter = new javax.swing.JPanel();
         this.jButtonNew = new javax.swing.JButton();
@@ -51,14 +51,14 @@ public class ProductFormComponent extends AbstractFormComponent {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
-        jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
+        this.jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         this.jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
         this.jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         this.jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
         this.jLabelTitle.setText("Produto");
-        jPanelHeader.add(this.jLabelTitle);
+        this.jPanelHeader.add(this.jLabelTitle);
 
         this.jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
         this.jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -143,8 +143,8 @@ public class ProductFormComponent extends AbstractFormComponent {
         jLabelBuyingValue.setText("Valor Compra:");
 
         jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldDescription.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldDescription.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldDescription.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldDescription.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldDescription.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldDescription.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         jTextFieldDescription.setEnabled(false);
@@ -194,8 +194,8 @@ public class ProductFormComponent extends AbstractFormComponent {
         jLabelBarcode.setText("Código Barras:");
 
         jTextFieldBarcode.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldBarcode.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldBarcode.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextFieldBarcode.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldBarcode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldBarcode.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldBarcode.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         jTextFieldBarcode.setEnabled(false);
@@ -354,14 +354,14 @@ public class ProductFormComponent extends AbstractFormComponent {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(this.jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
             .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

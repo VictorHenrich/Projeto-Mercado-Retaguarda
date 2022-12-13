@@ -10,7 +10,7 @@ public class UtilsComponents {
     public static void disabledComponents(ArrayList<JComponent> components, boolean disable){
         for(JComponent component: components)
             if(component != null)
-                component.setEnabled(disable);
+                component.setEnabled(!disable);
     }
     
     public static void clearFields(ArrayList<JTextComponent> fields){

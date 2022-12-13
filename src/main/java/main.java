@@ -1,15 +1,16 @@
 
-import controllers.produtos.ProductFormController;
-import view.ProductFormComponent;
+
+import view.MainComponent;
+
 
 
 
 public class main {
 
     public static void main(String[] args) {
-         ProductFormComponent form = new ProductFormComponent();
+        MainComponent mainComponent = new MainComponent();
         
-        ProductFormController controller = new ProductFormController(form);
+        mainComponent.setVisible(true);
     }
     
 }

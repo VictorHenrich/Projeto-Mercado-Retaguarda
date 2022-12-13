@@ -11,12 +11,10 @@ import view.DistrictFormComponent;
 
 public class DistrictFormController extends AbstractFormController<DistrictFormComponent, District>{
     
-    private DistrictRepository repository;
+    private final DistrictRepository repository = new DistrictRepository();
     
     public DistrictFormController(DistrictFormComponent form) {
         super(form);
-        
-        this.repository = new DistrictRepository();
     }
     
     private DistrictBuilder newDistrictBuilder(){

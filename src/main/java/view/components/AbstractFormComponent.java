@@ -19,8 +19,8 @@ public abstract class AbstractFormComponent extends javax.swing.JFrame{
         buttonsDeactivated.add(this.jButtonNew);
         buttonsDeactivated.add(this.jButtonOut);
         
-        UtilsComponents.disabledComponents(buttonsActivated, state);
-        UtilsComponents.disabledComponents(buttonsDeactivated, !state);
+        UtilsComponents.disabledComponents(buttonsActivated, !state);
+        UtilsComponents.disabledComponents(buttonsDeactivated, state);
     }
 
     public JButton getjButtonCancel() {

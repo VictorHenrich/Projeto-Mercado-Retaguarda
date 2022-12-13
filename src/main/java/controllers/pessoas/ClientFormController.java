@@ -66,14 +66,12 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
         
         
         UtilsComponents.disabledComponents(fields, false);
+        UtilsComponents.clearFields(textFields);
     }
     
     @Override
     protected void initStates() {
-       if(this.sexes == null)
-           this.sexes = new ArrayList();
-        
-       this.sexes.clear();
+       this.sexes = new ArrayList();
         
        this.sexes.add(new Sex("Masculino", 'M'));
        this.sexes.add(new Sex("Feminino", 'F'));

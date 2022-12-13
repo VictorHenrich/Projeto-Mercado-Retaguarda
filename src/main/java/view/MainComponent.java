@@ -1,23 +1,18 @@
 
 package view;
 
-import controllers.enderecos.CRUDAddressController;
-import controllers.enderecos.CRUDCityController;
-import controllers.enderecos.CRUDDistrictController;
-import controllers.pessoas.CRUDClientController;
-import controllers.pessoas.CRUDSupplierController;
-import java.util.ArrayList;
+import controllers.enderecos.AddressFormController;
+import controllers.enderecos.CityFormController;
+import controllers.enderecos.DistrictFormController;
+import controllers.pessoas.ClientFormController;
+import controllers.pessoas.CollaboratorFormController;
+import controllers.pessoas.SupplierFormController;
+import view.AddressFormComponent;
 
 public class MainComponent extends javax.swing.JFrame {
 
 
     public MainComponent() {
-        this.crudSuppliercontroller = new CRUDSupplierController();
-        this.crudClientController = new CRUDClientController();
-        this.crudDistrictController = new CRUDDistrictController();
-        this.crudAddressController = new CRUDAddressController();
-        this.crudCityController = new CRUDCityController();
-        
         initComponents();
     }
 
@@ -57,14 +52,21 @@ public class MainComponent extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 407, Short.MAX_VALUE)
+            .addGap(0, 403, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setBorderPainted(false);
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(115, 30));
 
+        jMenu1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu1.setForeground(new java.awt.Color(204, 204, 204));
         jMenu1.setText("Cadastros");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu1.setFocusable(false);
 
         jMenu5.setText("Pessoas");
 
@@ -137,6 +139,9 @@ public class MainComponent extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu2.setForeground(new java.awt.Color(204, 204, 204));
         jMenu2.setText("Financeiro");
 
         jMenu3.setText("Vendas");
@@ -164,44 +169,36 @@ public class MainComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItemCollaboratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCollaboratorActionPerformed
-        CollaboratorFormComponent collaboradorComponent = new CollaboratorFormComponent();
-        
-        collaboradorComponent.setVisible(true);
+        CollaboratorFormComponent form = new CollaboratorFormComponent();
+        CollaboratorFormController controller = new CollaboratorFormController(form);
     }//GEN-LAST:event_jCheckBoxMenuItemCollaboratorActionPerformed
 
     private void jCheckBoxMenuItemSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemSupplierActionPerformed
-       SupplierComponent supplierComponent = new SupplierComponent(this.crudSuppliercontroller, null);
-       
-       supplierComponent.setVisible(true);
+       SupplierFormComponent form = new SupplierFormComponent();
+       SupplierFormController controller = new SupplierFormController(form);
     }//GEN-LAST:event_jCheckBoxMenuItemSupplierActionPerformed
 
     private void jCheckBoxMenuItemClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemClientActionPerformed
-        ClientComponent clientComponent = new ClientComponent(this.crudClientController, null);
-        
-        clientComponent.setVisible(true);
+        ClientFormComponent form = new ClientFormComponent();
+        ClientFormController controller = new ClientFormController(form);
     }//GEN-LAST:event_jCheckBoxMenuItemClientActionPerformed
 
     private void jCheckBoxMenuItemCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCityActionPerformed
-        CityFormComponent cityComponent = new CityFormComponent(this.crudCityController, null);
-        
-        cityComponent.setVisible(true);
+        CityFormComponent form = new CityFormComponent();
+        CityFormController controller = new CityFormController(form);
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
 
     private void jCheckBoxMenuItemAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAddressActionPerformed
-        AddressFormComponent addressComponent = new AddressFormComponent(
-                this.crudAddressController, 
-                this.crudCityController.fetch(), 
-                this.crudDistrictController.fetch(), 
-                null
-        );
         
-        addressComponent.setVisible(true);
+        AddressFormComponent form = new AddressFormComponent();
+        
+        AddressFormController controller = new AddressFormController(form);
     }//GEN-LAST:event_jCheckBoxMenuItemAddressActionPerformed
 
     private void jCheckBoxMenuItemDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemDistrictActionPerformed
-        DistrictFormComponent districtComponent = new DistrictFormComponent(this.crudDistrictController, null);
-        
-        districtComponent.setVisible(true);
+        DistrictFormComponent form = new DistrictFormComponent();
+        DistrictFormController controller = new DistrictFormController(form);
+       
     }//GEN-LAST:event_jCheckBoxMenuItemDistrictActionPerformed
 
 
@@ -233,11 +230,7 @@ public class MainComponent extends javax.swing.JFrame {
         });
     }
     
-    private final CRUDSupplierController crudSuppliercontroller;
-    private final CRUDClientController crudClientController;
-    private final CRUDDistrictController crudDistrictController;
-    private final CRUDAddressController crudAddressController;
-    private final CRUDCityController crudCityController;
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemAddress;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemCity;

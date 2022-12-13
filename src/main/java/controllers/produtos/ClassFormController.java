@@ -10,7 +10,7 @@ import view.ClassFormComponent;
 
 public class ClassFormController extends AbstractFormController<ClassFormComponent, Class>{
     
-    private ClassRepository classRepository = new ClassRepository();
+    private final ClassRepository classRepository = new ClassRepository();
     
     public ClassFormController(ClassFormComponent form) {
         super(form);

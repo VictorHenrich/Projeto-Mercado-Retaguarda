@@ -3,6 +3,7 @@ package controllers.enderecos;
 
 import controllers.builders.enderecos.AddressBuilder;
 import controllers.patterns.AbstractFormController;
+import java.util.ArrayList;
 import models.enderecos.Address;
 import models.enderecos.City;
 import models.enderecos.District;
@@ -14,19 +15,17 @@ import view.AddressFormComponent;
 
 public class AddressFormController extends AbstractFormController<AddressFormComponent, Address>{
     private final AddressRepository addressRepository = new AddressRepository();
+    private ArrayList<City> cities;
+    private ArrayList<District> districts;
+    
     
     public AddressFormController(AddressFormComponent form) {
         super(form);
     }
     
-    private AddressBuilder newAddressBuilder(){
-        
-        DistrictRepository districtRepository = new DistrictRepository();
-        CityRepository cityRepository = new CityRepository();
-        
-        City city = cityRepository.load(this.form.getjComboBoxCity().getSelectedIndex());
-        
-        District district = districtRepository.load(this.form.getjComboBoxDistrict().getSelectedIndex());
+    private AddressBuilder newAddressBuilder(){        
+        City city = this.cities.get(this.form.getjComboBoxCity().getSelectedIndex());
+        District district = this.districts.get(this.form.getjComboBoxDistrict().getSelectedIndex());
         
         return new AddressBuilder()
                     .setLogradouro(this.form.getjTextFieldStreet().getText())
@@ -55,10 +54,13 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         DistrictRepository districtRepository = new DistrictRepository();
         CityRepository cityRepository = new CityRepository();
         
-        for(District d: districtRepository.fetch())
+        this.cities = (ArrayList<City>) cityRepository.fetch();
+        this.districts = (ArrayList<District>) districtRepository.fetch();
+        
+        for(District d: districts)
            this.form.getjComboBoxDistrict().addItem(d.getDescricao());
         
-        for(City c: cityRepository.fetch())
+        for(City c: cities)
             this.form.getjComboBoxCity().addItem(c.getDescricao());
     }
 

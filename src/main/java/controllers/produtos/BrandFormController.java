@@ -10,7 +10,7 @@ import view.BrandFormComponent;
 
 public class BrandFormController extends AbstractFormController<BrandFormComponent, Brand>{
     
-    private BrandRepository brandRepository = new BrandRepository();
+    private final BrandRepository brandRepository = new BrandRepository();
     
     public BrandFormController(BrandFormComponent form) {
         super(form);

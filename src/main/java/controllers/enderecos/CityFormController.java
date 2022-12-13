@@ -10,12 +10,10 @@ import view.CityFormComponent;
 
 public class CityFormController extends AbstractFormController<CityFormComponent, City>{
     
-    private final CityRepository repositoty;
+    private final CityRepository repositoty = new CityRepository();
     
     public CityFormController(CityFormComponent form) {
         super(form);
-        
-        this.repositoty = new CityRepository();
     }
     
     private CityBuilder newCityBuilder(){

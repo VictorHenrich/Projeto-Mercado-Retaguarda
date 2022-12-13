@@ -56,6 +56,8 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         
         for(Class c: this.listClasses)
             this.form.getjComboBoxBrand().addItem(c.getDescricao());
+        
+        this.form.getjLabelStatus().setText(" ");
     }
 
     @Override
@@ -87,6 +89,8 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         
         UtilsComponents.clearFields(textFields);
         UtilsComponents.disabledComponents(fields, true);
+        
+        this.form.getjLabelStatus().setText(" ");
     }
 
     @Override
@@ -118,6 +122,8 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         
         UtilsComponents.clearFields(textFields);
         UtilsComponents.disabledComponents(fields, false);
+        
+        this.form.getjLabelStatus().setText("ATIVO");
     }
 
     @Override

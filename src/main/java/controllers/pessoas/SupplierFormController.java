@@ -41,7 +41,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
     @Override
     protected void resetStates() {
-        this.form.activateButtons(false);
+        this.form.activateFieldsPerson(false);
         
         ArrayList<javax.swing.JComponent> fields =  new ArrayList();
         ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
@@ -64,7 +64,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
     @Override
     protected void onClickButtonNew() {
-        this.form.activateButtons(true);
+        this.form.activateFieldsPerson(true);
         
         ArrayList<javax.swing.JComponent> fields =  new ArrayList();
         ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();

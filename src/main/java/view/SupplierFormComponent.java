@@ -51,6 +51,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jLabelSocialReason = new javax.swing.JLabel();
         this.jTextFieldName = new javax.swing.JTextField();
         jLabelCpf = new javax.swing.JLabel();
+        this.jTextFieldPhone1 = new javax.swing.JTextField();
         jLabelCnpj = new javax.swing.JLabel();
         jTextFieldContact = new javax.swing.JTextField();
         jLabelIE = new javax.swing.JLabel();
@@ -189,6 +190,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jTextAreaObs.setEnabled(false);
         jScrollPane1.setViewportView(this.jTextAreaObs);
 
+
         this.jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelCep.setText("CEP:");
@@ -252,6 +254,13 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
         jLabelCpf.setText("CPF:");
 
+        this.jTextFieldPhone1.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldPhone1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldPhone1.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldPhone1.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldPhone1.setEnabled(false);
+        this.jTextFieldPhone1.setPreferredSize(new java.awt.Dimension(50, 30));
+
         jLabelCnpj.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCnpj.setForeground(new java.awt.Color(190, 190, 190));
         jLabelCnpj.setText("CNPJ:");
@@ -298,6 +307,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(this.jLabelPhone1)
                                     .addComponent(this.jLabelEmail)
+                          
                                     .addComponent(this.jLabelName))
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -319,6 +329,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                        .addComponent(this.jTextFieldPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                                         .addComponent(jTextFieldIe, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,7 +370,9 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                     .addGap(18, 18, 18)
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                            .addGap(18, 18, 18))
+                                           
+                                            .addGap(18, 18, 18)
+                                            )
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(this.jComboBoxDistrict, 0, 304, Short.MAX_VALUE)
                                             .addComponent(this.jTextFieldStreet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
@@ -394,13 +407,18 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(this.jLabelPhone1)
                     .addComponent(this.jLabelPhone2)
-                    .addComponent(this.jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jTextFieldPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(this.jLabelEmail)
                     .addComponent(this.jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE))
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    
+                    
+                   
+                    )
                 .addGap(46, 46, 46)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(this.jLabelCep)

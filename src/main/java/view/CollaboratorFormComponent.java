@@ -51,9 +51,9 @@ public class CollaboratorFormComponent extends AbstractFormPersonComponent {
         this.jLabelStreet = new javax.swing.JLabel();
         this.jTextFieldStreet = new javax.swing.JTextField();
         this.jLabelCity = new javax.swing.JLabel();
-        this.jComboBoxCity = new javax.swing.JComboBox<City>();
+        this.jComboBoxCity = new javax.swing.JComboBox<String>();
         this.jLabelDistrict = new javax.swing.JLabel();
-        this.jComboBoxDistrict = new javax.swing.JComboBox<District>();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<String>();
         jPanelContainerStatus = new javax.swing.JPanel();
         this.jLabelStatus = new javax.swing.JLabel();
 

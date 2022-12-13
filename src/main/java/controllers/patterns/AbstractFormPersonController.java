@@ -15,63 +15,59 @@ import view.components.AbstractFormPersonComponent;
 
 public abstract class AbstractFormPersonController<T extends AbstractFormPersonComponent, M extends BaseModel> extends AbstractFormController<T, M>{
     
-    private final CityRepository cityRepository;
-    private final DistrictRepository districtRepository;
-    private final AddressRepository addressRepository;
-    protected Address addressLocated = null;
+    protected ArrayList<City> cities;
+    protected ArrayList<District> districts;
+    protected Address addressLoaded;
     
     public AbstractFormPersonController(T form) {
         super(form);
         
+        this.init();
+    }
+    
+    private void init(){
+        this.cities = (ArrayList<City>) new CityRepository().fetch();
         
-        this.cityRepository = new CityRepository();
-        this.districtRepository = new DistrictRepository();
-        this.addressRepository = new AddressRepository();
+        this.districts = (ArrayList<District>) new DistrictRepository().fetch();
         
-        this.initComponentPerson();
+        for(District d: this.districts)
+            this.form.getjComboBoxDistrict().addItem(d.getDescricao());
+        
+        for(City c: this.cities)
+            this.form.getjComboBoxCity().addItem(c.getDescricao());
+        
+        
+        this.addActions();
     }
     
     private void loadAddress(){
         String cep = this.form.getjTextFieldCep().getText();
         
-        ArrayList<Address> addresses = (ArrayList) this.addressRepository.fetch();
+        ArrayList<Address> addresses = (ArrayList) new AddressRepository().fetch();
         
         
         for(Address a: addresses)
             if(a.getCep().toUpperCase().equals(cep))
-                this.addressLocated = a;
+                this.addressLoaded = a;
         
-        if(this.addressLocated == null){
+        if(this.addressLoaded == null){
             System.out.println("CEP não localizado!");
             return;
         }
         
-        this.form.getjComboBoxCity().setSelectedItem(addressLocated.getCidade());
-        this.form.getjComboBoxDistrict().setSelectedItem(addressLocated.getBairro());
+        this.form.getjComboBoxCity().setSelectedItem(this.addressLoaded.getCidade());
+        this.form.getjComboBoxDistrict().setSelectedItem(this.addressLoaded.getBairro());
         
         if(
-            addressLocated.getLogradouro().equals("") || 
-            addressLocated.getLogradouro() == null
+            this.addressLoaded.getLogradouro().equals("") || 
+            this.addressLoaded.getLogradouro() == null
         )
             return;
         
-        this.form.getjTextFieldStreet().setText(addressLocated.getLogradouro());
+        this.form.getjTextFieldStreet().setText(this.addressLoaded.getLogradouro());
     }
     
-    
-    private void populateFieldsAddress(){
-        ArrayList<City> cities = (ArrayList<City>) this.cityRepository.fetch();
-        ArrayList<District> districts = (ArrayList<District>) this.districtRepository.fetch();
-        
-        for(City city: cities)
-            this.form.getjComboBoxCity().addItem(city);
-        
-        for(District district: districts)
-            this.form.getjComboBoxDistrict().addItem(district);
-    }
-    
-    
-    private void initComponentPerson(){
+    private void addActions(){
         
         this.form.getjTextFieldCep().addKeyListener(new java.awt.event.KeyListener() {
             @Override
@@ -95,8 +91,6 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
                 
             }
         });
-        
-        this.populateFieldsAddress();
     }
     
     

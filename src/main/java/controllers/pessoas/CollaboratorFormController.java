@@ -31,7 +31,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
                         .setTelefones(this.form.getjTextFieldPhone1().getText(), this.form.getjTextFieldPhone2().getText())
                         .setComplementoEndereco(this.form.getjTextFieldStreet().getText())
                         .setObservacao(this.form.getjTextAreaObs().getText())
-                        .setEndereco(this.addressLocated);
+                        .setEndereco(this.addressLoaded);
     }
     
     @Override

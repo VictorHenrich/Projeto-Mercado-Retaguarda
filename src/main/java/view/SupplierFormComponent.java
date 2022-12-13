@@ -43,9 +43,9 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jLabelStreet = new javax.swing.JLabel();
         this.jTextFieldStreet = new javax.swing.JTextField();
         this.jLabelCity = new javax.swing.JLabel();
-        this.jComboBoxCity = new javax.swing.JComboBox<>();
+        this.jComboBoxCity = new javax.swing.JComboBox<String>();
         this.jLabelDistrict = new javax.swing.JLabel();
-        this.jComboBoxDistrict = new javax.swing.JComboBox<>();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<String>();
         this.jPanelContainerStatus = new javax.swing.JPanel();
         this.jLabelStatus = new javax.swing.JLabel();
         jLabelSocialReason = new javax.swing.JLabel();

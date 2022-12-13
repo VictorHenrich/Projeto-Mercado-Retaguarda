@@ -48,14 +48,14 @@ public class ClientFormComponent extends AbstractFormPersonComponent {
         this.jLabelStreet = new javax.swing.JLabel();
         this.jTextFieldStreet = new javax.swing.JTextField();
         this.jLabelCity = new javax.swing.JLabel();
-        this.jComboBoxCity = new javax.swing.JComboBox<>();
+        this.jComboBoxCity = new javax.swing.JComboBox<String>();
         this.jLabelDistrict = new javax.swing.JLabel();
-        this.jComboBoxDistrict = new javax.swing.JComboBox<>();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<String>();
         jPanelContainerStatus = new javax.swing.JPanel();
         this.jLabelStatus = new javax.swing.JLabel();
         jLabelCpf = new javax.swing.JLabel();
         jTextFieldCpf = new javax.swing.JTextField();
-        jComboSex = new javax.swing.JComboBox<>();
+        jComboSex = new javax.swing.JComboBox<String>();
         jLabelSex = new javax.swing.JLabel();
         jLabelDateBirth = new javax.swing.JLabel();
         jTextFieldDateBirth = new javax.swing.JTextField();

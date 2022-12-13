@@ -8,8 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
-import models.enderecos.City;
-import models.enderecos.District;
 import view.utils.UtilsComponents;
 
 
@@ -20,8 +18,8 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
     protected javax.swing.JTextField jTextFieldEmail;
     protected javax.swing.JTextArea jTextAreaObs;
     protected javax.swing.JTextField jTextFieldStreet;
-    protected javax.swing.JComboBox<City> jComboBoxCity;
-    protected javax.swing.JComboBox<District> jComboBoxDistrict;
+    protected javax.swing.JComboBox<String> jComboBoxCity;
+    protected javax.swing.JComboBox<String> jComboBoxDistrict;
     protected javax.swing.JTextField jTextFieldCep;
     protected javax.swing.JLabel jLabelStatus;
     protected javax.swing.JLabel jLabelPhone1;
@@ -65,11 +63,11 @@ public abstract class AbstractFormPersonComponent extends AbstractFormComponent{
         return jPanelContainerStatus;
     }
 
-    public JComboBox<City> getjComboBoxCity() {
+    public JComboBox<String> getjComboBoxCity() {
         return jComboBoxCity;
     }
 
-    public JComboBox<District> getjComboBoxDistrict() {
+    public JComboBox<String> getjComboBoxDistrict() {
         return jComboBoxDistrict;
     }
 

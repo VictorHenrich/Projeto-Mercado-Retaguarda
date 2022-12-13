@@ -18,38 +18,38 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelHeader = new javax.swing.JPanel();
-        jLabelTitle = new javax.swing.JLabel();
-        jPanelFooter = new javax.swing.JPanel();
-        jButtonNew = new javax.swing.JButton();
-        jButtonChange = new javax.swing.JButton();
-        jButtonWrite = new javax.swing.JButton();
-        jButtonCancel = new javax.swing.JButton();
-        jButtonOut = new javax.swing.JButton();
-        jPanelBody = new javax.swing.JPanel();
-        jLabelName = new javax.swing.JLabel();
-        jLabelPhone1 = new javax.swing.JLabel();
-        jLabelPhone2 = new javax.swing.JLabel();
-        jLabelEmail = new javax.swing.JLabel();
-        jLabelObs = new javax.swing.JLabel();
+        this.jPanelHeader = new javax.swing.JPanel();
+        this.jLabelTitle = new javax.swing.JLabel();
+        this.jPanelFooter = new javax.swing.JPanel();
+        this.jButtonNew = new javax.swing.JButton();
+        this.jButtonChange = new javax.swing.JButton();
+        this.jButtonWrite = new javax.swing.JButton();
+        this.jButtonCancel = new javax.swing.JButton();
+        this.jButtonOut = new javax.swing.JButton();
+        this.jPanelBody = new javax.swing.JPanel();
+        this.jLabelName = new javax.swing.JLabel();
+        this.jLabelPhone1 = new javax.swing.JLabel();
+        this.jLabelPhone2 = new javax.swing.JLabel();
+        this.jLabelEmail = new javax.swing.JLabel();
+        this.jLabelObs = new javax.swing.JLabel();
         jTextFieldSocialReason = new javax.swing.JTextField();
         jTextFieldCnpj = new javax.swing.JTextField();
-        jTextFieldPhone2 = new javax.swing.JTextField();
-        jTextFieldEmail = new javax.swing.JTextField();
+        this.jTextFieldPhone2 = new javax.swing.JTextField();
+        this.jTextFieldEmail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaObs = new javax.swing.JTextArea();
-        jLabelCep = new javax.swing.JLabel();
-        jTextFieldCep = new javax.swing.JTextField();
-        jLabelStreet = new javax.swing.JLabel();
-        jTextFieldStreet = new javax.swing.JTextField();
-        jLabelCity = new javax.swing.JLabel();
-        jComboBoxCity = new javax.swing.JComboBox<>();
-        jLabelDistrict = new javax.swing.JLabel();
-        jComboBoxDistrict = new javax.swing.JComboBox<>();
-        jPanelContainerStatus = new javax.swing.JPanel();
-        jLabelStatus = new javax.swing.JLabel();
+        this.jTextAreaObs = new javax.swing.JTextArea();
+        this.jLabelCep = new javax.swing.JLabel();
+        this.jTextFieldCep = new javax.swing.JTextField();
+        this.jLabelStreet = new javax.swing.JLabel();
+        this.jTextFieldStreet = new javax.swing.JTextField();
+        this.jLabelCity = new javax.swing.JLabel();
+        this.jComboBoxCity = new javax.swing.JComboBox<>();
+        this.jLabelDistrict = new javax.swing.JLabel();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<>();
+        this.jPanelContainerStatus = new javax.swing.JPanel();
+        this.jLabelStatus = new javax.swing.JLabel();
         jLabelSocialReason = new javax.swing.JLabel();
-        jTextFieldName = new javax.swing.JTextField();
+        this.jTextFieldName = new javax.swing.JTextField();
         jLabelCpf = new javax.swing.JLabel();
         jLabelCnpj = new javax.swing.JLabel();
         jTextFieldContact = new javax.swing.JTextField();
@@ -60,98 +60,98 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
-        jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
+        this.jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelTitle.setText("Colaborador");
-        jPanelHeader.add(jLabelTitle);
+        this.jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
+        this.jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        this.jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
+        this.jLabelTitle.setText("Colaborador");
+        this.jPanelHeader.add(this.jLabelTitle);
 
-        jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
+        this.jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setText("Novo");
-        jButtonNew.setToolTipText("Novo");
-        jButtonNew.setBorder(null);
-        jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonNew.setFocusPainted(false);
-        jButtonNew.setFocusable(false);
-        jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanelFooter.add(jButtonNew);
+        this.jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonNew.setText("Novo");
+        this.jButtonNew.setToolTipText("Novo");
+        this.jButtonNew.setBorder(null);
+        this.jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonNew.setFocusPainted(false);
+        this.jButtonNew.setFocusable(false);
+        this.jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonNew);
 
-        jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonChange.setText("Alterar");
-        jButtonChange.setBorder(null);
-        jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonChange.setEnabled(false);
-        jButtonChange.setFocusPainted(false);
-        jButtonChange.setFocusable(false);
-        jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanelFooter.add(jButtonChange);
+        this.jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonChange.setText("Alterar");
+        this.jButtonChange.setBorder(null);
+        this.jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonChange.setEnabled(false);
+        this.jButtonChange.setFocusPainted(false);
+        this.jButtonChange.setFocusable(false);
+        this.jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonChange);
 
-        jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonWrite.setText("Gravar");
-        jButtonWrite.setBorder(null);
-        jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonWrite.setEnabled(false);
-        jButtonWrite.setFocusPainted(false);
-        jButtonWrite.setFocusable(false);
-        jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanelFooter.add(jButtonWrite);
+        this.jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonWrite.setText("Gravar");
+        this.jButtonWrite.setBorder(null);
+        this.jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonWrite.setEnabled(false);
+        this.jButtonWrite.setFocusPainted(false);
+        this.jButtonWrite.setFocusable(false);
+        this.jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonWrite);
 
-        jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonCancel.setText("Cancelar");
-        jButtonCancel.setBorder(null);
-        jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCancel.setEnabled(false);
-        jButtonCancel.setFocusPainted(false);
-        jButtonCancel.setFocusable(false);
-        jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanelFooter.add(jButtonCancel);
+        this.jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonCancel.setText("Cancelar");
+        this.jButtonCancel.setBorder(null);
+        this.jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonCancel.setEnabled(false);
+        this.jButtonCancel.setFocusPainted(false);
+        this.jButtonCancel.setFocusable(false);
+        this.jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonCancel);
 
-        jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonOut.setText("Sair");
-        jButtonOut.setBorder(null);
-        jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonOut.setFocusPainted(false);
-        jButtonOut.setFocusable(false);
-        jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
-        jPanelFooter.add(jButtonOut);
+        this.jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonOut.setText("Sair");
+        this.jButtonOut.setBorder(null);
+        this.jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonOut.setFocusPainted(false);
+        this.jButtonOut.setFocusable(false);
+        this.jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonOut);
 
-        jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
+        this.jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
 
-        jLabelName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelName.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelName.setText("Nome:");
+        this.jLabelName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelName.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelName.setText("Nome:");
 
-        jLabelPhone1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelPhone1.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelPhone1.setText("Fone1:");
+        this.jLabelPhone1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelPhone1.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelPhone1.setText("Fone1:");
 
-        jLabelPhone2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelPhone2.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelPhone2.setText("Fone2:");
+        this.jLabelPhone2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelPhone2.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelPhone2.setText("Fone2:");
 
-        jLabelEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelEmail.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelEmail.setText("Email:");
+        this.jLabelEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelEmail.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelEmail.setText("Email:");
 
-        jLabelObs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelObs.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelObs.setText("Observação:");
+        this.jLabelObs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelObs.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelObs.setText("Observação:");
 
         jTextFieldSocialReason.setBackground(new java.awt.Color(50, 50, 50));
         jTextFieldSocialReason.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -167,86 +167,86 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jTextFieldCnpj.setEnabled(false);
         jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        jTextFieldPhone2.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldPhone2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldPhone2.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldPhone2.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldPhone2.setEnabled(false);
-        jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldPhone2.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldPhone2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldPhone2.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldPhone2.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldPhone2.setEnabled(false);
+        this.jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        jTextFieldEmail.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldEmail.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldEmail.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldEmail.setEnabled(false);
-        jTextFieldEmail.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldEmail.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldEmail.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldEmail.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldEmail.setEnabled(false);
+        this.jTextFieldEmail.setPreferredSize(new java.awt.Dimension(0, 30));
 
-        jTextAreaObs.setBackground(new java.awt.Color(50, 50, 50));
-        jTextAreaObs.setColumns(20);
-        jTextAreaObs.setForeground(new java.awt.Color(190, 190, 190));
-        jTextAreaObs.setRows(5);
-        jTextAreaObs.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextAreaObs.setEnabled(false);
-        jScrollPane1.setViewportView(jTextAreaObs);
+        this.jTextAreaObs.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextAreaObs.setColumns(20);
+        this.jTextAreaObs.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextAreaObs.setRows(5);
+        this.jTextAreaObs.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextAreaObs.setEnabled(false);
+        jScrollPane1.setViewportView(this.jTextAreaObs);
 
-        jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelCep.setText("CEP:");
+        this.jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelCep.setText("CEP:");
 
-        jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldCep.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldCep.setEnabled(false);
-        jTextFieldCep.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldCep.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldCep.setEnabled(false);
+        this.jTextFieldCep.setPreferredSize(new java.awt.Dimension(0, 30));
 
-        jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelStreet.setText("Logradouro:");
+        this.jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelStreet.setText("Logradouro:");
 
-        jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldStreet.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldStreet.setEnabled(false);
-        jTextFieldStreet.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldStreet.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldStreet.setEnabled(false);
+        this.jTextFieldStreet.setPreferredSize(new java.awt.Dimension(0, 30));
 
-        jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelCity.setText("Cidade:");
+        this.jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelCity.setText("Cidade:");
 
-        jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxCity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxCity.setEnabled(false);
-        jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxCity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jComboBoxCity.setEnabled(false);
+        this.jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
 
-        jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelDistrict.setText("Bairro:");
+        this.jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelDistrict.setText("Bairro:");
 
-        jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxDistrict.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxDistrict.setEnabled(false);
-        jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxDistrict.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jComboBoxDistrict.setEnabled(false);
+        this.jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
 
-        jPanelContainerStatus.setBackground(new java.awt.Color(0, 0, 0));
+        this.jPanelContainerStatus.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabelStatus.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelStatus.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jLabelStatus.setForeground(new java.awt.Color(0, 204, 153));
-        jLabelStatus.setText("STATUS");
-        jPanelContainerStatus.add(jLabelStatus);
+        this.jLabelStatus.setBackground(new java.awt.Color(0, 0, 0));
+        this.jLabelStatus.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        this.jLabelStatus.setForeground(new java.awt.Color(0, 204, 153));
+        this.jLabelStatus.setText("STATUS");
+        this.jPanelContainerStatus.add(this.jLabelStatus);
 
         jLabelSocialReason.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelSocialReason.setForeground(new java.awt.Color(190, 190, 190));
         jLabelSocialReason.setText("Razão Social:");
 
-        jTextFieldName.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldName.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldName.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldName.setEnabled(false);
-        jTextFieldName.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldName.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jTextFieldName.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldName.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldName.setEnabled(false);
+        this.jTextFieldName.setPreferredSize(new java.awt.Dimension(0, 30));
 
         jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
@@ -285,8 +285,8 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         jTextFieldIe.setEnabled(false);
         jTextFieldIe.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
-        jPanelBody.setLayout(jPanelBodyLayout);
+        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
+        this.jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
@@ -296,21 +296,21 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelPhone1)
-                                    .addComponent(jLabelEmail)
-                                    .addComponent(jLabelName))
+                                    .addComponent(this.jLabelPhone1)
+                                    .addComponent(this.jLabelEmail)
+                                    .addComponent(this.jLabelName))
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                                         .addGap(262, 262, 262)
-                                        .addComponent(jLabelPhone2)
+                                        .addComponent(this.jLabelPhone2)
                                         .addGap(19, 19, 19)
-                                        .addComponent(jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(this.jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(this.jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(this.jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(this.jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelSocialReason)
@@ -338,21 +338,21 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelObs)
+                                .addComponent(this.jLabelObs)
                                 .addGroup(jPanelBodyLayout.createSequentialGroup()
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanelBodyLayout.createSequentialGroup()
                                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelCity)
-                                                .addComponent(jLabelCep))
+                                                .addComponent(this.jLabelCity)
+                                                .addComponent(this.jLabelCep))
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jTextFieldCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jComboBoxCity, 0, 220, Short.MAX_VALUE))
+                                                .addComponent(this.jTextFieldCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(this.jComboBoxCity, 0, 220, Short.MAX_VALUE))
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelStreet)
-                                                .addComponent(jLabelDistrict)))
+                                                .addComponent(this.jLabelStreet)
+                                                .addComponent(this.jLabelDistrict)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                                             .addGap(110, 110, 110)
                                             ))
@@ -361,19 +361,19 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                         .addGroup(jPanelBodyLayout.createSequentialGroup()
                                             .addGap(18, 18, 18))
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBoxDistrict, 0, 304, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldStreet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                            .addComponent(this.jComboBoxDistrict, 0, 304, Short.MAX_VALUE)
+                                            .addComponent(this.jTextFieldStreet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelName)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelName)
+                    .addComponent(this.jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSocialReason)
@@ -392,29 +392,29 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                     .addComponent(jTextFieldIe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPhone1)
-                    .addComponent(jLabelPhone2)
-                    .addComponent(jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelPhone1)
+                    .addComponent(this.jLabelPhone2)
+                    .addComponent(this.jTextFieldPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmail)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelEmail)
+                    .addComponent(this.jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCep)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStreet)
-                    .addComponent(jTextFieldStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelCep)
+                    .addComponent(this.jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelStreet)
+                    .addComponent(this.jTextFieldStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCity)
-                    .addComponent(jComboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDistrict)
-                    .addComponent(jComboBoxDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelCity)
+                    .addComponent(this.jComboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelDistrict)
+                    .addComponent(this.jComboBoxDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(jLabelObs)
+                .addComponent(this.jLabelObs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -424,18 +424,18 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(this.jPanelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

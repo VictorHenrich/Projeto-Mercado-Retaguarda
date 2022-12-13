@@ -1,5 +1,5 @@
 
-package controllers.produto;
+package controllers.produtos;
 
 import controllers.builders.produtos.BrandBuilder;
 import controllers.patterns.AbstractFormController;
@@ -35,7 +35,7 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
     @Override
     protected void onClickButtonNew() {
        this.form.getjTextFieldDescription().setEnabled(true);
-        this.form.getjTextFieldDescription().setText("");
+       this.form.getjTextFieldDescription().setText("");
     }
 
     @Override
@@ -68,7 +68,7 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
             System.out.println("Marca alterada com sucesso!");
             
         }catch(Exception error){
-            System.out.println("Falha ao alterada marca!\nErro: " + error.getMessage());
+            System.out.println("Falha ao alterar marca!\nErro: " + error.getMessage());
         }
     }
     

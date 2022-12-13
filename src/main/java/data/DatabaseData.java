@@ -9,6 +9,7 @@ import models.pessoas.Client;
 import models.pessoas.Collaborator;
 import models.pessoas.Supplier;
 import models.produtos.Brand;
+import models.produtos.Class;
 
 
 public class DatabaseData {
@@ -25,4 +26,6 @@ public class DatabaseData {
     public static final ArrayList<Supplier> suppliers = new ArrayList();
     
     public static final ArrayList<Brand> brands = new ArrayList();
+    
+    public static final ArrayList<Class> classes = new ArrayList();
 }

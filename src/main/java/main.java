@@ -1,15 +1,15 @@
 
-import controllers.produto.BrandFormController;
-import view.BrandFormComponent;
+import controllers.produtos.ClassFormController;
+import view.ClassFormComponent;
 
 
 
 public class main {
 
     public static void main(String[] args) {
-         BrandFormComponent form = new BrandFormComponent();
+         ClassFormComponent form = new ClassFormComponent();
         
-        BrandFormController controller = new BrandFormController(form);
+        ClassFormController controller = new ClassFormController(form);
     }
     
 }

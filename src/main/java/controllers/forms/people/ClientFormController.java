@@ -19,8 +19,8 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     private final ClientRepository clientRepository;
     private ArrayList<Sex> sexes;
     
-    public ClientFormController(ClientFormComponent form) {
-        super(form);
+    public ClientFormController() {
+        super(new ClientFormComponent());
         
         this.clientRepository = new ClientRepository();
     }

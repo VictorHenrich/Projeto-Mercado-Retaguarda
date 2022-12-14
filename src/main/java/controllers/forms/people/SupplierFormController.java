@@ -30,8 +30,8 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
                                     .setEndereco(this.addressLoaded);
     }
     
-    public SupplierFormController(SupplierFormComponent form) {
-        super(form);
+    public SupplierFormController() {
+        super(new SupplierFormComponent());
     }
 
     @Override

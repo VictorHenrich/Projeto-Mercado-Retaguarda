@@ -1,10 +1,12 @@
 
 package view;
 
-import controllers.forms.addresses.DistrictFormController;
 import controllers.lists.address.AddressListController;
 import controllers.lists.address.CityListController;
 import controllers.lists.address.DistrictListController;
+import controllers.lists.people.ClientListController;
+import controllers.lists.people.CollaboratorListController;
+import controllers.lists.people.SupplierListController;
 import controllers.lists.products.BrandListController;
 import controllers.lists.products.ClassListController;
 import controllers.lists.products.ProductListController;
@@ -184,15 +186,15 @@ public class MainComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItemCollaboratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCollaboratorActionPerformed
-        
+        new CollaboratorListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemCollaboratorActionPerformed
 
     private void jCheckBoxMenuItemSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemSupplierActionPerformed
-       
+       new SupplierListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemSupplierActionPerformed
 
     private void jCheckBoxMenuItemClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemClientActionPerformed
-        
+        new ClientListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemClientActionPerformed
 
     private void jCheckBoxMenuItemCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCityActionPerformed

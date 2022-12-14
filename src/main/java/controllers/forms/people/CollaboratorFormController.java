@@ -14,8 +14,8 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     
     private final CollaboratorRepository collaboratorRepository;
     
-    public CollaboratorFormController(CollaboratorFormComponent form) {
-        super(form);
+    public CollaboratorFormController() {
+        super(new CollaboratorFormComponent());
         
         this.collaboratorRepository = new CollaboratorRepository();
     }

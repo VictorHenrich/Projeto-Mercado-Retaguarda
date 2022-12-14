@@ -90,10 +90,21 @@ public class CollaboratorListComponent extends AbstractListComponent {
 
             },
             new String [] {
-
+                "ID", "Nome"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         this.jScrollPaneTable.setViewportView(this.jTableList);
+        if (this.jTableList.getColumnModel().getColumnCount() > 0) {
+            this.jTableList.getColumnModel().getColumn(0).setMaxWidth(100);
+        }
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
         this.jPanelBody.setLayout(jPanelBodyLayout);

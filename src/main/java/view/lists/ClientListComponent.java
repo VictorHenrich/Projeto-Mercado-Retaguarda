@@ -85,10 +85,22 @@ public class ClientListComponent extends AbstractListComponent {
 
             },
             new String [] {
-
+                "ID", "Nome", "CPF", "RG", "Data Nascimento", "Sexo"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         this.jScrollPaneTable.setViewportView(this.jTableList);
+        if (this.jTableList.getColumnModel().getColumnCount() > 0) {
+            this.jTableList.getColumnModel().getColumn(0).setMaxWidth(100);
+            this.jTableList.getColumnModel().getColumn(5).setMaxWidth(50);
+        }
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
         this.jPanelBody.setLayout(jPanelBodyLayout);
@@ -116,7 +128,7 @@ public class ClientListComponent extends AbstractListComponent {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(this.jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
             .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -134,5 +146,6 @@ public class ClientListComponent extends AbstractListComponent {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     // End of variables declaration//GEN-END:variables
 }

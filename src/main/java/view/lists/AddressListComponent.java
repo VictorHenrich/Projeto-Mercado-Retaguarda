@@ -146,17 +146,5 @@ public class AddressListComponent extends AbstractListComponent {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton this.jButtonCreate;
-    private javax.swing.JButton this.jButtonDelete;
-    private javax.swing.JButton this.jButtonOut;
-    private javax.swing.JButton this.jButtonSearch;
-    private javax.swing.JButton this.jButtonUpdate;
-    private javax.swing.JLabel this.jLabelTitle;
-    private javax.swing.JPanel this.jPanelBody;
-    private javax.swing.JPanel this.jPanelFooter;
-    private javax.swing.JPanel this.jPanelHeader;
-    private javax.swing.JScrollPane this.jScrollPaneTable;
-    private javax.swing.JTable this.jTableList;
     // End of variables declaration//GEN-END:variables
 }

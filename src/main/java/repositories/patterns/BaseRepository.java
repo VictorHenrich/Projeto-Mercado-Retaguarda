@@ -20,29 +20,28 @@ public abstract class BaseRepository<T extends BaseModel> implements CrudReposit
     }
 
     @Override
-    public void update(int id, T register) {
-        int index = 0;
-        
-        for(BaseModel r: this.data){
-            if(r.getId() == id){
+    public void update(int id, T register) {       
+        for(int index=0; index <= this.data.size(); index++){
+            T Register = this.data.get(index);
+            
+            if(Register.getId() == id){
                 this.data.remove(index);
                 this.data.add(index, register);
+                break;
             }
-            
-            index++;
         }
     }
 
     @Override
     public void delete(int id) {
-        int index = 0;
-        
-        for(T r: this.data){
-            if(r.getId() == id){
-                this.data.remove(index);
-            }
+        for(int index=0; index <= this.data.size(); index++){
+            T register = this.data.get(index);
             
-            index++;
+            if(register.getId() == id){
+                this.data.remove(index);
+                break;
+            }
+                
         }
     }
 

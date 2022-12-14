@@ -17,376 +17,336 @@ public class ProductFormComponent extends AbstractFormComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldDescription2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jPanelHeader = new javax.swing.JPanel();
-        jLabelTitle = new javax.swing.JLabel();
-        jPanelFooter = new javax.swing.JPanel();
-        jButtonNew = new javax.swing.JButton();
-        jButtonChange = new javax.swing.JButton();
-        jButtonWrite = new javax.swing.JButton();
-        jButtonCancel = new javax.swing.JButton();
-        jButtonOut = new javax.swing.JButton();
-        jPanelBody = new javax.swing.JPanel();
-        jLabelDescription = new javax.swing.JLabel();
-        jTextFieldBuyingValue = new javax.swing.JTextField();
-        jLabelBuyingValue = new javax.swing.JLabel();
-        jTextFieldDescription = new javax.swing.JTextField();
-        jTextFieldSaleValue = new javax.swing.JTextField();
-        jLabelSaleValue = new javax.swing.JLabel();
-        jLabelMinStock = new javax.swing.JLabel();
-        jTextFieldUnBuying = new javax.swing.JTextField();
-        jLabelMaxStock = new javax.swing.JLabel();
-        jTextFieldMaxStock = new javax.swing.JTextField();
-        jLabelBarcode = new javax.swing.JLabel();
-        jTextFieldBarcode = new javax.swing.JTextField();
-        jLabelUnBuying = new javax.swing.JLabel();
-        jTextFieldMinStock = new javax.swing.JTextField();
-        jLabelUnSales = new javax.swing.JLabel();
-        jTextFieldUnSales = new javax.swing.JTextField();
-        jLabelPurchaseValue5 = new javax.swing.JLabel();
-        jComboBoxClass = new javax.swing.JComboBox<>();
-        jLabelBrand = new javax.swing.JLabel();
-        jComboBoxBrand = new javax.swing.JComboBox<>();
-        jPanelContainerStatus = new javax.swing.JPanel();
-        jLabelStatus = new javax.swing.JLabel();
-
-        jTextFieldDescription2.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldDescription2.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldDescription2.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldDescription2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldDescription2.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldDescription2.setEnabled(false);
-        jTextFieldDescription2.setPreferredSize(new java.awt.Dimension(300, 30));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        this.jPanelHeader = new javax.swing.JPanel();
+        this.jLabelTitle = new javax.swing.JLabel();
+        this.jPanelFooter = new javax.swing.JPanel();
+        this.jButtonNew = new javax.swing.JButton();
+        this.jButtonChange = new javax.swing.JButton();
+        this.jButtonWrite = new javax.swing.JButton();
+        this.jButtonCancel = new javax.swing.JButton();
+        this.jButtonOut = new javax.swing.JButton();
+        this.jPanelBody = new javax.swing.JPanel();
+        this.jLabelDescription = new javax.swing.JLabel();
+        this.jTextFieldBuyingValue = new javax.swing.JTextField();
+        this.jLabelBuyingValue = new javax.swing.JLabel();
+        this.jTextFieldDescription = new javax.swing.JTextField();
+        this.jTextFieldSaleValue = new javax.swing.JTextField();
+        this.jLabelSaleValue = new javax.swing.JLabel();
+        this.jLabelMinStock = new javax.swing.JLabel();
+        this.jTextFieldUnBuying = new javax.swing.JTextField();
+        this.jLabelMaxStock = new javax.swing.JLabel();
+        this.jTextFieldMaxStock = new javax.swing.JTextField();
+        this.jLabelBarcode = new javax.swing.JLabel();
+        this.jTextFieldBarcode = new javax.swing.JTextField();
+        this.jLabelUnBuying = new javax.swing.JLabel();
+        this.jTextFieldMinStock = new javax.swing.JTextField();
+        this.jLabelUnSales = new javax.swing.JLabel();
+        this.jTextFieldUnSales = new javax.swing.JTextField();
+        this.jLabelPurchaseValue = new javax.swing.JLabel();
+        this.jComboBoxClass = new javax.swing.JComboBox<>();
+        this.jLabelBrand = new javax.swing.JLabel();
+        this.jComboBoxBrand = new javax.swing.JComboBox<>();
+        this.jPanelContainerStatus = new javax.swing.JPanel();
+        this.jLabelStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
-        jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jPanelHeader.setBackground(new java.awt.Color(0, 204, 153));
+        this.jPanelHeader.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelTitle.setText("Produto");
-        jPanelHeader.add(jLabelTitle);
+        this.jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
+        this.jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        this.jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
+        this.jLabelTitle.setText("Produto");
+        this.jPanelHeader.add(this.jLabelTitle);
 
-        jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        this.jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
+        this.jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setText("Novo");
-        jButtonNew.setToolTipText("Novo");
-        jButtonNew.setBorder(null);
-        jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonNew.setFocusPainted(false);
-        jButtonNew.setFocusable(false);
-        jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewActionPerformed(evt);
-            }
-        });
-        jPanelFooter.add(jButtonNew);
+        this.jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonNew.setText("Novo");
+        this.jButtonNew.setToolTipText("Novo");
+        this.jButtonNew.setBorder(null);
+        this.jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonNew.setFocusPainted(false);
+        this.jButtonNew.setFocusable(false);
+        this.jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonNew);
 
-        jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonChange.setText("Alterar");
-        jButtonChange.setBorder(null);
-        jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonChange.setEnabled(false);
-        jButtonChange.setFocusPainted(false);
-        jButtonChange.setFocusable(false);
-        jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeActionPerformed(evt);
-            }
-        });
-        jPanelFooter.add(jButtonChange);
+        this.jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonChange.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonChange.setText("Alterar");
+        this.jButtonChange.setBorder(null);
+        this.jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonChange.setEnabled(false);
+        this.jButtonChange.setFocusPainted(false);
+        this.jButtonChange.setFocusable(false);
+        this.jButtonChange.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonChange);
 
-        jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonWrite.setText("Gravar");
-        jButtonWrite.setBorder(null);
-        jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonWrite.setEnabled(false);
-        jButtonWrite.setFocusPainted(false);
-        jButtonWrite.setFocusable(false);
-        jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonWrite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWriteActionPerformed(evt);
-            }
-        });
-        jPanelFooter.add(jButtonWrite);
+        this.jButtonWrite.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonWrite.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonWrite.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonWrite.setText("Gravar");
+        this.jButtonWrite.setBorder(null);
+        this.jButtonWrite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonWrite.setEnabled(false);
+        this.jButtonWrite.setFocusPainted(false);
+        this.jButtonWrite.setFocusable(false);
+        this.jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonWrite);
 
-        jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonCancel.setText("Cancelar");
-        jButtonCancel.setBorder(null);
-        jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCancel.setEnabled(false);
-        jButtonCancel.setFocusPainted(false);
-        jButtonCancel.setFocusable(false);
-        jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelActionPerformed(evt);
-            }
-        });
-        jPanelFooter.add(jButtonCancel);
+        this.jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonCancel.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonCancel.setText("Cancelar");
+        this.jButtonCancel.setBorder(null);
+        this.jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonCancel.setEnabled(false);
+        this.jButtonCancel.setFocusPainted(false);
+        this.jButtonCancel.setFocusable(false);
+        this.jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonCancel);
 
-        jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonOut.setText("Sair");
-        jButtonOut.setBorder(null);
-        jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonOut.setFocusPainted(false);
-        jButtonOut.setFocusable(false);
-        jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOutActionPerformed(evt);
-            }
-        });
-        jPanelFooter.add(jButtonOut);
+        this.jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonOut.setText("Sair");
+        this.jButtonOut.setBorder(null);
+        this.jButtonOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonOut.setFocusPainted(false);
+        this.jButtonOut.setFocusable(false);
+        this.jButtonOut.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonOut);
 
-        jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
-        jPanelBody.setForeground(new java.awt.Color(80, 80, 80));
+        this.jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
+        this.jPanelBody.setForeground(new java.awt.Color(80, 80, 80));
 
-        jLabelDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelDescription.setText("Descrição:");
+        this.jLabelDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelDescription.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelDescription.setText("Descrição:");
 
-        jTextFieldBuyingValue.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldBuyingValue.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldBuyingValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldBuyingValue.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldBuyingValue.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldBuyingValue.setEnabled(false);
-        jTextFieldBuyingValue.setOpaque(true);
-        jTextFieldBuyingValue.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldBuyingValue.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldBuyingValue.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldBuyingValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldBuyingValue.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldBuyingValue.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldBuyingValue.setEnabled(false);
+        this.jTextFieldBuyingValue.setOpaque(true);
+        this.jTextFieldBuyingValue.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelBuyingValue.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelBuyingValue.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelBuyingValue.setText("Valor Compra:");
+        this.jLabelBuyingValue.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelBuyingValue.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelBuyingValue.setText("Valor Compra:");
 
-        jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldDescription.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldDescription.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldDescription.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldDescription.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldDescription.setEnabled(false);
-        jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
+        this.jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldDescription.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldDescription.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldDescription.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldDescription.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldDescription.setEnabled(false);
+        this.jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
 
-        jTextFieldSaleValue.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldSaleValue.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldSaleValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldSaleValue.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldSaleValue.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldSaleValue.setEnabled(false);
-        jTextFieldSaleValue.setOpaque(true);
-        jTextFieldSaleValue.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldSaleValue.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldSaleValue.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldSaleValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldSaleValue.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldSaleValue.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldSaleValue.setEnabled(false);
+        this.jTextFieldSaleValue.setOpaque(true);
+        this.jTextFieldSaleValue.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelSaleValue.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelSaleValue.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelSaleValue.setText("Valor Venda:");
+        this.jLabelSaleValue.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelSaleValue.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelSaleValue.setText("Valor Venda:");
 
-        jLabelMinStock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelMinStock.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelMinStock.setText("Estoque Min.:");
+        this.jLabelMinStock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelMinStock.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelMinStock.setText("Estoque Min.:");
 
-        jTextFieldUnBuying.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldUnBuying.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldUnBuying.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldUnBuying.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldUnBuying.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldUnBuying.setEnabled(false);
-        jTextFieldUnBuying.setOpaque(true);
-        jTextFieldUnBuying.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldUnBuying.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldUnBuying.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldUnBuying.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldUnBuying.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldUnBuying.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldUnBuying.setEnabled(false);
+        this.jTextFieldUnBuying.setOpaque(true);
+        this.jTextFieldUnBuying.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelMaxStock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelMaxStock.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelMaxStock.setText("Estoque Max.:");
+        this.jLabelMaxStock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelMaxStock.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelMaxStock.setText("Estoque Max.:");
 
-        jTextFieldMaxStock.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldMaxStock.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldMaxStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldMaxStock.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldMaxStock.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldMaxStock.setEnabled(false);
-        jTextFieldMaxStock.setOpaque(true);
-        jTextFieldMaxStock.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldMaxStock.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldMaxStock.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldMaxStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldMaxStock.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldMaxStock.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldMaxStock.setEnabled(false);
+        this.jTextFieldMaxStock.setOpaque(true);
+        this.jTextFieldMaxStock.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelBarcode.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelBarcode.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelBarcode.setText("Código Barras:");
+        this.jLabelBarcode.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelBarcode.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelBarcode.setText("Código Barras:");
 
-        jTextFieldBarcode.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldBarcode.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldBarcode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldBarcode.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldBarcode.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldBarcode.setEnabled(false);
-        jTextFieldBarcode.setPreferredSize(new java.awt.Dimension(300, 30));
+        this.jTextFieldBarcode.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldBarcode.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldBarcode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldBarcode.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldBarcode.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldBarcode.setEnabled(false);
+        this.jTextFieldBarcode.setPreferredSize(new java.awt.Dimension(300, 30));
 
-        jLabelUnBuying.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelUnBuying.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelUnBuying.setText("UN Compra:");
+        this.jLabelUnBuying.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelUnBuying.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelUnBuying.setText("UN Compra:");
 
-        jTextFieldMinStock.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldMinStock.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldMinStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldMinStock.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldMinStock.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldMinStock.setEnabled(false);
-        jTextFieldMinStock.setOpaque(true);
-        jTextFieldMinStock.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldMinStock.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldMinStock.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldMinStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldMinStock.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldMinStock.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldMinStock.setEnabled(false);
+        this.jTextFieldMinStock.setOpaque(true);
+        this.jTextFieldMinStock.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelUnSales.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelUnSales.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelUnSales.setText("UN Venda:");
+        this.jLabelUnSales.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelUnSales.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelUnSales.setText("UN Venda:");
 
-        jTextFieldUnSales.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldUnSales.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldUnSales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldUnSales.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldUnSales.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldUnSales.setEnabled(false);
-        jTextFieldUnSales.setOpaque(true);
-        jTextFieldUnSales.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jTextFieldUnSales.setBackground(new java.awt.Color(51, 51, 51));
+        this.jTextFieldUnSales.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldUnSales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jTextFieldUnSales.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldUnSales.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldUnSales.setEnabled(false);
+        this.jTextFieldUnSales.setOpaque(true);
+        this.jTextFieldUnSales.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelPurchaseValue5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelPurchaseValue5.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelPurchaseValue5.setText("Classe:");
+        this.jLabelPurchaseValue.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelPurchaseValue.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelPurchaseValue.setText("Classe:");
 
-        jComboBoxClass.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxClass.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxClass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxClass.setMinimumSize(new java.awt.Dimension(72, 30));
-        jComboBoxClass.setOpaque(true);
-        jComboBoxClass.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jComboBoxClass.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxClass.setForeground(new java.awt.Color(204, 204, 204));
+        this.jComboBoxClass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jComboBoxClass.setMinimumSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxClass.setOpaque(true);
+        this.jComboBoxClass.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jLabelBrand.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelBrand.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelBrand.setText("Marca:");
+        this.jLabelBrand.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelBrand.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelBrand.setText("Marca:");
 
-        jComboBoxBrand.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxBrand.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxBrand.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxBrand.setMinimumSize(new java.awt.Dimension(72, 30));
-        jComboBoxBrand.setOpaque(true);
-        jComboBoxBrand.setPreferredSize(new java.awt.Dimension(70, 30));
+        this.jComboBoxBrand.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxBrand.setForeground(new java.awt.Color(204, 204, 204));
+        this.jComboBoxBrand.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        this.jComboBoxBrand.setMinimumSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxBrand.setOpaque(true);
+        this.jComboBoxBrand.setPreferredSize(new java.awt.Dimension(70, 30));
 
-        jPanelContainerStatus.setBackground(new java.awt.Color(0, 0, 0));
+        this.jPanelContainerStatus.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabelStatus.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jLabelStatus.setForeground(new java.awt.Color(0, 204, 153));
-        jLabelStatus.setText("STATUS");
-        jPanelContainerStatus.add(jLabelStatus);
+        this.jLabelStatus.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        this.jLabelStatus.setForeground(new java.awt.Color(0, 204, 153));
+        this.jLabelStatus.setText("STATUS");
+        this.jPanelContainerStatus.add(this.jLabelStatus);
 
-        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
-        jPanelBody.setLayout(jPanelBodyLayout);
+        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
+        this.jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(this.jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelMinStock)
-                                    .addComponent(jLabelBuyingValue)
-                                    .addComponent(jLabelUnBuying)
-                                    .addComponent(jLabelPurchaseValue5))
+                                    .addComponent(this.jLabelMinStock)
+                                    .addComponent(this.jLabelBuyingValue)
+                                    .addComponent(this.jLabelUnBuying)
+                                    .addComponent(this.jLabelPurchaseValue))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldBuyingValue, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(this.jTextFieldBuyingValue, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(58, 58, 58)
-                                        .addComponent(jLabelSaleValue)
+                                        .addComponent(this.jLabelSaleValue)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(this.jTextFieldSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldMinStock, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(this.jTextFieldMinStock, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabelMaxStock)
+                                        .addComponent(this.jLabelMaxStock)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldMaxStock, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(this.jTextFieldMaxStock, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jComboBoxClass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldUnBuying, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(this.jComboBoxClass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(this.jTextFieldUnBuying, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelUnSales, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabelBrand, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(this.jLabelUnSales, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(this.jLabelBrand, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBoxBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldUnSales, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(this.jComboBoxBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(this.jTextFieldUnSales, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addComponent(jLabelDescription)
+                                .addComponent(this.jLabelDescription)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(this.jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addComponent(jLabelBarcode)
+                                .addComponent(this.jLabelBarcode)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(this.jTextFieldBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanelContainerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDescription)
-                    .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelDescription)
+                    .addComponent(this.jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelBarcode)
-                    .addComponent(jTextFieldBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelBarcode)
+                    .addComponent(this.jTextFieldBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldBuyingValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelBuyingValue)
-                    .addComponent(jTextFieldSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSaleValue))
+                    .addComponent(this.jTextFieldBuyingValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelBuyingValue)
+                    .addComponent(this.jTextFieldSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelSaleValue))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMinStock)
-                    .addComponent(jLabelMaxStock)
-                    .addComponent(jTextFieldMaxStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMinStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelMinStock)
+                    .addComponent(this.jLabelMaxStock)
+                    .addComponent(this.jTextFieldMaxStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jTextFieldMinStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUnBuying)
-                    .addComponent(jTextFieldUnBuying, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUnSales)
-                    .addComponent(jTextFieldUnSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelUnBuying)
+                    .addComponent(this.jTextFieldUnBuying, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelUnSales)
+                    .addComponent(this.jTextFieldUnSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPurchaseValue5)
-                    .addComponent(jComboBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelBrand)
-                    .addComponent(jComboBoxBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(this.jLabelPurchaseValue)
+                    .addComponent(this.jComboBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(this.jLabelBrand)
+                    .addComponent(this.jComboBoxBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61))
         );
 
@@ -394,53 +354,53 @@ public class ProductFormComponent extends AbstractFormComponent {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
-            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+            .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(this.jPanelFooter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     public JComboBox<String> getjComboBoxBrand() {
-        return jComboBoxBrand;
+        return this.jComboBoxBrand;
     }
 
     public JComboBox<String> getjComboBoxClass() {
-        return jComboBoxClass;
+        return this.jComboBoxClass;
     }
 
     public JLabel getjLabelBarcode() {
-        return jLabelBarcode;
+        return this.jLabelBarcode;
     }
 
     public JLabel getjLabelBrand() {
-        return jLabelBrand;
+        return this.jLabelBrand;
     }
 
     public JLabel getjLabelBuyingValue() {
-        return jLabelBuyingValue;
+        return this.jLabelBuyingValue;
     }
 
     public JLabel getjLabelDescription() {
-        return jLabelDescription;
+        return this.jLabelDescription;
     }
 
     public JLabel getjLabelMaxStock() {
-        return jLabelMaxStock;
+        return this.jLabelMaxStock;
     }
 
     public JLabel getjLabelMinStock() {
-        return jLabelMinStock;
+        return this.jLabelMinStock;
     }
 
     public JLabel getjLabelPurchaseValue() {
@@ -448,66 +408,59 @@ public class ProductFormComponent extends AbstractFormComponent {
     }
 
     public JLabel getjLabelSaleValue() {
-        return jLabelSaleValue;
+        return this.jLabelSaleValue;
     }
 
     public JLabel getjLabelStatus() {
-        return jLabelStatus;
+        return this.jLabelStatus;
     }
 
     public JLabel getjLabelUnBuying() {
-        return jLabelUnBuying;
+        return this.jLabelUnBuying;
     }
 
     public JLabel getjLabelUnSales() {
-        return jLabelUnSales;
+        return this.jLabelUnSales;
     }
 
     public JPanel getjPanelContainerStatus() {
-        return jPanelContainerStatus;
+        return this.jPanelContainerStatus;
     }
 
     public JTextField getjTextFieldBarcode() {
-        return jTextFieldBarcode;
+        return this.jTextFieldBarcode;
     }
 
     public JTextField getjTextFieldBuyingValue() {
-        return jTextFieldBuyingValue;
+        return this.jTextFieldBuyingValue;
     }
 
     public JTextField getjTextFieldDescription() {
-        return jTextFieldDescription;
+        return this.jTextFieldDescription;
     }
 
     public JTextField getjTextFieldMaxStock() {
-        return jTextFieldMaxStock;
+        return this.jTextFieldMaxStock;
     }
 
     public JTextField getjTextFieldMinStock() {
-        return jTextFieldMinStock;
+        return this.jTextFieldMinStock;
     }
 
     public JTextField getjTextFieldSaleValue() {
-        return jTextFieldSaleValue;
+        return this.jTextFieldSaleValue;
     }
 
     public JTextField getjTextFieldUnBuying() {
-        return jTextFieldUnBuying;
+        return this.jTextFieldUnBuying;
     }
 
     public JTextField getjTextFieldUnSales() {
-        return jTextFieldUnSales;
+        return this.jTextFieldUnSales;
     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonNew;
-    private javax.swing.JButton jButtonOut;
-    private javax.swing.JButton jButtonWrite;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBoxBrand;
     private javax.swing.JComboBox<String> jComboBoxClass;
     private javax.swing.JLabel jLabelBarcode;
@@ -516,20 +469,15 @@ public class ProductFormComponent extends AbstractFormComponent {
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelMaxStock;
     private javax.swing.JLabel jLabelMinStock;
-    private javax.swing.JLabel jLabelPurchaseValue5;
+    private javax.swing.JLabel jLabelPurchaseValue;
     private javax.swing.JLabel jLabelSaleValue;
     private javax.swing.JLabel jLabelStatus;
-    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelUnBuying;
     private javax.swing.JLabel jLabelUnSales;
-    private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelContainerStatus;
-    private javax.swing.JPanel jPanelFooter;
-    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldBarcode;
     private javax.swing.JTextField jTextFieldBuyingValue;
     private javax.swing.JTextField jTextFieldDescription;
-    private javax.swing.JTextField jTextFieldDescription2;
     private javax.swing.JTextField jTextFieldMaxStock;
     private javax.swing.JTextField jTextFieldMinStock;
     private javax.swing.JTextField jTextFieldSaleValue;

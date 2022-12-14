@@ -293,22 +293,13 @@ public class AddressFormComponent extends AbstractFormComponent {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonNew;
-    private javax.swing.JButton jButtonOut;
-    private javax.swing.JButton jButtonWrite;
     private javax.swing.JComboBox<String> jComboBoxCity;
     private javax.swing.JComboBox<String> jComboBoxDistrict;
     private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelCity;
     private javax.swing.JLabel jLabelDistrict;
     private javax.swing.JLabel jLabelStreet;
-    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelBody;
-    private javax.swing.JPanel jPanelFooter;
-    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldCep;
     private javax.swing.JTextField jTextFieldStreet;
     // End of variables declaration//GEN-END:variables

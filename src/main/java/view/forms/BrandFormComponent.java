@@ -18,7 +18,7 @@ public class BrandFormComponent extends AbstractFormComponent {
         this.jPanelHeader = new javax.swing.JPanel();
         this.jLabelTitle = new javax.swing.JLabel();
         this.jPanelFooter = new javax.swing.JPanel();
-        jButtonNew = new javax.swing.JButton();
+        this.jButtonNew = new javax.swing.JButton();
         this.jButtonChange = new javax.swing.JButton();
         this.jButtonWrite = new javax.swing.JButton();
         this.jButtonCancel = new javax.swing.JButton();
@@ -41,17 +41,17 @@ public class BrandFormComponent extends AbstractFormComponent {
         this.jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
         this.jPanelFooter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
-        jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonNew.setText("Novo");
-        jButtonNew.setToolTipText("Novo");
-        jButtonNew.setBorder(null);
-        jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonNew.setFocusPainted(false);
-        jButtonNew.setFocusable(false);
-        jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
-        this.jPanelFooter.add(jButtonNew);
+        this.jButtonNew.setBackground(new java.awt.Color(102, 102, 102));
+        this.jButtonNew.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonNew.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonNew.setText("Novo");
+        this.jButtonNew.setToolTipText("Novo");
+        this.jButtonNew.setBorder(null);
+        this.jButtonNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        this.jButtonNew.setFocusPainted(false);
+        this.jButtonNew.setFocusable(false);
+        this.jButtonNew.setPreferredSize(new java.awt.Dimension(120, 35));
+        this.jPanelFooter.add(this.jButtonNew);
 
         this.jButtonChange.setBackground(new java.awt.Color(102, 102, 102));
         this.jButtonChange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -166,16 +166,7 @@ public class BrandFormComponent extends AbstractFormComponent {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonNew;
-    private javax.swing.JButton jButtonOut;
-    private javax.swing.JButton jButtonWrite;
     private javax.swing.JLabel jLabelDescription;
-    private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JPanel jPanelBody;
-    private javax.swing.JPanel jPanelFooter;
-    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldDescription;
     // End of variables declaration//GEN-END:variables
 }

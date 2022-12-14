@@ -165,16 +165,7 @@ public class CityFormComponent extends AbstractFormComponent {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonNew;
-    private javax.swing.JButton jButtonOut;
-    private javax.swing.JButton jButtonWrite;
     private javax.swing.JLabel jLabelDescription;
-    private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JPanel jPanelBody;
-    private javax.swing.JPanel jPanelFooter;
-    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldDescription;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,13 +18,16 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
     }
     
     public void showComponent(M registerLoaded, AbstractListController listController){
-        this.initStates();
-        
         this.form.setVisible(true);
+        
+        if(registerLoaded != null)
+            this.form.getjButtonChange().setEnabled(true);
         
         this.registerLoaded = registerLoaded;
         
         this.listController = listController;
+        
+        this.onShowComponent();
     }
     
     private void addListeners(){
@@ -41,10 +44,7 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 form.activateButtons(false);
                    
-                if(registerLoaded != null)
-                    onClickButtonUpdate();
-                else
-                    onClickButtonCreate();
+                onClickButtonWrite();
                 
                 resetStates();
             }
@@ -55,7 +55,7 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
             public void actionPerformed(ActionEvent e) {
                 form.activateButtons(true);
                 
-                onClickButtonCreate();
+                onClickButtonChange();
             }
         });
         
@@ -81,17 +81,18 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
                 resetStates();
             }
         });
-        
     }
     
-    abstract protected void initStates();
+    abstract protected void onShowComponent();
     
     abstract protected void resetStates();
     
     abstract protected void onClickButtonNew();
     
-    abstract protected void onClickButtonCreate();
+    abstract protected void onClickButtonChange();
     
-    abstract protected void onClickButtonUpdate();
+    abstract protected void onClickButtonWrite();
+    
+    
     
 }

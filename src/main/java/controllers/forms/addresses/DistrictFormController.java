@@ -22,20 +22,7 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
                     .setDescricao(this.form.getjTextFieldDescription().getText());
     }
     
-    @Override
-    protected void resetStates() {
-        this.form.getjTextFieldDescription().setText(null);
-        
-        this.form.getjTextFieldDescription().setEnabled(false);
-    }
-    
-    @Override
-    protected void onClickButtonNew() {
-       this.form.getjTextFieldDescription().setEnabled(true);
-    }
-    
-    @Override
-    protected void onClickButtonCreate(){
+    private void createDistrict(){
         try {
             int id = this.repository.nextID();
             
@@ -48,12 +35,9 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
         } catch (ModelBuilderException ex) {
             System.out.println("Falha ao cadastrar Bairro\nErro: " + ex.getMessage());
         }
-        
-      
     }
-
-    @Override
-    protected void onClickButtonUpdate() {
+    
+    private void updateDistrict(){
         try {
             int id = this.registerLoaded.getId();
             
@@ -67,10 +51,36 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
             System.out.println("Falha ao atualizar Bairro\nErro: " + ex.getMessage());
         }
     }
+    
+    @Override
+    protected void resetStates() {
+        this.form.getjTextFieldDescription().setText(null);
+        
+        this.form.getjTextFieldDescription().setEnabled(false);
+    }
+    
+    @Override
+    protected void onClickButtonNew() {
+       this.form.getjTextFieldDescription().setEnabled(true);
+    }
+    
+    @Override
+    protected void onClickButtonWrite(){
+        if(this.registerLoaded == null)
+            this.createDistrict();
+        
+        else
+            this.updateDistrict();
+    }
 
     @Override
-    protected void initStates() {
-        
+    protected void onClickButtonChange() {
+        this.form.getjTextFieldDescription().setEnabled(true);
+    }
+
+    @Override
+    protected void onShowComponent() {
+        this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
 
     

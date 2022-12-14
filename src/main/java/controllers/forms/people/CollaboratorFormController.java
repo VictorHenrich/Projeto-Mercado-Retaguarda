@@ -104,7 +104,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     }
 
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
         
     }
     

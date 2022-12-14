@@ -42,9 +42,76 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
                     .setClasse(class_)
                     .setMarca(brand);
     }
+    
+    private void createProduct(){
+        try{
+            
+            int id = this.productRepository.nextID();
+            
+            Product product = this.newProductBuilder().build(id);
+            
+            this.productRepository.create(product);
+            
+            System.out.println("Produto cadastrado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao cadastrar produto!\nErro: " + error.getMessage());
+        }
+    }
+    
+    private void updateProduct(){
+        try{
+            
+            int id = this.registerLoaded.getId();
+            
+            Product product = this.newProductBuilder().build(id);
+            
+            this.productRepository.update(id, product);
+            
+            System.out.println("Produto alterado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao alterar produto!\nErro: " + error.getMessage());
+        }
+    }
 
+    
+    private void enabledFields(boolean status){
+        ArrayList<javax.swing.JComponent> fields = new ArrayList();
+        
+        fields.add(this.form.getjTextFieldDescription());
+        fields.add(this.form.getjTextFieldBarcode());
+        fields.add(this.form.getjTextFieldBuyingValue());
+        fields.add(this.form.getjTextFieldDescription());
+        fields.add(this.form.getjTextFieldMaxStock());
+        fields.add(this.form.getjTextFieldMinStock());
+        fields.add(this.form.getjTextFieldSaleValue());
+        fields.add(this.form.getjTextFieldUnBuying());
+        fields.add(this.form.getjTextFieldUnSales());
+        fields.add(this.form.getjComboBoxBrand());
+        fields.add(this.form.getjComboBoxClass());
+        
+        UtilsComponents.disabledComponents(fields, !status);
+    }
+    
+    private void clearFields(){
+        ArrayList<javax.swing.text.JTextComponent> fields = new ArrayList();
+        
+        fields.add(this.form.getjTextFieldDescription());
+        fields.add(this.form.getjTextFieldBarcode());
+        fields.add(this.form.getjTextFieldBuyingValue());
+        fields.add(this.form.getjTextFieldDescription());
+        fields.add(this.form.getjTextFieldMaxStock());
+        fields.add(this.form.getjTextFieldMinStock());
+        fields.add(this.form.getjTextFieldSaleValue());
+        fields.add(this.form.getjTextFieldUnBuying());
+        fields.add(this.form.getjTextFieldUnSales());
+        
+        UtilsComponents.clearFields(fields);
+    }
+    
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
         ClassRepository classRepository = new ClassRepository();
         BrandRepository brandRepository = new BrandRepository();
         
@@ -62,102 +129,32 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
 
     @Override
     protected void resetStates() {
-        ArrayList<javax.swing.JComponent> fields = new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
-        
-        fields.add(this.form.getjTextFieldDescription());
-        fields.add(this.form.getjTextFieldBarcode());
-        fields.add(this.form.getjTextFieldBuyingValue());
-        fields.add(this.form.getjTextFieldDescription());
-        fields.add(this.form.getjTextFieldMaxStock());
-        fields.add(this.form.getjTextFieldMinStock());
-        fields.add(this.form.getjTextFieldSaleValue());
-        fields.add(this.form.getjTextFieldUnBuying());
-        fields.add(this.form.getjTextFieldUnSales());
-        fields.add(this.form.getjComboBoxBrand());
-        fields.add(this.form.getjComboBoxClass());
-        
-        textFields.add(this.form.getjTextFieldDescription());
-        textFields.add(this.form.getjTextFieldBarcode());
-        textFields.add(this.form.getjTextFieldBuyingValue());
-        textFields.add(this.form.getjTextFieldDescription());
-        textFields.add(this.form.getjTextFieldMaxStock());
-        textFields.add(this.form.getjTextFieldMinStock());
-        textFields.add(this.form.getjTextFieldSaleValue());
-        textFields.add(this.form.getjTextFieldUnBuying());
-        textFields.add(this.form.getjTextFieldUnSales());
-        
-        UtilsComponents.clearFields(textFields);
-        UtilsComponents.disabledComponents(fields, true);
+        this.clearFields();
+        this.enabledFields(false);
         
         this.form.getjLabelStatus().setText(" ");
     }
 
     @Override
-    protected void onClickButtonNew() {
-        ArrayList<javax.swing.JComponent> fields = new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
-        
-        fields.add(this.form.getjTextFieldDescription());
-        fields.add(this.form.getjTextFieldBarcode());
-        fields.add(this.form.getjTextFieldBuyingValue());
-        fields.add(this.form.getjTextFieldDescription());
-        fields.add(this.form.getjTextFieldMaxStock());
-        fields.add(this.form.getjTextFieldMinStock());
-        fields.add(this.form.getjTextFieldSaleValue());
-        fields.add(this.form.getjTextFieldUnBuying());
-        fields.add(this.form.getjTextFieldUnSales());
-        fields.add(this.form.getjComboBoxBrand());
-        fields.add(this.form.getjComboBoxClass());
-        
-        textFields.add(this.form.getjTextFieldDescription());
-        textFields.add(this.form.getjTextFieldBarcode());
-        textFields.add(this.form.getjTextFieldBuyingValue());
-        textFields.add(this.form.getjTextFieldDescription());
-        textFields.add(this.form.getjTextFieldMaxStock());
-        textFields.add(this.form.getjTextFieldMinStock());
-        textFields.add(this.form.getjTextFieldSaleValue());
-        textFields.add(this.form.getjTextFieldUnBuying());
-        textFields.add(this.form.getjTextFieldUnSales());
-        
-        UtilsComponents.clearFields(textFields);
-        UtilsComponents.disabledComponents(fields, false);
+    protected void onClickButtonNew() {        
+        this.clearFields();
+        this.enabledFields(true);
         
         this.form.getjLabelStatus().setText("ATIVO");
     }
 
     @Override
-    protected void onClickButtonCreate() {
-        try{
-            
-            int id = this.productRepository.nextID();
-            
-            Product product = this.newProductBuilder().build(id);
-            
-            this.productRepository.create(product);
-            
-            System.out.println("Produto cadastrado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar produto!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonWrite() {
+        if(this.registerLoaded == null)
+            this.createProduct();
+        else
+            this.updateProduct();
     }
 
     @Override
-    protected void onClickButtonUpdate() {
-        try{
-            
-            int id = this.registerLoaded.getId();
-            
-            Product product = this.newProductBuilder().build(id);
-            
-            this.productRepository.update(id, product);
-            
-            System.out.println("Produto alterado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao alterar produto!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonChange() {
+        this.clearFields();
+        this.enabledFields(true);
     }
     
 }

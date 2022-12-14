@@ -35,7 +35,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
     }
 
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
         
     }
 

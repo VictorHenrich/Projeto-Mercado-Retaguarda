@@ -33,6 +33,36 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
                     .setBairro(district)
                     .setCidade(city);
     }
+    
+    private void createAddress(){
+        try{
+            int id = this.addressRepository.nextID();
+            
+            Address address = this.newAddressBuilder().build(id);
+            
+            this.addressRepository.create(address);
+            
+            System.out.println("Endereço cadastrado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
+        }
+    }
+    
+    private void updateAddress(){
+        try{
+            int id = this.registerLoaded.getId();
+            
+            Address address = this.newAddressBuilder().build(id);
+            
+            this.addressRepository.update(id, address);
+            
+            System.out.println("Endereço alterado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
+        }
+    }
 
     @Override
     protected void resetStates() {
@@ -50,7 +80,7 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     }
     
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
         DistrictRepository districtRepository = new DistrictRepository();
         CityRepository cityRepository = new CityRepository();
         
@@ -76,35 +106,23 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     }
 
     @Override
-    protected void onClickButtonCreate() {
-        try{
-            int id = this.addressRepository.nextID();
-            
-            Address address = this.newAddressBuilder().build(id);
-            
-            this.addressRepository.create(address);
-            
-            System.out.println("Endereço cadastrado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonWrite() {
+        if(this.registerLoaded == null)
+            this.createAddress();
+        
+        else
+            this.updateAddress();
     }
 
     @Override
-    protected void onClickButtonUpdate() {
-        try{
-            int id = this.registerLoaded.getId();
-            
-            Address address = this.newAddressBuilder().build(id);
-            
-            this.addressRepository.update(id, address);
-            
-            System.out.println("Endereço alterado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonChange() {
+        this.form.getjTextFieldCep().setEnabled(true);
+        
+        this.form.getjTextFieldStreet().setEnabled(true);
+        
+        this.form.getjComboBoxCity().setEnabled(true);
+        
+        this.form.getjComboBoxDistrict().setEnabled(true);
     }
     
 }

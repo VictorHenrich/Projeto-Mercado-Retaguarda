@@ -20,10 +20,44 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
         return new BrandBuilder()
                     .setDescricao(this.form.getjTextFieldDescription().getText());
     }
+    
+    private void createBrand(){
+        try{
+            
+            int id = this.brandRepository.nextID();
+            
+            Brand brand = this.newBrandBuilder().build(id);
+            
+            this.brandRepository.create(brand);
+            
+            System.out.println("Marca cadastrada com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao cadastrar marca!\nErro: " + error.getMessage());
+        }
+    }
+    
+    private void updateBrand(){
+        try{
+            
+            int id = this.registerLoaded.getId();
+            
+            Brand brand = this.newBrandBuilder().build(id);
+            
+            this.brandRepository.update(id, brand);
+            
+            System.out.println("Marca alterada com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao alterar marca!\nErro: " + error.getMessage());
+        }
+    }
 
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
         
+        this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
 
     @Override
@@ -39,37 +73,16 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
     }
 
     @Override
-    protected void onClickButtonCreate() {
-        try{
-            
-            int id = this.brandRepository.nextID();
-            
-            Brand brand = this.newBrandBuilder().build(id);
-            
-            this.brandRepository.create(brand);
-            
-            System.out.println("Marca cadastrada com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar marca!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonWrite() {
+        if(this.registerLoaded == null)
+            this.createBrand();
+        else
+            this.updateBrand();
     }
 
     @Override
-    protected void onClickButtonUpdate() {
-        try{
-            
-            int id = this.registerLoaded.getId();
-            
-            Brand brand = this.newBrandBuilder().build(id);
-            
-            this.brandRepository.update(id, brand);
-            
-            System.out.println("Marca alterada com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao alterar marca!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonChange() {
+        this.form.getjTextFieldDescription().setEnabled(true);
     }
     
 }

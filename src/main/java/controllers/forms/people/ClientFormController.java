@@ -46,7 +46,37 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
                         .setObservacao(this.form.getjTextAreaObs().getText())
                         .setEndereco(this.addressLoaded);
     }
-
+    
+    private void createClient(){
+        try{
+            int id = this.clientRepository.nextID();
+            
+            Client client = this.newClientBuilder().build(id);
+            
+            this.clientRepository.create(client);
+            
+            System.out.println("Cliente cadastrado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao cadastrar o cliente!\nErro: " + error.getMessage());
+        }
+    }
+    
+    private void updateClient(){
+        try{
+            int id = this.registerLoaded.getId();
+            
+            Client client = this.newClientBuilder().build(id);
+            
+            this.clientRepository.update(id, client);
+            
+            System.out.println("Cliente alterado com sucesso!");
+            
+        }catch(Exception error){
+            System.out.println("Falha ao alterado o cliente!\nErro: " + error.getMessage());
+        }
+    }
+    
     @Override
     protected void resetStates() {
         this.form.activateButtons(false);
@@ -70,7 +100,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     }
     
     @Override
-    protected void initStates() {
+    protected void onShowComponent() {
        this.sexes = new ArrayList();
         
        this.sexes.add(new Sex("Masculino", 'M'));

@@ -1,6 +1,7 @@
 
 package view;
 
+import controllers.forms.addresses.DistrictFormController;
 import controllers.lists.address.AddressListController;
 import controllers.lists.address.CityListController;
 import controllers.lists.address.DistrictListController;
@@ -177,15 +178,15 @@ public class MainComponent extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItemClientActionPerformed
 
     private void jCheckBoxMenuItemCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCityActionPerformed
-        new CityListController();
+        new CityListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
 
     private void jCheckBoxMenuItemAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAddressActionPerformed
-        new AddressListController();
+        new AddressListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemAddressActionPerformed
 
     private void jCheckBoxMenuItemDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemDistrictActionPerformed
-        new DistrictListController();
+        new DistrictListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemDistrictActionPerformed
 
 

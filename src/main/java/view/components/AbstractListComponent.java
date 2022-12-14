@@ -13,6 +13,8 @@ public class AbstractListComponent extends javax.swing.JFrame{
     protected javax.swing.JButton jButtonDelete;
     protected javax.swing.JButton jButtonSearch;
     protected javax.swing.JButton jButtonUpdate;
+    protected javax.swing.JButton jButtonCreate;
+    protected javax.swing.JButton jButtonOut;
     protected javax.swing.JLabel jLabelTitle;
     protected javax.swing.JPanel jPanelBody;
     protected javax.swing.JPanel jPanelFooter;
@@ -20,6 +22,10 @@ public class AbstractListComponent extends javax.swing.JFrame{
     protected javax.swing.JScrollPane jScrollPaneTable;
     protected javax.swing.JTable jTableList;
 
+    public JButton getjButtonOut() {
+        return jButtonOut;
+    }
+    
     public JButton getjButtonDelete() {
         return jButtonDelete;
     }
@@ -55,6 +61,16 @@ public class AbstractListComponent extends javax.swing.JFrame{
     public JTable getjTableList() {
         return jTableList;
     }
+
+    public JButton getjButtonCreate() {
+        return jButtonCreate;
+    }
+
+    public JScrollPane getjScrollPaneTable() {
+        return jScrollPaneTable;
+    }
+    
+    
     
     
     

@@ -18,11 +18,9 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
     protected ArrayList<City> cities;
     protected ArrayList<District> districts;
     protected Address addressLoaded;
-    
+
     public AbstractFormPersonController(T form) {
         super(form);
-        
-        this.init();
     }
     
     private void init(){

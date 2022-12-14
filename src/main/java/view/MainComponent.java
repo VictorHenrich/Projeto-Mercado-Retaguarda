@@ -1,18 +1,9 @@
 
 package view;
 
-import view.forms.DistrictFormComponent;
-import view.forms.CityFormComponent;
-import view.forms.SupplierFormComponent;
-import view.forms.ClientFormComponent;
-import view.forms.CollaboratorFormComponent;
-import controllers.forms.addresses.AddressFormController;
-import controllers.forms.addresses.CityFormController;
-import controllers.forms.addresses.DistrictFormController;
-import controllers.forms.people.ClientFormController;
-import controllers.forms.people.CollaboratorFormController;
-import controllers.forms.people.SupplierFormController;
-import view.forms.AddressFormComponent;
+import controllers.lists.address.AddressListController;
+import controllers.lists.address.CityListController;
+import controllers.lists.address.DistrictListController;
 
 public class MainComponent extends javax.swing.JFrame {
 
@@ -174,36 +165,27 @@ public class MainComponent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItemCollaboratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCollaboratorActionPerformed
-        CollaboratorFormComponent form = new CollaboratorFormComponent();
-        CollaboratorFormController controller = new CollaboratorFormController(form);
+        
     }//GEN-LAST:event_jCheckBoxMenuItemCollaboratorActionPerformed
 
     private void jCheckBoxMenuItemSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemSupplierActionPerformed
-       SupplierFormComponent form = new SupplierFormComponent();
-       SupplierFormController controller = new SupplierFormController(form);
+       
     }//GEN-LAST:event_jCheckBoxMenuItemSupplierActionPerformed
 
     private void jCheckBoxMenuItemClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemClientActionPerformed
-        ClientFormComponent form = new ClientFormComponent();
-        ClientFormController controller = new ClientFormController(form);
+        
     }//GEN-LAST:event_jCheckBoxMenuItemClientActionPerformed
 
     private void jCheckBoxMenuItemCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemCityActionPerformed
-        CityFormComponent form = new CityFormComponent();
-        CityFormController controller = new CityFormController(form);
+        new CityListController();
     }//GEN-LAST:event_jCheckBoxMenuItemCityActionPerformed
 
     private void jCheckBoxMenuItemAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAddressActionPerformed
-        
-        AddressFormComponent form = new AddressFormComponent();
-        
-        AddressFormController controller = new AddressFormController(form);
+        new AddressListController();
     }//GEN-LAST:event_jCheckBoxMenuItemAddressActionPerformed
 
     private void jCheckBoxMenuItemDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemDistrictActionPerformed
-        DistrictFormComponent form = new DistrictFormComponent();
-        DistrictFormController controller = new DistrictFormController(form);
-       
+        new DistrictListController();
     }//GEN-LAST:event_jCheckBoxMenuItemDistrictActionPerformed
 
 

@@ -19,8 +19,8 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     private ArrayList<District> districts;
     
     
-    public AddressFormController(AddressFormComponent form) {
-        super(form);
+    public AddressFormController() {
+        super(new AddressFormComponent());
     }
     
     private AddressBuilder newAddressBuilder(){        

@@ -1,3 +1,4 @@
+package view.lists;
 import view.components.AbstractListComponent;
 
 public class CityListComponent extends AbstractListComponent {
@@ -16,12 +17,13 @@ public class CityListComponent extends AbstractListComponent {
         this.jLabelTitle = new javax.swing.JLabel();
         this.jPanelFooter = new javax.swing.JPanel();
         this.jButtonSearch = new javax.swing.JButton();
+        this.jButtonCreate = new javax.swing.JButton();
         this.jButtonUpdate = new javax.swing.JButton();
         this.jButtonDelete = new javax.swing.JButton();
+        this.jButtonOut = new javax.swing.JButton();
         this.jPanelBody = new javax.swing.JPanel();
         this.jScrollPaneTable = new javax.swing.JScrollPane();
         this.jTableList = new javax.swing.JTable();
-
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +45,13 @@ public class CityListComponent extends AbstractListComponent {
         this.jButtonSearch.setPreferredSize(new java.awt.Dimension(100, 30));
         this.jPanelFooter.add(this.jButtonSearch);
 
+        this.jButtonCreate.setBackground(new java.awt.Color(51, 51, 51));
+        this.jButtonCreate.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonCreate.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonCreate.setText("Cadastrar");
+        this.jButtonCreate.setPreferredSize(new java.awt.Dimension(100, 30));
+        this.jPanelFooter.add(this.jButtonCreate);
+
         this.jButtonUpdate.setBackground(new java.awt.Color(51, 51, 51));
         this.jButtonUpdate.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         this.jButtonUpdate.setForeground(new java.awt.Color(204, 204, 204));
@@ -56,6 +65,13 @@ public class CityListComponent extends AbstractListComponent {
         this.jButtonDelete.setText("Excluir");
         this.jButtonDelete.setPreferredSize(new java.awt.Dimension(100, 30));
         this.jPanelFooter.add(this.jButtonDelete);
+
+        this.jButtonOut.setBackground(new java.awt.Color(51, 51, 51));
+        this.jButtonOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        this.jButtonOut.setForeground(new java.awt.Color(204, 204, 204));
+        this.jButtonOut.setText("Sair");
+        this.jButtonOut.setPreferredSize(new java.awt.Dimension(100, 30));
+        this.jPanelFooter.add(this.jButtonOut);
 
         this.jPanelBody.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -123,5 +139,8 @@ public class CityListComponent extends AbstractListComponent {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 
 }

@@ -13,8 +13,8 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
     
     private final DistrictRepository repository = new DistrictRepository();
     
-    public DistrictFormController(DistrictFormComponent form) {
-        super(form);
+    public DistrictFormController() {
+        super(new DistrictFormComponent());
     }
     
     private DistrictBuilder newDistrictBuilder(){

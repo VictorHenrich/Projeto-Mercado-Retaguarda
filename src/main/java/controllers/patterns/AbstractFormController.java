@@ -9,14 +9,22 @@ import view.components.AbstractFormComponent;
 public abstract class AbstractFormController<T extends AbstractFormComponent, M extends BaseModel>{
     protected final T form;
     protected M registerLoaded;
+    private AbstractListController listController;
 
     public AbstractFormController(T form) {
         this.form = form;
         
         this.addListeners();
+    }
+    
+    public void showComponent(M registerLoaded, AbstractListController listController){
         this.initStates();
         
         this.form.setVisible(true);
+        
+        this.registerLoaded = registerLoaded;
+        
+        this.listController = listController;
     }
     
     private void addListeners(){
@@ -59,6 +67,8 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
                 resetStates();
                 
                 form.dispose();
+                
+                listController.reloadList();
             }
         });
         

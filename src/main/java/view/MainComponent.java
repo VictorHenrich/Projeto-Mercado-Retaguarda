@@ -1,13 +1,18 @@
 
 package view;
 
-import controllers.enderecos.AddressFormController;
-import controllers.enderecos.CityFormController;
-import controllers.enderecos.DistrictFormController;
-import controllers.pessoas.ClientFormController;
-import controllers.pessoas.CollaboratorFormController;
-import controllers.pessoas.SupplierFormController;
-import view.AddressFormComponent;
+import view.forms.DistrictFormComponent;
+import view.forms.CityFormComponent;
+import view.forms.SupplierFormComponent;
+import view.forms.ClientFormComponent;
+import view.forms.CollaboratorFormComponent;
+import controllers.forms.addresses.AddressFormController;
+import controllers.forms.addresses.CityFormController;
+import controllers.forms.addresses.DistrictFormController;
+import controllers.forms.people.ClientFormController;
+import controllers.forms.people.CollaboratorFormController;
+import controllers.forms.people.SupplierFormController;
+import view.forms.AddressFormComponent;
 
 public class MainComponent extends javax.swing.JFrame {
 

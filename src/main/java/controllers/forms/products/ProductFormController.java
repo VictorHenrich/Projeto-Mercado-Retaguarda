@@ -1,5 +1,5 @@
 
-package controllers.produtos;
+package controllers.forms.products;
 
 import controllers.builders.produtos.ProductBuilder;
 import controllers.patterns.AbstractFormController;
@@ -10,7 +10,7 @@ import models.produtos.Class;
 import repositories.produtos.BrandRepository;
 import repositories.produtos.ClassRepository;
 import repositories.produtos.ProductRepository;
-import view.ProductFormComponent;
+import view.forms.ProductFormComponent;
 import view.utils.UtilsComponents;
 
 

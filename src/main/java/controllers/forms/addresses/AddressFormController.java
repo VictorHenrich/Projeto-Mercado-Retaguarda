@@ -1,5 +1,5 @@
 
-package controllers.enderecos;
+package controllers.forms.addresses;
 
 import controllers.builders.enderecos.AddressBuilder;
 import controllers.patterns.AbstractFormController;
@@ -10,7 +10,7 @@ import models.enderecos.District;
 import repositories.enderecos.AddressRepository;
 import repositories.enderecos.CityRepository;
 import repositories.enderecos.DistrictRepository;
-import view.AddressFormComponent;
+import view.forms.AddressFormComponent;
 
 
 public class AddressFormController extends AbstractFormController<AddressFormComponent, Address>{

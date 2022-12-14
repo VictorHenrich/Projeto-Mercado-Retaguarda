@@ -1,12 +1,12 @@
 
-package controllers.enderecos;
+package controllers.forms.addresses;
 
 import controllers.builders.enderecos.DistrictBuilder;
 import controllers.patterns.AbstractFormController;
 import controllers.patterns.ModelBuilderException;
 import models.enderecos.District;
 import repositories.enderecos.DistrictRepository;
-import view.DistrictFormComponent;
+import view.forms.DistrictFormComponent;
 
 
 public class DistrictFormController extends AbstractFormController<DistrictFormComponent, District>{

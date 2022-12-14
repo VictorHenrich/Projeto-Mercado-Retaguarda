@@ -1,11 +1,11 @@
 
-package controllers.produtos;
+package controllers.forms.products;
 
 import controllers.builders.produtos.BrandBuilder;
 import controllers.patterns.AbstractFormController;
 import models.produtos.Brand;
 import repositories.produtos.BrandRepository;
-import view.BrandFormComponent;
+import view.forms.BrandFormComponent;
 
 
 public class BrandFormController extends AbstractFormController<BrandFormComponent, Brand>{

@@ -1,12 +1,12 @@
 
-package controllers.pessoas;
+package controllers.forms.people;
 
 import controllers.builders.pessoa.CollaboratorBuilder;
 import controllers.patterns.AbstractFormPersonController;
 import java.util.ArrayList;
 import models.pessoas.Collaborator;
 import repositories.pessoas.CollaboratorRepository;
-import view.CollaboratorFormComponent;
+import view.forms.CollaboratorFormComponent;
 import view.utils.UtilsComponents;
 
 

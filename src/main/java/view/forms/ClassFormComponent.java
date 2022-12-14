@@ -1,13 +1,16 @@
 
-package view;
+package view.forms;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import view.components.AbstractFormComponent;
 
+public class ClassFormComponent extends AbstractFormComponent {
+    
+    public ClassFormComponent() {
+        initComponents();
+    }
 
-public class DistrictFormComponent extends AbstractFormComponent {
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,8 +24,8 @@ public class DistrictFormComponent extends AbstractFormComponent {
         this.jButtonCancel = new javax.swing.JButton();
         this.jButtonOut = new javax.swing.JButton();
         this.jPanelBody = new javax.swing.JPanel();
-        jLabelDescription = new javax.swing.JLabel();
-        jTextFieldDescription = new javax.swing.JTextField();
+        this.jLabelDescription = new javax.swing.JLabel();
+        this.jTextFieldDescription = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -32,7 +35,7 @@ public class DistrictFormComponent extends AbstractFormComponent {
         this.jLabelTitle.setBackground(new java.awt.Color(51, 51, 51));
         this.jLabelTitle.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         this.jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
-        this.jLabelTitle.setText("Bairro");
+        this.jLabelTitle.setText("Classe");
         this.jPanelHeader.add(this.jLabelTitle);
 
         this.jPanelFooter.setBackground(new java.awt.Color(153, 153, 153));
@@ -98,36 +101,39 @@ public class DistrictFormComponent extends AbstractFormComponent {
         this.jPanelFooter.add(this.jButtonOut);
 
         this.jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
+        this.jPanelBody.setForeground(new java.awt.Color(80, 80, 80));
 
-        jLabelDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelDescription.setText("Descrição:");
+        this.jLabelDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelDescription.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelDescription.setText("Descrição:");
 
-        jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldDescription.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldDescription.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldDescription.setEnabled(false);
-        jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
+        this.jTextFieldDescription.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldDescription.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldDescription.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldDescription.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldDescription.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldDescription.setEnabled(false);
+        this.jTextFieldDescription.setPreferredSize(new java.awt.Dimension(300, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
         this.jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabelDescription)
+                .addGap(50, 50, 50)
+                .addComponent(this.jLabelDescription)
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(56, 56, 56)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDescription)
-                    .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addComponent(this.jLabelDescription)
+                    .addComponent(this.jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,7 +141,7 @@ public class DistrictFormComponent extends AbstractFormComponent {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(this.jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(this.jPanelFooter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
             .addComponent(this.jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -150,23 +156,26 @@ public class DistrictFormComponent extends AbstractFormComponent {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public JLabel getjLabelDescription() {
-        return jLabelDescription;
+        return this.jLabelDescription;
     }
 
     public JTextField getjTextFieldDescription() {
-        return jTextFieldDescription;
+        return this.jTextFieldDescription;
     }
     
-    public DistrictFormComponent(){
-        
-        this.initComponents();
-    }
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonChange;
+    private javax.swing.JButton jButtonNew;
+    private javax.swing.JButton jButtonOut;
+    private javax.swing.JButton jButtonWrite;
     private javax.swing.JLabel jLabelDescription;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanelBody;
+    private javax.swing.JPanel jPanelFooter;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldDescription;
     // End of variables declaration//GEN-END:variables
 }

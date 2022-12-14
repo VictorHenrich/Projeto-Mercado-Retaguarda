@@ -1,5 +1,5 @@
 
-package view;
+package view.forms;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -25,15 +25,15 @@ public class AddressFormComponent extends AbstractFormComponent {
         this.jButtonCancel = new javax.swing.JButton();
         this.jButtonOut = new javax.swing.JButton();
         this.jPanelBody = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelStreet = new javax.swing.JLabel();
-        jTextFieldStreet = new javax.swing.JTextField();
-        jTextFieldCep = new javax.swing.JTextField();
-        jLabelCEP = new javax.swing.JLabel();
-        jLabelDistrict = new javax.swing.JLabel();
-        jComboBoxDistrict = new javax.swing.JComboBox<>();
-        jLabelCity = new javax.swing.JLabel();
-        jComboBoxCity = new javax.swing.JComboBox<>();
+        this.jPanel1 = new javax.swing.JPanel();
+        this.jLabelStreet = new javax.swing.JLabel();
+        this.jTextFieldStreet = new javax.swing.JTextField();
+        this.jTextFieldCep = new javax.swing.JTextField();
+        this.jLabelCEP = new javax.swing.JLabel();
+        this.jLabelDistrict = new javax.swing.JLabel();
+        this.jComboBoxDistrict = new javax.swing.JComboBox<>();
+        this.jLabelCity = new javax.swing.JLabel();
+        this.jComboBoxCity = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,26 +111,26 @@ public class AddressFormComponent extends AbstractFormComponent {
         this.jPanelBody.setBackground(new java.awt.Color(80, 80, 80));
         this.jPanelBody.setForeground(new java.awt.Color(80, 80, 80));
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        this.jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelStreet.setText("Logradouro:");
+        this.jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelStreet.setText("Logradouro:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(26, 6, 0, 0);
-        jPanel1.add(jLabelStreet, gridBagConstraints);
+        this.jPanel1.add(this.jLabelStreet, gridBagConstraints);
 
-        jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldStreet.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldStreet.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldStreet.setEnabled(false);
-        jTextFieldStreet.setPreferredSize(new java.awt.Dimension(300, 30));
+        this.jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldStreet.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldStreet.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldStreet.setEnabled(false);
+        this.jTextFieldStreet.setPreferredSize(new java.awt.Dimension(300, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
@@ -139,15 +139,15 @@ public class AddressFormComponent extends AbstractFormComponent {
         gridBagConstraints.ipady = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(19, 67, 0, 118);
-        jPanel1.add(jTextFieldStreet, gridBagConstraints);
+        this.jPanel1.add(this.jTextFieldStreet, gridBagConstraints);
 
-        jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
-        jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
-        jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
-        jTextFieldCep.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldCep.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextFieldCep.setEnabled(false);
-        jTextFieldCep.setPreferredSize(new java.awt.Dimension(300, 30));
+        this.jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldCep.setCaretColor(new java.awt.Color(255, 255, 255));
+        this.jTextFieldCep.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        this.jTextFieldCep.setEnabled(false);
+        this.jTextFieldCep.setPreferredSize(new java.awt.Dimension(300, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
@@ -156,32 +156,32 @@ public class AddressFormComponent extends AbstractFormComponent {
         gridBagConstraints.ipady = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 67, 0, 118);
-        jPanel1.add(jTextFieldCep, gridBagConstraints);
+        this.jPanel1.add(this.jTextFieldCep, gridBagConstraints);
 
-        jLabelCEP.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelCEP.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelCEP.setText("CEP:");
+        this.jLabelCEP.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelCEP.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelCEP.setText("CEP:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(25, 6, 0, 0);
-        jPanel1.add(jLabelCEP, gridBagConstraints);
+        this.jPanel1.add(this.jLabelCEP, gridBagConstraints);
 
-        jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelDistrict.setText("Bairro:");
+        this.jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelDistrict.setText("Bairro:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(35, 6, 0, 0);
-        jPanel1.add(jLabelDistrict, gridBagConstraints);
+        this.jPanel1.add(this.jLabelDistrict, gridBagConstraints);
 
-        jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxDistrict.setBorder(new javax.swing.border.MatteBorder(null));
-        jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxDistrict.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -190,22 +190,22 @@ public class AddressFormComponent extends AbstractFormComponent {
         gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(28, 67, 0, 118);
-        jPanel1.add(jComboBoxDistrict, gridBagConstraints);
+        this.jPanel1.add(this.jComboBoxDistrict, gridBagConstraints);
 
-        jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
-        jLabelCity.setText("Cidade:");
+        this.jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        this.jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
+        this.jLabelCity.setText("Cidade:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(34, 6, 0, 0);
-        jPanel1.add(jLabelCity, gridBagConstraints);
+        this.jPanel1.add(this.jLabelCity, gridBagConstraints);
 
-        jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxCity.setBorder(new javax.swing.border.MatteBorder(null));
-        jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxCity.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -214,18 +214,18 @@ public class AddressFormComponent extends AbstractFormComponent {
         gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(27, 67, 75, 118);
-        jPanel1.add(jComboBoxCity, gridBagConstraints);
+        this.jPanel1.add(this.jComboBoxCity, gridBagConstraints);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
         this.jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)
+            .addComponent(this.jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(this.jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -255,51 +255,60 @@ public class AddressFormComponent extends AbstractFormComponent {
     }
 
     public JComboBox<String> getjComboBoxCity() {
-        return jComboBoxCity;
+        return this.jComboBoxCity;
     }
 
     public JComboBox<String> getjComboBoxDistrict() {
-        return jComboBoxDistrict;
+        return this.jComboBoxDistrict;
     }
 
     public JLabel getjLabelCEP() {
-        return jLabelCEP;
+        return this.jLabelCEP;
     }
 
     public JLabel getjLabelCity() {
-        return jLabelCity;
+        return this.jLabelCity;
     }
 
     public JLabel getjLabelDistrict() {
-        return jLabelDistrict;
+        return this.jLabelDistrict;
     }
 
     public JLabel getjLabelStreet() {
-        return jLabelStreet;
+        return this.jLabelStreet;
     }
 
     public JPanel getjPanel1() {
-        return jPanel1;
+        return this.jPanel1;
     }
 
     public JTextField getjTextFieldCep() {
-        return jTextFieldCep;
+        return this.jTextFieldCep;
     }
 
     public JTextField getjTextFieldStreet() {
-        return jTextFieldStreet;
+        return this.jTextFieldStreet;
     }
     
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonChange;
+    private javax.swing.JButton jButtonNew;
+    private javax.swing.JButton jButtonOut;
+    private javax.swing.JButton jButtonWrite;
     private javax.swing.JComboBox<String> jComboBoxCity;
     private javax.swing.JComboBox<String> jComboBoxDistrict;
     private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelCity;
     private javax.swing.JLabel jLabelDistrict;
     private javax.swing.JLabel jLabelStreet;
+    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelBody;
+    private javax.swing.JPanel jPanelFooter;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JTextField jTextFieldCep;
     private javax.swing.JTextField jTextFieldStreet;
     // End of variables declaration//GEN-END:variables

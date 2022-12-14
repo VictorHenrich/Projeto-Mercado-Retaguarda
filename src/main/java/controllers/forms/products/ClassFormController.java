@@ -1,11 +1,11 @@
 
-package controllers.produtos;
+package controllers.forms.products;
 
 import controllers.builders.produtos.ClassBuilder;
 import controllers.patterns.AbstractFormController;
 import models.produtos.Class;
 import repositories.produtos.ClassRepository;
-import view.ClassFormComponent;
+import view.forms.ClassFormComponent;
 
 
 public class ClassFormController extends AbstractFormController<ClassFormComponent, Class>{

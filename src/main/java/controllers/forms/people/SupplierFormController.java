@@ -1,12 +1,12 @@
 
-package controllers.pessoas;
+package controllers.forms.people;
 
 import controllers.builders.pessoa.SupplierBuilder;
 import controllers.patterns.AbstractFormPersonController;
 import java.util.ArrayList;
 import models.pessoas.Supplier;
 import repositories.pessoas.SupplierRepository;
-import view.SupplierFormComponent;
+import view.forms.SupplierFormComponent;
 import view.utils.UtilsComponents;
 
 

@@ -1,5 +1,5 @@
 
-package controllers.pessoas;
+package controllers.forms.people;
 
 import controllers.builders.pessoa.ClientBuilder;
 import controllers.patterns.AbstractFormPersonController;
@@ -10,7 +10,7 @@ import java.util.Date;
 import models.pessoas.Client;
 import models.pessoas.Sex;
 import repositories.pessoas.ClientRepository;
-import view.ClientFormComponent;
+import view.forms.ClientFormComponent;
 import view.utils.UtilsComponents;
 
 

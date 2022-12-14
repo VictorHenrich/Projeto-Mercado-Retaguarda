@@ -32,9 +32,13 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
     protected abstract ArrayList<String[]> getRows();
     
     private void onClickButtonDelete(){
+        if(this.registers.size() <= 0) return;
+        
         M model = this.registers.get(this.table.getjTableList().getSelectedRow());
         
         this.repository.delete(model.getId());
+        
+        this.reloadList();
     }
     
     private void onClickButtonUpdate(){

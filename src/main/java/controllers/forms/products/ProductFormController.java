@@ -20,8 +20,8 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
     private ArrayList<Class> listClasses;
     private ArrayList<Brand> listBrands;
     
-    public ProductFormController(ProductFormComponent form) {
-        super(form);
+    public ProductFormController() {
+        super(new ProductFormComponent());
     }
     
     private ProductBuilder newProductBuilder(){

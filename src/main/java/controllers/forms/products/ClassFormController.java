@@ -12,8 +12,8 @@ public class ClassFormController extends AbstractFormController<ClassFormCompone
     
     private final ClassRepository classRepository = new ClassRepository();
     
-    public ClassFormController(ClassFormComponent form) {
-        super(form);
+    public ClassFormController() {
+        super(new ClassFormComponent());
     }
     
     private ClassBuilder newClassBuilder(){

@@ -12,8 +12,8 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
     
     private final BrandRepository brandRepository = new BrandRepository();
     
-    public BrandFormController(BrandFormComponent form) {
-        super(form);
+    public BrandFormController() {
+        super(new BrandFormComponent());
     }
     
     private BrandBuilder newBrandBuilder(){

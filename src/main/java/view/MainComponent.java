@@ -5,6 +5,9 @@ import controllers.forms.addresses.DistrictFormController;
 import controllers.lists.address.AddressListController;
 import controllers.lists.address.CityListController;
 import controllers.lists.address.DistrictListController;
+import controllers.lists.products.BrandListController;
+import controllers.lists.products.ClassListController;
+import controllers.lists.products.ProductListController;
 
 public class MainComponent extends javax.swing.JFrame {
 
@@ -124,12 +127,27 @@ public class MainComponent extends javax.swing.JFrame {
         jMenu7.setText("Produtos");
 
         jCheckBoxMenuItemClasse.setText("Classe");
+        jCheckBoxMenuItemClasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemClasseActionPerformed(evt);
+            }
+        });
         jMenu7.add(jCheckBoxMenuItemClasse);
 
         jCheckBoxMenuItemMarca.setText("Marca");
+        jCheckBoxMenuItemMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemMarcaActionPerformed(evt);
+            }
+        });
         jMenu7.add(jCheckBoxMenuItemMarca);
 
         jCheckBoxMenuItemProduto.setText("Produto");
+        jCheckBoxMenuItemProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemProdutoActionPerformed(evt);
+            }
+        });
         jMenu7.add(jCheckBoxMenuItemProduto);
 
         jMenu1.add(jMenu7);
@@ -188,6 +206,18 @@ public class MainComponent extends javax.swing.JFrame {
     private void jCheckBoxMenuItemDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemDistrictActionPerformed
         new DistrictListController().showComponent(true);
     }//GEN-LAST:event_jCheckBoxMenuItemDistrictActionPerformed
+
+    private void jCheckBoxMenuItemClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemClasseActionPerformed
+        new ClassListController().showComponent(true);
+    }//GEN-LAST:event_jCheckBoxMenuItemClasseActionPerformed
+
+    private void jCheckBoxMenuItemMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemMarcaActionPerformed
+        new BrandListController().showComponent(true);
+    }//GEN-LAST:event_jCheckBoxMenuItemMarcaActionPerformed
+
+    private void jCheckBoxMenuItemProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemProdutoActionPerformed
+        new ProductListController().showComponent(true);
+    }//GEN-LAST:event_jCheckBoxMenuItemProdutoActionPerformed
 
 
     public static void main(String args[]) {

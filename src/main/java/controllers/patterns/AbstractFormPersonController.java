@@ -11,7 +11,6 @@ import repositories.enderecos.AddressRepository;
 import repositories.enderecos.CityRepository;
 import repositories.enderecos.DistrictRepository;
 import view.components.AbstractFormPersonComponent;
-import view.utils.UtilsComponents;
 
 
 public abstract class AbstractFormPersonController<T extends AbstractFormPersonComponent, M extends Person> extends AbstractFormController<T, M>{
@@ -50,14 +49,41 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
         this.form.getjTextFieldStreet().setEnabled(status);
         this.form.getjComboBoxCity().setEnabled(status);
         this.form.getjComboBoxDistrict().setEnabled(status);
+        this.form.getjTextFieldCep().setEnabled(status);
+    }
+    
+    protected void clearFields(){
+        this.form.getjTextAreaObs().setText("");
+        this.form.getjTextFieldEmail().setText("");
+        this.form.getjTextFieldPhone1().setText("");
+        this.form.getjTextFieldPhone2().setText("");
+        this.form.getjTextFieldName().setText("");
+        this.form.getjTextFieldStreet().setText("");
+        this.form.getjComboBoxCity().setSelectedIndex(-1);
+        this.form.getjComboBoxDistrict().setSelectedIndex(-1);
+        this.form.getjTextFieldCep().setText("");
     }
     
     protected void loadFields(){
         if(this.registerLoaded == null) return;
         
-        int indexDistrict = this.districts.indexOf(this.registerLoaded.getEndereco().getBairro());
-        int indexCity = this.cities.indexOf(this.registerLoaded.getEndereco().getCidade());
         
+        if(this.registerLoaded.getEndereco() != null){
+            
+            this.form.getjTextFieldCep().setText(this.registerLoaded.getEndereco().getCep());
+            
+            if(!this.districts.isEmpty() && this.registerLoaded.getEndereco().getBairro() != null){
+                int indexDistrict = this.districts.indexOf(this.registerLoaded.getEndereco().getBairro());
+                
+                this.form.getjComboBoxDistrict().setSelectedIndex(indexDistrict);
+            }
+            
+            if(!this.cities.isEmpty() && this.registerLoaded.getEndereco().getCidade() != null){
+                int indexCity = this.cities.indexOf(this.registerLoaded.getEndereco().getCidade());
+                
+                this.form.getjComboBoxCity().setSelectedIndex(indexCity);
+            }
+        }
         
         this.form.getjTextAreaObs().setText(this.registerLoaded.getObservacao());
         this.form.getjTextFieldEmail().setText(this.registerLoaded.getEmail());
@@ -65,8 +91,10 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
         this.form.getjTextFieldPhone2().setText(this.registerLoaded.getFone2());
         this.form.getjTextFieldName().setText(this.registerLoaded.getNome());
         this.form.getjTextFieldStreet().setText(this.registerLoaded.getComplementoEndereco());
-        this.form.getjComboBoxCity().setSelectedIndex(indexCity);
-        this.form.getjComboBoxDistrict().setSelectedIndex(indexDistrict);
+        
+        String status = this.registerLoaded.getStatus() == 'A' ? "ATIVO" : "INATIVO";
+        
+        this.form.getjLabelStatus().setText(status);
     }
     
     private void loadAddress(){

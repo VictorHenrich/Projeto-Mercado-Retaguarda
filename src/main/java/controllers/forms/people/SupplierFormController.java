@@ -3,11 +3,9 @@ package controllers.forms.people;
 
 import controllers.builders.pessoa.SupplierBuilder;
 import controllers.patterns.AbstractFormPersonController;
-import java.util.ArrayList;
 import models.pessoas.Supplier;
 import repositories.pessoas.SupplierRepository;
 import view.forms.SupplierFormComponent;
-import view.utils.UtilsComponents;
 
 
 public class SupplierFormController extends AbstractFormPersonController<SupplierFormComponent, Supplier>{
@@ -66,15 +64,13 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
        }
     }
     
-    private void clearFields(){
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
+    private void clearFieldsSupplier(){
+        this.clearFields();
         
-        textFields.add(this.form.getjTextFieldCnpj());
-        textFields.add(this.form.getjTextFieldCpf());
-        textFields.add(this.form.getjTextFieldContact());
-        textFields.add(this.form.getjTextFieldIe());
-        
-        UtilsComponents.clearFields(textFields);
+        this.form.getjTextFieldCnpj().setText("");
+        this.form.getjTextFieldCpf().setText("");
+        this.form.getjTextFieldContact().setText("");
+        this.form.getjTextFieldIe().setText("");
     }
     
     private void enabledFieldsSupplier(boolean status){
@@ -103,7 +99,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
     @Override
     protected void resetStates() {
-        this.clearFields();
+        this.clearFieldsSupplier();
         this.enabledFieldsSupplier(false);
         
         this.form.getjLabelStatus().setText(" ");
@@ -111,7 +107,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
     @Override
     protected void onClickButtonNew() {
-        this.clearFields();
+        this.clearFieldsSupplier();
         this.enabledFieldsSupplier(true);
         
         this.form.getjLabelStatus().setText("ATIVO");

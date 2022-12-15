@@ -139,7 +139,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
         this.form.getjTextFieldBarcode().setText(this.registerLoaded.getBarraEntrada());
         this.form.getjTextFieldBuyingValue().setText("" + this.registerLoaded.getValorCompra());
-        this.form.getjTextFieldUnSales().setText("" + this.registerLoaded.getValorVenda());
+        this.form.getjTextFieldSaleValue().setText("" + this.registerLoaded.getValorVenda());
         this.form.getjTextFieldUnBuying().setText(this.registerLoaded.getUnidadeCompra());
         this.form.getjTextFieldUnSales().setText(this.registerLoaded.getUnidadeVenda());
         this.form.getjTextFieldMaxStock().setText("" + this.registerLoaded.getEstoqueMaximo());

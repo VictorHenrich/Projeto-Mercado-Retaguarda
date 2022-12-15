@@ -105,6 +105,12 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     
     @Override
     protected void onShowComponent() {
+        if(this.form.getjComboBoxCity().getItemCount() > 0)
+            this.form.getjComboBoxCity().removeAllItems();
+        
+        if(this.form.getjComboBoxDistrict().getItemCount() > 0)
+            this.form.getjComboBoxDistrict().removeAllItems();
+        
         DistrictRepository districtRepository = new DistrictRepository();
         CityRepository cityRepository = new CityRepository();
         

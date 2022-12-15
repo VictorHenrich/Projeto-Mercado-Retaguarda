@@ -11,7 +11,6 @@ import models.pessoas.Client;
 import models.pessoas.Sex;
 import repositories.pessoas.ClientRepository;
 import view.forms.ClientFormComponent;
-import view.utils.UtilsComponents;
 
 
 public class ClientFormController extends AbstractFormPersonController<ClientFormComponent, Client>{
@@ -87,14 +86,12 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
         this.form.getjTextFieldDateBirth().setEnabled(status);
     }
     
-    private void clearFields(){
-        ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
+    private void clearFieldsClient(){
+        this.clearFields();
         
-        textFields.add(this.form.getjTextFieldCpf());
-        textFields.add(this.form.getjTextFieldRg());
-        textFields.add(this.form.getjTextFieldDateBirth());
-        
-        UtilsComponents.clearFields(textFields);
+        this.form.getjTextFieldCpf().setText("");
+        this.form.getjTextFieldRg().setText("");
+        this.form.getjTextFieldDateBirth().setText("");
     }
     
     private void loadFieldsClient(){
@@ -132,7 +129,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     @Override
     protected void onClickButtonNew() {
         this.enabledFieldsClient(true);
-        this.clearFields();
+        this.clearFieldsClient();
         
         this.form.getjLabelStatus().setText("ATIVO");
     }

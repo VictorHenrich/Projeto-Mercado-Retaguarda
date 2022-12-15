@@ -3,11 +3,9 @@ package controllers.forms.people;
 
 import controllers.builders.pessoa.CollaboratorBuilder;
 import controllers.patterns.AbstractFormPersonController;
-import java.util.ArrayList;
 import models.pessoas.Collaborator;
 import repositories.pessoas.CollaboratorRepository;
 import view.forms.CollaboratorFormComponent;
-import view.utils.UtilsComponents;
 
 
 public class CollaboratorFormController extends AbstractFormPersonController<CollaboratorFormComponent, Collaborator>{
@@ -62,13 +60,11 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
         }
     }
     
-    private void clearFields(){
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
+    private void clearFieldsCollaborator(){
+        this.clearFields();
         
-        textFields.add(this.form.getjTextFieldPassword());
-        textFields.add(this.form.getjTextFieldUser());
-        
-        UtilsComponents.clearFields(textFields);
+        this.form.getjTextFieldPassword().setText("");
+        this.form.getjTextFieldUser().setText("");
     }
     
     private void enabledFieldsCollaborator(boolean status){
@@ -80,7 +76,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     
     @Override
     protected void resetStates() {
-        this.clearFields();
+        this.clearFieldsCollaborator();
         this.enabledFieldsCollaborator(false);
         
         this.form.getjLabelStatus().setText(" ");
@@ -90,7 +86,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
     protected void onClickButtonNew() {
         this.form.activateFieldsPerson(true);
         
-        this.clearFields();
+        this.clearFieldsCollaborator();
         this.enabledFieldsCollaborator(true);
         
         this.form.getjLabelStatus().setText("ATIVO");

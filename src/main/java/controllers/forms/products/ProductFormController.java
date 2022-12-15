@@ -3,6 +3,7 @@ package controllers.forms.products;
 
 import controllers.builders.produtos.ProductBuilder;
 import controllers.patterns.AbstractFormController;
+import java.text.ParseException;
 import java.util.ArrayList;
 import models.produtos.Product;
 import models.produtos.Brand;
@@ -17,17 +18,23 @@ import view.utils.UtilsComponents;
 public class ProductFormController extends AbstractFormController<ProductFormComponent, Product>{
     
     private final ProductRepository productRepository = new ProductRepository();
-    private ArrayList<Class> listClasses;
-    private ArrayList<Brand> listBrands;
+    private ArrayList<Class> classes;
+    private ArrayList<Brand> brands;
     
     public ProductFormController() {
         super(new ProductFormComponent());
     }
     
     private ProductBuilder newProductBuilder(){
-        Class class_ = this.listClasses.get(this.form.getjComboBoxClass().getSelectedIndex());
-        Brand brand = this.listBrands.get(this.form.getjComboBoxBrand().getSelectedIndex());
+        Class class_ = null;
+        Brand brand = null;
         
+        if(!this.brands.isEmpty())
+            brand = this.brands.get(this.form.getjComboBoxBrand().getSelectedIndex());
+        
+        if(!this.classes.isEmpty())
+            class_ = this.classes.get(this.form.getjComboBoxClass().getSelectedIndex());
+            
         return new ProductBuilder()
                     .setDescricao(this.form.getjTextFieldDescription().getText())
                     .setBarraEntrada(this.form.getjTextFieldBarcode().getText())
@@ -54,8 +61,13 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
             
             System.out.println("Produto cadastrado com sucesso!");
             
+            
         }catch(Exception error){
-            System.out.println("Falha ao cadastrar produto!\nErro: " + error.getMessage());
+            if(error instanceof NumberFormatException)
+                System.out.println("Campos numéricos foram preenchidos com valores incorretos!");
+            
+            else
+                System.out.println("Falha ao cadastrar produto!\nErro: " + error.getMessage());
         }
     }
     
@@ -75,7 +87,6 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         }
     }
 
-    
     private void enabledFields(boolean status){
         ArrayList<javax.swing.JComponent> fields = new ArrayList();
         
@@ -110,21 +121,58 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
         UtilsComponents.clearFields(fields);
     }
     
+    private void loadFieldsProduct(){
+        if(this.registerLoaded == null) return;
+        
+        if(!this.brands.isEmpty() || this.registerLoaded.getMarca() != null){
+            int indexBrandSelected = this.brands.indexOf(this.registerLoaded.getMarca());
+            
+            this.form.getjComboBoxBrand().setSelectedIndex(indexBrandSelected);
+        }
+        
+        if(!this.classes.isEmpty() || this.registerLoaded.getClass() != null){
+            int indexClassSelected = this.classes.indexOf(this.registerLoaded.getClasse());
+            
+            this.form.getjComboBoxClass().setSelectedIndex(indexClassSelected);
+        }
+        
+        this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
+        this.form.getjTextFieldBarcode().setText(this.registerLoaded.getBarraEntrada());
+        this.form.getjTextFieldBuyingValue().setText("" + this.registerLoaded.getValorCompra());
+        this.form.getjTextFieldUnSales().setText("" + this.registerLoaded.getValorVenda());
+        this.form.getjTextFieldUnBuying().setText(this.registerLoaded.getUnidadeCompra());
+        this.form.getjTextFieldUnSales().setText(this.registerLoaded.getUnidadeVenda());
+        this.form.getjTextFieldMaxStock().setText("" + this.registerLoaded.getEstoqueMaximo());
+        this.form.getjTextFieldMinStock().setText("" + this.registerLoaded.getEstoqueMaximo());
+        
+        String status = this.registerLoaded.getStatus() == 'A' ? "ATIVO" : "INATIVO";
+        
+        this.form.getjLabelStatus().setText(status);
+    }
+    
     @Override
     protected void onShowComponent() {
+        if(this.form.getjComboBoxBrand().getItemCount() > 0)
+            this.form.getjComboBoxBrand().removeAllItems();
+        
+        if(this.form.getjComboBoxClass().getItemCount() > 0)
+            this.form.getjComboBoxClass().removeAllItems();
+        
         ClassRepository classRepository = new ClassRepository();
         BrandRepository brandRepository = new BrandRepository();
         
-        this.listClasses = (ArrayList<Class>) classRepository.fetch();
-        this.listBrands = (ArrayList<Brand>) brandRepository.fetch();
+        this.classes = (ArrayList<Class>) classRepository.fetch();
+        this.brands = (ArrayList<Brand>) brandRepository.fetch();
         
-        for(Brand b: this.listBrands)
+        for(Brand b: this.brands)
             this.form.getjComboBoxBrand().addItem(b.getDescricao());
         
-        for(Class c: this.listClasses)
-            this.form.getjComboBoxBrand().addItem(c.getDescricao());
+        for(Class c: this.classes)
+            this.form.getjComboBoxClass().addItem(c.getDescricao());
         
         this.form.getjLabelStatus().setText(" ");
+        
+        loadFieldsProduct();
     }
 
     @Override
@@ -153,7 +201,6 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
 
     @Override
     protected void onClickButtonChange() {
-        this.clearFields();
         this.enabledFields(true);
     }
     

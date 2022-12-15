@@ -23,10 +23,16 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         super(new AddressFormComponent());
     }
     
-    private AddressBuilder newAddressBuilder(){        
-        City city = this.cities.get(this.form.getjComboBoxCity().getSelectedIndex());
-        District district = this.districts.get(this.form.getjComboBoxDistrict().getSelectedIndex());
+    private AddressBuilder newAddressBuilder(){
+        City city = null;
+        District district = null;
         
+        if(!this.cities.isEmpty())
+            city = this.cities.get(this.form.getjComboBoxCity().getSelectedIndex());
+        
+        if(!this.districts.isEmpty())
+            district = this.districts.get(this.form.getjComboBoxDistrict().getSelectedIndex());
+
         return new AddressBuilder()
                     .setLogradouro(this.form.getjTextFieldStreet().getText())
                     .setCep(this.form.getjTextFieldCep().getText())
@@ -63,7 +69,25 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
             System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
         }
     }
-
+    
+    private void loadFields(){
+        if(this.registerLoaded == null) return;
+        
+        this.form.getjTextFieldCep().setText(this.registerLoaded.getCep());
+        this.form.getjTextFieldStreet().setText(this.registerLoaded.getLogradouro());
+        
+        if(this.registerLoaded.getCidade() != null && !this.cities.isEmpty()){
+            int indexCity = this.cities.indexOf(this.registerLoaded.getCidade());
+            
+            this.form.getjComboBoxCity().setSelectedIndex(indexCity);
+        }
+        
+        if(this.registerLoaded.getBairro() != null && !this.districts.isEmpty()){
+            int indexDistrict = this.districts.indexOf(this.registerLoaded.getBairro());
+            this.form.getjComboBoxDistrict().setSelectedIndex(indexDistrict);
+        }
+    }
+    
     @Override
     protected void resetStates() {
         this.form.getjTextFieldCep().setText(null);
@@ -92,6 +116,8 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         
         for(City c: cities)
             this.form.getjComboBoxCity().addItem(c.getDescricao());
+        
+        loadFields();
     }
 
     @Override

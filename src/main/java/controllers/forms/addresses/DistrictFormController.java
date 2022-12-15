@@ -80,6 +80,8 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
 
     @Override
     protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
+        
         this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
 

@@ -32,7 +32,9 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
     protected abstract ArrayList<String[]> getRows();
     
     private void onClickButtonDelete(){
-        if(this.registers.size() <= 0) return;
+        int indexSelected = this.table.getjTableList().getSelectedRow();
+        
+        if(this.registers.isEmpty() || indexSelected < 0) return;
         
         M model = this.registers.get(this.table.getjTableList().getSelectedRow());
         
@@ -42,6 +44,10 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
     }
     
     private void onClickButtonUpdate(){
+        int indexSelected = this.table.getjTableList().getSelectedRow();
+        
+        if(this.registers.isEmpty() || indexSelected < 0) return;
+        
         M model = this.registers.get(this.table.getjTableList().getSelectedRow());
         
         this.formController.showComponent(model, this);

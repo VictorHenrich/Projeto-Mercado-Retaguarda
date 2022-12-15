@@ -34,47 +34,8 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
                         .setEndereco(this.addressLoaded);
     }
     
-    @Override
-    protected void resetStates() {
-        this.form.activateFieldsPerson(false);
-        
-        ArrayList<javax.swing.JComponent> fields =  new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
-        
-        fields.add(this.form.getjTextFieldPassword());
-        fields.add(this.form.getjTextFieldUser());
-        
-        textFields.add(this.form.getjTextFieldPassword());
-        textFields.add(this.form.getjTextFieldUser());
-        
-        UtilsComponents.disabledComponents(fields, false);
-        UtilsComponents.clearFields(textFields);
-        
-        this.form.getjLabelStatus().setText(" ");
-    }
-
-    @Override
-    protected void onClickButtonNew() {
-        this.form.activateFieldsPerson(true);
-        
-        ArrayList<javax.swing.JComponent> fields =  new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
-        
-        fields.add(this.form.getjTextFieldPassword());
-        fields.add(this.form.getjTextFieldUser());
-        
-        textFields.add(this.form.getjTextFieldPassword());
-        textFields.add(this.form.getjTextFieldUser());
-        
-        UtilsComponents.disabledComponents(fields, true);
-        UtilsComponents.clearFields(textFields);
-        
-        this.form.getjLabelStatus().setText("ATIVO");
-    }
-
-    @Override
-    protected void onClickButtonCreate() {
-       try{
+    private void createCollaborator(){
+        try{
            int id = this.collaboratorRepository.nextID();
            
            Collaborator collaborator = this.newCollaboratorBuilder().build(id);
@@ -86,11 +47,9 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
        }catch(Exception error){
            System.out.println("Erro ao cadastrar colaborador!\nErro: " + error.getMessage());
        }
-           
     }
-
-    @Override
-    protected void onClickButtonUpdate() {
+    
+    private void updateCollaborator(){
         try{
             Collaborator collaborator = this.newCollaboratorBuilder().build(this.registerLoaded.getId());
             
@@ -102,10 +61,64 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
             System.out.println("Erro ao alterar colaborador!\nErro: " + error.getMessage());
         }
     }
+    
+    private void clearFields(){
+        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
+        
+        textFields.add(this.form.getjTextFieldPassword());
+        textFields.add(this.form.getjTextFieldUser());
+        
+        UtilsComponents.clearFields(textFields);
+    }
+    
+    private void enabledFieldsCollaborator(boolean status){
+        this.form.getjTextFieldPassword().setEnabled(status);
+        this.form.getjTextFieldUser().setEnabled(status);
+        
+        this.enabledFields(status);
+    }
+    
+    @Override
+    protected void resetStates() {
+        this.clearFields();
+        this.enabledFieldsCollaborator(false);
+        
+        this.form.getjLabelStatus().setText(" ");
+    }
+
+    @Override
+    protected void onClickButtonNew() {
+        this.form.activateFieldsPerson(true);
+        
+        this.clearFields();
+        this.enabledFieldsCollaborator(true);
+        
+        this.form.getjLabelStatus().setText("ATIVO");
+    }
+
+    @Override
+    protected void onClickButtonWrite() {
+       if(this.registerLoaded == null)
+           this.createCollaborator();
+       
+       else
+           this.updateCollaborator();
+           
+    }
+
+    @Override
+    protected void onClickButtonChange() {
+        this.enabledFieldsCollaborator(true);
+    }
 
     @Override
     protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
         
+        this.loadFields();
+        
+        this.form.getjTextFieldUser().setText(this.registerLoaded.getLogin());
+        this.form.getjTextFieldPassword().setText(this.registerLoaded.getSenha());
     }
     
 }

@@ -33,61 +33,9 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
     public SupplierFormController() {
         super(new SupplierFormComponent());
     }
-
-    @Override
-    protected void onShowComponent() {
-        
-    }
-
-    @Override
-    protected void resetStates() {
-        this.form.activateFieldsPerson(false);
-        
-        ArrayList<javax.swing.JComponent> fields =  new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
-        
-        fields.add(this.form.getjTextFieldCnpj());
-        fields.add(this.form.getjTextFieldCpf());
-        fields.add(this.form.getjTextFieldContact());
-        fields.add(this.form.getjTextFieldIe());
-        
-        textFields.add(this.form.getjTextFieldCnpj());
-        textFields.add(this.form.getjTextFieldCpf());
-        textFields.add(this.form.getjTextFieldContact());
-        textFields.add(this.form.getjTextFieldIe());
-        
-        UtilsComponents.disabledComponents(fields, false);
-        UtilsComponents.clearFields(textFields);
-        
-        this.form.getjLabelStatus().setText(" ");
-    }
-
-    @Override
-    protected void onClickButtonNew() {
-        this.form.activateFieldsPerson(true);
-        
-        ArrayList<javax.swing.JComponent> fields =  new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
-        
-        fields.add(this.form.getjTextFieldCnpj());
-        fields.add(this.form.getjTextFieldCpf());
-        fields.add(this.form.getjTextFieldContact());
-        fields.add(this.form.getjTextFieldIe());
-        
-        textFields.add(this.form.getjTextFieldCnpj());
-        textFields.add(this.form.getjTextFieldCpf());
-        textFields.add(this.form.getjTextFieldContact());
-        textFields.add(this.form.getjTextFieldIe());
-        
-        UtilsComponents.disabledComponents(fields, true);
-        UtilsComponents.clearFields(textFields);
-        
-        this.form.getjLabelStatus().setText("ATIVO");
-    }
-
-    @Override
-    protected void onClickButtonCreate() {
-       try{
+    
+    private void createSupplier(){
+        try{
            
            int id = this.supplierRepository.nextID();
            
@@ -101,9 +49,8 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
            System.out.println("Falha ao cadastrar Fornecedor!\nErro: " + error.getMessage());
        }
     }
-
-    @Override
-    protected void onClickButtonUpdate() {
+    
+    private void updateSupplier(){
         try{
            
            int id = this.registerLoaded.getId();
@@ -117,6 +64,70 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
        }catch(Exception error){
            System.out.println("Falha ao alterar Fornecedor!\nErro: " + error.getMessage());
        }
+    }
+    
+    private void clearFields(){
+        ArrayList<javax.swing.text.JTextComponent> textFields =  new ArrayList();
+        
+        textFields.add(this.form.getjTextFieldCnpj());
+        textFields.add(this.form.getjTextFieldCpf());
+        textFields.add(this.form.getjTextFieldContact());
+        textFields.add(this.form.getjTextFieldIe());
+        
+        UtilsComponents.clearFields(textFields);
+    }
+    
+    private void enabledFieldsSupplier(boolean status){
+        
+        this.enabledFields(status);
+        
+        this.form.getjTextFieldIe().setEnabled(status);
+        this.form.getjTextFieldContact().setEnabled(status);
+        this.form.getjTextFieldCpf().setEnabled(status);
+        this.form.getjTextFieldCnpj().setEnabled(status);
+
+    }
+
+    @Override
+    protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
+        
+        this.loadFields();
+        
+        this.form.getjTextFieldCnpj().setText(this.registerLoaded.getCnpj());
+        this.form.getjTextFieldContact().setText(this.registerLoaded.getContato());
+        this.form.getjTextFieldCpf().setText(this.registerLoaded.getEmail());
+        this.form.getjLabelIE().setText(this.registerLoaded.getInscricaoEstadual());
+        this.form.getjTextFieldSocialReason().setText(this.registerLoaded.getRazaoSocial());
+    }
+
+    @Override
+    protected void resetStates() {
+        this.clearFields();
+        this.enabledFieldsSupplier(false);
+        
+        this.form.getjLabelStatus().setText(" ");
+    }
+
+    @Override
+    protected void onClickButtonNew() {
+        this.clearFields();
+        this.enabledFieldsSupplier(true);
+        
+        this.form.getjLabelStatus().setText("ATIVO");
+    }
+
+    @Override
+    protected void onClickButtonWrite() {
+       if(this.registerLoaded == null)
+           this.createSupplier();
+       else
+           this.updateSupplier();
+    }
+
+    @Override
+    protected void onClickButtonChange() {
+        this.enabledFieldsSupplier(false);
     }
     
 }

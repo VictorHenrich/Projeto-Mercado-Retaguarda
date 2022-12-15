@@ -6,14 +6,15 @@ import models.enderecos.City;
 import models.enderecos.District;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import models.patterns.BaseModel;
+import models.pessoas.Person;
 import repositories.enderecos.AddressRepository;
 import repositories.enderecos.CityRepository;
 import repositories.enderecos.DistrictRepository;
 import view.components.AbstractFormPersonComponent;
+import view.utils.UtilsComponents;
 
 
-public abstract class AbstractFormPersonController<T extends AbstractFormPersonComponent, M extends BaseModel> extends AbstractFormController<T, M>{
+public abstract class AbstractFormPersonController<T extends AbstractFormPersonComponent, M extends Person> extends AbstractFormController<T, M>{
     
     protected ArrayList<City> cities;
     protected ArrayList<District> districts;
@@ -21,6 +22,8 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
 
     public AbstractFormPersonController(T form) {
         super(form);
+        
+        init();
     }
     
     private void init(){
@@ -36,6 +39,34 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
         
         
         this.addActions();
+    }
+    
+    protected void enabledFields(boolean status){
+        this.form.getjTextAreaObs().setEnabled(status);
+        this.form.getjTextFieldEmail().setEnabled(status);
+        this.form.getjTextFieldPhone1().setEnabled(status);
+        this.form.getjTextFieldPhone2().setEnabled(status);
+        this.form.getjTextFieldName().setEnabled(status);
+        this.form.getjTextFieldStreet().setEnabled(status);
+        this.form.getjComboBoxCity().setEnabled(status);
+        this.form.getjComboBoxDistrict().setEnabled(status);
+    }
+    
+    protected void loadFields(){
+        if(this.registerLoaded == null) return;
+        
+        int indexDistrict = this.districts.indexOf(this.registerLoaded.getEndereco().getBairro());
+        int indexCity = this.cities.indexOf(this.registerLoaded.getEndereco().getCidade());
+        
+        
+        this.form.getjTextAreaObs().setText(this.registerLoaded.getObservacao());
+        this.form.getjTextFieldEmail().setText(this.registerLoaded.getEmail());
+        this.form.getjTextFieldPhone1().setText(this.registerLoaded.getFone1());
+        this.form.getjTextFieldPhone2().setText(this.registerLoaded.getFone2());
+        this.form.getjTextFieldName().setText(this.registerLoaded.getNome());
+        this.form.getjTextFieldStreet().setText(this.registerLoaded.getComplementoEndereco());
+        this.form.getjComboBoxCity().setSelectedIndex(indexCity);
+        this.form.getjComboBoxDistrict().setSelectedIndex(indexDistrict);
     }
     
     private void loadAddress(){

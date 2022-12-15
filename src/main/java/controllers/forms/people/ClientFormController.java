@@ -77,26 +77,40 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
         }
     }
     
-    @Override
-    protected void resetStates() {
-        this.form.activateButtons(false);
-        this.form.activateFieldsPerson(false);
+    private void enabledFieldsClient(boolean status){
         
-        ArrayList<javax.swing.JComponent> fields = new ArrayList();
+        this.enabledFields(status);
+        
+        this.form.getjTextFieldCpf().setEnabled(status);
+        this.form.getjTextFieldRg().setEnabled(status);
+        this.form.getjComboSex().setEnabled(status);
+        this.form.getjTextFieldDateBirth().setEnabled(status);
+    }
+    
+    private void clearFields(){
         ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
-        
-        fields.add(this.form.getjTextFieldCpf());
-        fields.add(this.form.getjTextFieldRg());
-        fields.add(this.form.getjTextFieldDateBirth());
-        fields.add(this.form.getjComboSex());
         
         textFields.add(this.form.getjTextFieldCpf());
         textFields.add(this.form.getjTextFieldRg());
         textFields.add(this.form.getjTextFieldDateBirth());
         
-        
-        UtilsComponents.disabledComponents(fields, false);
         UtilsComponents.clearFields(textFields);
+    }
+    
+    private void loadFieldsClient(){
+        if(this.registerLoaded == null) return;
+        
+        this.loadFields();
+        
+        this.form.getjTextFieldCpf().setText(this.registerLoaded.getCpf());
+        this.form.getjTextFieldDateBirth().setText(this.registerLoaded.getDataCadastro().toString());
+        this.form.getjTextFieldRg().setText(this.registerLoaded.getRg());
+    }
+    
+    @Override
+    protected void resetStates() {
+        this.clearFields();
+        this.enabledFieldsClient(false);
     }
     
     @Override
@@ -109,63 +123,32 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
        for(Sex s: this.sexes)
           this.form.getjComboSex().addItem(s.getDescription());
        
+       
        this.form.getjLabelStatus().setText(" ");
+       
+       loadFieldsClient();
     }
 
     @Override
     protected void onClickButtonNew() {
-        this.form.activateButtons(true);
-        this.form.activateFieldsPerson(true);
-        
-        ArrayList<javax.swing.JComponent> fields = new ArrayList();
-        ArrayList<javax.swing.text.JTextComponent> textFields = new ArrayList();
-        
-        fields.add(this.form.getjTextFieldCpf());
-        fields.add(this.form.getjTextFieldRg());
-        fields.add(this.form.getjTextFieldDateBirth());
-        fields.add(this.form.getjComboSex());
-        
-        textFields.add(this.form.getjTextFieldCpf());
-        textFields.add(this.form.getjTextFieldRg());
-        textFields.add(this.form.getjTextFieldDateBirth());
-        
-        
-        UtilsComponents.disabledComponents(fields, true);
-        UtilsComponents.clearFields(textFields);
+        this.enabledFieldsClient(true);
+        this.clearFields();
         
         this.form.getjLabelStatus().setText("ATIVO");
     }
 
     @Override
-    protected void onClickButtonCreate() {
-        try{
-            int id = this.clientRepository.nextID();
-            
-            Client client = this.newClientBuilder().build(id);
-            
-            this.clientRepository.create(client);
-            
-            System.out.println("Cliente cadastrado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar o cliente!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonWrite() {
+        if(this.registerLoaded == null)
+            this.createClient();
+        
+        else
+            this.updateClient();
     }
 
     @Override
-    protected void onClickButtonUpdate() {
-        try{
-            int id = this.registerLoaded.getId();
-            
-            Client client = this.newClientBuilder().build(id);
-            
-            this.clientRepository.update(id, client);
-            
-            System.out.println("Cliente alterado com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao alterado o cliente!\nErro: " + error.getMessage());
-        }
+    protected void onClickButtonChange() {
+        this.enabledFieldsClient(true);
     }
     
 }

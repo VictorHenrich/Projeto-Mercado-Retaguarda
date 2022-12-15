@@ -29,7 +29,7 @@ public class ClientListController extends AbstractListController<ClientListCompo
                 client.getNome(),
                 client.getCpf(),
                 client.getRg(),
-                client.getDataNascimento().toString(),
+                client.getDataNascimento() == null ? "" : client.getDataNascimento().toString(),
                 "" + client.getSexo()
             };
             

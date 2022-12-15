@@ -25,18 +25,28 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     }
     
     private ClientBuilder newClientBuilder() throws Exception, ModelBuilderException{
-        Sex s = this.sexes.get(this.form.getjComboSex().getSelectedIndex());
+        ClientBuilder builder = new ClientBuilder();
         
-        String dateBirth = this.form.getjTextFieldDateBirth().getText();
+        int indexSexSelected = this.form.getjComboSex().getSelectedIndex();
         
-        Date d = new SimpleDateFormat("dd/mm/yyyy").parse(dateBirth);
+        if(!this.sexes.isEmpty() && indexSexSelected >= 0){
+            Sex s = this.sexes.get(indexSexSelected);
+
+            builder.setSexo(s.getInitials());
+        }
         
+        if(!this.form.getjTextFieldDateBirth().getText().equals("") && this.form.getjTextFieldDateBirth().getText() != null){
+            String dateBirth = this.form.getjTextFieldDateBirth().getText();
+        
+            Date d = new SimpleDateFormat("dd/mm/yyyy").parse(dateBirth);
+            
+            builder.setDataNascimento(d);
+        }
+
         return (ClientBuilder) 
-                    new ClientBuilder()
+                    builder
                         .setCpf(this.form.getjTextFieldCpf().getText())
                         .setRg(this.form.getjTextFieldRg().getText())
-                        .setSexo(s.getInitials())
-                        .setDataNascimento(d)
                         .setEmail(this.form.getjTextFieldEmail().getText())
                         .setNome(this.form.getjTextFieldName().getText())
                         .setStatus('A')
@@ -51,7 +61,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
             int id = this.clientRepository.nextID();
             
             Client client = this.newClientBuilder().build(id);
-            
+
             this.clientRepository.create(client);
             
             System.out.println("Cliente cadastrado com sucesso!");
@@ -84,6 +94,8 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
         this.form.getjTextFieldRg().setEnabled(status);
         this.form.getjComboSex().setEnabled(status);
         this.form.getjTextFieldDateBirth().setEnabled(status);
+        
+        this.form.getjComboSex().setSelectedIndex(-1);
     }
     
     private void clearFieldsClient(){
@@ -92,12 +104,26 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
         this.form.getjTextFieldCpf().setText("");
         this.form.getjTextFieldRg().setText("");
         this.form.getjTextFieldDateBirth().setText("");
+        this.form.getjComboSex().setSelectedIndex(-1);
     }
     
     private void loadFieldsClient(){
         if(this.registerLoaded == null) return;
-        
+
         this.loadFields();
+        
+        if(!this.sexes.isEmpty()){
+            for(Sex sex: this.sexes){
+                if(sex.getInitials() == this.registerLoaded.getSexo()){
+                    int index = this.sexes.indexOf(sex);
+                    
+                    this.form.getjComboSex().setSelectedIndex(index);
+                    
+                    break;
+                }
+            }
+        }
+        
         
         this.form.getjTextFieldCpf().setText(this.registerLoaded.getCpf());
         this.form.getjTextFieldDateBirth().setText(this.registerLoaded.getDataCadastro().toString());
@@ -108,6 +134,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     protected void resetStates() {
         this.clearFields();
         this.enabledFieldsClient(false);
+        
     }
     
     @Override
@@ -117,9 +144,11 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
        this.sexes.add(new Sex("Masculino", 'M'));
        this.sexes.add(new Sex("Feminino", 'F'));
        
+       if(this.form.getjComboSex().getItemCount() > 0)
+           this.form.getjComboSex().removeAllItems();
+       
        for(Sex s: this.sexes)
           this.form.getjComboSex().addItem(s.getDescription());
-       
        
        this.form.getjLabelStatus().setText(" ");
        

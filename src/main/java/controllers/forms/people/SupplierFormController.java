@@ -81,7 +81,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
         this.form.getjTextFieldContact().setEnabled(status);
         this.form.getjTextFieldCpf().setEnabled(status);
         this.form.getjTextFieldCnpj().setEnabled(status);
-
+        this.form.getjTextFieldSocialReason().setEnabled(status);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
         this.form.getjTextFieldCnpj().setText(this.registerLoaded.getCnpj());
         this.form.getjTextFieldContact().setText(this.registerLoaded.getContato());
         this.form.getjTextFieldCpf().setText(this.registerLoaded.getEmail());
-        this.form.getjLabelIE().setText(this.registerLoaded.getInscricaoEstadual());
+        this.form.getjTextFieldIe().setText(this.registerLoaded.getInscricaoEstadual());
         this.form.getjTextFieldSocialReason().setText(this.registerLoaded.getRazaoSocial());
     }
 
@@ -123,7 +123,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
     @Override
     protected void onClickButtonChange() {
-        this.enabledFieldsSupplier(false);
+        this.enabledFieldsSupplier(true);
     }
     
 }

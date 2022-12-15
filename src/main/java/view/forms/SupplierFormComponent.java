@@ -38,8 +38,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jTextFieldEmail = new javax.swing.JTextField();
         this.jScrollPane1 = new javax.swing.JScrollPane();
         this.jTextAreaObs = new javax.swing.JTextArea();
-        this.jLabelUser = new javax.swing.JLabel();
-        this.jTextFieldUser = new javax.swing.JTextField();
         this.jLabelCep = new javax.swing.JLabel();
         this.jTextFieldCep = new javax.swing.JTextField();
         this.jLabelStreet = new javax.swing.JLabel();
@@ -109,7 +107,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jButtonWrite.setFocusPainted(false);
         this.jButtonWrite.setFocusable(false);
         this.jButtonWrite.setPreferredSize(new java.awt.Dimension(120, 35));
-
         this.jPanelFooter.add(this.jButtonWrite);
 
         this.jButtonCancel.setBackground(new java.awt.Color(102, 102, 102));
@@ -122,7 +119,6 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jButtonCancel.setFocusPainted(false);
         this.jButtonCancel.setFocusable(false);
         this.jButtonCancel.setPreferredSize(new java.awt.Dimension(120, 35));
-
         this.jPanelFooter.add(this.jButtonCancel);
 
         this.jButtonOut.setBackground(new java.awt.Color(102, 102, 102));
@@ -158,92 +154,84 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jLabelObs.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelObs.setText("Observação:");
 
-        this.jTextFieldSocialReason.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldSocialReason.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldSocialReason.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldSocialReason.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldSocialReason.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldSocialReason.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldSocialReason.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldSocialReason.setEnabled(false);
-        this.jTextFieldSocialReason.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldSocialReason.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        this.jTextFieldCnpj.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldCnpj.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldCnpj.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldCnpj.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldCnpj.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldCnpj.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldCnpj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldCnpj.setEnabled(false);
-        this.jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldCnpj.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        this.jTextFieldPhone2.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldPhone2.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldPhone2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldPhone2.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldPhone2.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldPhone2.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldPhone2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldPhone2.setEnabled(false);
-        this.jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldPhone2.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        this.jTextFieldEmail.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldEmail.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldEmail.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldEmail.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldEmail.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldEmail.setEnabled(false);
-        this.jTextFieldEmail.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldEmail.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        this.jTextAreaObs.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextAreaObs.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextAreaObs.setColumns(20);
-        this.jTextAreaObs.setForeground(new java.awt.Color(190, 190, 190));
+        this.jTextAreaObs.setForeground(new java.awt.Color(204, 204, 204));
         this.jTextAreaObs.setRows(5);
-        this.jTextAreaObs.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextAreaObs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextAreaObs.setEnabled(false);
+        this.jTextAreaObs.setPreferredSize(new java.awt.Dimension(100, 30));
         this.jScrollPane1.setViewportView(this.jTextAreaObs);
-
-        this.jLabelUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        this.jLabelUser.setForeground(new java.awt.Color(190, 190, 190));
-        this.jLabelUser.setText("Usuario:");
-
-        this.jTextFieldUser.setBackground(new java.awt.Color(50, 50, 50));
-        this.jTextFieldUser.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldUser.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldUser.setBorder(new javax.swing.border.MatteBorder(null));
-        this.jTextFieldUser.setEnabled(false);
-        this.jTextFieldUser.setPreferredSize(new java.awt.Dimension(50, 30));
 
         this.jLabelCep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelCep.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelCep.setText("CEP:");
 
-        this.jTextFieldCep.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldCep.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldCep.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldCep.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldCep.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldCep.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldCep.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldCep.setEnabled(false);
-        this.jTextFieldCep.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldCep.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelStreet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelStreet.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelStreet.setText("Logradouro:");
 
-        this.jTextFieldStreet.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldStreet.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldStreet.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldStreet.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldStreet.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldStreet.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldStreet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldStreet.setEnabled(false);
-        this.jTextFieldStreet.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldStreet.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelCity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelCity.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelCity.setText("Cidade:");
 
         this.jComboBoxCity.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxCity.setForeground(new java.awt.Color(204, 204, 204));
         this.jComboBoxCity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jComboBoxCity.setEnabled(false);
-        this.jComboBoxCity.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxCity.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelDistrict.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelDistrict.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelDistrict.setText("Bairro:");
 
         this.jComboBoxDistrict.setBackground(new java.awt.Color(51, 51, 51));
+        this.jComboBoxDistrict.setForeground(new java.awt.Color(204, 204, 204));
         this.jComboBoxDistrict.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jComboBoxDistrict.setEnabled(false);
-        this.jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(72, 30));
+        this.jComboBoxDistrict.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jPanelContainerStatus.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -257,56 +245,56 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
         this.jLabelSocialReason.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelSocialReason.setText("Razão Social:");
 
-        this.jTextFieldName.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldName.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldName.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldName.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldName.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldName.setEnabled(false);
-        this.jTextFieldName.setPreferredSize(new java.awt.Dimension(0, 30));
+        this.jTextFieldName.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelCpf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelCpf.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelCpf.setText("CPF:");
 
-        this.jTextFieldPhone1.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldPhone1.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldPhone1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldPhone1.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldPhone1.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldPhone1.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldPhone1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldPhone1.setEnabled(false);
-        this.jTextFieldPhone1.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldPhone1.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelCnpj.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelCnpj.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelCnpj.setText("CNPJ:");
 
-        this.jTextFieldContact.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldContact.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldContact.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldContact.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldContact.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldContact.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldContact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldContact.setEnabled(false);
-        this.jTextFieldContact.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldContact.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelIE.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelIE.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelIE.setText("IE:");
 
-        this.jTextFieldCpf.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldCpf.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldCpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldCpf.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldCpf.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldCpf.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldCpf.setEnabled(false);
-        this.jTextFieldCpf.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldCpf.setPreferredSize(new java.awt.Dimension(100, 30));
 
         this.jLabelContact.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         this.jLabelContact.setForeground(new java.awt.Color(190, 190, 190));
         this.jLabelContact.setText("Contato:");
 
-        this.jTextFieldIe.setBackground(new java.awt.Color(50, 50, 50));
+        this.jTextFieldIe.setBackground(new java.awt.Color(51, 51, 51));
         this.jTextFieldIe.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        this.jTextFieldIe.setForeground(new java.awt.Color(190, 190, 190));
-        this.jTextFieldIe.setBorder(new javax.swing.border.MatteBorder(null));
+        this.jTextFieldIe.setForeground(new java.awt.Color(204, 204, 204));
+        this.jTextFieldIe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.jTextFieldIe.setEnabled(false);
-        this.jTextFieldIe.setPreferredSize(new java.awt.Dimension(50, 30));
+        this.jTextFieldIe.setPreferredSize(new java.awt.Dimension(100, 30));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(this.jPanelBody);
         this.jPanelBody.setLayout(jPanelBodyLayout);
@@ -321,7 +309,7 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(this.jLabelPhone1)
                                     .addComponent(this.jLabelEmail)
-                                    .addComponent(this.jLabelUser)
+                                    
                                     .addComponent(this.jLabelName))
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -380,10 +368,11 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                                                 .addComponent(this.jLabelDistrict)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                                             .addGap(110, 110, 110)
-                                            .addComponent(this.jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            ))
                                     .addGap(18, 18, 18)
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                          
                                             .addGap(18, 18, 18)
                                             )
                                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -428,8 +417,9 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
                     .addComponent(this.jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(this.jLabelUser)
-                    .addComponent(this.jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    
+ 
+                    
                     )
                 .addGap(46, 46, 46)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -520,17 +510,13 @@ public class SupplierFormComponent extends AbstractFormPersonComponent {
     private javax.swing.JLabel jLabelCnpj;
     private javax.swing.JLabel jLabelContact;
     private javax.swing.JLabel jLabelCpf;
-    private javax.swing.JLabel jLabelDistrict;
     private javax.swing.JLabel jLabelIE;
     private javax.swing.JLabel jLabelSocialReason;
-    private javax.swing.JLabel jLabelUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldCnpj;
     private javax.swing.JTextField jTextFieldContact;
     private javax.swing.JTextField jTextFieldCpf;
     private javax.swing.JTextField jTextFieldIe;
     private javax.swing.JTextField jTextFieldSocialReason;
-    private javax.swing.JTextField jTextFieldStreet;
-    private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
 }

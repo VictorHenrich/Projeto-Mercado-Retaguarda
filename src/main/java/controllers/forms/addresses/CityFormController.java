@@ -1,42 +1,27 @@
 
-package controllers.enderecos;
+package controllers.forms.addresses;
 
 import controllers.builders.enderecos.CityBuilder;
 import controllers.patterns.AbstractFormController;
 import models.enderecos.City;
 import repositories.enderecos.CityRepository;
-import view.CityFormComponent;
+import view.forms.CityFormComponent;
 
 
 public class CityFormController extends AbstractFormController<CityFormComponent, City>{
     
-    private final CityRepository repositoty;
-    
-    public CityFormController(CityFormComponent form) {
-        super(form);
-        
-        this.repositoty = new CityRepository(this.registers);
+    private final CityRepository repositoty = new CityRepository();
+
+    public CityFormController() {
+        super(new CityFormComponent());
     }
     
     private CityBuilder newCityBuilder(){
         return new CityBuilder()
                        .setDescricao(this.form.getjTextFieldDescription().getText());
     }
-
-    @Override
-    protected void resetStates() {
-        this.form.getjTextFieldDescription().setText(null);
-        
-        this.form.getjTextFieldDescription().setEnabled(false);
-    }
-
-    @Override
-    protected void initStates() {
-        this.form.getjTextFieldDescription().setEnabled(true);
-    }
-
-    @Override
-    protected void create() {
+    
+    private void createCity(){
         try{
             
             int id = this.repositoty.nextID();
@@ -51,11 +36,9 @@ public class CityFormController extends AbstractFormController<CityFormComponent
             System.out.println("Falha ao cadastrar Cidade\nErro: " + error.getMessage());
         }
     }
-
-    @Override
-    protected void update() {
+    
+    private void updateCity(){
         try{
-            
             int id = this.registerLoaded.getId();
             
             City city = this.newCityBuilder().build(id);
@@ -66,6 +49,39 @@ public class CityFormController extends AbstractFormController<CityFormComponent
             
             System.out.println("Falha ao cadastrar Cidade\nErro: " + error.getMessage());
         }
+    }
+
+    @Override
+    protected void resetStates() {
+        this.form.getjTextFieldDescription().setText(null);
+        
+        this.form.getjTextFieldDescription().setEnabled(false);
+    }
+
+    @Override
+    protected void onClickButtonNew() {
+        this.form.getjTextFieldDescription().setEnabled(true);
+    }
+
+    @Override
+    protected void onClickButtonWrite() {
+        if(this.registerLoaded == null)
+          this.createCity();
+        
+        else
+          this.updateCity();
+    }
+
+    @Override
+    protected void onClickButtonChange() {
+        this.form.getjTextFieldDescription().setEnabled(true);
+    }
+
+    @Override
+    protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
+        
+        this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
     
 }

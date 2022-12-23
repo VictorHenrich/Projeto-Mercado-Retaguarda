@@ -1,14 +1,14 @@
 
 package repositories.pessoas;
-import java.util.ArrayList;
+import data.DatabaseData;
 import repositories.patterns.BaseRepository;
 import models.pessoas.Supplier;
 
 
 public class SupplierRepository extends BaseRepository<Supplier>{
     
-    public SupplierRepository(ArrayList<Supplier> data) {
-        super(data);
+    public SupplierRepository() {
+        super(DatabaseData.suppliers);
     }
     
 }

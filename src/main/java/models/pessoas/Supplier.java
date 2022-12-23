@@ -1,7 +1,6 @@
 
 package models.pessoas;
 
-import java.util.Date;
 import models.enderecos.Address;
 
 

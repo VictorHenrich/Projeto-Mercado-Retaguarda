@@ -1,14 +1,14 @@
 
 package repositories.pessoas;
-import java.util.ArrayList;
+import data.DatabaseData;
 import repositories.patterns.BaseRepository;
 import models.pessoas.Client;
 
 
 public class ClientRepository extends BaseRepository<Client>{
     
-    public ClientRepository(ArrayList<Client> data) {
-        super(data);
+    public ClientRepository() {
+        super(DatabaseData.clients);
     }
     
 }

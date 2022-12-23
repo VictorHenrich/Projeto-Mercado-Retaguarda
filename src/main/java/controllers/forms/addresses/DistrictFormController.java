@@ -1,22 +1,20 @@
 
-package controllers.enderecos;
+package controllers.forms.addresses;
 
 import controllers.builders.enderecos.DistrictBuilder;
 import controllers.patterns.AbstractFormController;
 import controllers.patterns.ModelBuilderException;
 import models.enderecos.District;
 import repositories.enderecos.DistrictRepository;
-import view.DistrictFormComponent;
+import view.forms.DistrictFormComponent;
 
 
 public class DistrictFormController extends AbstractFormController<DistrictFormComponent, District>{
     
-    private DistrictRepository repository;
+    private final DistrictRepository repository = new DistrictRepository();
     
-    public DistrictFormController(DistrictFormComponent form) {
-        super(form);
-        
-        this.repository = new DistrictRepository(this.registers);
+    public DistrictFormController() {
+        super(new DistrictFormComponent());
     }
     
     private DistrictBuilder newDistrictBuilder(){
@@ -24,20 +22,7 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
                     .setDescricao(this.form.getjTextFieldDescription().getText());
     }
     
-    @Override
-    protected void resetStates() {
-        this.form.getjTextFieldDescription().setText(null);
-        
-        this.form.getjTextFieldDescription().setEnabled(false);
-    }
-    
-    @Override
-    protected void initStates() {
-       this.form.getjTextFieldDescription().setEnabled(true);
-    }
-    
-    @Override
-    protected void create(){
+    private void createDistrict(){
         try {
             int id = this.repository.nextID();
             
@@ -50,12 +35,9 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
         } catch (ModelBuilderException ex) {
             System.out.println("Falha ao cadastrar Bairro\nErro: " + ex.getMessage());
         }
-        
-      
     }
-
-    @Override
-    protected void update() {
+    
+    private void updateDistrict(){
         try {
             int id = this.registerLoaded.getId();
             
@@ -68,6 +50,39 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
         } catch (ModelBuilderException ex) {
             System.out.println("Falha ao atualizar Bairro\nErro: " + ex.getMessage());
         }
+    }
+    
+    @Override
+    protected void resetStates() {
+        this.form.getjTextFieldDescription().setText(null);
+        
+        this.form.getjTextFieldDescription().setEnabled(false);
+    }
+    
+    @Override
+    protected void onClickButtonNew() {
+       this.form.getjTextFieldDescription().setEnabled(true);
+    }
+    
+    @Override
+    protected void onClickButtonWrite(){
+        if(this.registerLoaded == null)
+            this.createDistrict();
+        
+        else
+            this.updateDistrict();
+    }
+
+    @Override
+    protected void onClickButtonChange() {
+        this.form.getjTextFieldDescription().setEnabled(true);
+    }
+
+    @Override
+    protected void onShowComponent() {
+        if(this.registerLoaded == null) return;
+        
+        this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
 
     

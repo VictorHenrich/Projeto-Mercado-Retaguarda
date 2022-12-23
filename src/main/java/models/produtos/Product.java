@@ -7,7 +7,7 @@ import models.compras.ItemCompra;
 
 public class Product extends BaseModel{
     private String descricao;
-    private float valroCompra;
+    private float valorCompra;
     private float valorVenda;
     private String unidadeCompra;
     private String unidadeVenda;
@@ -22,10 +22,10 @@ public class Product extends BaseModel{
     private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList();
     private final ArrayList<ItemCompra> itensCompra = new ArrayList();
 
-    public Product(String descricao, float valroCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Class classe, Brand marca, int id) {
+    public Product(String descricao, float valorCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Class classe, Brand marca, int id) {
         super(id);
         this.descricao = descricao;
-        this.valroCompra = valroCompra;
+        this.valorCompra = valorCompra;
         this.valorVenda = valorVenda;
         this.unidadeCompra = unidadeCompra;
         this.unidadeVenda = unidadeVenda;
@@ -53,12 +53,12 @@ public class Product extends BaseModel{
         this.descricao = descricao;
     }
 
-    public float getValroCompra() {
-        return valroCompra;
+    public float getValorCompra() {
+        return valorCompra;
     }
 
-    public void setValroCompra(float valroCompra) {
-        this.valroCompra = valroCompra;
+    public void setValorCompra(float valorCompra) {
+        this.valorCompra = valorCompra;
     }
 
     public float getValorVenda() {

@@ -53,6 +53,8 @@ public class ClassRepository implements CrudRepository<Class>{
     public void delete(int id) {
         try{
 
+        }catch(Exception error){
+            System.out.println("");
         }
     }
 

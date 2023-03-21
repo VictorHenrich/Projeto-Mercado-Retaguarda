@@ -23,7 +23,7 @@ public class DistrictListController extends AbstractListController<DistrictListC
     public ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(District district: this.registers){
+        for(District district: this.getRegisters()){
             String[] row = {"" + district.getId(), district.getDescricao()};
             
             rows.add(row);

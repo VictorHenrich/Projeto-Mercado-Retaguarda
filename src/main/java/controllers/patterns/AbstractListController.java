@@ -5,37 +5,43 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import models.patterns.BaseModel;
-import repositories.patterns.BaseRepository;
+import repositories.patterns.CrudRepository;
 import view.components.AbstractListComponent;
 
 
 public abstract class AbstractListController<T extends AbstractListComponent, M extends BaseModel>{
     protected final T table;
     private final AbstractFormController formController;
-    protected final BaseRepository<M> repository;
-    protected final ArrayList<M> registers;
+    protected final CrudRepository<M> repository;
+    private ArrayList<M> registers;
 
     public AbstractListController(
         T table, 
-        AbstractFormController formController, 
-        BaseRepository<M> repository
+        AbstractFormController formController,
+        CrudRepository<M> repository
     ) {
         this.table = table;
         this.formController = formController;
         this.repository = repository;
-        this.registers = (ArrayList<M>) this.repository.fetch();
+        this.registers = new ArrayList<M>();
         
         init();
     }
     
-    
+
+    protected ArrayList<M> getRegisters(){
+        this.registers = (ArrayList<M>) this.repository.fetch();
+
+        return this.registers;
+    }
+
     protected abstract ArrayList<String[]> getRows();
     
     private void onClickButtonDelete(){
         int indexSelected = this.table.getjTableList().getSelectedRow();
         
-        if(this.registers.isEmpty() || indexSelected < 0) return;
-        
+        if(this.registers.size() == 0 && indexSelected < 0) return;
+
         M model = this.registers.get(this.table.getjTableList().getSelectedRow());
         
         this.repository.delete(model.getId());
@@ -46,7 +52,7 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
     private void onClickButtonUpdate(){
         int indexSelected = this.table.getjTableList().getSelectedRow();
         
-        if(this.registers.isEmpty() || indexSelected < 0) return;
+        if(this.registers.size() == 0 && indexSelected < 0) return;
         
         M model = this.registers.get(this.table.getjTableList().getSelectedRow());
         

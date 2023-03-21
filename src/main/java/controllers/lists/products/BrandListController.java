@@ -23,7 +23,7 @@ public class BrandListController extends AbstractListController<BrandListCompone
     protected ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Brand brand: this.registers){
+        for(Brand brand: this.getRegisters()){
             String[] row = {"" + brand.getId(), brand.getDescricao()};
             
             rows.add(row);

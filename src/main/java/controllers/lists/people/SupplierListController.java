@@ -23,7 +23,7 @@ public class SupplierListController extends AbstractListController<SupplierListC
     protected ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Supplier supplier: this.registers){
+        for(Supplier supplier: this.getRegisters()){
             String[] row = {
                 "" + supplier.getId(),
                 supplier.getNome(),

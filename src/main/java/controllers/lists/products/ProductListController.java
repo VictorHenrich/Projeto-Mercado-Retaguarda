@@ -23,7 +23,7 @@ public class ProductListController extends AbstractListController<ProductListCom
     protected ArrayList<String[]> getRows() {
        ArrayList<String[]> rows = new ArrayList();
         
-        for(Product product: this.registers){
+        for(Product product: this.getRegisters()){
             String[] row = {
                 "" + product.getId(), 
                 product.getDescricao(),

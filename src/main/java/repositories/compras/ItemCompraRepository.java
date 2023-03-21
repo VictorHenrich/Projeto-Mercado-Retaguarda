@@ -1,15 +1,39 @@
 
 package repositories.compras;
 
-import java.util.ArrayList;
 import models.compras.ItemCompra;
-import repositories.patterns.BaseRepository;
+import repositories.patterns.CrudRepository;
 
 
-public class ItemCompraRepository extends BaseRepository<ItemCompra>{
-    
-    public ItemCompraRepository(ArrayList<ItemCompra> data) {
-        super(data);
+public class ItemCompraRepository implements CrudRepository<ItemCompra>{
+
+    @Override
+    public void create(ItemCompra register) {
+
     }
-    
+
+    @Override
+    public void update(int id, ItemCompra register) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public ItemCompra load(int id) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ItemCompra> fetch() {
+        return null;
+    }
+
+    @Override
+    public int nextID() {
+        return 0;
+    }
 }

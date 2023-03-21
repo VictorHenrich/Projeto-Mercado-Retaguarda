@@ -23,7 +23,7 @@ public class ClientListController extends AbstractListController<ClientListCompo
     protected ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Client client: this.registers){
+        for(Client client: this.getRegisters()){
             String[] row = {
                 "" + client.getId(),
                 client.getNome(),

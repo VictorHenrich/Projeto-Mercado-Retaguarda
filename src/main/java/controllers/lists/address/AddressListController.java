@@ -25,7 +25,7 @@ public class AddressListController extends AbstractListController<AddressListCom
     public ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Address address: this.registers){
+        for(Address address: this.getRegisters()){
             String[] row = {
                 "" + address.getId(), 
                 address.getLogradouro(), 

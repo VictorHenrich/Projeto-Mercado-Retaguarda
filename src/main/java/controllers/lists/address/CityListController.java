@@ -21,10 +21,9 @@ public class CityListController extends AbstractListController<CityListComponent
 
     @Override
     public ArrayList<String[]> getRows() {
-        
         ArrayList<String[]> rows = new ArrayList();
         
-        for(City city: this.registers){
+        for(City city: this.getRegisters()){
             String[] row = {"" + city.getId(), city.getDescricao()};
             
             rows.add(row);

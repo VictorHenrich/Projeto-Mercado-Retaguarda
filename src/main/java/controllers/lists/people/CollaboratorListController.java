@@ -23,7 +23,7 @@ public class CollaboratorListController extends AbstractListController<Collabora
     protected ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Collaborator collaborator: this.registers){
+        for(Collaborator collaborator: this.getRegisters()){
             String[] row = {
                 "" + collaborator.getId(),
                 collaborator.getNome(),

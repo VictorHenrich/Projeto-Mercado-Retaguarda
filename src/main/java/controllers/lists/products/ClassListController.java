@@ -23,7 +23,7 @@ public class ClassListController extends AbstractListController<ClassListCompone
     protected ArrayList<String[]> getRows() {
         ArrayList<String[]> rows = new ArrayList();
         
-        for(Class class_: this.registers){
+        for(Class class_: this.getRegisters()){
             String[] row = {"" + class_.getId(), class_.getDescricao()};
             
             rows.add(row);

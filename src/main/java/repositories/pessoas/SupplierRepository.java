@@ -1,14 +1,39 @@
 
 package repositories.pessoas;
-import data.DatabaseData;
-import repositories.patterns.BaseRepository;
+import repositories.patterns.CrudRepository;
 import models.pessoas.Supplier;
 
 
-public class SupplierRepository extends BaseRepository<Supplier>{
-    
-    public SupplierRepository() {
-        super(DatabaseData.suppliers);
+public class SupplierRepository implements CrudRepository<Supplier>{
+
+
+    @Override
+    public void create(Supplier register) {
+
     }
-    
+
+    @Override
+    public void update(int id, Supplier register) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public Supplier load(int id) {
+        return null;
+    }
+
+    @Override
+    public Iterable<Supplier> fetch() {
+        return null;
+    }
+
+    @Override
+    public int nextID() {
+        return 0;
+    }
 }

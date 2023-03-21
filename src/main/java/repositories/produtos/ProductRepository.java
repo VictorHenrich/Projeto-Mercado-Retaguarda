@@ -1,15 +1,40 @@
 
 package repositories.produtos;
 
-import java.util.ArrayList;
 import models.produtos.Product;
-import repositories.patterns.BaseRepository;
+import repositories.patterns.CrudRepository;
 
 
-public class ProductRepository extends BaseRepository<Product>{
-    
-    public ProductRepository(ArrayList<Product> data) {
-        super(data);
+public class ProductRepository implements CrudRepository<Product>{
+
+
+    @Override
+    public void create(Product register) {
+
     }
-    
+
+    @Override
+    public void update(int id, Product register) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public Product load(int id) {
+        return null;
+    }
+
+    @Override
+    public Iterable<Product> fetch() {
+        return null;
+    }
+
+    @Override
+    public int nextID() {
+        return 0;
+    }
 }

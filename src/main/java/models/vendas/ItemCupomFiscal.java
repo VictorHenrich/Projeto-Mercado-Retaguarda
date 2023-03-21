@@ -2,24 +2,24 @@ package models.vendas;
 import java.util.ArrayList;
 import java.util.UUID;
 import models.patterns.BaseModel;
-import models.produtos.HistoricoMovimentacao;
-import models.produtos.Produto;
+import models.produtos.HistoricalMovement;
+import models.produtos.Product;
 
 
 public class ItemCupomFiscal extends BaseModel {
     private final UUID uuid;
-    private float quantidadeProdutos;
-    private float valorUnitarioProduto;
+    private float quantidadeProducts;
+    private float valorUnitarioProduct;
     private char status;
     private CupomFiscal cupomFiscal;
-    private final ArrayList<HistoricoMovimentacao> historicosMovimentacao = new ArrayList();
-    private Produto produto;
+    private final ArrayList<HistoricalMovement> historicosMovimentacao = new ArrayList();
+    private Product produto;
 
-    public ItemCupomFiscal(UUID uuid, float quantidadeProdutos, float valorUnitarioProduto, char status, CupomFiscal cupomFiscal, Produto produto, int id) {
+    public ItemCupomFiscal(UUID uuid, float quantidadeProducts, float valorUnitarioProduct, char status, CupomFiscal cupomFiscal, Product produto, int id) {
         super(id);
         this.uuid = uuid;
-        this.quantidadeProdutos = quantidadeProdutos;
-        this.valorUnitarioProduto = valorUnitarioProduto;
+        this.quantidadeProducts = quantidadeProducts;
+        this.valorUnitarioProduct = valorUnitarioProduct;
         this.status = status;
         this.cupomFiscal = cupomFiscal;
         this.produto = produto;
@@ -32,20 +32,20 @@ public class ItemCupomFiscal extends BaseModel {
     }
     
 
-    public float getQuantidadeProdutos() {
-        return quantidadeProdutos;
+    public float getQuantidadeProducts() {
+        return quantidadeProducts;
     }
 
-    public void setQuantidadeProdutos(float quantidadeProdutos) {
-        this.quantidadeProdutos = quantidadeProdutos;
+    public void setQuantidadeProducts(float quantidadeProducts) {
+        this.quantidadeProducts = quantidadeProducts;
     }
 
-    public float getValorUnitarioProduto() {
-        return valorUnitarioProduto;
+    public float getValorUnitarioProduct() {
+        return valorUnitarioProduct;
     }
 
-    public void setValorUnitarioProduto(float valorUnitarioProduto) {
-        this.valorUnitarioProduto = valorUnitarioProduto;
+    public void setValorUnitarioProduct(float valorUnitarioProduct) {
+        this.valorUnitarioProduct = valorUnitarioProduct;
     }
 
     public char getStatus() {
@@ -64,11 +64,11 @@ public class ItemCupomFiscal extends BaseModel {
         this.cupomFiscal = cupomFiscal;
     }
     
-    public Produto getProduto() {
+    public Product getProduct() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduct(Product produto) {
         this.produto = produto;
     }
 

@@ -3,8 +3,6 @@ package view.components;
 
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import view.utils.UtilsComponents;
 
 
@@ -21,8 +19,8 @@ public abstract class AbstractFormComponent extends javax.swing.JFrame{
         buttonsDeactivated.add(this.jButtonNew);
         buttonsDeactivated.add(this.jButtonOut);
         
-        UtilsComponents.disabledComponents(buttonsActivated, state);
-        UtilsComponents.disabledComponents(buttonsDeactivated, !state);
+        UtilsComponents.disabledComponents(buttonsActivated, !state);
+        UtilsComponents.disabledComponents(buttonsDeactivated, state);
     }
 
     public JButton getjButtonCancel() {

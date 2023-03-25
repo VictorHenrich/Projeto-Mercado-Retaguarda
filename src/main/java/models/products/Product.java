@@ -1,5 +1,5 @@
 
-package models.produtos;
+package models.products;
 import java.util.ArrayList;
 import models.patterns.BaseModel;
 import models.compras.ItemCompra;

@@ -3,8 +3,8 @@ package controllers.forms.products;
 
 import controllers.builders.produtos.BrandBuilder;
 import controllers.patterns.AbstractFormController;
-import models.produtos.Brand;
-import repositories.produtos.BrandRepository;
+import models.products.Brand;
+import repositories.products.BrandRepository;
 import view.forms.BrandFormComponent;
 
 

@@ -4,8 +4,8 @@ package controllers.lists.address;
 import controllers.forms.addresses.DistrictFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.enderecos.District;
-import repositories.enderecos.DistrictRepository;
+import models.address.District;
+import repositories.address.DistrictRepository;
 import view.lists.DistrictListComponent;
 
 

@@ -2,8 +2,8 @@ package models.vendas;
 import java.util.ArrayList;
 import java.util.UUID;
 import models.patterns.BaseModel;
-import models.produtos.HistoricalMovement;
-import models.produtos.Product;
+import models.products.HistoricalMovement;
+import models.products.Product;
 
 
 public class ItemCupomFiscal extends BaseModel {

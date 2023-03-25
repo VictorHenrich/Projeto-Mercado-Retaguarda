@@ -1,7 +1,7 @@
 
 package models.pessoas;
 
-import models.enderecos.Address;
+import models.address.Address;
 import models.patterns.BaseModel;
 
 public abstract class Person extends BaseModel{

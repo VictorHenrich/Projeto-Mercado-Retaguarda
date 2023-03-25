@@ -4,12 +4,12 @@ package controllers.forms.addresses;
 import controllers.builders.enderecos.AddressBuilder;
 import controllers.patterns.AbstractFormController;
 import java.util.ArrayList;
-import models.enderecos.Address;
-import models.enderecos.City;
-import models.enderecos.District;
-import repositories.enderecos.AddressRepository;
-import repositories.enderecos.CityRepository;
-import repositories.enderecos.DistrictRepository;
+import models.address.Address;
+import models.address.City;
+import models.address.District;
+import repositories.address.AddressRepository;
+import repositories.address.CityRepository;
+import repositories.address.DistrictRepository;
 import view.forms.AddressFormComponent;
 
 
@@ -43,13 +43,13 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     private void createAddress(){
         try{
             int id = this.addressRepository.nextID();
-            
+
             Address address = this.newAddressBuilder().build(id);
-            
+
             this.addressRepository.create(address);
-            
+
             System.out.println("Endereço cadastrado com sucesso!");
-            
+
         }catch(Exception error){
             System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
         }
@@ -58,13 +58,13 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     private void updateAddress(){
         try{
             int id = this.registerLoaded.getId();
-            
+
             Address address = this.newAddressBuilder().build(id);
-            
+
             this.addressRepository.update(id, address);
-            
+
             System.out.println("Endereço alterado com sucesso!");
-            
+
         }catch(Exception error){
             System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
         }
@@ -105,25 +105,30 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
     
     @Override
     protected void onShowComponent() {
-        if(this.form.getjComboBoxCity().getItemCount() > 0)
-            this.form.getjComboBoxCity().removeAllItems();
-        
-        if(this.form.getjComboBoxDistrict().getItemCount() > 0)
-            this.form.getjComboBoxDistrict().removeAllItems();
-        
-        DistrictRepository districtRepository = new DistrictRepository();
-        CityRepository cityRepository = new CityRepository();
-        
-        this.cities = (ArrayList<City>) cityRepository.fetch();
-        this.districts = (ArrayList<District>) districtRepository.fetch();
-        
-        for(District d: districts)
-           this.form.getjComboBoxDistrict().addItem(d.getDescricao());
-        
-        for(City c: cities)
-            this.form.getjComboBoxCity().addItem(c.getDescricao());
-        
-        loadFields();
+        try{
+            if(this.form.getjComboBoxCity().getItemCount() > 0)
+                this.form.getjComboBoxCity().removeAllItems();
+
+            if(this.form.getjComboBoxDistrict().getItemCount() > 0)
+                this.form.getjComboBoxDistrict().removeAllItems();
+
+            DistrictRepository districtRepository = new DistrictRepository();
+            CityRepository cityRepository = new CityRepository();
+
+            this.cities = (ArrayList<City>) cityRepository.fetch();
+            this.districts = (ArrayList<District>) districtRepository.fetch();
+
+            for(District d: districts)
+                this.form.getjComboBoxDistrict().addItem(d.getDescricao());
+
+            for(City c: cities)
+                this.form.getjComboBoxCity().addItem(c.getDescricao());
+
+            loadFields();
+
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     @Override

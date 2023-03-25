@@ -1,15 +1,15 @@
 
 package controllers.patterns;
 
-import models.enderecos.Address;
-import models.enderecos.City;
-import models.enderecos.District;
+import models.address.Address;
+import models.address.City;
+import models.address.District;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import models.pessoas.Person;
-import repositories.enderecos.AddressRepository;
-import repositories.enderecos.CityRepository;
-import repositories.enderecos.DistrictRepository;
+import repositories.address.AddressRepository;
+import repositories.address.CityRepository;
+import repositories.address.DistrictRepository;
 import view.components.AbstractFormPersonComponent;
 
 
@@ -26,18 +26,23 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
     }
     
     private void init(){
-        this.cities = (ArrayList<City>) new CityRepository().fetch();
-        
-        this.districts = (ArrayList<District>) new DistrictRepository().fetch();
-        
-        for(District d: this.districts)
-            this.form.getjComboBoxDistrict().addItem(d.getDescricao());
-        
-        for(City c: this.cities)
-            this.form.getjComboBoxCity().addItem(c.getDescricao());
-        
-        
-        this.addActions();
+        try{
+            this.cities = (ArrayList<City>) new CityRepository().fetch();
+
+            this.districts = (ArrayList<District>) new DistrictRepository().fetch();
+
+            for(District d: this.districts)
+                this.form.getjComboBoxDistrict().addItem(d.getDescricao());
+
+            for(City c: this.cities)
+                this.form.getjComboBoxCity().addItem(c.getDescricao());
+
+
+            this.addActions();
+
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
     
     protected void enabledFields(boolean status){
@@ -98,30 +103,35 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
     }
     
     private void loadAddress(){
-        String cep = this.form.getjTextFieldCep().getText();
-        
-        ArrayList<Address> addresses = (ArrayList) new AddressRepository().fetch();
-        
-        
-        for(Address a: addresses)
-            if(a.getCep().toUpperCase().equals(cep))
-                this.addressLoaded = a;
-        
-        if(this.addressLoaded == null){
-            System.out.println("CEP não localizado!");
-            return;
+        try{
+            String cep = this.form.getjTextFieldCep().getText();
+
+            ArrayList<Address> addresses = (ArrayList) new AddressRepository().fetch();
+
+
+            for(Address a: addresses)
+                if(a.getCep().toUpperCase().equals(cep))
+                    this.addressLoaded = a;
+
+            if(this.addressLoaded == null){
+                System.out.println("CEP não localizado!");
+                return;
+            }
+
+            this.form.getjComboBoxCity().setSelectedItem(this.addressLoaded.getCidade());
+            this.form.getjComboBoxDistrict().setSelectedItem(this.addressLoaded.getBairro());
+
+            if(
+                    this.addressLoaded.getLogradouro().equals("") ||
+                            this.addressLoaded.getLogradouro() == null
+            )
+                return;
+
+            this.form.getjTextFieldStreet().setText(this.addressLoaded.getLogradouro());
+
+        }catch(Exception error){
+            System.out.println(error.getMessage());
         }
-        
-        this.form.getjComboBoxCity().setSelectedItem(this.addressLoaded.getCidade());
-        this.form.getjComboBoxDistrict().setSelectedItem(this.addressLoaded.getBairro());
-        
-        if(
-            this.addressLoaded.getLogradouro().equals("") || 
-            this.addressLoaded.getLogradouro() == null
-        )
-            return;
-        
-        this.form.getjTextFieldStreet().setText(this.addressLoaded.getLogradouro());
     }
     
     private void addActions(){

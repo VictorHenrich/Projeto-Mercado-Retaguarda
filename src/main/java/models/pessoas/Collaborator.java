@@ -2,7 +2,7 @@
 package models.pessoas;
 
 import java.util.ArrayList;
-import models.enderecos.Address;
+import models.address.Address;
 import models.vendas.CupomFiscal;
 
 

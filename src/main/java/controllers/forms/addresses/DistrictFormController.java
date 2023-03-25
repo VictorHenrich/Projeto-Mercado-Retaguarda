@@ -3,9 +3,8 @@ package controllers.forms.addresses;
 
 import controllers.builders.enderecos.DistrictBuilder;
 import controllers.patterns.AbstractFormController;
-import controllers.patterns.ModelBuilderException;
-import models.enderecos.District;
-import repositories.enderecos.DistrictRepository;
+import models.address.District;
+import repositories.address.DistrictRepository;
 import view.forms.DistrictFormComponent;
 
 
@@ -32,8 +31,8 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
             
             System.out.println("Bairro cadastrado com sucesso!");
             
-        } catch (ModelBuilderException ex) {
-            System.out.println("Falha ao cadastrar Bairro\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
     
@@ -47,8 +46,8 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
             
             System.out.println("Bairro alterado com sucesso!");
             
-        } catch (ModelBuilderException ex) {
-            System.out.println("Falha ao atualizar Bairro\nErro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
     

@@ -1,10 +1,10 @@
 
 package controllers.builders.produtos;
 import controllers.patterns.ModelBuilder;
-import models.produtos.Class;
+import models.products.Class;
 
 
-public class ClassBuilder implements ModelBuilder<models.produtos.Class>{
+public class ClassBuilder implements ModelBuilder<models.products.Class>{
     private String descricao;
 
     public ClassBuilder setDescricao(String descricao) {

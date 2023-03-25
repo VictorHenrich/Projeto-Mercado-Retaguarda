@@ -3,8 +3,8 @@ package controllers.forms.addresses;
 
 import controllers.builders.enderecos.CityBuilder;
 import controllers.patterns.AbstractFormController;
-import models.enderecos.City;
-import repositories.enderecos.CityRepository;
+import models.address.City;
+import repositories.address.CityRepository;
 import view.forms.CityFormComponent;
 
 

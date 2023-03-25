@@ -3,9 +3,9 @@ package controllers.builders.enderecos;
 
 import controllers.patterns.ModelBuilder;
 import controllers.patterns.ModelBuilderException;
-import models.enderecos.Address;
-import models.enderecos.City;
-import models.enderecos.District;
+import models.address.Address;
+import models.address.City;
+import models.address.District;
 
 
 public class AddressBuilder implements ModelBuilder<Address>{
@@ -41,17 +41,17 @@ public class AddressBuilder implements ModelBuilder<Address>{
 
     @Override
     public Address build(int id) throws ModelBuilderException{
-        if(this.cep == null)
-           throw new ModelBuilderException("Campo de CEP não informado!");
-        
-        if(this.logradouro == null)
-            throw new ModelBuilderException("Campo logradouro não informado!");
-        
-        if(this.cidade == null)
-            throw new ModelBuilderException("Campo cidade não informado!");
-        
-        if(this.bairro == null)
-            throw new ModelBuilderException("Campo bairro não informado!");
+//        if(this.cep == null)
+//           throw new ModelBuilderException("Campo de CEP não informado!");
+//
+//        if(this.logradouro == null)
+//            throw new ModelBuilderException("Campo logradouro não informado!");
+//
+//        if(this.cidade == null)
+//            throw new ModelBuilderException("Campo cidade não informado!");
+//
+//        if(this.bairro == null)
+//            throw new ModelBuilderException("Campo bairro não informado!");
         
         return new Address(
             this.logradouro,

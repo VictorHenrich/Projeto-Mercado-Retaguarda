@@ -4,8 +4,8 @@ package controllers.lists.address;
 import controllers.forms.addresses.CityFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.enderecos.City;
-import repositories.enderecos.CityRepository;
+import models.address.City;
+import repositories.address.CityRepository;
 import view.lists.CityListComponent;
 
 

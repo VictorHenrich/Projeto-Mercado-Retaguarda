@@ -2,9 +2,9 @@
 package controllers.builders.produtos;
 
 import controllers.patterns.ModelBuilder;
-import models.produtos.Product;
-import models.produtos.Class;
-import models.produtos.Brand;
+import models.products.Product;
+import models.products.Class;
+import models.products.Brand;
 
 
 public class ProductBuilder implements ModelBuilder<Product>{

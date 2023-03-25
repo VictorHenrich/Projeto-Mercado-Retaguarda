@@ -4,8 +4,8 @@ package controllers.lists.products;
 import controllers.forms.products.BrandFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.produtos.Brand;
-import repositories.produtos.BrandRepository;
+import models.products.Brand;
+import repositories.products.BrandRepository;
 import view.lists.BrandListComponent;
 
 

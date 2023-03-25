@@ -5,8 +5,8 @@ import controllers.patterns.ModelBuilder;
 import java.util.Date;
 import java.util.UUID;
 import models.compras.ItemCompra;
-import models.produtos.HistoricalMovement;
-import models.produtos.Product;
+import models.products.HistoricalMovement;
+import models.products.Product;
 
 
 public class HistoricalMovementBuilder implements ModelBuilder<HistoricalMovement>{

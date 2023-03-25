@@ -4,8 +4,8 @@ package controllers.lists.products;
 import controllers.forms.products.ProductFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.produtos.Product;
-import repositories.produtos.ProductRepository;
+import models.products.Product;
+import repositories.products.ProductRepository;
 import view.lists.ProductListComponent;
 
 

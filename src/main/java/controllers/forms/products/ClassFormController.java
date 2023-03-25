@@ -3,8 +3,8 @@ package controllers.forms.products;
 
 import controllers.builders.produtos.ClassBuilder;
 import controllers.patterns.AbstractFormController;
-import models.produtos.Class;
-import repositories.produtos.ClassRepository;
+import models.products.Class;
+import repositories.products.ClassRepository;
 import view.forms.ClassFormComponent;
 
 

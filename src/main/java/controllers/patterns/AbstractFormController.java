@@ -42,10 +42,10 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
         
         this.form.getjButtonWrite().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                form.activateButtons(false);
-                   
                 onClickButtonWrite();
-                
+
+                form.activateButtons(false);
+
                 resetStates();
             }
         });
@@ -65,10 +65,10 @@ public abstract class AbstractFormController<T extends AbstractFormComponent, M 
                 form.activateButtons(false);
                 
                 resetStates();
+
+                listController.reloadList();
                 
                 form.dispose();
-                
-                listController.reloadList();
             }
         });
         

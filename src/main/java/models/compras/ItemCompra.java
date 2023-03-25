@@ -3,8 +3,8 @@ package models.compras;
 
 import java.util.ArrayList;
 import models.patterns.BaseModel;
-import models.produtos.HistoricalMovement;
-import models.produtos.Product;
+import models.products.HistoricalMovement;
+import models.products.Product;
 
 
 public class ItemCompra extends BaseModel{

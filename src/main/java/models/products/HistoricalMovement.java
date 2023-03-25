@@ -1,5 +1,5 @@
 
-package models.produtos;
+package models.products;
 
 import java.util.Date;
 import java.util.UUID;

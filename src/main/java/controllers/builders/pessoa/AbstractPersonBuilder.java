@@ -2,7 +2,7 @@
 package controllers.builders.pessoa;
 
 import controllers.patterns.ModelBuilder;
-import models.enderecos.Address;
+import models.address.Address;
 import models.pessoas.Person;
 
 

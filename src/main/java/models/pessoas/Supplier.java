@@ -1,7 +1,7 @@
 
 package models.pessoas;
 
-import models.enderecos.Address;
+import models.address.Address;
 
 
 public class Supplier extends Person{

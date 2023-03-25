@@ -1,7 +1,7 @@
 
-package repositories.produtos;
+package repositories.products;
 import repositories.patterns.CrudRepository;
-import models.produtos.HistoricalMovement;
+import models.products.HistoricalMovement;
 
 
 public class HistoricalMovementRepository implements CrudRepository<HistoricalMovement>{

@@ -2,15 +2,15 @@
 package data;
 
 import java.util.ArrayList;
-import models.enderecos.Address;
-import models.enderecos.City;
-import models.enderecos.District;
+import models.address.Address;
+import models.address.City;
+import models.address.District;
 import models.pessoas.Client;
 import models.pessoas.Collaborator;
 import models.pessoas.Supplier;
-import models.produtos.Brand;
-import models.produtos.Class;
-import models.produtos.Product;
+import models.products.Brand;
+import models.products.Class;
+import models.products.Product;
 
 
 public class DatabaseData {

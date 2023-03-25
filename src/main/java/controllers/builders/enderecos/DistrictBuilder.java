@@ -3,7 +3,7 @@ package controllers.builders.enderecos;
 
 import controllers.patterns.ModelBuilder;
 import controllers.patterns.ModelBuilderException;
-import models.enderecos.District;
+import models.address.District;
 
 
 public class DistrictBuilder implements ModelBuilder<District>{

@@ -1,5 +1,5 @@
 
-package models.enderecos;
+package models.address;
 
 import models.patterns.BaseModel;
 

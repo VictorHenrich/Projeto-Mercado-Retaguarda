@@ -1,20 +1,19 @@
 
-package models.enderecos;
+package models.products;
 
 import java.util.ArrayList;
 import models.patterns.BaseModel;
 
 
-public class City extends BaseModel{
+public class Class extends BaseModel{
     private String descricao;
-    private final ArrayList<Address> enderecos = new ArrayList();
+    private final ArrayList<Product> produtos = new ArrayList();
 
-    public City(String descricao, int id) {
+    public Class(String descricao, int id) {
         super(id);
         this.descricao = descricao;
     }
 
-    
 
     public String getDescricao() {
         return descricao;
@@ -24,8 +23,8 @@ public class City extends BaseModel{
         this.descricao = descricao;
     }
 
-    public ArrayList<Address> getEnderecos() {
-        return enderecos;
+    public ArrayList<Product> getProdutos() {
+        return produtos;
     }
     
     

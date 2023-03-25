@@ -3,14 +3,14 @@ package controllers.forms.products;
 
 import controllers.builders.produtos.ProductBuilder;
 import controllers.patterns.AbstractFormController;
-import java.text.ParseException;
+
 import java.util.ArrayList;
-import models.produtos.Product;
-import models.produtos.Brand;
-import models.produtos.Class;
-import repositories.produtos.BrandRepository;
-import repositories.produtos.ClassRepository;
-import repositories.produtos.ProductRepository;
+import models.products.Product;
+import models.products.Brand;
+import models.products.Class;
+import repositories.products.BrandRepository;
+import repositories.products.ClassRepository;
+import repositories.products.ProductRepository;
 import view.forms.ProductFormComponent;
 import view.utils.UtilsComponents;
 
@@ -152,27 +152,32 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
     
     @Override
     protected void onShowComponent() {
-        if(this.form.getjComboBoxBrand().getItemCount() > 0)
-            this.form.getjComboBoxBrand().removeAllItems();
-        
-        if(this.form.getjComboBoxClass().getItemCount() > 0)
-            this.form.getjComboBoxClass().removeAllItems();
-        
-        ClassRepository classRepository = new ClassRepository();
-        BrandRepository brandRepository = new BrandRepository();
-        
-        this.classes = (ArrayList<Class>) classRepository.fetch();
-        this.brands = (ArrayList<Brand>) brandRepository.fetch();
-        
-        for(Brand b: this.brands)
-            this.form.getjComboBoxBrand().addItem(b.getDescricao());
-        
-        for(Class c: this.classes)
-            this.form.getjComboBoxClass().addItem(c.getDescricao());
-        
-        this.form.getjLabelStatus().setText(" ");
-        
-        loadFieldsProduct();
+        try{
+            if(this.form.getjComboBoxBrand().getItemCount() > 0)
+                this.form.getjComboBoxBrand().removeAllItems();
+
+            if(this.form.getjComboBoxClass().getItemCount() > 0)
+                this.form.getjComboBoxClass().removeAllItems();
+
+            ClassRepository classRepository = new ClassRepository();
+            BrandRepository brandRepository = new BrandRepository();
+
+            this.classes = (ArrayList<Class>) classRepository.fetch();
+            this.brands = (ArrayList<Brand>) brandRepository.fetch();
+
+            for(Brand b: this.brands)
+                this.form.getjComboBoxBrand().addItem(b.getDescricao());
+
+            for(Class c: this.classes)
+                this.form.getjComboBoxClass().addItem(c.getDescricao());
+
+            this.form.getjLabelStatus().setText(" ");
+
+            loadFieldsProduct();
+
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     @Override

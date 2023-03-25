@@ -30,23 +30,34 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
     
 
     protected ArrayList<M> getRegisters(){
-        this.registers = (ArrayList<M>) this.repository.fetch();
+        try{
+            this.registers = (ArrayList<M>) this.repository.fetch();
 
-        return this.registers;
+            return this.registers;
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
+
+        return null;
     }
 
     protected abstract ArrayList<String[]> getRows();
     
     private void onClickButtonDelete(){
-        int indexSelected = this.table.getjTableList().getSelectedRow();
-        
-        if(this.registers.size() == 0 && indexSelected < 0) return;
+        try{
+            int indexSelected = this.table.getjTableList().getSelectedRow();
 
-        M model = this.registers.get(this.table.getjTableList().getSelectedRow());
-        
-        this.repository.delete(model.getId());
-        
-        this.reloadList();
+            if(this.registers.size() == 0 && indexSelected < 0) return;
+
+            M model = this.registers.get(this.table.getjTableList().getSelectedRow());
+
+            this.repository.delete(model.getId());
+
+            this.reloadList();
+
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
     
     private void onClickButtonUpdate(){

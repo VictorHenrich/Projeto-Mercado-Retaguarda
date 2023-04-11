@@ -3,8 +3,8 @@ package controllers.forms.people;
 
 import controllers.builders.pessoa.SupplierBuilder;
 import controllers.patterns.AbstractFormPersonController;
-import models.pessoas.Supplier;
-import repositories.pessoas.SupplierRepository;
+import models.people.Supplier;
+import repositories.people.SupplierRepository;
 import view.forms.SupplierFormComponent;
 
 

@@ -3,7 +3,7 @@ package controllers.builders.pessoa;
 
 import controllers.patterns.ModelBuilder;
 import models.address.Address;
-import models.pessoas.Person;
+import models.people.Person;
 
 
 public abstract class AbstractPersonBuilder<T extends Person> implements ModelBuilder<T>{

@@ -4,8 +4,8 @@ package controllers.lists.people;
 import controllers.forms.people.CollaboratorFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.pessoas.Collaborator;
-import repositories.pessoas.CollaboratorRepository;
+import models.people.Collaborator;
+import repositories.people.CollaboratorRepository;
 import view.lists.CollaboratorListComponent;
 
 

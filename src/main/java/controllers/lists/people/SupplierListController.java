@@ -4,8 +4,8 @@ package controllers.lists.people;
 import controllers.forms.people.SupplierFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.pessoas.Supplier;
-import repositories.pessoas.SupplierRepository;
+import models.people.Supplier;
+import repositories.people.SupplierRepository;
 import view.lists.SupplierListComponent;
 
 

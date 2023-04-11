@@ -4,8 +4,8 @@ package controllers.lists.people;
 import controllers.forms.people.ClientFormController;
 import controllers.patterns.AbstractListController;
 import java.util.ArrayList;
-import models.pessoas.Client;
-import repositories.pessoas.ClientRepository;
+import models.people.Client;
+import repositories.people.ClientRepository;
 import view.lists.ClientListComponent;
 
 

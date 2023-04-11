@@ -3,8 +3,8 @@ package controllers.forms.people;
 
 import controllers.builders.pessoa.CollaboratorBuilder;
 import controllers.patterns.AbstractFormPersonController;
-import models.pessoas.Collaborator;
-import repositories.pessoas.CollaboratorRepository;
+import models.people.Collaborator;
+import repositories.people.CollaboratorRepository;
 import view.forms.CollaboratorFormComponent;
 
 

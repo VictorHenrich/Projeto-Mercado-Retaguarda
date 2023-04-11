@@ -7,9 +7,9 @@ import controllers.patterns.ModelBuilderException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import models.pessoas.Client;
-import models.pessoas.Sex;
-import repositories.pessoas.ClientRepository;
+import models.people.Client;
+import models.people.Sex;
+import repositories.people.ClientRepository;
 import view.forms.ClientFormComponent;
 
 

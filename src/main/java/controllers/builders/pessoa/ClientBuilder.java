@@ -2,7 +2,7 @@
 package controllers.builders.pessoa;
 
 import java.util.Date;
-import models.pessoas.Client;
+import models.people.Client;
 
 
 public class ClientBuilder extends AbstractPersonBuilder<Client>{

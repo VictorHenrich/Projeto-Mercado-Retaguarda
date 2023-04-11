@@ -1,7 +1,7 @@
 
 package controllers.builders.pessoa;
 
-import models.pessoas.Collaborator;
+import models.people.Collaborator;
 
 
 public class CollaboratorBuilder extends AbstractPersonBuilder<Collaborator>{

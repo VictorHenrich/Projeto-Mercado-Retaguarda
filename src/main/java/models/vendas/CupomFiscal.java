@@ -4,8 +4,8 @@ package models.vendas;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import models.pessoas.Client;
-import models.pessoas.Collaborator;
+import models.people.Client;
+import models.people.Collaborator;
 import models.patterns.BaseModel;
 
 

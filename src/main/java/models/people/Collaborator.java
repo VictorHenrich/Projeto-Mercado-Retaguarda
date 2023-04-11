@@ -1,5 +1,5 @@
 
-package models.pessoas;
+package models.people;
 
 import java.util.ArrayList;
 import models.address.Address;

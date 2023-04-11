@@ -36,7 +36,7 @@ public class ClassRepository implements CrudRepository<Class>{
 
     @Override
     public void update(int id, Class register) throws ClassRepositoryError{
-        String sql = "UPDATE classes SET descricao = ?";
+        String sql = "UPDATE classes SET descricao = ? WHERE id = ?";
 
         Connection connection = DatabaseConnection.createConnection();
 
@@ -44,6 +44,7 @@ public class ClassRepository implements CrudRepository<Class>{
             PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setString(1, register.getDescricao());
+            ps.setInt(2, register.getId());
             ps.executeUpdate();
 
         }catch (Exception error){

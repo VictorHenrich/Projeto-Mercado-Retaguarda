@@ -6,7 +6,7 @@ import models.address.City;
 import models.address.District;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import models.pessoas.Person;
+import models.people.Person;
 import repositories.address.AddressRepository;
 import repositories.address.CityRepository;
 import repositories.address.DistrictRepository;

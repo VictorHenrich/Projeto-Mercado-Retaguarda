@@ -1,5 +1,5 @@
 
-package models.pessoas;
+package models.people;
 
 import models.address.Address;
 

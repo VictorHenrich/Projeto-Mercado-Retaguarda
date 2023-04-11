@@ -3,7 +3,7 @@ package models.compras;
 
 import java.util.ArrayList;
 import java.util.Date;
-import models.pessoas.Supplier;
+import models.people.Supplier;
 import models.patterns.BaseModel;
 
 

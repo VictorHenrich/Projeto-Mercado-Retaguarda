@@ -1,7 +1,7 @@
 
 package controllers.builders.pessoa;
 
-import models.pessoas.Supplier;
+import models.people.Supplier;
 
 
 public class SupplierBuilder extends AbstractPersonBuilder<Supplier>{

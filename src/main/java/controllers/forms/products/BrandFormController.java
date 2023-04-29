@@ -7,56 +7,75 @@ import models.products.Brand;
 import repositories.products.BrandRepository;
 import view.forms.BrandFormComponent;
 
+import javax.swing.*;
 
-public class BrandFormController extends AbstractFormController<BrandFormComponent, Brand>{
-    
+
+public class BrandFormController extends AbstractFormController<BrandFormComponent, Brand> {
+
     private final BrandRepository brandRepository = new BrandRepository();
-    
+
     public BrandFormController() {
         super(new BrandFormComponent());
     }
-    
-    private BrandBuilder newBrandBuilder(){
-        return new BrandBuilder()
+
+    private BrandBuilder newBrandBuilder() {
+        try {
+            return new BrandBuilder()
                     .setDescricao(this.form.getjTextFieldDescription().getText());
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this.form, error.getMessage(), "AVISO ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return null;
     }
-    
-    private void createBrand(){
-        try{
-            
-            int id = this.brandRepository.nextID();
-            
-            Brand brand = this.newBrandBuilder().build(id);
-            
+
+    private void createBrand() {
+        BrandBuilder brandBuilder = this.newBrandBuilder();
+
+        if (brandBuilder == null) return;
+
+        Brand brand = brandBuilder.build();
+
+        try {
             this.brandRepository.create(brand);
-            
-            System.out.println("Marca cadastrada com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao cadastrar marca!\nErro: " + error.getMessage());
+
+            JOptionPane.showMessageDialog(this.form, "Marca cadastrada com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception error) {
+            String messageError = "Falha ao cadastrar Marca!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    private void updateBrand(){
-        try{
-            
+
+    private void updateBrand() {
+
+        BrandBuilder brandBuilder = this.newBrandBuilder();
+
+        if (brandBuilder == null) return;
+
+        try {
+
             int id = this.registerLoaded.getId();
-            
-            Brand brand = this.newBrandBuilder().build(id);
-            
+
+            Brand brand = (Brand) brandBuilder.setId(id).build();
+
             this.brandRepository.update(id, brand);
-            
-            System.out.println("Marca alterada com sucesso!");
-            
-        }catch(Exception error){
-            System.out.println("Falha ao alterar marca!\nErro: " + error.getMessage());
+
+            JOptionPane.showMessageDialog(this.form, "Marca alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception error) {
+            String messageError = "Falha ao alterar Marca!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     @Override
     protected void onShowComponent() {
-        if(this.registerLoaded == null) return;
-        
+        if (this.registerLoaded == null) return;
+
         this.form.getjTextFieldDescription().setText(this.registerLoaded.getDescricao());
     }
 
@@ -68,13 +87,13 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
 
     @Override
     protected void onClickButtonNew() {
-       this.form.getjTextFieldDescription().setEnabled(true);
-       this.form.getjTextFieldDescription().setText("");
+        this.form.getjTextFieldDescription().setEnabled(true);
+        this.form.getjTextFieldDescription().setText("");
     }
 
     @Override
     protected void onClickButtonWrite() {
-        if(this.registerLoaded == null)
+        if (this.registerLoaded == null)
             this.createBrand();
         else
             this.updateBrand();
@@ -84,5 +103,5 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
     protected void onClickButtonChange() {
         this.form.getjTextFieldDescription().setEnabled(true);
     }
-    
+
 }

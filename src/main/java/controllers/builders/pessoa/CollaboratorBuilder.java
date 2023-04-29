@@ -21,7 +21,7 @@ public class CollaboratorBuilder extends AbstractPersonBuilder<Collaborator>{
     }    
     
     @Override
-    public Collaborator build(int id) {
+    public Collaborator build() {
         return new Collaborator(
             this.login,
             this.senha,
@@ -33,7 +33,7 @@ public class CollaboratorBuilder extends AbstractPersonBuilder<Collaborator>{
             this.email,
             this.observacao,
             this.status,
-            id
+            this.id
         );
     }
     

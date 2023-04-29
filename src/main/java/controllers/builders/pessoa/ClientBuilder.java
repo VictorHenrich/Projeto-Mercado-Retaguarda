@@ -37,7 +37,7 @@ public class ClientBuilder extends AbstractPersonBuilder<Client>{
     }
     
     @Override
-    public Client build(int id) {
+    public Client build() {
         return new Client(
             this.cpf, 
             this.rg,
@@ -51,7 +51,7 @@ public class ClientBuilder extends AbstractPersonBuilder<Client>{
             this.email,
             this.observacao,
             this.status,
-            id
+            this.id
         );
     }
     

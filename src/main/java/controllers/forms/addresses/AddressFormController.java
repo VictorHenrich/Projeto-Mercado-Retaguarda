@@ -12,6 +12,8 @@ import repositories.address.CityRepository;
 import repositories.address.DistrictRepository;
 import view.forms.AddressFormComponent;
 
+import javax.swing.*;
+
 
 public class AddressFormController extends AbstractFormController<AddressFormComponent, Address>{
     private final AddressRepository addressRepository = new AddressRepository();
@@ -33,40 +35,57 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         if(!this.districts.isEmpty())
             district = this.districts.get(this.form.getjComboBoxDistrict().getSelectedIndex());
 
-        return new AddressBuilder()
+        try{
+            return new AddressBuilder()
                     .setLogradouro(this.form.getjTextFieldStreet().getText())
                     .setCep(this.form.getjTextFieldCep().getText())
                     .setBairro(district)
                     .setCidade(city);
+
+        }catch(Exception error){
+            JOptionPane.showMessageDialog(this.form, error.getMessage(), "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return null;
     }
     
     private void createAddress(){
+        AddressBuilder addressBuilder = this.newAddressBuilder();
+
+        if(addressBuilder == null) return;
+
+        Address address = addressBuilder.build();
+
         try{
-            int id = this.addressRepository.nextID();
-
-            Address address = this.newAddressBuilder().build(id);
-
             this.addressRepository.create(address);
 
-            System.out.println("Endereço cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(this.form, "Endereço cadastrado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 
         }catch(Exception error){
-            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
+            String messageError = "Falha ao cadastrar Endereço!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     private void updateAddress(){
+        AddressBuilder addressBuilder = this.newAddressBuilder();
+
+        if(addressBuilder == null) return;
+
         try{
             int id = this.registerLoaded.getId();
 
-            Address address = this.newAddressBuilder().build(id);
+            Address address = (Address) addressBuilder.setId(id).build();
 
             this.addressRepository.update(id, address);
 
-            System.out.println("Endereço alterado com sucesso!");
+            JOptionPane.showMessageDialog(this.form, "Endereço alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 
         }catch(Exception error){
-            System.out.println("Falha ao cadastrar Endereço\nErro: " + error.getMessage());
+            String messageError = "Falha ao alterar Endereço!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -77,14 +96,21 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
         this.form.getjTextFieldStreet().setText(this.registerLoaded.getLogradouro());
         
         if(this.registerLoaded.getCidade() != null && !this.cities.isEmpty()){
-            int indexCity = this.cities.indexOf(this.registerLoaded.getCidade());
-            
-            this.form.getjComboBoxCity().setSelectedIndex(indexCity);
+            for(int cityIndex=0; cityIndex < this.cities.size(); cityIndex++){
+                City city = this.cities.get(cityIndex);
+
+                if(city.getId() == this.registerLoaded.getCidade().getId())
+                    this.form.getjComboBoxCity().setSelectedIndex(cityIndex);
+            }
         }
         
         if(this.registerLoaded.getBairro() != null && !this.districts.isEmpty()){
-            int indexDistrict = this.districts.indexOf(this.registerLoaded.getBairro());
-            this.form.getjComboBoxDistrict().setSelectedIndex(indexDistrict);
+            for(int districtIndex=0; districtIndex < this.districts.size(); districtIndex++){
+                District district = this.districts.get(districtIndex);
+
+                if(district.getId() == this.registerLoaded.getBairro().getId())
+                    this.form.getjComboBoxDistrict().setSelectedIndex(districtIndex);
+            }
         }
     }
     

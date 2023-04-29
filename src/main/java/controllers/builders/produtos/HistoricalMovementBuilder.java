@@ -9,7 +9,7 @@ import models.products.HistoricalMovement;
 import models.products.Product;
 
 
-public class HistoricalMovementBuilder implements ModelBuilder<HistoricalMovement>{
+public class HistoricalMovementBuilder extends ModelBuilder<HistoricalMovement>{
     private UUID uuid;
     
     private Date data;
@@ -63,7 +63,7 @@ public class HistoricalMovementBuilder implements ModelBuilder<HistoricalMovemen
     
     
     @Override
-    public HistoricalMovement build(int id) {
+    public HistoricalMovement build() {
         return new HistoricalMovement(
            this.uuid,
            this.data,
@@ -72,7 +72,7 @@ public class HistoricalMovementBuilder implements ModelBuilder<HistoricalMovemen
            this.status,
            this.produto,
            this.itemCompra,
-           id
+           this.id
         );
     }
     

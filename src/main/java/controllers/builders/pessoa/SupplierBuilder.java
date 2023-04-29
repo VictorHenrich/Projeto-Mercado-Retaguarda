@@ -50,7 +50,7 @@ public class SupplierBuilder extends AbstractPersonBuilder<Supplier>{
     
     
     @Override
-    public Supplier build(int id) {
+    public Supplier build() {
         return new Supplier(
             this.cnpj, 
             this.inscricaoEstadual,
@@ -66,7 +66,7 @@ public class SupplierBuilder extends AbstractPersonBuilder<Supplier>{
             this.email,
             this.observacao,
             this.status,
-            id
+            this.id
         );
     }
     

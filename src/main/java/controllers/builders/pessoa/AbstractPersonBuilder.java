@@ -2,11 +2,12 @@
 package controllers.builders.pessoa;
 
 import controllers.patterns.ModelBuilder;
+import controllers.patterns.ModelBuilderException;
 import models.address.Address;
 import models.people.Person;
 
 
-public abstract class AbstractPersonBuilder<T extends Person> implements ModelBuilder<T>{
+public abstract class AbstractPersonBuilder<T extends Person> extends ModelBuilder<T>{
     
     protected String nome;
     protected String telefone1;
@@ -23,8 +24,11 @@ public abstract class AbstractPersonBuilder<T extends Person> implements ModelBu
         return this;
     }
     
-    public AbstractPersonBuilder setNome(String nome){
-        this.nome = nome;
+    public AbstractPersonBuilder setNome(String nome) throws ModelBuilderException{
+        if(nome == null || nome.equals(""))
+            throw new ModelBuilderException("Campo nome não preenchido ou vazio!");
+
+        this.nome = nome.toUpperCase();
         
         return this;
     }
@@ -36,8 +40,11 @@ public abstract class AbstractPersonBuilder<T extends Person> implements ModelBu
         return this;
     }
     
-    public AbstractPersonBuilder setEmail(String email){
-        this.email = email;
+    public AbstractPersonBuilder setEmail(String email) throws ModelBuilderException{
+        if(email == null)
+            throw new ModelBuilderException("Campo email não pode ser nulo!");
+
+        this.email = email.toUpperCase();
         
         return this;
     }
@@ -54,7 +61,10 @@ public abstract class AbstractPersonBuilder<T extends Person> implements ModelBu
         return this;
     }
     
-    public AbstractPersonBuilder setEndereco(Address endereco){
+    public AbstractPersonBuilder setEndereco(Address endereco) throws ModelBuilderException{
+        if(endereco == null)
+            throw new ModelBuilderException("Campo de endereço não foi preenchido!");
+
         this.endereco = endereco;
         
         return this;
@@ -62,6 +72,6 @@ public abstract class AbstractPersonBuilder<T extends Person> implements ModelBu
     
     
     @Override
-    abstract public T build(int id);
+    abstract public T build();
     
 }

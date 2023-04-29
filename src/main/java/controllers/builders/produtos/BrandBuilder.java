@@ -2,13 +2,17 @@
 package controllers.builders.produtos;
 
 import controllers.patterns.ModelBuilder;
+import controllers.patterns.ModelBuilderException;
 import models.products.Brand;
 
 
-public class BrandBuilder implements ModelBuilder<Brand>{
+public class BrandBuilder extends ModelBuilder<Brand>{
     private String descricao;
 
-    public BrandBuilder setDescricao(String descricao) {
+    public BrandBuilder setDescricao(String descricao) throws ModelBuilderException{
+        if(descricao == null || descricao.equals(""))
+            throw new ModelBuilderException("Campo descrição de marca está vazio!");
+
         this.descricao = descricao;
         
         return this;
@@ -16,10 +20,10 @@ public class BrandBuilder implements ModelBuilder<Brand>{
     
     
     @Override
-    public Brand build(int id) {
+    public Brand build() {
         return new Brand(
            this.descricao,
-           id
+           this.id
         );
     }
     

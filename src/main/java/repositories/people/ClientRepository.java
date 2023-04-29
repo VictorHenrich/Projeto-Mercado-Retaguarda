@@ -9,6 +9,7 @@ import repositories.exceptions.ClientRepositoryError;
 import repositories.patterns.CrudRepository;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -66,12 +67,14 @@ public class ClientRepository implements CrudRepository<Client>{
 
         String sql = "INSERT INTO clientes " +
                      "(id, nome, fone1, fone2, endereco_complemento, endereco_id, " +
-                     "email, observacao, status, cpf, rg, sexo) " +
+                     "email, observacao, status, cpf, rg, data_nascimento, sexo) " +
                      "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try{
 
             PreparedStatement ps = connection.prepareStatement(sql);
+
+            Date date = new Date(register.getDataNascimento().getTime());
 
             ps.setString(1, register.getNome());
             ps.setString(2, register.getFone1());
@@ -83,7 +86,7 @@ public class ClientRepository implements CrudRepository<Client>{
             ps.setString(8, "" + register.getStatus());
             ps.setString(9, register.getCpf());
             ps.setString(10, register.getRg());
-            //ps.setDate(12, register.getDataNascimento());
+            ps.setDate(12, date);
             ps.setString(11, ""+ register.getSexo());
 
             ps.executeUpdate();
@@ -108,6 +111,8 @@ public class ClientRepository implements CrudRepository<Client>{
 
             PreparedStatement ps = connection.prepareStatement(sql);
 
+            Date date = new Date(register.getDataNascimento().getTime());
+
             ps.setString(1, register.getNome());
             ps.setString(2, register.getFone1());
             ps.setString(3, register.getFone2());
@@ -118,7 +123,7 @@ public class ClientRepository implements CrudRepository<Client>{
             ps.setString(9, "" + register.getStatus());
             ps.setString(10, register.getCpf());
             ps.setString(11, register.getRg());
-            //ps.setDate(12, register.getDataNascimento());
+            ps.setDate(12, date);
             ps.setString(13, ""+ register.getSexo());
             ps.setInt(14, id);
 

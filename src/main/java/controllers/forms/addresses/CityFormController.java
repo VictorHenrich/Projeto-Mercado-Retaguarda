@@ -7,6 +7,8 @@ import models.address.City;
 import repositories.address.CityRepository;
 import view.forms.CityFormComponent;
 
+import javax.swing.*;
+
 
 public class CityFormController extends AbstractFormController<CityFormComponent, City>{
     
@@ -17,37 +19,55 @@ public class CityFormController extends AbstractFormController<CityFormComponent
     }
     
     private CityBuilder newCityBuilder(){
-        return new CityBuilder()
-                       .setDescricao(this.form.getjTextFieldDescription().getText());
+        try{
+            return new CityBuilder()
+                        .setDescricao(this.form.getjTextFieldDescription().getText());
+
+        }catch(Exception error){
+            JOptionPane.showMessageDialog(this.form, error.getMessage(), "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return null;
     }
     
     private void createCity(){
+        CityBuilder cityBuilder = this.newCityBuilder();
+
+        if(cityBuilder == null) return;
+
         try{
-            
-            int id = this.repositoty.nextID();
-            
-            City city = this.newCityBuilder().build(id);
+            City city = cityBuilder.build();
             
             this.repositoty.create(city);
-            
-            System.out.println("Cidade cadastrada com sucesso!");
+
+            JOptionPane.showMessageDialog(this.form, "Cidade cadastrada com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception error){
-            System.out.println("Falha ao cadastrar Cidade\nErro: " + error.getMessage());
+            String messageError = "Falha ao cadastrar Cidade\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     private void updateCity(){
+
+        CityBuilder cityBuilder = this.newCityBuilder();
+
+        if(cityBuilder == null) return;
+
         try{
             int id = this.registerLoaded.getId();
             
-            City city = this.newCityBuilder().build(id);
+            City city = (City) cityBuilder.setId(id).build();
             
             this.repositoty.update(id, city);
+
+            JOptionPane.showMessageDialog(this.form, "Cidade alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception error){
-            
-            System.out.println("Falha ao cadastrar Cidade\nErro: " + error.getMessage());
+            String messageError = "Falha ao alterar Cidade\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
 

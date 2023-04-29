@@ -7,6 +7,8 @@ import models.address.District;
 import repositories.address.DistrictRepository;
 import view.forms.DistrictFormComponent;
 
+import javax.swing.*;
+
 
 public class DistrictFormController extends AbstractFormController<DistrictFormComponent, District>{
     
@@ -17,37 +19,55 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
     }
     
     private DistrictBuilder newDistrictBuilder(){
-        return new DistrictBuilder()
-                    .setDescricao(this.form.getjTextFieldDescription().getText());
+        try{
+            return new DistrictBuilder()
+                            .setDescricao(this.form.getjTextFieldDescription().getText());
+
+        }catch(Exception error){
+            JOptionPane.showMessageDialog(this.form, error.getMessage(), "AVISO ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return null;
     }
     
     private void createDistrict(){
+        DistrictBuilder districtBuilder = this.newDistrictBuilder();
+
+        if(districtBuilder == null) return;
+
+        District district = districtBuilder.build();
+
         try {
-            int id = this.repository.nextID();
-            
-            District district = this.newDistrictBuilder().build(id);
-            
             this.repository.create(district);
+
+            JOptionPane.showMessageDialog(this.form, "Bairro cadastrado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             
-            System.out.println("Bairro cadastrado com sucesso!");
-            
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        } catch (Exception error) {
+            String messageError = "Falha ao cadastrar Bairro!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     private void updateDistrict(){
+        DistrictBuilder districtBuilder = this.newDistrictBuilder();
+
+        if(districtBuilder == null) return;
+
+
         try {
             int id = this.registerLoaded.getId();
             
-            District district = this.newDistrictBuilder().build(id);
+            District district = (District) districtBuilder.setId(id).build();
             
             this.repository.update(id, district);
             
             System.out.println("Bairro alterado com sucesso!");
             
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        } catch (Exception error) {
+            String messageError = "Falha ao alterar Bairro!\nERRO: " + error.getMessage();
+
+            JOptionPane.showMessageDialog(this.form, messageError, "AVISO ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
     

@@ -20,8 +20,8 @@ public class SupplierRepository implements CrudRepository<Supplier>{
             "ci.descricao AS cidade_descricao, b.descricao AS bairro_descricao " +
             "FROM fornecedores AS f " +
             "INNER JOIN enderecos AS e ON e.id = f.endereco_id " +
-            "INNER JOIN cidades AS ci ON ci.id = f.cidade_id " +
-            "INNER JOIN bairros AS b ON b.id = f.bairro_id ";
+            "INNER JOIN cidades AS ci ON ci.id = e.cidade_id " +
+            "INNER JOIN bairros AS b ON b.id = e.bairro_id ";
 
     private Supplier handleSupplierResult(ResultSet result) throws Exception{
         City city = new City(

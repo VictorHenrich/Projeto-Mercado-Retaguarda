@@ -6,10 +6,13 @@ import controllers.patterns.ModelBuilderException;
 import models.address.District;
 
 
-public class DistrictBuilder implements ModelBuilder<District>{
+public class DistrictBuilder extends ModelBuilder<District>{
     private String descricao;
 
-    public DistrictBuilder setDescricao(String descricao) {
+    public DistrictBuilder setDescricao(String descricao) throws ModelBuilderException{
+        if(descricao == null || descricao.equals(""))
+            throw new ModelBuilderException("Campo de texto não preenchido!");
+
         this.descricao = descricao;
         
         return this;
@@ -17,13 +20,11 @@ public class DistrictBuilder implements ModelBuilder<District>{
     
     
     @Override
-    public District build(int id) throws ModelBuilderException{
-        if(this.descricao == null || this.descricao.equals(""))
-            throw new ModelBuilderException("Campo de texto não preenchido!");
+    public District build(){
             
         return new District(
           this.descricao,
-          id
+          this.id
         );
     }
     

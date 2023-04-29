@@ -90,6 +90,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
         this.form.getjTextFieldCpf().setText("");
         this.form.getjTextFieldContact().setText("");
         this.form.getjTextFieldIe().setText("");
+        this.form.getjTextFieldSocialReason().setText("");
     }
 
     private void enabledFieldsSupplier(boolean status) {
@@ -111,7 +112,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
         this.form.getjTextFieldCnpj().setText(this.registerLoaded.getCnpj());
         this.form.getjTextFieldContact().setText(this.registerLoaded.getContato());
-        this.form.getjTextFieldCpf().setText(this.registerLoaded.getEmail());
+        this.form.getjTextFieldCpf().setText(this.registerLoaded.getCpf());
         this.form.getjTextFieldIe().setText(this.registerLoaded.getInscricaoEstadual());
         this.form.getjTextFieldSocialReason().setText(this.registerLoaded.getRazaoSocial());
     }

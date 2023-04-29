@@ -68,7 +68,7 @@ public class SupplierRepository implements CrudRepository<Supplier>{
         String sql = "INSERT INTO fornecedores " +
                 "(id, razao_social, nome, fone1, fone2, endereco_complemento, endereco_id, " +
                 "email, observacao, status, cpf, rg, ie, contato, cnpj) " +
-                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try{
 
@@ -102,8 +102,8 @@ public class SupplierRepository implements CrudRepository<Supplier>{
     public void update(int id, Supplier register) throws SupplierRepositoryError{
         Connection connection = DatabaseConnection.createConnection();
 
-        String sql = "INSERT INTO fornecedores SET" +
-                "id = ?, razao_social = ?, nome = ?, fone1 = ?, fone2 =?," +
+        String sql = "UPDATE fornecedores SET " +
+                "razao_social = ?, nome = ?, fone1 = ?, fone2 =?," +
                 "endereco_complemento = ?, endereco_id = ?, email = ?, observacao = ?, status = ?, " +
                 "cpf = ?, rg = ?, ie = ?, contato = ?, cnpj = ? " +
                 "WHERE id = ?";

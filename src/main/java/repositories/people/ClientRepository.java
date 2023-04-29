@@ -41,7 +41,7 @@ public class ClientRepository implements CrudRepository<Client>{
                 result.getString("endereco_cep"),
                 city,
                 district,
-                result.getInt("id")
+                result.getInt("endereco_id")
         );
 
         return new Client(
@@ -86,8 +86,8 @@ public class ClientRepository implements CrudRepository<Client>{
             ps.setString(8, "" + register.getStatus());
             ps.setString(9, register.getCpf());
             ps.setString(10, register.getRg());
-            ps.setDate(12, date);
-            ps.setString(11, ""+ register.getSexo());
+            ps.setDate(11, date);
+            ps.setString(12, ""+ register.getSexo());
 
             ps.executeUpdate();
 
@@ -103,10 +103,11 @@ public class ClientRepository implements CrudRepository<Client>{
     public void update(int id, Client register) throws ClientRepositoryError{
         Connection connection = DatabaseConnection.createConnection();
 
-        String sql = "UPDATE clientes SET" +
+        String sql = "UPDATE clientes SET " +
                 "nome = ?, fone1 = ?, fone2 = ?, endereco_complemento = ?, endereco_id = ?, " +
-                "email = ?, observacao = ?, status = ?, cpf ?, rg = ?, data_nascimento = ?, sexo = ? " +
+                "email = ?, observacao = ?, status = ?, cpf = ?, rg = ?, data_nascimento = ?, sexo = ? " +
                 "WHERE id = ?";
+
         try{
 
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -120,12 +121,12 @@ public class ClientRepository implements CrudRepository<Client>{
             ps.setInt(5, register.getEndereco().getId());
             ps.setString(6, register.getEmail());
             ps.setString(7, register.getObservacao());
-            ps.setString(9, "" + register.getStatus());
-            ps.setString(10, register.getCpf());
-            ps.setString(11, register.getRg());
-            ps.setDate(12, date);
-            ps.setString(13, ""+ register.getSexo());
-            ps.setInt(14, id);
+            ps.setString(8, "" + register.getStatus());
+            ps.setString(9, register.getCpf());
+            ps.setString(10, register.getRg());
+            ps.setDate(11, date);
+            ps.setString(12, ""+ register.getSexo());
+            ps.setInt(13, id);
 
             ps.executeUpdate();
 

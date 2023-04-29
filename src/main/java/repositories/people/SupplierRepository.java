@@ -39,7 +39,7 @@ public class SupplierRepository implements CrudRepository<Supplier>{
                 result.getString("endereco_cep"),
                 city,
                 district,
-                result.getInt("id")
+                result.getInt("endereco_id")
         );
 
         return new Supplier(

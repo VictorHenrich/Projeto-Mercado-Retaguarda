@@ -159,7 +159,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
 
     @Override
     protected void resetStates() {
-        this.clearFields();
+        this.clearFieldsClient();
         this.enabledFieldsClient(false);
 
     }
@@ -203,5 +203,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
     protected void onClickButtonChange() {
         this.enabledFieldsClient(true);
     }
+
+
 
 }

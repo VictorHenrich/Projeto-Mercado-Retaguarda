@@ -81,7 +81,6 @@ public abstract class AbstractFormPersonController<T extends AbstractFormPersonC
         if (this.registerLoaded == null) return;
 
         if (this.registerLoaded.getEndereco() != null) {
-
             this.addressLoaded = this.registerLoaded.getEndereco();
 
             this.form.getjTextFieldCep().setText(this.registerLoaded.getEndereco().getCep());

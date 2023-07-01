@@ -4,10 +4,11 @@ import models.patterns.BaseModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 
 @Entity(name = "classes")
-public class Class extends BaseModel{
+public class Class extends BaseModel implements Serializable {
     @Column
     private String descricao;
 

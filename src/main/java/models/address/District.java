@@ -4,9 +4,11 @@ package models.address;
 import javax.persistence.*;
 import models.patterns.BaseModel;
 
+import java.io.Serializable;
+
 
 @Entity(name = "bairros")
-public class District extends BaseModel{
+public class District extends BaseModel implements Serializable {
 
     @Column
     private String descricao;

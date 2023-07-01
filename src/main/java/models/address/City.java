@@ -5,8 +5,10 @@ package models.address;
 import javax.persistence.*;
 import models.patterns.BaseModel;
 
+import java.io.Serializable;
+
 @Entity(name = "cidades")
-public class City extends BaseModel{
+public class City extends BaseModel implements Serializable {
     @Column
     private String descricao;
 

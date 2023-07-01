@@ -3,13 +3,30 @@ package models.people;
 
 import models.address.Address;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import java.io.Serializable;
 
-public class Supplier extends Person{
+
+@Entity(name = "fornecedores")
+public class Supplier extends Person implements Serializable {
+
+    @Column
     private String cnpj;
+
+    @Column(name = "ie")
     private String inscricaoEstadual;
+
+    @Column
     private String contato;
+
+    @Column(name = "razao_social")
     private String razaoSocial;
+
+    @Column
     private String cpf;
+
+    @Column
     private String rg;
 
     protected Supplier(){

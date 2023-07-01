@@ -7,10 +7,6 @@
 
     <persistence-unit name="projeto-mercado-jpa" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-<!--        <class>models.patterns.BaseModel</class>-->
-<!--        <class>models.address.City</class>-->
-<!--        <class>models.address.District</class>-->
-<!--        <class>models.address.Address</class>-->
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projeto_mercado"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>

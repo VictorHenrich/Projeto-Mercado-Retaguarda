@@ -1,6 +1,7 @@
 
 package models.products;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 import models.patterns.BaseModel;
@@ -13,7 +14,7 @@ import javax.persistence.ManyToOne;
 
 
 
-public class HistoricalMovement extends BaseModel{
+public class HistoricalMovement extends BaseModel implements Serializable {
 
     @Column
     private UUID uuid;

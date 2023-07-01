@@ -5,10 +5,11 @@ import models.patterns.BaseModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 
 @Entity(name = "marcas")
-public class Brand extends BaseModel{
+public class Brand extends BaseModel implements Serializable {
     @Column()
     private String descricao;
 

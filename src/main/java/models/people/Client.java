@@ -1,18 +1,31 @@
 
 package models.people;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
 import models.address.Address;
-import models.vendas.CupomFiscal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
-public class Client extends Person{
+@Entity(name = "clientes")
+public class Client extends Person implements Serializable {
+
+    @Column
     private String cpf;
+
+    @Column
     private String rg;
+
+    @Column(name = "data_nascimento")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataNascimento;
+
+    @Column
     private char sexo;
-    private final ArrayList<CupomFiscal> comprasRealizadas = new ArrayList();
 
     public Client(String cpf, String rg, Date dataNascimento, char sexo, String nome, String fone1, String fone2, String complementoEndereco, Address endereco, String email, String observacao, char status, int id) {
         super(nome, fone1, fone2, complementoEndereco, endereco, email, observacao, status, id);
@@ -25,11 +38,6 @@ public class Client extends Person{
     protected Client(){
 
     }
-
-    public ArrayList<CupomFiscal> getComprasRealizadas() {
-        return comprasRealizadas;
-    }
-    
 
     public String getCpf() {
         return cpf;
@@ -62,6 +70,6 @@ public class Client extends Person{
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
-   
+
    
 }

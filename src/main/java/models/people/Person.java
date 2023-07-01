@@ -4,14 +4,38 @@ package models.people;
 import models.address.Address;
 import models.patterns.BaseModel;
 
-public abstract class Person extends BaseModel{
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
+
+@MappedSuperclass
+public abstract class Person extends BaseModel implements Serializable {
+
+    @Column
     private String nome;
+
+    @Column
     private String fone1;
+
+    @Column
     private String fone2;
+
+    @Column(name = "endereco_complemento")
     private String complementoEndereco;
+
+    @JoinColumn
+    @ManyToOne
     private Address endereco;
+
+    @Column
     private String email;
+
+    @Column
     private String observacao;
+
+    @Column
     private char status;
 
     public Person(

@@ -4,10 +4,11 @@ package models.address;
 import models.patterns.BaseModel;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity(name = "enderecos")
-public class Address extends BaseModel{
+public class Address extends BaseModel implements Serializable {
 
     @JoinColumn(name = "cidade_id")
     @ManyToOne

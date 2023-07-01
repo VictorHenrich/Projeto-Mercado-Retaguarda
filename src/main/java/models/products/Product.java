@@ -6,10 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 
 @Entity(name = "produtos")
-public class Product extends BaseModel{
+public class Product extends BaseModel implements Serializable {
 
     @Column
     private String descricao;

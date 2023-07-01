@@ -1,13 +1,17 @@
 
 package models.products;
 
-import java.util.ArrayList;
 import models.patterns.BaseModel;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
+
+@Entity(name = "marcas")
 public class Brand extends BaseModel{
+    @Column()
     private String descricao;
-    private final ArrayList<Product> produtos = new ArrayList();
+
 
     public Brand(String descricao, int id) {
         super(id);
@@ -16,10 +20,6 @@ public class Brand extends BaseModel{
 
     protected Brand() {
         super(0);
-    }
-
-    public ArrayList<Product> getProdutos() {
-        return produtos;
     }
 
     public String getDescricao() {

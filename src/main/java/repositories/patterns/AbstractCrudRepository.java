@@ -6,8 +6,22 @@ import repositories.exceptions.ModulesRepositoy;
 import repositories.exceptions.RepositoryError;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
-abstract public class AbstractCrudRepository<T extends BaseModel> implements CrudRepository<T>{
+abstract public class AbstractCrudRepository<T extends BaseModel> implements ICrudRepository<T> {
+
+    private final Class<T> cls;
+    private final String sqlFetch;
+
+    public AbstractCrudRepository(
+            Class<T> cls,
+            String sqlFetch
+    ){
+        this.cls = cls;
+        this.sqlFetch = sqlFetch;
+    }
+
     @Override
     public void create(T register) throws Exception {
         EntityManager session = SessionProjectFactory.createSession();
@@ -59,8 +73,13 @@ abstract public class AbstractCrudRepository<T extends BaseModel> implements Cru
         EntityManager session = SessionProjectFactory.createSession();
 
         try{
+
+            T object = session.find(this.cls, register.getId());
+
             session.getTransaction().begin();
-            session.remove(register);
+
+            session.remove(object);
+
             session.getTransaction().commit();
 
         }catch(Exception error){
@@ -78,13 +97,48 @@ abstract public class AbstractCrudRepository<T extends BaseModel> implements Cru
     }
 
     @Override
-    abstract public T load(int id) throws RepositoryError;
+    public T load(int id) throws RepositoryError{
+        EntityManager session = SessionProjectFactory.createSession();
+
+        T object = null;
+
+        try{
+            object = session.find(this.cls, id);
+
+        }catch(Exception error){
+            throw new RepositoryError(
+                    this,
+                    ModulesRepositoy.LOAD,
+                    error
+            );
+        }finally {
+            session.close();
+        }
+
+        return object;
+    }
 
     @Override
-    abstract public Iterable<T> fetch() throws RepositoryError;
+    public Iterable<T> fetch() throws RepositoryError{
+        EntityManager session = SessionProjectFactory.createSession();
 
-    @Override
-    public int nextID() {
-        return 0;
+        List<T> objects = new ArrayList<T>();
+
+        try{
+
+            objects = session.createQuery(
+                    this.sqlFetch,
+                    this.cls
+            ).getResultList();
+
+        }catch(Exception error){
+            throw new RepositoryError(
+                    this,
+                    ModulesRepositoy.FETCH,
+                    error
+            );
+        }
+
+        return objects;
     }
 }

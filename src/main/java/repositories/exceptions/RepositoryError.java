@@ -1,11 +1,11 @@
 package repositories.exceptions;
 
-import repositories.patterns.CrudRepository;
+import repositories.patterns.ICrudRepository;
 
 
 public class RepositoryError extends Exception{
     public RepositoryError(
-            CrudRepository objectRepository,
+            ICrudRepository objectRepository,
             ModulesRepositoy module,
             Exception error
     ){

@@ -1,26 +1,56 @@
 
 package models.products;
-import java.util.ArrayList;
 import models.patterns.BaseModel;
-import models.compras.ItemCompra;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
+@Entity(name = "produtos")
 public class Product extends BaseModel{
+
+    @Column
     private String descricao;
+
+    @Column(name = "valor_compra")
     private float valorCompra;
+
+    @Column(name = "valor_venda")
     private float valorVenda;
+
+    @Column(name = "unidade_compra")
     private String unidadeCompra;
+
+    @Column(name = "unidade_venda")
     private String unidadeVenda;
+
+    @Column(name = "fator_conversao")
     private int fatorConversao;
+
+    @Column
     private char status;
+
+    @Column(name = "barra_saida")
     private String barraEntrada;
+
+    @Column(name = "barra_entrada")
     private String barraSaida;
+
+    @Column(name = "estoque_minimo")
     private float estoqueMinimo;
+
+    @Column(name = "estoque_maximo")
     private float estoqueMaximo;
+
+    @JoinColumn
+    @ManyToOne
     private Class classe;
+
+    @JoinColumn
+    @ManyToOne
     private Brand marca;
-    private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList();
-    private final ArrayList<ItemCompra> itensCompra = new ArrayList();
 
     public Product(String descricao, float valorCompra, float valorVenda, String unidadeCompra, String unidadeVenda, int fatorConversao, char status, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo, Class classe, Brand marca, int id) {
         super(id);
@@ -42,10 +72,6 @@ public class Product extends BaseModel{
 
     protected Product(){
         super(0);
-    }
-
-    public ArrayList<ItemCompra> getItensCompra() {
-        return itensCompra;
     }
 
     public String getDescricao() {
@@ -150,9 +176,5 @@ public class Product extends BaseModel{
 
     public void setMarca(Brand marca) {
         this.marca = marca;
-    }
-
-    public ArrayList<HistoricalMovement> getHistoricosMovimentacoes() {
-        return historicosMovimentacoes;
     }
 }

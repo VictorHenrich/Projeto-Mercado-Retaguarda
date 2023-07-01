@@ -3,22 +3,23 @@ package controllers.patterns;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import models.patterns.BaseModel;
-import repositories.patterns.CrudRepository;
+import repositories.patterns.ICrudRepository;
 import view.components.AbstractListComponent;
 
 
 public abstract class AbstractListController<T extends AbstractListComponent, M extends BaseModel>{
     protected final T table;
     private final AbstractFormController formController;
-    protected final CrudRepository<M> repository;
+    protected final ICrudRepository<M> repository;
     private ArrayList<M> registers;
 
     public AbstractListController(
         T table, 
         AbstractFormController formController,
-        CrudRepository<M> repository
+        ICrudRepository<M> repository
     ) {
         this.table = table;
         this.formController = formController;
@@ -35,7 +36,12 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
 
             return this.registers;
         }catch(Exception error){
-            System.out.println(error.getMessage());
+            JOptionPane.showMessageDialog(
+                    this.formController.form,
+                    "Falha ao carregar dados na tela!\n\nError: " + error.getMessage(),
+                    "AVISO ERROR",
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
 
         return null;
@@ -56,7 +62,12 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
             this.reloadList();
 
         }catch(Exception error){
-            System.out.println(error.getMessage());
+            JOptionPane.showMessageDialog(
+                this.formController.form,
+                "Falha ao excluir dado selecionado!\n\nError: " + error.getMessage(),
+                "AVISO ERROR",
+                JOptionPane.ERROR_MESSAGE
+            );
         }
     }
     

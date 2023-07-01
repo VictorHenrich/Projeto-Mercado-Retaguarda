@@ -6,15 +6,41 @@ import java.util.UUID;
 import models.patterns.BaseModel;
 import models.compras.ItemCompra;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
 
 public class HistoricalMovement extends BaseModel{
-    private final UUID uuid;
+
+    @Column
+    private UUID uuid;
+
+    @Column
     private Date data;
+
+    @Column
     private String hora;
+
+    @Column
     private float quantidade;
+
+    @Column
     private char status;
+
+    @JoinColumn
+    @ManyToOne
     private Product produto;
+
+    @JoinColumn
+    @ManyToOne
     private ItemCompra itemCompra;
+
+    protected HistoricalMovement(){
+        super(0);
+    }
 
     public HistoricalMovement(UUID uuid, Date data, String hora, float quantidade, char status, Product produto, ItemCompra itemCompra, int id) {
         super(id);

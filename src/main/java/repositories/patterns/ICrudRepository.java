@@ -2,7 +2,7 @@
 package repositories.patterns;
 
 
-public interface CrudRepository<T> {
+public interface ICrudRepository<T> {
     
     public void create(T register) throws Exception;
     
@@ -13,6 +13,4 @@ public interface CrudRepository<T> {
     public T load(int id) throws Exception;
     
     public Iterable<T> fetch() throws Exception;
-    
-    public int nextID();
 }

@@ -72,7 +72,7 @@ public class SupplierFormController extends AbstractFormPersonController<Supplie
 
             Supplier supplier = (Supplier) supplierBuilder.setId(id).build();
 
-            this.supplierRepository.update(id, supplier);
+            this.supplierRepository.update(supplier);
 
             JOptionPane.showMessageDialog(this.form, "Fornecedor alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

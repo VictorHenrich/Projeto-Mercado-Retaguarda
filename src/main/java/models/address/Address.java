@@ -3,12 +3,25 @@ package models.address;
 
 import models.patterns.BaseModel;
 
+import javax.persistence.*;
 
+
+@Entity(name = "enderecos")
 public class Address extends BaseModel{
-    private String logradouro;
-    private String cep;
+
+    @JoinColumn(name = "cidade_id")
+    @ManyToOne
     private City cidade;
+
+    @JoinColumn(name = "bairro_id")
+    @ManyToOne
     private District bairro;
+
+    @Column
+    private String logradouro;
+
+    @Column
+    private String cep;
 
     public Address(String logradouro, String cep, City cidade, District bairro, int id) {
         super(id);
@@ -18,9 +31,9 @@ public class Address extends BaseModel{
         this.bairro = bairro;
     }
 
-    
-
-    
+    protected Address(){
+        super(0);
+    }
 
     public String getLogradouro() {
         return logradouro;

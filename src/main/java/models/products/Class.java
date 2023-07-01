@@ -15,6 +15,10 @@ public class Class extends BaseModel{
     }
 
 
+    protected Class() {
+        super(0);
+    }
+
     public String getDescricao() {
         return descricao;
     }

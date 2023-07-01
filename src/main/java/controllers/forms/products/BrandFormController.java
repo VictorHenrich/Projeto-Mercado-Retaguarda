@@ -61,7 +61,7 @@ public class BrandFormController extends AbstractFormController<BrandFormCompone
 
             Brand brand = (Brand) brandBuilder.setId(id).build();
 
-            this.brandRepository.update(id, brand);
+            this.brandRepository.update(brand);
 
             JOptionPane.showMessageDialog(this.form, "Marca alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

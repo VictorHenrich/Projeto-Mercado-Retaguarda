@@ -5,8 +5,9 @@ import database.DatabaseConnection;
 import models.products.Brand;
 import models.products.Product;
 import models.products.Class;
-import repositories.exceptions.ProductRepositoryError;
-import repositories.patterns.CrudRepository;
+import repositories.exceptions.ModulesRepositoy;
+import repositories.exceptions.RepositoryError;
+import repositories.patterns.AbstractCrudRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
-public class ProductRepository implements CrudRepository<Product>{
+public class ProductRepository extends AbstractCrudRepository<Product> {
     private final String productsDefaultQuery = "SELECT m.descricao AS marca_descricao, " +
                                                  "c.descricao AS classe_descricao, p.* " +
                                                  "FROM produtos AS p " +
@@ -52,101 +53,7 @@ public class ProductRepository implements CrudRepository<Product>{
     }
 
     @Override
-    public void create(Product register) throws ProductRepositoryError {
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "INSERT INTO produtos " +
-                     "(id, descricao, valor_compra, valor_venda, " +
-                     "unidade_compra, unidade_venda, fator_conversao, " +
-                     "status, barra_entrada, barra_saida, "+
-                     "estoque_maximo, estoque_minimo, classe_id, marca_id) " +
-                     "VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try{
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ps.setString(1, register.getDescricao());
-            ps.setFloat(2, register.getValorCompra());
-            ps.setFloat(3, register.getValorVenda());
-            ps.setString(4, register.getUnidadeCompra());
-            ps.setString(5, register.getUnidadeVenda());
-            ps.setInt(6, register.getFatorConversao());
-            ps.setString(7, "" + register.getStatus());
-            ps.setString(8, register.getBarraEntrada());
-            ps.setString(9, register.getBarraSaida());
-            ps.setFloat(10, register.getEstoqueMaximo());
-            ps.setFloat(11, register.getEstoqueMinimo());
-            ps.setInt(12, register.getClasse().getId());
-            ps.setInt(13, register.getMarca().getId());
-
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ProductRepositoryError("INSERÇÃO", error);
-        }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public void update(int id, Product register) throws ProductRepositoryError{
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "UPDATE produtos " +
-                    "SET descricao = ?, valor_compra = ?, valor_venda = ?, " +
-                    "unidade_compra = ?, unidade_venda = ?, fator_conversao = ?, " +
-                    "status = ?, barra_entrada = ?, barra_saida = ?, "+
-                    "estoque_maximo = ?, estoque_minimo = ?, classe_id = ?, marca_id = ? " +
-                    "WHERE id = ?";
-
-        try{
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ps.setString(1, register.getDescricao());
-            ps.setFloat(2, register.getValorCompra());
-            ps.setFloat(3, register.getValorVenda());
-            ps.setString(4, register.getUnidadeCompra());
-            ps.setString(5, register.getUnidadeVenda());
-            ps.setInt(6, register.getFatorConversao());
-            ps.setString(7, "" + register.getStatus());
-            ps.setString(8, register.getBarraEntrada());
-            ps.setString(9, register.getBarraSaida());
-            ps.setFloat(10, register.getEstoqueMaximo());
-            ps.setFloat(11, register.getEstoqueMinimo());
-            ps.setInt(12, register.getClasse().getId());
-            ps.setInt(13, register.getMarca().getId());
-            ps.setInt(14, register.getId());
-
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ProductRepositoryError("ATUALIZAÇÃO", error);
-        }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public void delete(int id) throws ProductRepositoryError{
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "DELETE FROM produtos WHERE id = ?";
-
-        try{
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ps.setInt(1, id);
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ProductRepositoryError("EXCLUSÃO", error);
-        }finally{
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public Product load(int id) throws ProductRepositoryError {
+    public Product load(int id) throws RepositoryError {
         Connection connection = DatabaseConnection.createConnection();
 
         String sql = this.productsDefaultQuery + "WHERE id = ?";
@@ -161,14 +68,14 @@ public class ProductRepository implements CrudRepository<Product>{
             return this.handleProductResult(result);
 
         }catch(Exception error){
-            throw new ProductRepositoryError("CARREGAMENTO", error);
+            throw new RepositoryError(this, ModulesRepositoy.LOAD, error);
         }finally {
             DatabaseConnection.closeConnection(connection);
         }
     }
 
     @Override
-    public Iterable<Product> fetch() throws ProductRepositoryError{
+    public Iterable<Product> fetch() throws RepositoryError{
         Connection connection = DatabaseConnection.createConnection();
 
         ArrayList<Product> products = new ArrayList<Product>();
@@ -181,16 +88,11 @@ public class ProductRepository implements CrudRepository<Product>{
             }
 
         }catch(Exception error){
-            throw new ProductRepositoryError("CARREGAMENTO", error);
+            throw new RepositoryError(this, ModulesRepositoy.FETCH, error);
         }finally {
             DatabaseConnection.closeConnection(connection);
         }
 
         return products;
-    }
-
-    @Override
-    public int nextID() {
-        return 0;
     }
 }

@@ -5,17 +5,17 @@ import models.address.Address;
 import models.address.City;
 import models.address.District;
 import models.people.Client;
-import repositories.exceptions.ClientRepositoryError;
-import repositories.patterns.CrudRepository;
+import repositories.exceptions.ModulesRepositoy;
+import repositories.exceptions.RepositoryError;
+import repositories.patterns.AbstractCrudRepository;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
-public class ClientRepository implements CrudRepository<Client>{
+public class ClientRepository extends AbstractCrudRepository<Client> {
 
     private final String clientDefaultQuery = "SELECT c.*, e.cep AS endereco_cep, " +
                                               "e.logradouro AS endereco_logradouro, e.cidade_id, e.bairro_id, " +
@@ -62,103 +62,7 @@ public class ClientRepository implements CrudRepository<Client>{
     }
 
     @Override
-    public void create(Client register) throws ClientRepositoryError {
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "INSERT INTO clientes " +
-                     "(id, nome, fone1, fone2, endereco_complemento, endereco_id, " +
-                     "email, observacao, status, cpf, rg, data_nascimento, sexo) " +
-                     "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try{
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            Date date = new Date(register.getDataNascimento().getTime());
-
-            ps.setString(1, register.getNome());
-            ps.setString(2, register.getFone1());
-            ps.setString(3, register.getFone2());
-            ps.setString(4, register.getComplementoEndereco());
-            ps.setInt(5, register.getEndereco().getId());
-            ps.setString(6, register.getEmail());
-            ps.setString(7, register.getObservacao());
-            ps.setString(8, "" + register.getStatus());
-            ps.setString(9, register.getCpf());
-            ps.setString(10, register.getRg());
-            ps.setDate(11, date);
-            ps.setString(12, ""+ register.getSexo());
-
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ClientRepositoryError("INSERÇÃO", error);
-        }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-
-    }
-
-    @Override
-    public void update(int id, Client register) throws ClientRepositoryError{
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "UPDATE clientes SET " +
-                "nome = ?, fone1 = ?, fone2 = ?, endereco_complemento = ?, endereco_id = ?, " +
-                "email = ?, observacao = ?, status = ?, cpf = ?, rg = ?, data_nascimento = ?, sexo = ? " +
-                "WHERE id = ?";
-
-        try{
-
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            Date date = new Date(register.getDataNascimento().getTime());
-
-            ps.setString(1, register.getNome());
-            ps.setString(2, register.getFone1());
-            ps.setString(3, register.getFone2());
-            ps.setString(4, register.getComplementoEndereco());
-            ps.setInt(5, register.getEndereco().getId());
-            ps.setString(6, register.getEmail());
-            ps.setString(7, register.getObservacao());
-            ps.setString(8, "" + register.getStatus());
-            ps.setString(9, register.getCpf());
-            ps.setString(10, register.getRg());
-            ps.setDate(11, date);
-            ps.setString(12, ""+ register.getSexo());
-            ps.setInt(13, id);
-
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ClientRepositoryError("ATUALIZAÇÃO", error);
-        }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public void delete(int id) throws ClientRepositoryError{
-
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "DELETE FROM clientes WHERE id = ?";
-
-        try{
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ps.setInt(1, id);
-            ps.executeUpdate();
-
-        }catch(Exception error){
-            throw new ClientRepositoryError("EXCLUSÃO", error);
-        }finally{
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public Client load(int id) throws ClientRepositoryError{
+    public Client load(int id) throws RepositoryError {
         Connection connection = DatabaseConnection.createConnection();
 
         String sql = this.clientDefaultQuery + "WHERE id = ?";
@@ -174,7 +78,7 @@ public class ClientRepository implements CrudRepository<Client>{
             return this.handleClientResult(result);
 
         }catch(Exception error){
-            throw new ClientRepositoryError("CARREGAMENTO", error);
+            throw new RepositoryError(this, ModulesRepositoy.LOAD, error);
 
         }finally{
             DatabaseConnection.closeConnection(connection);
@@ -182,7 +86,7 @@ public class ClientRepository implements CrudRepository<Client>{
     }
 
     @Override
-    public Iterable<Client> fetch() throws ClientRepositoryError{
+    public Iterable<Client> fetch() throws RepositoryError{
         Connection connection = DatabaseConnection.createConnection();
 
         ArrayList<Client> clients = new ArrayList<Client>();
@@ -195,16 +99,11 @@ public class ClientRepository implements CrudRepository<Client>{
             }
 
         }catch(Exception error){
-            throw new ClientRepositoryError("LISTAGEM", error);
+            throw new RepositoryError(this, ModulesRepositoy.FETCH, error);
         }finally{
             DatabaseConnection.closeConnection(connection);
         }
 
         return clients;
-    }
-
-    @Override
-    public int nextID() {
-        return 0;
     }
 }

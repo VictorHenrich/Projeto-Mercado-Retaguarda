@@ -51,7 +51,7 @@ public abstract class AbstractListController<T extends AbstractListComponent, M 
 
             M model = this.registers.get(this.table.getjTableList().getSelectedRow());
 
-            this.repository.delete(model.getId());
+            this.repository.delete(model);
 
             this.reloadList();
 

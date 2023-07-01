@@ -70,7 +70,7 @@ public class CollaboratorFormController extends AbstractFormPersonController<Col
         try {
             Collaborator collaborator = (Collaborator) collaboratorBuilder.setId(this.registerLoaded.getId()).build();
 
-            this.collaboratorRepository.update(this.registerLoaded.getId(), collaborator);
+            this.collaboratorRepository.update(collaborator);
 
             JOptionPane.showMessageDialog(this.form, "Colaborador alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

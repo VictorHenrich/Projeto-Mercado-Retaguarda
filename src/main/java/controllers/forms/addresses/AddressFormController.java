@@ -78,7 +78,7 @@ public class AddressFormController extends AbstractFormController<AddressFormCom
 
             Address address = (Address) addressBuilder.setId(id).build();
 
-            this.addressRepository.update(id, address);
+            this.addressRepository.update(address);
 
             JOptionPane.showMessageDialog(this.form, "Endereço alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

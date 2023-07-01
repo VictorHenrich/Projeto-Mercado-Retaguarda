@@ -22,6 +22,9 @@ public class Client extends Person{
         this.sexo = sexo;
     }
 
+    protected Client(){
+
+    }
 
     public ArrayList<CupomFiscal> getComprasRealizadas() {
         return comprasRealizadas;

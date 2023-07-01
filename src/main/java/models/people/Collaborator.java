@@ -17,6 +17,10 @@ public class Collaborator extends Person{
         this.senha = senha;
     }
 
+    protected Collaborator(){
+
+    }
+
 
     public ArrayList<CupomFiscal> getVendasRealizadas() {
         return vendasRealizadas;

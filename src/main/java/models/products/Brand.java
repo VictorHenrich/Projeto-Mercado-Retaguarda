@@ -14,7 +14,10 @@ public class Brand extends BaseModel{
         this.descricao = descricao;
     }
 
-    
+    protected Brand() {
+        super(0);
+    }
+
     public ArrayList<Product> getProdutos() {
         return produtos;
     }

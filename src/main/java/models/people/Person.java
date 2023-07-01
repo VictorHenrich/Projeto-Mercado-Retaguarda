@@ -36,6 +36,10 @@ public abstract class Person extends BaseModel{
         this.endereco = endereco;
     }
 
+    protected Person(){
+        super(0);
+    }
+
     public Address getEndereco() {
         return endereco;
     }

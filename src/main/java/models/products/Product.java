@@ -39,7 +39,10 @@ public class Product extends BaseModel{
         this.marca = marca;
     }
 
-    
+
+    protected Product(){
+        super(0);
+    }
 
     public ArrayList<ItemCompra> getItensCompra() {
         return itensCompra;

@@ -60,7 +60,7 @@ public class CityFormController extends AbstractFormController<CityFormComponent
             
             City city = (City) cityBuilder.setId(id).build();
             
-            this.repositoty.update(id, city);
+            this.repositoty.update(city);
 
             JOptionPane.showMessageDialog(this.form, "Cidade alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             

@@ -1,23 +1,23 @@
 
 package models.address;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import models.patterns.BaseModel;
 
 
+@Entity(name = "bairros")
 public class District extends BaseModel{
+
+    @Column
     private String descricao;
-    private final ArrayList<Address> enderecos = new ArrayList();
 
     public District(String descricao, int id) {
         super(id);
         this.descricao = descricao;
     }
 
-    
-
-    public ArrayList<Address> getEnderecos() {
-        return enderecos;
+    protected District(){
+        super(0);
     }
 
     public String getDescricao() {

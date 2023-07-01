@@ -89,7 +89,7 @@ public class ProductFormController extends AbstractFormController<ProductFormCom
 
             Product product = (Product) productBuilder.setId(id).build();
 
-            this.productRepository.update(id, product);
+            this.productRepository.update(product);
 
             JOptionPane.showMessageDialog(this.form, "Produto alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

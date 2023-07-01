@@ -60,7 +60,7 @@ public class DistrictFormController extends AbstractFormController<DistrictFormC
             
             District district = (District) districtBuilder.setId(id).build();
             
-            this.repository.update(id, district);
+            this.repository.update(district);
             
             System.out.println("Bairro alterado com sucesso!");
             

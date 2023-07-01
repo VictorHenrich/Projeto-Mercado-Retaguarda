@@ -106,7 +106,7 @@ public class ClientFormController extends AbstractFormPersonController<ClientFor
 
             Client client = (Client) clientBuilder.setId(id).build();
 
-            this.clientRepository.update(id, client);
+            this.clientRepository.update(client);
 
             JOptionPane.showMessageDialog(this.form, "Cliente alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

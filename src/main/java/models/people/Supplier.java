@@ -12,6 +12,10 @@ public class Supplier extends Person{
     private String cpf;
     private String rg;
 
+    protected Supplier(){
+
+    }
+
     public Supplier(
         String cnpj, 
         String inscricaoEstadual, 

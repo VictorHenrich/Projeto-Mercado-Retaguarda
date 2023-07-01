@@ -61,7 +61,7 @@ public class ClassFormController extends AbstractFormController<ClassFormCompone
 
             Class class_ = (Class) classBuilder.setId(id).build();
 
-            this.classRepository.update(id, class_);
+            this.classRepository.update(class_);
 
             JOptionPane.showMessageDialog(this.form, "Classe alterado com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 

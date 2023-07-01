@@ -1,134 +1,57 @@
 
 package repositories.address;
 
-import database.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
+
 import models.address.District;
-import repositories.exceptions.DistrictRepositoryError;
-import repositories.patterns.CrudRepository;
+import repositories.SessionProjectFactory;
+import repositories.exceptions.ModulesRepositoy;
+import repositories.exceptions.RepositoryError;
+import repositories.patterns.AbstractCrudRepository;
+
+import javax.persistence.EntityManager;
 
 
-public class DistrictRepository implements CrudRepository<District>{
-
-    @Override
-    public void create(District register) throws DistrictRepositoryError {
-
-        Connection connection = DatabaseConnection.createConnection();
-
-        String sql = "INSERT INTO bairros (id, descricao) VALUES(DEFAULT, ?)";
-
-       try{
-           PreparedStatement ps = connection.prepareStatement(sql);
-           
-           ps.setString(1, register.getDescricao());
-           ps.executeUpdate();
-           
-       }catch(Exception error){
-           throw new DistrictRepositoryError("INSERÇÃO", error);
-       }finally {
-           DatabaseConnection.closeConnection(connection);
-       }
-    }
+public class DistrictRepository extends AbstractCrudRepository<District> {
 
     @Override
-    public void update(int id, District register) throws DistrictRepositoryError{
-        String sql = "UPDATE bairros SET descricao = ? WHERE id = ?";
+    public District load(int id) throws RepositoryError {
 
-        Connection connection = DatabaseConnection.createConnection();
+        EntityManager session = SessionProjectFactory.createSession();
 
         try{
-           PreparedStatement ps = connection.prepareStatement(sql);
-           
-           ps.setString(1, register.getDescricao());
-           ps.setInt(2, id);
-           ps.executeUpdate();
-           
-       }catch(Exception error){
-            throw new DistrictRepositoryError("ATUALIZAÇÃO", error);
+            District district = session.find(District.class, id);
 
-       }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public void delete(int id) throws DistrictRepositoryError{
-        String sql = "DELETE FROM bairros WHERE id = ?";
-
-        Connection connection = DatabaseConnection.createConnection();
-
-        try{
-           PreparedStatement ps = connection.prepareStatement(sql);
-          
-           ps.setInt(1, id);
-           ps.executeUpdate();
-           
-       }catch(Exception error){
-           throw new DistrictRepositoryError("EXCLUSÃO", error);
-       }finally{
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public District load(int id) throws DistrictRepositoryError{
-
-        String sql = "SELECT b.id, b.descricao FROM bairros AS b WHERE id = ?";
-
-        Connection connection = DatabaseConnection.createConnection();
-
-        try{
-            ResultSet result = connection.createStatement().executeQuery(sql);
-           
-           return new District(
-                result.getString("descricao"), 
-                result.getInt("id")
-           );
-           
-       }catch(Exception error){
-           throw new DistrictRepositoryError("CARREGAMENTO", error);
-       }finally {
-            DatabaseConnection.closeConnection(connection);
-        }
-    }
-
-    @Override
-    public Iterable<District> fetch() throws DistrictRepositoryError{
-        ArrayList<District> districties = new ArrayList();
-
-        String sql = "SELECT b.id, b.descricao FROM bairros AS b";
-
-        Connection connection = DatabaseConnection.createConnection();
-        
-        try{
-            ResultSet result = connection.createStatement().executeQuery(sql);
-            
-            while(result.next()){
-                District district = new District(
-                    result.getString("descricao"), 
-                    result.getInt("id")
-                );
-                
-                districties.add(district);
-            }
+            return district;
 
         }catch(Exception error){
-            throw new DistrictRepositoryError("LISTAGEM", error);
+            throw new RepositoryError(this, ModulesRepositoy.LOAD, error);
         }finally{
-            DatabaseConnection.closeConnection(connection);
+            session.close();
+        }
+    }
+
+    @Override
+    public Iterable<District> fetch() throws RepositoryError{
+        EntityManager session = SessionProjectFactory.createSession();
+
+        List<District> districties = new ArrayList<District>();
+
+        try{
+            districties = session.createQuery(
+                    "SELECT b from bairros b",
+                    District.class
+            ).getResultList();
+
+        }catch(Exception error){
+            throw new RepositoryError(this, ModulesRepositoy.LOAD, error);
+        }finally {
+            session.close();
         }
 
         return districties;
 
     }
-
-    @Override
-    public int nextID() {
-        return 0;
-    }
-
 
 }

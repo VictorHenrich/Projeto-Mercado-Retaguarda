@@ -1,10 +1,18 @@
 package repositories.exceptions;
 
+import repositories.patterns.CrudRepository;
+
+
 public class RepositoryError extends Exception{
-    public RepositoryError(String module, Exception error){
+    public RepositoryError(
+            CrudRepository objectRepository,
+            ModulesRepositoy module,
+            Exception error
+    ){
         super(
-                "Falha ao utilizar o módulo de " +
-                module + "\nERROR: " + error.getMessage()
+                "Falha ao utilizar o módulo de " + module
+                + " na classe: " + objectRepository.getClass().getName()
+                + "\nError Message: " + error.getMessage()
         );
     }
 }

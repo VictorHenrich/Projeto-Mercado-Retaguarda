@@ -1,26 +1,10 @@
 
 package repositories.products;
-import repositories.patterns.CrudRepository;
+import repositories.patterns.AbstractCrudRepository;
 import models.products.HistoricalMovement;
 
 
-public class HistoricalMovementRepository implements CrudRepository<HistoricalMovement>{
-
-
-    @Override
-    public void create(HistoricalMovement register) {
-
-    }
-
-    @Override
-    public void update(int id, HistoricalMovement register) {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
+public class HistoricalMovementRepository extends AbstractCrudRepository<HistoricalMovement> {
 
     @Override
     public HistoricalMovement load(int id) {
@@ -30,10 +14,5 @@ public class HistoricalMovementRepository implements CrudRepository<HistoricalMo
     @Override
     public Iterable<HistoricalMovement> fetch() {
         return null;
-    }
-
-    @Override
-    public int nextID() {
-        return 0;
     }
 }

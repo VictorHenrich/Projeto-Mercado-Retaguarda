@@ -1,4 +1,3 @@
-
 package models.products;
 
 import java.io.Serializable;
@@ -6,37 +5,34 @@ import java.util.Date;
 import java.util.UUID;
 import models.patterns.BaseModel;
 import models.compras.ItemCompra;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-
-
+@Entity
+@Table(name = "historical_movement")
 public class HistoricalMovement extends BaseModel implements Serializable {
 
     @Column
     private UUID uuid;
 
-    @Column
+    @Column(name = "data")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data;
 
-    @Column
+    @Column(name = "hora")
     private String hora;
 
-    @Column
+    @Column(name = "quantidade")
     private float quantidade;
 
-    @Column
+    @Column(name = "status")
     private char status;
 
-    @JoinColumn
     @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Product produto;
 
-    @JoinColumn
     @ManyToOne
+    @JoinColumn(name = "item_compra_id")
     private ItemCompra itemCompra;
 
     protected HistoricalMovement(){

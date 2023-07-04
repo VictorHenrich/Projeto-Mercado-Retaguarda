@@ -1,27 +1,61 @@
-
 package models.compras;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.persistence.*;
 import models.people.Supplier;
 import models.patterns.BaseModel;
 
+@Entity
+@Table(name = "compra")
+public class Compra extends BaseModel {
 
-public class Compra extends BaseModel{
+    @Column(name = "data_compra")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataCompra;
+
+    @Column(name = "hora_compra")
     private String horaCompra;
+
+    @Column(name = "numero_nf")
     private String numeroNF;
+
+    @Column(name = "tipo_nf")
     private String tipoNF;
+
+    @Column(name = "valor_desconto")
     private float valorDesconto;
+
+    @Column(name = "valor_acrescimo")
     private float valorAcrescimo;
+
+    @Column(name = "total_nf")
     private float totalNF;
+
+    @Column(name = "status")
     private char status;
-    private final ArrayList<ItemCompra> itensCompra = new ArrayList();
-    private final ArrayList<Pagar> contasVinculadas = new ArrayList();
+
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
+    private final ArrayList<ItemCompra> itensCompra = new ArrayList<>();
+
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
+    private final ArrayList<Pagar> contasVinculadas = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "condicao_pagamento_id")
     private CondicaoPagamento condicaoPagamento;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fornecedor_id")
     private Supplier fornecedor;
 
-    public Compra(Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto, float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Supplier fornecedor, int id) {
+    public Compra() {
+        super(0);
+    }
+
+    public Compra(Date dataCompra, String horaCompra, String numeroNF, String tipoNF, float valorDesconto,
+            float valorAcrescimo, float totalNF, char status, CondicaoPagamento condicaoPagamento, Supplier fornecedor,
+            int id) {
         super(id);
         this.dataCompra = dataCompra;
         this.horaCompra = horaCompra;
@@ -34,8 +68,6 @@ public class Compra extends BaseModel{
         this.condicaoPagamento = condicaoPagamento;
         this.fornecedor = fornecedor;
     }
-    
-    
 
     public Date getDataCompra() {
         return dataCompra;
@@ -124,6 +156,5 @@ public class Compra extends BaseModel{
     public void setFornecedor(Supplier fornecedor) {
         this.fornecedor = fornecedor;
     }
-    
     
 }

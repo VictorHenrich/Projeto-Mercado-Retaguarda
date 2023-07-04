@@ -1,4 +1,3 @@
-
 package models.compras;
 
 import java.util.Date;
@@ -25,9 +24,6 @@ public class Pagamento extends BaseModel{
         this.status = status;
         this.contaPagar = contaPagar;
     }
-
-    
-    
 
     public Date getDataPagamento() {
         return dataPagamento;
@@ -84,6 +80,4 @@ public class Pagamento extends BaseModel{
     public void setContaPagar(Pagar contaPagar) {
         this.contaPagar = contaPagar;
     }
-    
-    
 }

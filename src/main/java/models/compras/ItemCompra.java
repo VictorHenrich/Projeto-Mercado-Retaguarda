@@ -1,19 +1,37 @@
-
 package models.compras;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import models.patterns.BaseModel;
 import models.products.HistoricalMovement;
 import models.products.Product;
+import java.util.ArrayList;
 
-
-public class ItemCompra extends BaseModel{
+@Entity
+@Table(name = "item_compra")
+public class ItemCompra extends BaseModel {
+    @Column(name = "quantidade_produto")
     private float quantidadeProduto;
+
+    @Column(name = "valor_unitario_produto")
     private float valorUnitarioProduto;
+
+    @Column(name = "status")
     private char status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produto_id")
     private Product produto;
-    private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList();
+
+    @OneToMany(mappedBy = "itemCompra", cascade = CascadeType.ALL, orphanRemoval = true)
+    private final ArrayList<HistoricalMovement> historicosMovimentacoes = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "compra_id")
     private Compra compra;
+
+    public ItemCompra() {
+        super(0);
+    }
 
     public ItemCompra(float quantidadeProduto, float valorUnitarioProduto, char status, Product produto, Compra compra, int id) {
         super(id);
@@ -24,7 +42,6 @@ public class ItemCompra extends BaseModel{
         this.compra = compra;
     }
 
-    
     public float getQuantidadeProduto() {
         return quantidadeProduto;
     }
@@ -68,8 +85,4 @@ public class ItemCompra extends BaseModel{
     public void setCompra(Compra compra) {
         this.compra = compra;
     }
-
-    
-    
-    
 }

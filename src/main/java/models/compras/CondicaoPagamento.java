@@ -1,14 +1,29 @@
-
 package models.compras;
+
+import javax.persistence.*;
 import models.patterns.BaseModel;
 
-
-public class CondicaoPagamento extends BaseModel{
+@Entity
+@Table(name = "condicao_pagamento")
+public class CondicaoPagamento extends BaseModel {
+    @Column(name = "descricao_condicao")
     private String descricaoCondicao;
+
+    @Column(name = "numero_parcelas")
     private int numeroParcelas;
+
+    @Column(name = "dias_primeira_parcela")
     private int diasPrimeiraParcela;
+
+    @Column(name = "dia_entre_parcela")
     private int diaEntreParcela;
+
+    @Column(name = "status")
     private char status;
+
+    public CondicaoPagamento() {
+        super(0);
+    }
 
     public CondicaoPagamento(String descricaoCondicao, int numeroParcelas, int diasPrimeiraParcela, int diaEntreParcela, char status, int id) {
         super(id);
@@ -18,7 +33,6 @@ public class CondicaoPagamento extends BaseModel{
         this.diaEntreParcela = diaEntreParcela;
         this.status = status;
     }
-
 
     public String getDescricaoCondicao() {
         return descricaoCondicao;
@@ -59,6 +73,4 @@ public class CondicaoPagamento extends BaseModel{
     public void setStatus(char status) {
         this.status = status;
     }
-    
-    
 }

@@ -1,25 +1,58 @@
-
 package models.vendas;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.UUID;
 import models.people.Client;
 import models.people.Collaborator;
 import models.patterns.BaseModel;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.UUID;
 
-public class CupomFiscal extends BaseModel{
+@Entity
+@Table(name = "cupom_fiscal")
+public class CupomFiscal extends BaseModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "uuid", nullable = false, unique = true)
     private final UUID uuid;
+
+    @Column(name = "data_venda")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataVenda;
+
+    @Column(name = "hora_venda")
     private String horaVenda;
+
+    @Column(name = "valor_desconto")
     private float valorDesconto;
+
+    @Column(name = "valor_acrescimo")
     private float valorAcrescimo;
+
+    @Column(name = "total_cupom")
     private float totalCupom;
+
+    @Column(name = "status")
     private char status;
-    private final ArrayList<ItemCupomFiscal> itensCupom = new ArrayList();
+
+    @OneToMany(mappedBy = "cupomFiscal", cascade = CascadeType.ALL)
+    private final ArrayList<ItemCupomFiscal> itensCupom = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Client cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "colaborador_id")
     private Collaborator colaborador;
+
+    public CupomFiscal() {
+        super(0);
+        this.uuid = null;
+    }
 
     public CupomFiscal(UUID uuid, Date dataVenda, String horaVenda, float valorDesconto, float valorAcrescimo, float totalCupom, char status, Client cliente, Collaborator colaborador, int id) {
         super(id);
@@ -34,11 +67,17 @@ public class CupomFiscal extends BaseModel{
         this.colaborador = colaborador;
     }
 
+    // Getters and setters
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
     public UUID getUuid() {
         return uuid;
     }
 
-    
     public Date getDataVenda() {
         return dataVenda;
     }
@@ -106,7 +145,4 @@ public class CupomFiscal extends BaseModel{
     public void setColaborador(Collaborator colaborador) {
         this.colaborador = colaborador;
     }
-    
-    
-    
 }
